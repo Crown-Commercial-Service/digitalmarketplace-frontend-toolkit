@@ -1,0 +1,39 @@
+@import "_colours.scss";
+@import "_conditionals.scss";
+@import "_typography.scss";
+@import "_css3.scss";
+
+.text-box {
+  @include core-19;
+  @include box-sizing(border-box);
+  display: block;
+  height: 50px;
+  margin: 0 0 15px 0;
+  padding: 5px;
+  border: 1px solid $border-colour;
+
+  @include media(desktop){
+    width: 66%;
+  }
+}
+
+.text-box-medium {
+  height: 6.25em;
+}
+
+.text-box-large {
+  height: 10.25em;
+}
+
+.text-box-percentage {
+  display: inline-block;
+  width: 6em;
+  text-align: right;
+  padding-right: 5px;
+}
+
+.text-box-percentage-label {
+  display: inline-block;
+  @include core-19;
+}
+

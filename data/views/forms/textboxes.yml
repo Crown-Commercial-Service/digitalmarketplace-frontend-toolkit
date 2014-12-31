@@ -1,0 +1,40 @@
+pageTitle: Textboxes - Test toolkit
+assetPath: ../govuk_template/assets/
+head: >
+  <link rel="stylesheet" media="all" type="text/css" href="../stylesheets/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../stylesheets/forms/index.css" />
+content: >
+  <div id="global-breadcrumb" class="header-context">
+    <nav>
+      <ol class="group" role="breadcrumbs">
+        <li>
+          <a href="../">Home</a>
+        </li>
+        <li>
+          <a href="./">Forms</a>
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <main role="main" id="content" class="wrapper">
+    <div id="wrapper">
+      <h1>Textboxes</h1>
+      <form action="" method="get">
+        <label for="question-1" class="question-heading">
+          Textbox label
+        </label>
+        <input type="text" name="question-1" id="question-1" class="text-box" value="" />
+        <label for="question-2" class="question-heading">
+          Textbox label with hint
+        </label>
+        <p class="question-hint">
+          Hint comprising further information about the question.
+        </p>
+        <input type="text" name="question-2" id="question-2" class="text-box" value="" />
+        <label for="question-1" class="question-heading">
+          Textbox label
+        </label>
+        <textarea class="text-box text-box-large" name="question-3" id="question-3">Large textbox</textarea>
+      </form> 
+    </div>
+  </main>
