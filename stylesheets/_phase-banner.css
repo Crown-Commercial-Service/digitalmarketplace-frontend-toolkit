@@ -1,25 +1,3 @@
-@-ms-viewport {
-  width: device-width; }
-
-@-o-viewport {
-  width: device-width; }
-
-@-ms-viewport {
-  width: device-width; }
-
-@-o-viewport {
-  width: device-width; }
-
-#wrapper, .phase-banner {
-  max-width: 960px;
-  margin: 0 15px; }
-  @media (min-width: 641px) {
-    #wrapper, .phase-banner {
-      margin: 0 30px; } }
-  @media (min-width: 1020px) {
-    #wrapper, .phase-banner {
-      margin: 0 auto; } }
-
 @font-face {
   font-family: GDS-Logo;
   src: local("HelveticaNeue"), local("Helvetica Neue"), local("Arial"), local("Helvetica"); }
@@ -48,14 +26,14 @@
 @-o-viewport {
   width: device-width; }
 
-#wrapper, .phase-banner {
+.phase-banner {
   max-width: 960px;
   margin: 0 15px; }
   @media (min-width: 641px) {
-    #wrapper, .phase-banner {
+    .phase-banner {
       margin: 0 30px; } }
   @media (min-width: 1020px) {
-    #wrapper, .phase-banner {
+    .phase-banner {
       margin: 0 auto; } }
 
 @-ms-viewport {
@@ -70,14 +48,14 @@
 @-o-viewport {
   width: device-width; }
 
-#wrapper, .phase-banner {
+.phase-banner {
   max-width: 960px;
   margin: 0 15px; }
   @media (min-width: 641px) {
-    #wrapper, .phase-banner {
+    .phase-banner {
       margin: 0 30px; } }
   @media (min-width: 1020px) {
-    #wrapper, .phase-banner {
+    .phase-banner {
       margin: 0 auto; } }
 
 .phase-banner-beta {
@@ -130,55 +108,3 @@
       .phase-banner-beta span {
         width: auto;
         vertical-align: baseline; } }
-
-@-ms-viewport {
-  width: device-width; }
-
-@-o-viewport {
-  width: device-width; }
-
-@font-face {
-  font-family: GDS-Logo;
-  src: local("HelveticaNeue"), local("Helvetica Neue"), local("Arial"), local("Helvetica"); }
-
-@-ms-viewport {
-  width: device-width; }
-
-@-o-viewport {
-  width: device-width; }
-
-#global-breadcrumb {
-  background-color: #fff;
-  max-width: 1020px;
-  margin: 0 auto;
-  z-index: 50; }
-  #global-breadcrumb nav ol {
-    max-width: 960px;
-    margin: 0 15px;
-    padding: 0.75em 0; }
-    @media (min-width: 641px) {
-      #global-breadcrumb nav ol {
-        margin: 0 30px; } }
-    #global-breadcrumb nav ol li {
-      font-family: "nta", Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.25;
-      font-weight: 400;
-      text-transform: none;
-      background: url('http://alphagov.github.io/digitalmarketplace-frontend-toolkit/images/breadcrumb-separator.png') 100% 50% no-repeat;
-      float: left;
-      list-style: none;
-      margin-left: 0;
-      margin-right: 0.5em;
-      padding-right: 15px; }
-      @media (max-width: 640px) {
-        #global-breadcrumb nav ol li {
-          font-size: 14px;
-          line-height: 1.14286; } }
-      #global-breadcrumb nav ol li:last-child {
-        background-image: none;
-        margin-right: 0; }
-      #global-breadcrumb nav ol li a {
-        color: #0b0c0c; }
-        #global-breadcrumb nav ol li a:hover {
-          color: #2e8aca; }
