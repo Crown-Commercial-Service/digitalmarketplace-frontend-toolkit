@@ -1,0 +1,13 @@
+pageTitle: Test toolkit
+assetPath: govuk_template/assets/
+head: >
+  <link rel="stylesheet" media="all" type="text/css" href="stylesheets/index.css" />
+content: >
+  <main role="main" id="content" class="wrapper">
+    <div id="wrapper">
+      <h1>Test toolkit</h1>
+      <ul>
+        <li><a href="grids">Grids</a></li>
+      </ul>
+    </div>
+  </main>

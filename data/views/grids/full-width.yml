@@ -1,0 +1,28 @@
+pageTitle: "One column grid: 100% - Test toolkit"
+assetPath: ../govuk_template/assets/
+head: >
+  <link rel="stylesheet" media="all" type="text/css" href="../stylesheets/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../stylesheets/grids/index.css" />
+content: >
+  <div id="global-breadcrumb" class="header-context">
+    <nav>
+      <ol class="group" role="breadcrumbs">
+        <li>
+          <a href="../">Home</a>
+        </li>
+        <li>
+          <a href="./">Grids</a>
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <main role="main" id="content" class="wrapper">
+    <div id="wrapper">
+      <h1>One column grid: 100%</h1>
+      <div class="grid-row">
+        <div class="grid-cell">
+          <h2>One column</h2>
+        </div>
+      </div>
+    </div>
+  </main>

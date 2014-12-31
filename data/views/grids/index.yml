@@ -1,0 +1,27 @@
+pageTitle: Grids - Test toolkit
+assetPath: ../govuk_template/assets/
+head: >
+  <link rel="stylesheet" media="all" type="text/css" href="../stylesheets/index.css" />
+content: >
+  <div id="global-breadcrumb" class="header-context">
+    <nav>
+      <ol class="group" role="breadcrumbs">
+        <li>
+          <a href="../">Home</a>
+        </li>
+        <li>
+          Grids
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <main role="main" id="content" class="wrapper">
+    <div id="wrapper">
+      <h1>Grids</h1>
+      <ul>
+        <li><a href="full-width.html">One column: 100%</a></li>
+        <li><a href="two-halves.html">Two columns: 50% and 50%</a></li>
+        <li><a href="two-thirds-one-third.html">Two columns: 66% and 33%</a></li>
+      </ul>
+    </div>
+  </main>

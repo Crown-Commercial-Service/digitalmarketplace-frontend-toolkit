@@ -1,0 +1,31 @@
+pageTitle: "Two column grid: 66% and 33% - Test toolkit"
+assetPath: ../govuk_template/assets/
+head: >
+  <link rel="stylesheet" media="all" type="text/css" href="../stylesheets/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../stylesheets/grids/index.css" />
+content: >
+  <div id="global-breadcrumb" class="header-context">
+    <nav>
+      <ol class="group" role="breadcrumbs">
+        <li>
+          <a href="../">Home</a>
+        </li>
+        <li>
+          <a href="./">Grids</a>
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <main role="main" id="content" class="wrapper">
+    <div id="wrapper">
+      <h1>Two column grid: 66% and 33%</h1>
+      <div class="grid-row">
+        <div class="grid-cell two-third-column">
+          <h2>Two thirds column</h2>
+        </div>
+        <div class="grid-cell third-column">
+          <h2>One third column</h2>
+        </div>
+      </div>
+    </div>
+  </main>

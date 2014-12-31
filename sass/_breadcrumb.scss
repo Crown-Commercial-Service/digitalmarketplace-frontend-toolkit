@@ -1,0 +1,49 @@
+@import "_colours.scss";
+@import "_measurements.scss";
+@import "_conditionals.scss";
+@import "_typography.scss";
+@import "_url-helpers.scss";
+
+$path : 'http://tombye.github.io/test-toolkit/images/';
+
+#global-breadcrumb {
+  background-color: $white;
+  max-width: 1020px;
+  margin: 0 auto;
+  z-index: 50;
+
+  nav {
+    ol {
+      max-width: 960px;
+      margin: 0 $gutter-half;
+      @include media(tablet) {
+        margin: 0 $gutter;
+      }
+      padding: 0.75em 0;
+
+      li {
+        @include core-16;
+        background: file-url('breadcrumb-separator.png') 100% 50% no-repeat;
+        float: left;
+        list-style: none;
+
+        margin-left: 0;
+        margin-right: 0.5em;
+        padding-right: $gutter-half;
+
+        &:last-child {
+          background-image: none;
+          margin-right: 0;
+        }
+
+        a {
+          color: $black;
+
+          &:hover {
+            color: $link-hover-colour;
+          }
+        }
+      }
+    }
+  }
+}
