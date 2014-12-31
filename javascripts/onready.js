@@ -1,0 +1,1 @@
+GOVUK.GDM.wordCounter();
