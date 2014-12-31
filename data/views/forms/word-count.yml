@@ -1,10 +1,11 @@
-pageTitle: Textboxes - Test toolkit
+pageTitle: Textbox with word count - Forms - Test toolkit
 assetPath: ../govuk_template/assets/
 head: >
   <link rel="stylesheet" media="all" type="text/css" href="../stylesheets/index.css" />
   <link rel="stylesheet" media="all" type="text/css" href="../stylesheets/forms/index.css" />
 bodyEnd: >
   <script type="text/javascript" src="../javascripts/vendor/jquery.js"></script>
+  <script type="text/javascript" src="../javascripts/list-entry.js"></script>
   <script type="text/javascript" src="../javascripts/word-counter.js"></script>
   <script type="text/javascript" src="../javascripts/onready.js"></script>
 content: >
@@ -22,7 +23,7 @@ content: >
   </div>
   <main role="main" id="content" class="wrapper">
     <div id="wrapper">
-      <h1>Textboxes</h1>
+      <h1>Textbox with word count</h1>
       <form action="" method="get">
         <div class="word-count">
           <label for="p4q2-text-box" class="question-heading question-heading-with-hint">

@@ -1,4 +1,4 @@
-pageTitle: Textboxes - Test toolkit
+pageTitle: Textboxes - Forms - Test toolkit
 assetPath: ../govuk_template/assets/
 head: >
   <link rel="stylesheet" media="all" type="text/css" href="../stylesheets/index.css" />
@@ -24,6 +24,9 @@ content: >
         </li>
         <li>
           <a href="word-count.html">Textbox with word count</a>
+        </li>
+        <li>
+          <a href="list-entry.html">List entry textbox</a>
         </li>
       </ul>
     </div>

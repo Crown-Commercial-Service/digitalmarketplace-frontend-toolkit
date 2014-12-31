@@ -1,0 +1,53 @@
+@import "_colours.scss";
+@import "_typography.scss";
+@import "_conditionals.scss";
+@import "_shims.scss";
+
+.input-list {
+
+  .list-entry {
+    vertical-align: middle;
+  }
+
+  .list-entry-remove {
+    @include core-19;
+    display: block;
+    margin-bottom: 15px;
+
+    @include media(desktop) {
+      @include inline-block;
+      margin: 0 0 0 0.6em;
+    }
+  }
+
+  .text-box {
+    padding-left: 1.84em;
+    width: 100%;
+
+    @include ie-lte(8) {
+      width: 95%;
+    }
+
+    @include media(desktop) {
+      @include inline-block;
+      width: 66%;
+    }
+  }
+
+  .text-box-number-label {
+      float: left;
+      @include core-19;
+      width: 1.6em;
+      margin: 13px -1.6em 0 0;
+      position: relative;
+      left: 10px;
+      color: $grey-2;
+      font-weight: bold;
+      pointer-events: none;
+    }
+
+  .list-entry-add {
+    @include core-19;
+    margin: 0 0 20px 0;
+  }
+}

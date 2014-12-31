@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-    <title>Textboxes - Forms - Test toolkit</title>
+    <title>List entry textbox - Forms - Test toolkit</title>
 
     <script type="text/javascript">
       (function(){if(navigator.userAgent.match(/IEMobile\/10\.0/)){var d=document,c="appendChild",a=d.createElement("style");a[c](d.createTextNode("@-ms-viewport{width:auto!important}"));d.getElementsByTagName("head")[0][c](a);}})();
@@ -53,7 +53,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:image" content="../govuk_template/assets/images/opengraph-image.png?0.12.0">
 
-    <link rel="stylesheet" media="all" type="text/css" href="../stylesheets/index.css" />
+    <link rel="stylesheet" media="all" type="text/css" href="../stylesheets/index.css" /> <link rel="stylesheet" media="all" type="text/css" href="../stylesheets/forms/index.css" />
 
   </head>
 
@@ -118,18 +118,78 @@
   </nav>
 </div> <main role="main" id="content" class="wrapper">
   <div id="wrapper">
-    <h1>Forms</h1>
-    <ul>
-      <li>
-        <a href="textboxes.html">Textboxes</a>
-      </li>
-      <li>
-        <a href="word-count.html">Textbox with word count</a>
-      </li>
-      <li>
-        <a href="list-entry.html">List entry textbox</a>
-      </li>
-    </ul>
+    <h1>Textboxes</h1>
+    <form action="" method="get">
+      <fieldset class="question" id="p5q1">
+        <legend class="question-heading  question-heading-with-hint ">
+          Service features
+        </legend>
+        <p class="question-hint">
+          Include the technical features of your product, eg graphical workflow, remote access. (Maximum 10 words per feature. Maximum 10 features.)
+        </p>
+        <div class="input-list" data-list-item-name="feature">
+          <div class="list-entry">
+            <label for="p1q1val1" class="text-box-number-label">
+              <span class="visuallyhidden">feature number </span>1.
+            </label>
+            <input type="text" name="p1q1val1" id="p1q1val1" class="text-box" value="" />
+          </div>
+          <div class="list-entry">
+            <label for="p1q1val2" class="text-box-number-label">
+              <span class="visuallyhidden">feature number </span>2.
+            </label>
+            <input type="text" name="p1q1val2" id="p1q1val2" class="text-box" value="" />
+          </div>
+          <div class="list-entry">
+            <label for="p1q1val3" class="text-box-number-label">
+              <span class="visuallyhidden">feature number </span>3.
+            </label>
+            <input type="text" name="p1q1val3" id="p1q1val3" class="text-box" value="" />
+          </div>
+          <div class="list-entry">
+            <label for="p1q1val4" class="text-box-number-label">
+              <span class="visuallyhidden">feature number </span>4.
+            </label>
+            <input type="text" name="p1q1val4" id="p1q1val4" class="text-box" value="" />
+          </div>
+          <div class="list-entry">
+            <label for="p1q1val5" class="text-box-number-label">
+              <span class="visuallyhidden">feature number </span>5.
+            </label>
+            <input type="text" name="p1q1val5" id="p1q1val5" class="text-box" value="" />
+          </div>
+          <div class="list-entry">
+            <label for="p1q1val6" class="text-box-number-label">
+              <span class="visuallyhidden">feature number </span>6.
+            </label>
+            <input type="text" name="p1q1val6" id="p1q1val6" class="text-box" value="" />
+          </div>
+          <div class="list-entry">
+            <label for="p1q1val7" class="text-box-number-label">
+              <span class="visuallyhidden">feature number </span>7.
+            </label>
+            <input type="text" name="p1q1val7" id="p1q1val7" class="text-box" value="" />
+          </div>
+          <div class="list-entry">
+            <label for="p1q1val8" class="text-box-number-label">
+              <span class="visuallyhidden">feature number </span>8.
+            </label>
+            <input type="text" name="p1q1val8" id="p1q1val8" class="text-box" value="" />
+          </div>
+          <div class="list-entry">
+            <label for="p1q1val9" class="text-box-number-label">
+              <span class="visuallyhidden">feature number </span>9.
+            </label>
+            <input type="text" name="p1q1val9" id="p1q1val9" class="text-box" value="" />
+          </div>
+          <div class="list-entry">
+            <label for="p1q1val10" class="text-box-number-label">
+              <span class="visuallyhidden">feature number </span>10.
+            </label>
+            <input type="text" name="p1q1val10" id="p1q1val10" class="text-box" value="" />
+          </div>
+        </div>
+    </form> 
   </div>
 </main>
 
@@ -162,6 +222,7 @@
 
     <script src="../govuk_template/assets/javascripts/govuk-template.js?0.12.0" type="text/javascript"></script>
 
-    
+    <script type="text/javascript" src="../javascripts/vendor/jquery.js"></script> <script type="text/javascript" src="../javascripts/vendor/hogan.js"></script> <script type="text/javascript" src="../javascripts/list-entry.js"></script> <script type="text/javascript" src="../javascripts/word-counter.js"></script> <script type="text/javascript" src="../javascripts/onready.js"></script>
+
   </body>
 </html>
