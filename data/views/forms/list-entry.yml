@@ -24,11 +24,11 @@ content: >
   </div>
   <main role="main" id="content" class="wrapper">
     <div id="wrapper">
-      <h1>Textboxes</h1>
+      <h1>List entry textbox</h1>
       <form action="" method="get">
         <fieldset class="question" id="p5q1">
           <legend class="question-heading  question-heading-with-hint ">
-            Service features
+            List entry textbox
           </legend>
           <p class="question-hint">
             Include the technical features of your product, eg graphical workflow, remote access. (Maximum 10 words per feature. Maximum 10 features.)
