@@ -53,7 +53,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:image" content="../govuk_template/assets/images/opengraph-image.png?0.12.0">
 
-    <link rel="stylesheet" media="all" type="text/css" href="../stylesheets/index.css" />
+    <link rel="stylesheet" media="all" type="text/css" href="../stylesheets/index.css" /> <link rel="stylesheet" media="all" type="text/css" href="../stylesheets/forms/index.css" />
 
   </head>
 
@@ -118,15 +118,18 @@
   </nav>
 </div> <main role="main" id="content" class="wrapper">
   <div id="wrapper">
-    <h1>Forms</h1>
-    <ul>
-      <li>
-        <a href="textboxes.html">Textboxes</a>
-      </li>
-      <li>
-        <a href="word-count.html">Textbox with word count</a>
-      </li>
-    </ul>
+    <h1>Textboxes</h1>
+    <form action="" method="get">
+      <div class="word-count">
+        <label for="p4q2-text-box" class="question-heading question-heading-with-hint">
+          Textbox with word count
+        </label>
+        <p class="question-hint">
+          Please provide a short description. (Maximum 50 words.)
+        </p>
+        <textarea class="text-box text-box-large" name="question-1" id="question-1" data-max-length-in-words="50"></textarea>
+      </div>
+    </form> 
   </div>
 </main>
 
@@ -159,6 +162,7 @@
 
     <script src="../govuk_template/assets/javascripts/govuk-template.js?0.12.0" type="text/javascript"></script>
 
-    
+    <script type="text/javascript" src="../javascripts/vendor/jquery.js"></script> <script type="text/javascript" src="../javascripts/word-counter.js"></script> <script type="text/javascript" src="../javascripts/onready.js"></script>
+
   </body>
 </html>

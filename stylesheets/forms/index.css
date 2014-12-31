@@ -130,3 +130,31 @@
     .question-description {
       padding-top: 0;
       padding-bottom: 5px; } }
+
+@-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
+  width: device-width; }
+
+.word-count {
+  margin: 0 0 20px 0; }
+
+.word-count-counter {
+  text-align: right;
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 400;
+  text-transform: none;
+  line-height: 1;
+  margin: 5px 0 0 0;
+  padding: 0;
+  color: #6f777b; }
+  @media (max-width: 640px) {
+    .word-count-counter {
+      font-size: 16px;
+      line-height: 1.25; } }
+  @media (min-width: 769px) {
+    .word-count-counter {
+      width: 66%; } }

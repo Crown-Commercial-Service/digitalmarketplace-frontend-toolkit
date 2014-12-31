@@ -22,6 +22,9 @@ content: >
         <li>
           <a href="textboxes.html">Textboxes</a>
         </li>
+        <li>
+          <a href="word-count.html">Textbox with word count</a>
+        </li>
       </ul>
     </div>
   </main>
