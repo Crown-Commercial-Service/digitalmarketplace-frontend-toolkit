@@ -23,6 +23,8 @@ content: >
   </div>
   <main role="main" id="content" class="wrapper">
     <div id="wrapper">
-      <h1>Breadcrumb</h1>
+      <header class="page-heading">
+        <h1>Breadcrumb</h1>
+      </header>
     </div>
   </main>

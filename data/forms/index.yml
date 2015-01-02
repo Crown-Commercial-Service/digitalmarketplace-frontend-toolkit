@@ -17,7 +17,9 @@ content: >
   </div>
   <main role="main" id="content" class="wrapper">
     <div id="wrapper">
-      <h1>Forms</h1>
+      <header class="page-heading">
+        <h1>Forms</h1>
+      </header>
       <ul>
         <li>
           <a href="textboxes.html">Textboxes</a>

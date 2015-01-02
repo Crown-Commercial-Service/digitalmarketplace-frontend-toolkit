@@ -5,7 +5,9 @@ head: >
 content: >
   <main role="main" id="content" class="wrapper">
     <div id="wrapper">
-      <h1>Test toolkit</h1>
+      <header class="page-heading page-heading-no-breadcrumb">
+        <h1>Test toolkit</h1>
+      </header>
       <ul>
         <li><a href="beta-banner.html">Beta banner</a></li>
         <li><a href="breadcrumb.html">Breadcrumb</a></li>

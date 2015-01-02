@@ -18,7 +18,9 @@ content: >
   </div>
   <main role="main" id="content" class="wrapper">
     <div id="wrapper">
-      <h1>Textboxes</h1>
+      <header class="page-heading">
+        <h1>Textboxes</h1>
+      </header>
       <form action="" method="get">
         <label for="question-1" class="question-heading">
           Textbox

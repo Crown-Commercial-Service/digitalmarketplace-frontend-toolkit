@@ -24,7 +24,9 @@ content: >
   </div>
   <main role="main" id="content" class="wrapper">
     <div id="wrapper">
-      <h1>List entry textbox</h1>
+      <header class="page-heading">
+        <h1>List entry textbox</h1>
+      </header>
       <form action="" method="get">
         <fieldset class="question" id="p5q1">
           <legend class="question-heading  question-heading-with-hint ">
