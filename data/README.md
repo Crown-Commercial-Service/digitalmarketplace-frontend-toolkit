@@ -1,3 +1,3 @@
 # Data folder
 
-Contains the HTML, CSS (Sass) and JavaScript used for the Github pages
+Contains the YAML used to generate the Github pages.
