@@ -22,7 +22,7 @@ content: >
       <h2 class="summary-item-heading">
           Summary item with no entries
       </h2>
-      <p class="question-hint summary-item-no-content">
+      <p class="hint summary-item-no-content">
         You haven't submitted any services yet.
       </p>
       <h2 class="summary-item-heading">

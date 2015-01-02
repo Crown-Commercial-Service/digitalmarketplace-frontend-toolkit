@@ -12,12 +12,6 @@
   margin-bottom: 0;
 }
 
-.question-hint {
-  @include copy-19;
-  margin: 0 0 5px 0;
-  color: $secondary-text-colour;
-}
-
 .question-description {
   @include copy-19;
   margin: 0 0 10px 0;
