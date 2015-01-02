@@ -183,6 +183,48 @@
         #global-breadcrumb nav ol li a:hover {
           color: #2e8aca; }
 
+@font-face {
+  font-family: GDS-Logo;
+  src: local("HelveticaNeue"), local("Helvetica Neue"), local("Arial"), local("Helvetica"); }
+
+@-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
+  width: device-width; }
+
+.page-heading {
+  padding: 30px 0px; }
+  @media (min-width: 641px) {
+    .page-heading {
+      padding: 45px 0px 45px; } }
+  .page-heading h1 {
+    font-family: "nta", Arial, sans-serif;
+    font-size: 48px;
+    line-height: 1.04167;
+    font-weight: 700;
+    text-transform: none; }
+    @media (max-width: 640px) {
+      .page-heading h1 {
+        font-size: 32px;
+        line-height: 1.09375; } }
+
+.page-heading-no-breadcrumb {
+  padding-top: 89px; }
+
+.page-heading-with-context .context {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+  color: #6f777b;
+  margin: 0; }
+  @media (max-width: 640px) {
+    .page-heading-with-context .context {
+      font-size: 18px;
+      line-height: 1.2; } }
+
 @-ms-viewport {
   width: device-width; }
 

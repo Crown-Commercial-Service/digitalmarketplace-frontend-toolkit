@@ -9,6 +9,7 @@ content: >
       <ul>
         <li><a href="beta-banner.html">Beta banner</a></li>
         <li><a href="breadcrumb.html">Breadcrumb</a></li>
+        <li><a href="page-headings">Page headings</a></li>
         <li><a href="grids">Grids</a></li>
         <li><a href="forms">Forms</a></li>
       </ul>
