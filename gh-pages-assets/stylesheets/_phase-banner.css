@@ -1,0 +1,110 @@
+@font-face {
+  font-family: GDS-Logo;
+  src: local("HelveticaNeue"), local("Helvetica Neue"), local("Arial"), local("Helvetica"); }
+
+@-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
+  width: device-width; }
+
+@-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
+  width: device-width; }
+
+@-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
+  width: device-width; }
+
+@-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
+  width: device-width; }
+
+.phase-banner {
+  max-width: 960px;
+  margin: 0 15px; }
+  @media (min-width: 641px) {
+    .phase-banner {
+      margin: 0 30px; } }
+  @media (min-width: 1020px) {
+    .phase-banner {
+      margin: 0 auto; } }
+
+@-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
+  width: device-width; }
+
+@-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
+  width: device-width; }
+
+.phase-banner {
+  max-width: 960px;
+  margin: 0 15px; }
+  @media (min-width: 641px) {
+    .phase-banner {
+      margin: 0 30px; } }
+  @media (min-width: 1020px) {
+    .phase-banner {
+      margin: 0 auto; } }
+
+.phase-banner-beta {
+  padding: 10px 0 8px 0;
+  border-bottom: 1px solid #bfc1c3; }
+  @media (min-width: 641px) {
+    .phase-banner-beta {
+      padding-bottom: 10px; } }
+  .phase-banner-beta p {
+    margin: 0;
+    color: #000;
+    font-family: "nta", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.25;
+    font-weight: 400;
+    text-transform: none; }
+    @media (max-width: 640px) {
+      .phase-banner-beta p {
+        font-size: 14px;
+        line-height: 1.14286; } }
+  .phase-banner-beta .phase-tag {
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 8px 0 0;
+    padding: 2px 5px 0;
+    font-family: "nta", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.25;
+    font-weight: 700;
+    text-transform: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #f47738; }
+    @media (min-width: 641px) {
+      .phase-banner-beta .phase-tag {
+        vertical-align: baseline; } }
+    @media (max-width: 640px) {
+      .phase-banner-beta .phase-tag {
+        font-size: 14px;
+        line-height: 1.14286; } }
+  .phase-banner-beta span {
+    display: -moz-inline-stack;
+    display: inline-block;
+    width: 75%;
+    vertical-align: top; }
+    @media (min-width: 641px) {
+      .phase-banner-beta span {
+        width: auto;
+        vertical-align: baseline; } }

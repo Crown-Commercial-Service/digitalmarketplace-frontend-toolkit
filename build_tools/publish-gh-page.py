@@ -13,7 +13,7 @@ class Styleguide_publisher(object):
   def __init__(self):
     self.repo_root_rel = os.path.relpath(os.path.join(os.path.dirname(__file__), ".."))
     self.repo_root_abs = os.path.abspath(self.repo_root_rel)
-    self.pages_dirname = "data/views"
+    self.pages_dirname = "data"
     self.pages_dir = os.path.join(self.repo_root_rel, self.pages_dirname)
     self.template_dir = self.get_template_folder()
     self.template_view = self.get_template_view()
