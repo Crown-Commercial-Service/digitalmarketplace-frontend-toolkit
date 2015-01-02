@@ -1,8 +1,8 @@
 pageTitle: "Two column grid: 66% and 33% - Grids - Test toolkit"
 assetPath: ../govuk_template/assets/
 head: >
-  <link rel="stylesheet" media="all" type="text/css" href="../stylesheets/index.css" />
-  <link rel="stylesheet" media="all" type="text/css" href="../stylesheets/grids/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages-assets/stylesheets/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages-assets/stylesheets/grids/index.css" />
 content: >
   <div id="global-breadcrumb" class="header-context">
     <nav>

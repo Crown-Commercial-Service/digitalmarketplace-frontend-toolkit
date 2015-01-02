@@ -1,8 +1,8 @@
 pageTitle: Textbox with word count - Forms - Test toolkit
 assetPath: ../govuk_template/assets/
 head: >
-  <link rel="stylesheet" media="all" type="text/css" href="../stylesheets/index.css" />
-  <link rel="stylesheet" media="all" type="text/css" href="../stylesheets/forms/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages-assets/stylesheets/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages-assets/stylesheets/forms/index.css" />
 bodyEnd: >
   <script type="text/javascript" src="../javascripts/vendor/jquery.js"></script>
   <script type="text/javascript" src="../javascripts/list-entry.js"></script>
