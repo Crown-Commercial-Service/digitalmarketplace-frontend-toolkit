@@ -28,6 +28,9 @@ content: >
         <li>
           <a href="list-entry.html">List entry textbox</a>
         </li>
+        <li>
+          <a href="summary.html">Summary</a>
+        </li>
       </ul>
     </div>
   </main>
