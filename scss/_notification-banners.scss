@@ -1,0 +1,43 @@
+@import "_colours.scss";
+@import "_digital-marketplace-colours.scss";
+@import "_typography.scss";
+
+.banner {
+  background: $highlight-colour;
+  @include core-24;
+  padding: 20px 20px 25px 20px;
+  margin-top: 15px;
+}
+
+.banner-destructive {
+  @extend .banner;
+  border-left: 5px solid $red;
+  color: $red;
+}
+
+.banner-warning {
+  @extend .banner;
+  border-left: 5px solid $accessible-orange;
+  color: $accessible-orange;
+}
+
+.banner-success {
+  @extend .banner;
+  border-left: 5px solid $green;
+  color: $green;
+}
+
+.banner-without-action {
+  padding: 20px 20px 20px 20px;
+}
+
+.banner-action {
+  margin-top: 15px;
+}
+
+.banner-message {
+  @include core-24;
+  margin: 0;
+  padding: 0;
+}
+
