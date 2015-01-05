@@ -70,7 +70,7 @@
 @-o-viewport {
   width: device-width; }
 
-.question-heading {
+.question-heading, .question-heading-with-hint {
   display: block;
   font-family: "nta", Arial, sans-serif;
   font-size: 24px;
@@ -82,11 +82,11 @@
   font-weight: bold;
   margin: 0 0 10px 0; }
   @media (max-width: 640px) {
-    .question-heading {
+    .question-heading, .question-heading-with-hint {
       font-size: 18px;
       line-height: 1.2; } }
   @media (min-width: 641px) {
-    .question-heading {
+    .question-heading, .question-heading-with-hint {
       padding-top: 6px;
       padding-bottom: 4px; } }
 
