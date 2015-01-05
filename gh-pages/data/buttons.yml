@@ -1,0 +1,31 @@
+pageTitle: Buttons - Test toolkit
+assetPath: govuk_template/assets/
+head: >
+  <link rel="stylesheet" media="all" type="text/css" href="gh-pages/public/stylesheets/index.css" />
+content: >
+  <div id="global-breadcrumb" class="header-context">
+    <nav>
+      <ol class="group" role="breadcrumbs">
+        <li>
+          <a href="./">Home</a>
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <main role="main" id="content" class="wrapper">
+    <div id="wrapper">
+      <header class="page-heading">
+        <h1>Buttons</h1>
+      </header>
+      <p>
+        <button class="button-save">Save button</button>
+      </p>
+      <p>
+        <button class="button-secondary">Secondary button</button>
+      </p>
+      <p>
+        <button class="button-destructive">Destructive button</button>
+      </p>
+    </div>
+  </main>
+

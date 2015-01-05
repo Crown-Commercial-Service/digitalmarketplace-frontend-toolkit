@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-    <title>Test toolkit</title>
+    <title>Notification banners - Test toolkit</title>
 
     <script type="text/javascript">
       (function(){if(navigator.userAgent.match(/IEMobile\/10\.0/)){var d=document,c="appendChild",a=d.createElement("style");a[c](d.createTextNode("@-ms-viewport{width:auto!important}"));d.getElementsByTagName("head")[0][c](a);}})();
@@ -53,7 +53,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:image" content="govuk_template/assets/images/opengraph-image.png?0.12.0">
 
-    <link rel="stylesheet" media="all" type="text/css" href="gh-pages/public/stylesheets/index.css" />
+    <link rel="stylesheet" media="all" type="text/css" href="gh-pages/public/stylesheets/index.css" /> <link rel="stylesheet" media="all" type="text/css" href="gh-pages/public/stylesheets/notification-banners.css" />
 
   </head>
 
@@ -105,20 +105,58 @@
     </div>
     <!--end global-header-bar-->
 
-    <main role="main" id="content" class="wrapper">
+    <div id="global-breadcrumb" class="header-context">
+  <nav>
+    <ol class="group" role="breadcrumbs">
+      <li>
+        <a href="./">Home</a>
+      </li>
+    </ol>
+  </nav>
+</div> <main role="main" id="content" class="wrapper">
   <div id="wrapper">
     <header class="page-heading page-heading-no-breadcrumb">
-      <h1>Test toolkit</h1>
+      <h1>Notification banners</h1>
     </header>
-    <ul>
-      <li><a href="beta-banner.html">Beta banner</a></li>
-      <li><a href="breadcrumb.html">Breadcrumb</a></li>
-      <li><a href="page-headings">Page headings</a></li>
-      <li><a href="notification-banners.html">Notification banners</a></li>
-      <li><a href="buttons.html">Buttons</a></li>
-      <li><a href="grids">Grids</a></li>
-      <li><a href="forms">Forms</a></li>
-    </ul>
+    <h2>Success banners</h2>
+    <div class="banner-success banner-without-action">
+      <p class="banner-message">
+        With plain text
+      </p>
+    </div>
+    <div class="banner-success banner-without-action">
+      <p class="banner-message">
+        <a href="">With a link</a>
+         and some plain text
+      </p>
+    </div>
+    <h2 style="margin-top: 1em">Warning banners</h2>
+    <div class="banner-warning banner-without-action">
+      <p class="banner-message">
+        <a href="">With a link</a>
+         and some plain text but without an action
+      </p>
+    </div>
+    <h2 style="margin-top: 1em">Destructive banners</h2>
+    <div class="banner-destructive">
+      <p class="banner-message">
+        With some plain text and an action
+      </p>
+      <button class="button-destructive banner-action">Action button</button>
+    </div>
+    <div class="banner-destructive">
+      <p class="banner-message">
+        <a href="">With a link</a>,
+          some plain text and an action
+      </p>
+      <button class="button-destructive banner-action">Action button</button>
+    </div>
+    <div class="banner-destructive banner-without-action">
+      <p class="banner-message">
+        <a href="">With a link</a>
+          and some plain text but without an action
+      </p>
+    </div>
   </div>
 </main>
 

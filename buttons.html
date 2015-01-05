@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-    <title>Test toolkit</title>
+    <title>Buttons - Test toolkit</title>
 
     <script type="text/javascript">
       (function(){if(navigator.userAgent.match(/IEMobile\/10\.0/)){var d=document,c="appendChild",a=d.createElement("style");a[c](d.createTextNode("@-ms-viewport{width:auto!important}"));d.getElementsByTagName("head")[0][c](a);}})();
@@ -105,20 +105,28 @@
     </div>
     <!--end global-header-bar-->
 
-    <main role="main" id="content" class="wrapper">
+    <div id="global-breadcrumb" class="header-context">
+  <nav>
+    <ol class="group" role="breadcrumbs">
+      <li>
+        <a href="./">Home</a>
+      </li>
+    </ol>
+  </nav>
+</div> <main role="main" id="content" class="wrapper">
   <div id="wrapper">
-    <header class="page-heading page-heading-no-breadcrumb">
-      <h1>Test toolkit</h1>
+    <header class="page-heading">
+      <h1>Buttons</h1>
     </header>
-    <ul>
-      <li><a href="beta-banner.html">Beta banner</a></li>
-      <li><a href="breadcrumb.html">Breadcrumb</a></li>
-      <li><a href="page-headings">Page headings</a></li>
-      <li><a href="notification-banners.html">Notification banners</a></li>
-      <li><a href="buttons.html">Buttons</a></li>
-      <li><a href="grids">Grids</a></li>
-      <li><a href="forms">Forms</a></li>
-    </ul>
+    <p>
+      <button class="button-save">Save button</button>
+    </p>
+    <p>
+      <button class="button-secondary">Secondary button</button>
+    </p>
+    <p>
+      <button class="button-destructive">Destructive button</button>
+    </p>
   </div>
 </main>
 
