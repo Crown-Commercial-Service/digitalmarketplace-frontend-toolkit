@@ -1,7 +1,7 @@
-pageTitle: Page heading - Page headings - Forms - Test toolkit
+pageTitle: Grids - Test toolkit
 assetPath: ../govuk_template/assets/
 head: >
-  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages-assets/stylesheets/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/index.css" />
 content: >
   <div id="global-breadcrumb" class="header-context">
     <nav>
@@ -10,7 +10,7 @@ content: >
           <a href="../">Home</a>
         </li>
         <li>
-          <a href="./">Page headings</a>
+          Grids
         </li>
       </ol>
     </nav>
@@ -18,7 +18,12 @@ content: >
   <main role="main" id="content" class="wrapper">
     <div id="wrapper">
       <header class="page-heading">
-        <h1>Page heading</h1>
+        <h1>Grids</h1>
       </header>
+      <ul>
+        <li><a href="full-width.html">One column: 100%</a></li>
+        <li><a href="two-halves.html">Two columns: 50% and 50%</a></li>
+        <li><a href="two-thirds-one-third.html">Two columns: 66% and 33%</a></li>
+      </ul>
     </div>
   </main>

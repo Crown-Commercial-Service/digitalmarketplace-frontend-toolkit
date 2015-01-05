@@ -1,8 +1,8 @@
 pageTitle: "One column grid: 100% - Grids - Test toolkit"
 assetPath: ../govuk_template/assets/
 head: >
-  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages-assets/stylesheets/index.css" />
-  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages-assets/stylesheets/grids/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/grids/index.css" />
 content: >
   <div id="global-breadcrumb" class="header-context">
     <nav>

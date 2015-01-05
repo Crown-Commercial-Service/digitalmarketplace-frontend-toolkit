@@ -1,7 +1,7 @@
 pageTitle: Page heading with context - Page headings - Forms - Test toolkit
 assetPath: ../govuk_template/assets/
 head: >
-  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages-assets/stylesheets/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/index.css" />
 content: >
   <div id="global-breadcrumb" class="header-context">
     <nav>

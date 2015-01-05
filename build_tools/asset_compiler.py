@@ -5,8 +5,8 @@ import shutil
 class AssetCompiler(object):
   def __init__(self):
     self.repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-    self.sass_src_root = os.path.join(self.repo_root, "gh-pages-assets/scss")
-    self.sass_dest_root = os.path.join(self.repo_root, "gh-pages-assets/stylesheets")
+    self.sass_src_root = os.path.join(self.repo_root, "gh-pages/assets/scss")
+    self.sass_dest_root = os.path.join(self.repo_root, "gh-pages/public/stylesheets")
     self.sass_default_options = {
       "output_style" : "nested",
       "include_paths" : [

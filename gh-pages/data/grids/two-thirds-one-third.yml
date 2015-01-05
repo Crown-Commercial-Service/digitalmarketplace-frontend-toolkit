@@ -1,8 +1,8 @@
-pageTitle: "Two column grid: 50% and 50% - Grids - Test toolkit"
+pageTitle: "Two column grid: 66% and 33% - Grids - Test toolkit"
 assetPath: ../govuk_template/assets/
 head: >
-  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages-assets/stylesheets/index.css" />
-  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages-assets/stylesheets/grids/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/grids/index.css" />
 content: >
   <div id="global-breadcrumb" class="header-context">
     <nav>
@@ -19,14 +19,14 @@ content: >
   <main role="main" id="content" class="wrapper">
     <div id="wrapper">
       <header class="page-heading">
-        <h1>Two column grid: 50% and 50%</h1>
+        <h1>Two column grid: 66% and 33%</h1>
       </header>
       <div class="grid-row">
-        <div class="grid-cell half-column">
-          <h2>One half column</h2>
+        <div class="grid-cell two-third-column">
+          <h2>Two thirds column</h2>
         </div>
-        <div class="grid-cell half-column">
-          <h2>One half column</h2>
+        <div class="grid-cell third-column">
+          <h2>One third column</h2>
         </div>
       </div>
     </div>

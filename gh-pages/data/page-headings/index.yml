@@ -1,7 +1,7 @@
-pageTitle: Textboxes - Forms - Test toolkit
+pageTitle: Page heading - Page headings - Forms - Test toolkit
 assetPath: ../govuk_template/assets/
 head: >
-  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages-assets/stylesheets/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/index.css" />
 content: >
   <div id="global-breadcrumb" class="header-context">
     <nav>
@@ -9,29 +9,23 @@ content: >
         <li>
           <a href="../">Home</a>
         </li>
-        <li>
-          Forms
-        </li>
       </ol>
     </nav>
   </div>
   <main role="main" id="content" class="wrapper">
     <div id="wrapper">
       <header class="page-heading">
-        <h1>Forms</h1>
+        <h1>Page headings</h1>
       </header>
       <ul>
         <li>
-          <a href="textboxes.html">Textboxes</a>
+          <a href="page-heading.html">Page heading</a>
         </li>
         <li>
-          <a href="word-count.html">Textbox with word count</a>
+          <a href="page-heading-no-breadcrumb.html">Page heading, no breadcrumb</a>
         </li>
         <li>
-          <a href="list-entry.html">List entry textbox</a>
-        </li>
-        <li>
-          <a href="summary.html">Summary</a>
+          <a href="page-heading-with-context.html">Page heading with context</a>
         </li>
       </ul>
     </div>

@@ -1,14 +1,14 @@
 pageTitle: Textbox with word count - Forms - Test toolkit
 assetPath: ../govuk_template/assets/
 head: >
-  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages-assets/stylesheets/index.css" />
-  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages-assets/stylesheets/forms/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/forms/index.css" />
 bodyEnd: >
-  <script type="text/javascript" src="../gh-pages-assets/javascripts/vendor/jquery.js"></script>
-  <script type="text/javascript" src="../gh-pages-assets/javascripts/vendor/hogan.js"></script>
+  <script type="text/javascript" src="../gh-pages/public/javascripts/vendor/jquery.js"></script>
+  <script type="text/javascript" src="../gh-pages/public/javascripts/vendor/hogan.js"></script>
   <script type="text/javascript" src="../javascripts/list-entry.js"></script>
   <script type="text/javascript" src="../javascripts/word-counter.js"></script>
-  <script type="text/javascript" src="../gh-pages-assets/javascripts/onready.js"></script>
+  <script type="text/javascript" src="../gh-pages/public/javascripts/onready.js"></script>
 content: >
   <div id="global-breadcrumb" class="header-context">
     <nav>
