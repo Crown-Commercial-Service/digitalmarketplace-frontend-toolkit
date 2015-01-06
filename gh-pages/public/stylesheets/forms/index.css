@@ -70,6 +70,60 @@
 @-o-viewport {
   width: device-width; }
 
+.selection-button {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 400;
+  text-transform: none;
+  display: block;
+  float: left;
+  clear: left;
+  position: relative;
+  background: #dee0e2;
+  border: 1px solid #dee0e2;
+  padding: 10px 15px 10px 45px;
+  margin-bottom: 15px;
+  cursor: pointer; }
+  @media (max-width: 640px) {
+    .selection-button {
+      font-size: 16px;
+      line-height: 1.25; } }
+  .selection-button input {
+    position: absolute;
+    top: 11px;
+    left: 15px;
+    cursor: pointer; }
+
+.selection-button:hover {
+  border-color: #0b0c0c; }
+
+.selection-button-with-description {
+  margin-top: 15px; }
+
+.selection-button-selected {
+  background: #fff;
+  border-color: #0b0c0c; }
+
+.selection-button-focused {
+  outline: 3px solid #ffbf47; }
+  .selection-button-focused input:focus {
+    outline: none; }
+
+.selection-button-boolean {
+  clear: none;
+  margin-right: 15px; }
+
+@font-face {
+  font-family: GDS-Logo;
+  src: local("HelveticaNeue"), local("Helvetica Neue"), local("Arial"), local("Helvetica"); }
+
+@-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
+  width: device-width; }
+
 .question-heading, .question-heading-with-hint {
   display: block;
   font-family: "nta", Arial, sans-serif;

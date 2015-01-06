@@ -1,0 +1,54 @@
+@import "_colours.scss";
+@import "_measurements.scss";
+@import "_typography.scss";
+
+.selection-button {
+  @include core-19;
+  // By default, block labels stack vertically
+  display: block;
+  float: left;
+  clear: left;
+  position: relative;
+  background: $panel-colour;
+  border: 1px solid $panel-colour;
+  padding: 10px 15px 10px 45px;
+  margin-bottom: 15px;
+  cursor: pointer;
+
+  input {
+    position: absolute;
+    top: 11px;
+    left: $gutter-half;
+    cursor: pointer;
+  }
+}
+
+// Change border on hover
+.selection-button:hover {
+  border-color: $black;
+}
+
+.selection-button-with-description {
+  margin-top: 15px;
+}
+
+// Add selected state
+.selection-button-selected {
+  background: $white;
+  border-color: $black;
+}
+
+// Add focus to block labels
+.selection-button-focused {
+  outline: 3px solid $yellow;
+
+  // Remove focus from radio/checkboxes
+  input:focus {
+    outline: none;
+  }
+}
+
+.selection-button-boolean {
+  clear: none;
+  margin-right: $gutter-half;
+}

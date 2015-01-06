@@ -11,7 +11,8 @@ class AssetCompiler(object):
       "output_style" : "nested",
       "include_paths" : [
         os.path.join(self.repo_root, "govuk_frontend_toolkit/stylesheets/"),
-        os.path.join(self.repo_root, "scss")
+        os.path.join(self.repo_root, "scss"),
+        os.path.join(self.repo_root, "gh-pages/assets/scss")
       ]
     }
     self.clean()

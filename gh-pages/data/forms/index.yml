@@ -25,6 +25,9 @@ content: >
           <a href="textboxes.html">Textboxes</a>
         </li>
         <li>
+          <a href="selection-buttons.html">Selection buttons</a>
+        </li>
+        <li>
           <a href="word-count.html">Textbox with word count</a>
         </li>
         <li>
