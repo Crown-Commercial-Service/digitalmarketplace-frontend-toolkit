@@ -27,14 +27,12 @@
   height: 50px;
   margin: 0 0 15px 0;
   padding: 5px;
-  border: 1px solid #bfc1c3; }
+  border: 1px solid #bfc1c3;
+  width: 66%; }
   @media (max-width: 640px) {
     .text-box {
       font-size: 16px;
       line-height: 1.25; } }
-  @media (min-width: 769px) {
-    .text-box {
-      width: 66%; } }
 
 .text-box-medium {
   height: 6.25em; }
@@ -133,16 +131,14 @@
   text-transform: none;
   padding-top: 9px;
   padding-bottom: 6px;
+  padding-top: 6px;
+  padding-bottom: 4px;
   font-weight: bold;
   margin: 0 0 10px 0; }
   @media (max-width: 640px) {
     .question-heading, .question-heading-with-hint {
       font-size: 18px;
       line-height: 1.2; } }
-  @media (min-width: 641px) {
-    .question-heading, .question-heading-with-hint {
-      padding-top: 6px;
-      padding-bottom: 4px; } }
 
 .question-heading-with-hint {
   margin-bottom: 0; }
@@ -155,16 +151,14 @@
   text-transform: none;
   padding-top: 2px;
   padding-bottom: 8px;
+  padding-top: 0;
+  padding-bottom: 5px;
   margin: 0 0 10px 0;
   clear: left; }
   @media (max-width: 640px) {
     .question-description {
       font-size: 16px;
       line-height: 1.25; } }
-  @media (min-width: 641px) {
-    .question-description {
-      padding-top: 0;
-      padding-bottom: 5px; } }
 
 @font-face {
   font-family: GDS-Logo;
@@ -184,16 +178,14 @@
   text-transform: none;
   padding-top: 2px;
   padding-bottom: 8px;
+  padding-top: 0;
+  padding-bottom: 5px;
   margin: 0 0 5px 0;
   color: #6f777b; }
   @media (max-width: 640px) {
     .hint {
       font-size: 16px;
       line-height: 1.25; } }
-  @media (min-width: 641px) {
-    .hint {
-      padding-top: 0;
-      padding-bottom: 5px; } }
 
 @-ms-viewport {
   width: device-width; }
@@ -214,14 +206,12 @@
   line-height: 1;
   margin: 5px 0 0 0;
   padding: 0;
-  color: #6f777b; }
+  color: #6f777b;
+  width: 66%; }
   @media (max-width: 640px) {
     .word-count-counter {
       font-size: 16px;
       line-height: 1.25; } }
-  @media (min-width: 769px) {
-    .word-count-counter {
-      width: 66%; } }
 
 @font-face {
   font-family: GDS-Logo;
@@ -245,10 +235,12 @@
 @-o-viewport {
   width: device-width; }
 
-.checkbox-filter .head:after {
-  content: "";
-  display: block;
-  clear: both; }
+.checkbox-filter .head {
+  zoom: 1; }
+  .checkbox-filter .head:after {
+    content: "";
+    display: block;
+    clear: both; }
 
 .input-list .list-entry {
   vertical-align: middle; }
@@ -259,24 +251,25 @@
   font-weight: 400;
   text-transform: none;
   display: block;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  display: inline;
+  margin: 0 0 0 0.6em; }
   @media (max-width: 640px) {
     .input-list .list-entry-remove {
       font-size: 16px;
       line-height: 1.25; } }
-  @media (min-width: 769px) {
-    .input-list .list-entry-remove {
-      display: -moz-inline-stack;
-      display: inline-block;
-      margin: 0 0 0 0.6em; } }
 .input-list .text-box {
   padding-left: 1.84em;
-  width: 100%; }
-  @media (min-width: 769px) {
-    .input-list .text-box {
-      display: -moz-inline-stack;
-      display: inline-block;
-      width: 66%; } }
+  width: 100%;
+  width: 95%;
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  display: inline;
+  width: 66%; }
 .input-list .text-box-number-label {
   float: left;
   font-family: "nta", Arial, sans-serif;
@@ -361,19 +354,18 @@
   text-transform: none;
   padding-top: 2px;
   padding-bottom: 8px;
+  padding-top: 0;
+  padding-bottom: 5px;
   text-align: right;
   margin: -36px 0 0 0;
   padding-left: 75%;
   position: relative;
-  z-index: 10; }
+  z-index: 10;
+  zoom: 1; }
   @media (max-width: 640px) {
     .summary-item-top-level-action {
       font-size: 16px;
       line-height: 1.25; } }
-  @media (min-width: 641px) {
-    .summary-item-top-level-action {
-      padding-top: 0;
-      padding-bottom: 5px; } }
 
 .summary-item-no-content {
   border-top: 1px solid #dee0e2;
@@ -441,10 +433,12 @@
 @-o-viewport {
   width: device-width; }
 
-.checkbox-filter .head:after {
-  content: "";
-  display: block;
-  clear: both; }
+.checkbox-filter .head {
+  zoom: 1; }
+  .checkbox-filter .head:after {
+    content: "";
+    display: block;
+    clear: both; }
 
 .filter {
   margin-bottom: 30px;
@@ -460,6 +454,8 @@
     text-transform: none;
     display: -moz-inline-stack;
     display: inline-block;
+    zoom: 1;
+    display: inline;
     margin-right: 40px;
     font-weight: bold;
     padding-top: 10px; }
@@ -473,7 +469,9 @@
   .radio-filter label, .text-filter label {
     margin-right: 10px;
     display: -moz-inline-stack;
-    display: inline-block; }
+    display: inline-block;
+    zoom: 1;
+    display: inline; }
 
 .radio-filter input {
   width: 14px; }
@@ -486,27 +484,6 @@
   /* Redefine scrollbars so they are always visible in scrolling checkbox lists */ }
   .checkbox-filter:hover {
     background-color: #bfc1c3; }
-  .js-enabled .checkbox-filter .head {
-    cursor: pointer; }
-  .js-enabled .checkbox-filter .toggle {
-    height: 15px;
-    width: 23px;
-    display: -moz-inline-stack;
-    display: inline-block;
-    background-image: url("./toggle-sprite.png");
-    background-repeat: no-repeat;
-    background-position: 0 3px; }
-    @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20/10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-      .js-enabled .checkbox-filter .toggle {
-        background-image: url("./toggle-sprite-retina.png");
-        background-size: 32px 50px; } }
-  .js-enabled .checkbox-filter.closed .checkbox-container {
-    position: absolute;
-    left: -9999px;
-    padding: 0;
-    margin: 0; }
-  .js-enabled .checkbox-filter.closed .toggle {
-    background-position: 0 -33px; }
   .checkbox-filter ::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 7px; }
@@ -524,6 +501,8 @@
       .checkbox-filter .head .controls .clear-selected {
         display: -moz-inline-stack;
         display: inline-block;
+        zoom: 1;
+        display: inline;
         margin-right: 5px; }
         .checkbox-filter .head .controls .clear-selected.js-hidden {
           left: -9999em;
@@ -547,6 +526,8 @@
     .checkbox-filter .checkbox-container label {
       display: -moz-inline-stack;
       display: inline-block;
+      zoom: 1;
+      display: inline;
       padding: 7px 0 7px 30px;
       width: 90%;
       border-bottom: 1px solid #bfc1c3; }
