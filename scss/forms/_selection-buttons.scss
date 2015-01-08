@@ -9,7 +9,7 @@
 @import "conditionals";
 
 // By default, block labels stack vertically
-.block-label {
+.selection-button {
 
   display: block;
   float: none;
@@ -18,7 +18,7 @@
 
   background: $panel-colour;
   border: 1px solid $panel-colour;
-  padding: (18px $gutter $gutter-half $gutter*1.5);
+  padding: 10px $gutter-half 10px ($gutter * 1.5); /* padding specific to Digital Marketplace */
   margin-top: 10px;
   margin-bottom: 10px;
 
@@ -45,8 +45,7 @@
   }
 }
 
-// To stack horizontally, use .inline on parent, to sit block labels next to each other
-.inline .block-label {
+.selection-button-boolean {
   clear: none;
   margin-right: $gutter-half;
 }
@@ -54,17 +53,23 @@
 // Selected and focused states
 
 // Add selected state
-.js-enabled label.selected {
+.js-enabled label.selection-button-selected {
   background: $white;
   border-color: $black;
 }
 
 // Add focus to block labels
-.js-enabled label.focused {
+.js-enabled label.selection-button-focused {
   outline: 3px solid $yellow;
 }
 
 // Remove focus from radio/checkboxes
-.js-enabled .focused input:focus {
+.js-enabled .selection-button-focused input:focus {
   outline: none;
 }
+
+// Styles specific to Digital Marketplace
+.selection-button-with-description {
+  margin-top: 15px;
+}
+
