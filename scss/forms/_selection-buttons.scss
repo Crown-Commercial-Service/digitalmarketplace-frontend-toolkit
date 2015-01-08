@@ -11,6 +11,7 @@
 // By default, block labels stack vertically
 .selection-button {
 
+  @include core-19; /* Specific to Digital Marketplace */
   display: block;
   float: none;
   clear: left;
@@ -18,7 +19,7 @@
 
   background: $panel-colour;
   border: 1px solid $panel-colour;
-  padding: 10px $gutter-half 10px ($gutter * 1.5); /* padding specific to Digital Marketplace */
+  padding: 10px $gutter-half 10px ($gutter * 1.5); /* Specific to Digital Marketplace */
   margin-top: 10px;
   margin-bottom: 10px;
 
@@ -34,7 +35,7 @@
   // Absolutely position inputs within label, to allow text to wrap
   input {
     position: absolute;
-    top: 18px;
+    top: 12px;
     left: $gutter-half;
     cursor: pointer;
   }

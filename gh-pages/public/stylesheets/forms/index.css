@@ -60,10 +60,6 @@
       font-size: 16px;
       line-height: 1.25; } }
 
-@font-face {
-  font-family: GDS-Logo;
-  src: local("HelveticaNeue"), local("Helvetica Neue"), local("Arial"), local("Helvetica"); }
-
 @-ms-viewport {
   width: device-width; }
 
@@ -76,43 +72,51 @@
   line-height: 1.31579;
   font-weight: 400;
   text-transform: none;
+  /* Specific to Digital Marketplace */
   display: block;
-  float: left;
+  float: none;
   clear: left;
   position: relative;
   background: #dee0e2;
   border: 1px solid #dee0e2;
   padding: 10px 15px 10px 45px;
-  margin-bottom: 15px;
+  /* Specific to Digital Marketplace */
+  margin-top: 10px;
+  margin-bottom: 10px;
   cursor: pointer; }
   @media (max-width: 640px) {
     .selection-button {
       font-size: 16px;
       line-height: 1.25; } }
+  @media (min-width: 641px) {
+    .selection-button {
+      float: left;
+      margin-top: 5px;
+      margin-bottom: 5px; } }
   .selection-button input {
     position: absolute;
-    top: 11px;
+    top: 12px;
     left: 15px;
     cursor: pointer; }
-
-.selection-button:hover {
-  border-color: #0b0c0c; }
-
-.selection-button-with-description {
-  margin-top: 15px; }
-
-.selection-button-selected {
-  background: #fff;
-  border-color: #0b0c0c; }
-
-.selection-button-focused {
-  outline: 3px solid #ffbf47; }
-  .selection-button-focused input:focus {
-    outline: none; }
+  .selection-button:hover {
+    border-color: #0b0c0c; }
 
 .selection-button-boolean {
   clear: none;
   margin-right: 15px; }
+
+.js-enabled label.selection-button-selected {
+  background: #fff;
+  border-color: #0b0c0c; }
+
+.js-enabled label.selection-button-focused {
+  outline: 3px solid #ffbf47; }
+
+.js-enabled .selection-button-focused input:focus {
+  outline: none; }
+
+.selection-button-with-description {
+  margin-top: 15px; }
 
 @font-face {
   font-family: GDS-Logo;
