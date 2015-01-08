@@ -1,50 +1,47 @@
-@import "_colours.scss";
-@import "_measurements.scss";
-@import "_typography.scss";
+// Copied from GOVUK Elements
+// Version: https://github.com/alphagov/govuk_elements/commit/391eab1554b05629804837ac0f87583f5b88b1a7
+//
+// Large hit area
+// Radio buttons & checkboxes
 
+@import "colours";
+@import "measurements";
+@import "conditionals";
+
+// By default, block labels stack vertically
 .selection-button {
-  @include core-19;
-  // By default, block labels stack vertically
+
   display: block;
-  float: left;
+  float: none;
   clear: left;
   position: relative;
+
   background: $panel-colour;
   border: 1px solid $panel-colour;
-  padding: 10px 15px 10px 45px;
-  margin-bottom: 15px;
-  cursor: pointer;
+  padding: 10px $gutter-half 10px ($gutter * 1.5); /* padding specific to Digital Marketplace */
+  margin-top: 10px;
+  margin-bottom: 10px;
 
+  cursor: pointer; // Encourage clicking on block labels
+
+  @include media(tablet) {
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    // width: 25%; - Test : check that text within labels will wrap
+  }
+
+  // Absolutely position inputs within label, to allow text to wrap
   input {
     position: absolute;
-    top: 11px;
+    top: 18px;
     left: $gutter-half;
     cursor: pointer;
   }
-}
 
-// Change border on hover
-.selection-button:hover {
-  border-color: $black;
-}
-
-.selection-button-with-description {
-  margin-top: 15px;
-}
-
-// Add selected state
-.selection-button-selected {
-  background: $white;
-  border-color: $black;
-}
-
-// Add focus to block labels
-.selection-button-focused {
-  outline: 3px solid $yellow;
-
-  // Remove focus from radio/checkboxes
-  input:focus {
-    outline: none;
+  // Change border on hover
+  &:hover {
+    border-color: $black;
   }
 }
 
@@ -52,3 +49,27 @@
   clear: none;
   margin-right: $gutter-half;
 }
+
+// Selected and focused states
+
+// Add selected state
+.js-enabled label.selection-button-selected {
+  background: $white;
+  border-color: $black;
+}
+
+// Add focus to block labels
+.js-enabled label.selection-button-focused {
+  outline: 3px solid $yellow;
+}
+
+// Remove focus from radio/checkboxes
+.js-enabled .selection-button-focused input:focus {
+  outline: none;
+}
+
+// Styles specific to Digital Marketplace
+.selection-button-with-description {
+  margin-top: 15px;
+}
+
