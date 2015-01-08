@@ -1,6 +1,6 @@
 # SCSS
 
-Digitial Marketplace uses the
+Digital Marketplace uses the
 [SCSS](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#syntax) of Sass.
 
 ## Support for older versions of Internet Explorer
@@ -17,18 +17,19 @@ Support for older versions of Internet Explorer is made possible by the use of t
 ### Required set up
 
 This works by using the [sass-ie](http://jakearchibald.github.io/sass-ie/) method which generates a
-separate stylesheet for each version you need to target.
+separate stylesheet for each version of Internet Explorer that you need to target.
 
-An example of this can be seen with the
+An example of this can be seen on the
 [forms/summary.html](http://alphagov.github.io/digitalmarketplace-frontend-toolkit/forms/summary.html)
-page. Looking at the [gh-pages/data/forms/summary.yml](../gh-pages/data/forms/summary.yml) file you
-can see the `forms/index.css` stylesheet has variants for IE6, 7 & 8. The conditional comments they are
-wrapped in ensure each browser only gets its variant. They also ensure none of those are requested
-by all others browsers.
+page. In [gh-pages/data/forms/summary.yml](../gh-pages/data/forms/summary.yml) you
+can see that `forms/index.css` has variants for IE6, 7 and 8. The links to the
+stylesheets are wrapped in conditional comments to ensure that:
+- each version of Internet Explorer only gets its variant
+- other browsers don't request the Internet-Explorer-specific stylesheets
 
-Looking at the SCSS file for the IE6 variant you can see it just includes `forms/index.scss` while
-setting a few variables the mixins from `_conditionals.scss` use to determine whether or not to
-insert their given block.
+The SCSS file for IE6 just includes `forms/index.scss` while setting a
+few variables. The mixins from `_conditionals.scss` use these variables
+to determine whether or not to insert the block of browser-specific CSS.
 
 ```
 $is-ie: true;
