@@ -16,6 +16,14 @@
   clear: both; }
 
 .grid-row {
+  margin-left: -15px;
+  margin-right: -15px; }
+  @media (min-width: 641px) {
+    .grid-row {
+      margin-left: -30px;
+      margin-right: -30px; } }
+
+.grid-row {
   margin: 0 -15px; }
 
 @font-face {
@@ -28,48 +36,39 @@
 @-o-viewport {
   width: device-width; }
 
-.grid-row {
-  margin: 0; }
-  .grid-row .third-column {
-    padding: 0 15px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box; }
-    @media (min-width: 641px) {
-      .grid-row .third-column {
-        float: left;
-        width: 33.33333%; } }
-  .grid-row .two-third-column {
-    padding: 0 15px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box; }
-    @media (min-width: 641px) {
-      .grid-row .two-third-column {
-        float: left;
-        width: 66.66667%; } }
-  .grid-row .quarter-column {
-    padding: 0 15px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box; }
-    @media (min-width: 641px) {
-      .grid-row .quarter-column {
-        float: left;
-        width: 25%; } }
-  .grid-row .half-column {
-    padding: 0 15px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box; }
-    @media (min-width: 641px) {
-      .grid-row .half-column {
-        float: left;
-        width: 50%; } }
-
-.grid-cell {
+.grid-row .third-column {
+  padding: 0 15px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: solid black 1px;
-  min-height: 40em; }
+  box-sizing: border-box; }
+  @media (min-width: 641px) {
+    .grid-row .third-column {
+      float: left;
+      width: 33.33333%; } }
+.grid-row .two-third-column {
+  padding: 0 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+  @media (min-width: 641px) {
+    .grid-row .two-third-column {
+      float: left;
+      width: 66.66667%; } }
+.grid-row .quarter-column {
+  padding: 0 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+  @media (min-width: 641px) {
+    .grid-row .quarter-column {
+      float: left;
+      width: 25%; } }
+.grid-row .half-column {
+  padding: 0 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+  @media (min-width: 641px) {
+    .grid-row .half-column {
+      float: left;
+      width: 50%; } }

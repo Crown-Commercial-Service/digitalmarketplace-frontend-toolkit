@@ -3,6 +3,13 @@ assetPath: ../govuk_template/assets/
 head: >
   <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/index.css" />
   <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/grids/index.css" />
+  <style>
+    .grid-column {
+      padding: 0 15px;
+      border: solid black 1px;
+      min-height: 40em;
+    }
+  </style>
 content: >
   <div id="global-breadcrumb" class="header-context">
     <nav>
@@ -22,7 +29,7 @@ content: >
         <h1>One column grid: 100%</h1>
       </header>
       <div class="grid-row">
-        <div class="grid-cell">
+        <div class="grid-column">
           <h2>One column</h2>
         </div>
       </div>
