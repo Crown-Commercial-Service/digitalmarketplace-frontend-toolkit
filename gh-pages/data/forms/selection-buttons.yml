@@ -30,34 +30,34 @@ content: >
         <fieldset>
           <legend class="question-heading">Radio buttons</legend>
           <label class="selection-button">
-            Radio 1
+            Hour
             <input type="radio" name="radio-1" id="radio-1" value="val-1" />
           </label>
           <label class="selection-button">
-            Radio 2
+            Day
             <input type="radio" name="radio-1" id="radio-2" value="val-2" />
           </label>
           <label class="selection-button">
-            Radio 3
+            Month
             <input type="radio" name="radio-1" id="radio-3" value="val-3" />
           </label>
           <label class="selection-button">
-            Radio 4
+            Year
             <input type="radio" name="radio-1" id="radio-4" value="val-4" />
           </label>
         </fieldset>
         <fieldset>
           <legend class="question-heading">Checkboxes</legend>
           <label class="selection-button">
-            Checkbox 1
+            Accounting and finance
             <input type="checkbox" name="checkbox-1" id="checkbox-1" value="val-1" />
           </label>
           <label class="selection-button">
-            Checkbox 2
+            Business intelligence and analytics
             <input type="checkbox" name="checkbox-2" id="checkbox-2" value="val-2" />
           </label>
           <label class="selection-button">
-            Checkbox 3
+            Collaboration
             <input type="checkbox" name="checkbox-3" id="checkbox-3" value="val-3" />
           </label>
         </fieldset>
@@ -78,11 +78,13 @@ content: >
             Hint giving some information about how to answer the question.
           </p>
           <label class="selection-button selection-button-with-description">
-            Checkbox 4
+            Infrastructure as a Service (IaaS) 
             <input type="checkbox" name="checkbox-4" id="checkbox-4" value="val-4" />
           </label>
           <p class="question-description">
-            Description of the answer above.
+            Infrastructure is the hardware that makes software work. It's the networks, hosting facilities 
+            and servers that platforms and software depend on. IaaS is infrastructure you can order and run 
+            entirely over the internet, without having to pay for your own hardware.
           </p>
         </fieldset>
       </form>
