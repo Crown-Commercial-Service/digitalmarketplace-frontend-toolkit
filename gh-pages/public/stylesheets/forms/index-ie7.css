@@ -58,10 +58,6 @@
       font-size: 16px;
       line-height: 1.25; } }
 
-@font-face {
-  font-family: GDS-Logo;
-  src: local("HelveticaNeue"), local("Helvetica Neue"), local("Arial"), local("Helvetica"); }
-
 @-ms-viewport {
   width: device-width; }
 
@@ -74,21 +70,17 @@
   line-height: 1.31579;
   font-weight: 400;
   text-transform: none;
+  /* Specific to Digital Marketplace */
   display: block;
-  float: left;
+  float: none;
   clear: left;
   position: relative;
   background: #dee0e2;
   border: 1px solid #dee0e2;
   padding: 10px 15px 10px 45px;
+<<<<<<< HEAD
   margin-bottom: 15px;
   cursor: pointer; }
-  @media (max-width: 640px) {
-    .selection-button {
-      font-size: 16px;
-      line-height: 1.25; } }
-  .selection-button input {
-    position: absolute;
     top: 11px;
     left: 15px;
     cursor: pointer; }
@@ -111,6 +103,29 @@
 .selection-button-boolean {
   clear: none;
   margin-right: 15px; }
+=======
+    top: 12px;
+    left: 15px;
+    cursor: pointer; }
+  .selection-button:hover {
+    border-color: #0b0c0c; }
+
+.selection-button-boolean {
+  clear: none;
+  margin-right: 15px; }
+
+.js-enabled label.selection-button-selected {
+  background: #fff;
+  border-color: #0b0c0c; }
+
+.js-enabled label.selection-button-focused {
+  outline: 3px solid #ffbf47; }
+
+.js-enabled .selection-button-focused input:focus {
+  outline: none; }
+
+.selection-button-with-description {
+  margin-top: 15px; }
 
 @font-face {
   font-family: GDS-Logo;
@@ -121,6 +136,13 @@
 
 @-o-viewport {
   width: device-width; }
+
+.question {
+  margin: 15px 0 0 0;
+  clear: both; }
+
+.first-question {
+  margin-top: 0; }
 
 .question-heading, .question-heading-with-hint {
   display: block;
@@ -234,13 +256,6 @@
 
 @-o-viewport {
   width: device-width; }
-
-.checkbox-filter .head {
-  zoom: 1; }
-  .checkbox-filter .head:after {
-    content: "";
-    display: block;
-    clear: both; }
 
 .input-list .list-entry {
   vertical-align: middle; }
@@ -425,114 +440,3 @@
   color: #cd4c0b; }
   .summary-item-row-incomplete .summary-item-content-field a {
     color: #cd4c0b; }
-
-@-ms-viewport {
-  width: device-width; }
-
-@-o-viewport {
-  width: device-width; }
-
-.checkbox-filter .head {
-  zoom: 1; }
-  .checkbox-filter .head:after {
-    content: "";
-    display: block;
-    clear: both; }
-
-.filter {
-  margin-bottom: 30px;
-  background-color: #dee0e2;
-  padding: 0 5px; }
-  .filter:focus {
-    outline: 3px solid #ffbf47; }
-  .filter .legend {
-    font-family: "nta", Arial, sans-serif;
-    font-size: 19px;
-    line-height: 1.31579;
-    font-weight: 400;
-    text-transform: none;
-    display: -moz-inline-stack;
-    display: inline-block;
-    zoom: 1;
-    display: inline;
-    margin-right: 40px;
-    font-weight: bold;
-    padding-top: 10px; }
-    @media (max-width: 640px) {
-      .filter .legend {
-        font-size: 16px;
-        line-height: 1.25; } }
-
-.radio-filter, .text-filter {
-  padding: 0 10px; }
-  .radio-filter label, .text-filter label {
-    margin-right: 10px;
-    display: -moz-inline-stack;
-    display: inline-block;
-    zoom: 1;
-    display: inline; }
-
-.radio-filter input {
-  width: 14px; }
-
-.checkbox-filter {
-  padding-bottom: 5px;
-  /* Only apply these styles to chrome/firefox/safari and ie8 upwards
-     this is because checkbox filters are always open on ie6/7 so no
-     need to have closed styles or toggles. */
-  /* Redefine scrollbars so they are always visible in scrolling checkbox lists */ }
-  .checkbox-filter:hover {
-    background-color: #bfc1c3; }
-  .checkbox-filter ::-webkit-scrollbar {
-    -webkit-appearance: none;
-    width: 7px; }
-  .checkbox-filter ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0.5);
-    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5); }
-  .checkbox-filter .head {
-    padding: 0 5px;
-    position: relative; }
-    .checkbox-filter .head .controls {
-      position: absolute;
-      right: 5px;
-      top: 10px; }
-      .checkbox-filter .head .controls .clear-selected {
-        display: -moz-inline-stack;
-        display: inline-block;
-        zoom: 1;
-        display: inline;
-        margin-right: 5px; }
-        .checkbox-filter .head .controls .clear-selected.js-hidden {
-          left: -9999em;
-          position: relative;
-          height: 0px;
-          overflow: hidden; }
-  .checkbox-filter .checkbox-container {
-    position: relative;
-    margin-top: 5px;
-    background-color: #fff;
-    height: 200px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    /* IE6 doesn't support psuedo selectors so scoping to checkbox-container instead of using a psuedo selector */ }
-    .checkbox-filter .checkbox-container ul {
-      margin: 0;
-      padding: 0;
-      list-style: none; }
-      .checkbox-filter .checkbox-container ul ul {
-        padding-left: 20px; }
-    .checkbox-filter .checkbox-container label {
-      display: -moz-inline-stack;
-      display: inline-block;
-      zoom: 1;
-      display: inline;
-      padding: 7px 0 7px 30px;
-      width: 90%;
-      border-bottom: 1px solid #bfc1c3; }
-      .checkbox-filter .checkbox-container label:hover {
-        background-color: #f8f8f8; }
-    .checkbox-filter .checkbox-container input {
-      margin-left: -23px;
-      vertical-align: top;
-      position: absolute; }

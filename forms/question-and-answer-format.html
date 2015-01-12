@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-    <title>Selection buttons - Test toolkit</title>
+    <title>Question and answer format - Test toolkit</title>
 
     <script type="text/javascript">
       (function(){if(navigator.userAgent.match(/IEMobile\/10\.0/)){var d=document,c="appendChild",a=d.createElement("style");a[c](d.createTextNode("@-ms-viewport{width:auto!important}"));d.getElementsByTagName("head")[0][c](a);}})();
@@ -119,68 +119,45 @@
 </div> <main role="main" id="content" class="wrapper">
   <div id="wrapper">
     <header class="page-heading">
-      <h1>Selection buttons</h1>
+      <h1>Question and answer format</h1>
     </header>
     <form action="" method="get">
-      <fieldset class="question first-question">
-        <legend class="question-heading">Radio buttons</legend>
-        <label class="selection-button">
-          Hour
-          <input type="radio" name="radio-1" id="radio-1" value="val-1" />
+      <div class="question first-question">
+        <label for="question-1" class="question-heading question-heading-with-hint">
+          Question a with single answer
         </label>
-        <label class="selection-button">
-          Day
-          <input type="radio" name="radio-1" id="radio-2" value="val-2" />
-        </label>
-        <label class="selection-button">
-          Month
-          <input type="radio" name="radio-1" id="radio-3" value="val-3" />
-        </label>
-        <label class="selection-button">
-          Year
-          <input type="radio" name="radio-1" id="radio-4" value="val-4" />
-        </label>
-      </fieldset>
-      <fieldset class="question">
-        <legend class="question-heading">Checkboxes</legend>
-        <label class="selection-button">
-          Accounting and finance
-          <input type="checkbox" name="checkbox-1" id="checkbox-1" value="val-1" />
-        </label>
-        <label class="selection-button">
-          Business intelligence and analytics
-          <input type="checkbox" name="checkbox-2" id="checkbox-2" value="val-2" />
-        </label>
-        <label class="selection-button">
-          Collaboration
-          <input type="checkbox" name="checkbox-3" id="checkbox-3" value="val-3" />
-        </label>
-      </fieldset>
-      <fieldset class="question">
-        <legend class="question-heading">Boolean</legend>
-        <label class="selection-button selection-button-boolean">
-          Yes
-          <input type="radio" name="boolean-1" id="boolean-1" value="val-1" />
-        </label>
-        <label class="selection-button selection-button-boolean">
-          No
-          <input type="radio" name="boolean-1" id="boolean-2" value="val-2" />
-        </label>
-      </fieldset>
-      <fieldset class="question">
-        <legend class="question-heading question-heading-with-hint">Checkbox with hint and description</legend>
         <p class="hint">
-          Hint giving some information about how to answer the question.
+          the question and answer are wrapped in a div with the question the answer field's label
         </p>
-        <label class="selection-button selection-button-with-description">
-          Infrastructure as a Service (IaaS) 
-          <input type="checkbox" name="checkbox-4" id="checkbox-4" value="val-4" />
+        <input type="text" name="question-1" id="question-1" class="text-box" value="" />
+      </div>
+      <fieldset class="question" id="question-2">
+        <legend class="question-heading question-heading-with-hint ">
+          Question with multiple answers
+        </legend>
+        <p class="hint">
+          the question and answer are wrapped in a fieldset with the question its legend
+        </p>
+        <label class="selection-button">
+          <input type="checkbox" name="question-2" id="question-2-answer-1" value="answer-1" />
+          Answer 1
         </label>
-        <p class="question-description">
-          Infrastructure is the hardware that makes software work. It's the networks, hosting facilities 
-          and servers that platforms and software depend on. IaaS is infrastructure you can order and run 
-          entirely over the internet, without having to pay for your own hardware.
-        </p>
+        <label class="selection-button">
+          <input type="checkbox" name="question-2" id="question-2-answer-2" value="answer-2" />
+          Answer 2
+        </label>
+        <label class="selection-button">
+          <input type="checkbox" name="question-2" id="question-2-answer-3" value="answer-3" />
+          Answer 3
+        </label>
+        <label class="selection-button">
+          <input type="checkbox" name="question-2" id="question-2-answer-4" value="answer-4" />
+          Answer 4
+        </label>
+        <label class="selection-button">
+          <input type="checkbox" name="question-2" id="question-2-answer-5" value="answer-5" />
+          Answer 5
+        </label>
       </fieldset>
     </form>
   </div>
@@ -215,7 +192,6 @@
 
     <script src="../govuk_template/assets/javascripts/govuk-template.js?0.12.0" type="text/javascript"></script>
 
-    <script type="text/javascript" src="../gh-pages/public/javascripts/vendor/jquery-1.11.0.js"></script> <script type="text/javascript" src="../govuk_frontend_toolkit/javascripts/vendor/polyfills/bind.js"></script> <script type="text/javascript" src="../govuk_frontend_toolkit/javascripts/govuk/selection-buttons.js"></script> <script type="text/javascript" src="../gh-pages/public/javascripts/onready.js"></script>
-
+    
   </body>
 </html>
