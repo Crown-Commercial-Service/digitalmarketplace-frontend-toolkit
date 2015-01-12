@@ -338,6 +338,9 @@
       font-size: 18px;
       line-height: 1.2; } }
 
+.first-summary-item-heading {
+  padding-top: 0; }
+
 .summary-item-heading-number {
   position: absolute;
   width: 40px;
