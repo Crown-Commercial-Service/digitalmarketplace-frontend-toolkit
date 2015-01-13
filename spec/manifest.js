@@ -4,12 +4,10 @@ var manifest = {
     'javascripts/vendor/jquery.js',
     'javascripts/vendor/hogan.js',
     '../../javascripts/list-entry.js',
-    '../../javascripts/word-counter.js',
-    '../../javascripts/multi-selects.js'
+    '../../javascripts/word-counter.js'
   ],
   test : [
     '../unit/wordCountSpec.js',
-    '../unit/listEntrySpec.js',
-    '../unit/CheckboxFilterSpec.js'
+    '../unit/listEntrySpec.js'
   ]
 };
