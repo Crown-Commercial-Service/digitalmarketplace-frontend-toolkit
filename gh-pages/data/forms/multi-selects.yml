@@ -16,7 +16,7 @@ head: >
     <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/forms/index-ie8.css" />
   <![endif]-->
 bodyEnd: >
-  <script type="text/javascript" src="../gh-pages/public/javascripts/vendor/jquery.js"></script>
+  <script type="text/javascript" src="../gh-pages/public/javascripts/vendor/jquery-1.11.0.js"></script>
   <script type="text/javascript" src="../javascripts/"></script>
   <script type="text/javascript" src="../gh-pages/public/javascripts/onready.js"></script>
 content: >

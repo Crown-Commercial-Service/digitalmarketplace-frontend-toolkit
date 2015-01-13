@@ -4,8 +4,8 @@ head: >
   <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/index.css" />
   <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/forms/index.css" />
 bodyEnd: >
-  <script type="text/javascript" src="../gh-pages/public/javascripts/vendor/jquery.js"></script>
-  <script type="text/javascript" src="../gh-pages/public/javascripts/vendor/hogan.js"></script>
+  <script type="text/javascript" src="../gh-pages/public/javascripts/vendor/jquery-1.11.0.js"></script>
+  <script type="text/javascript" src="../gh-pages/public/javascripts/vendor/hogan-3.0.2.min.js"></script>
   <script type="text/javascript" src="../javascripts/list-entry.js"></script>
   <script type="text/javascript" src="../javascripts/word-counter.js"></script>
   <script type="text/javascript" src="../gh-pages/public/javascripts/onready.js"></script>
