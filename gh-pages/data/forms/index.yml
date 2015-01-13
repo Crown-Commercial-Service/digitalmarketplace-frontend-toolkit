@@ -36,6 +36,9 @@ content: >
         <li>
           <a href="summary.html">Summary</a>
         </li>
+        <li>
+          <a href="multi-selects.html">Multi-selects</a>
+        </li>
       </ul>
     </div>
   </main>
