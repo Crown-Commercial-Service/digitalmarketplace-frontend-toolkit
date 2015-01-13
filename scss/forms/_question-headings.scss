@@ -1,8 +1,7 @@
 @import "_colours";
 @import "_typography.scss";
 
-.question-heading,
-%question-heading {
+.question-heading {
   display: block;
   @include heading-24;
   font-weight: bold;
@@ -10,7 +9,7 @@
 }
 
 .question-heading-with-hint {
-  @extend %question-heading;
+  @extend .question-heading;
   margin-bottom: 0;
 }
 

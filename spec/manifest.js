@@ -1,13 +1,13 @@
-// files are loaded from the /scripts/test/support folder so paths are relative to that
+// files are loaded from the /spec/support folder so paths are relative to that
 var manifest = {
   support : [
-    '../../javascripts/vendor/jquery.js',
-    '../../javascripts/vendor/hogan.js',
-    '../../javascripts/listEntry.js',
-    '../../javascripts/wordCounter.js'
+    'javascripts/vendor/jquery.js',
+    'javascripts/vendor/hogan.js',
+    '../../javascripts/list-entry.js',
+    '../../javascripts/word-counter.js'
   ],
   test : [
-    '../unit/WordCountSpec.js',
-    '../unit/ListEntrySpec.js'
+    '../unit/wordCountSpec.js',
+    '../unit/listEntrySpec.js'
   ]
 };
