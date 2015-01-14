@@ -38,3 +38,70 @@ $mobile-ie6: false;
 
 @import "index.scss";
 ```
+
+## Styleguide
+
+### Naming
+
+The naming of classes and ids normally follows one of these patterns:
+
+### Thing + type
+
+| Thing   | Type |
+|---------|------|
+| .button | save |
+
+For example `.button-save`.
+
+#### Usage
+
+All types should be built using @extend to extend a base abstract block (which does not appear in the final CSS).
+
+For example:
+
+```
+%summary-item-field {
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.summary-item-field-name {
+  @extend %summary-item-field;
+  width: 50%;
+  padding-right: 25px;
+}
+```
+
+### Thing + what marks it out as a variation
+
+| Thing         | Type          |
+|---------------|---------------|
+| .page-heading | no-breadcrumb |
+
+For example `.page-heading-no-breadcrumb`.
+
+#### Usage
+
+Variations should use @extend to extend the base class (which will appear as a class in the final CSS).
+
+```
+.question,
+%question {
+  margin: 15px 0 0 0;
+  clear: both;
+}
+
+.question-first {
+  @extend %question;
+  margin-top: 0;
+}
+```
+
+### Parent + thing
+
+| Thing     | Type    |
+|-----------|---------|
+| .question | heading |
+
+For example `.question-heading`.
