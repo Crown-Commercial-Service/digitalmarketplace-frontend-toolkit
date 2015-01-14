@@ -1,0 +1,64 @@
+pageTitle: Question and answer format - Test toolkit
+assetPath: ../govuk_template/assets/
+head: >
+  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/forms/index.css" />
+content: >
+  <div id="global-breadcrumb" class="header-context">
+    <nav>
+      <ol class="group" role="breadcrumbs">
+        <li>
+          <a href="../">Home</a>
+        </li>
+        <li>
+          <a href="./">Forms</a>
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <main role="main" id="content" class="wrapper">
+    <div id="wrapper">
+      <header class="page-heading">
+        <h1>Question and answer format</h1>
+      </header>
+      <form action="" method="get">
+        <div class="question first-question">
+          <label for="question-1" class="question-heading question-heading-with-hint">
+            Question a with single answer
+          </label>
+          <p class="hint">
+            the question and answer are wrapped in a div with the question the answer field's label
+          </p>
+          <input type="text" name="question-1" id="question-1" class="text-box" value="" />
+        </div>
+        <fieldset class="question" id="question-2">
+          <legend class="question-heading question-heading-with-hint ">
+            Question with multiple answers
+          </legend>
+          <p class="hint">
+            the question and answer are wrapped in a fieldset with the question its legend
+          </p>
+          <label class="selection-button">
+            <input type="checkbox" name="question-2" id="question-2-answer-1" value="answer-1" />
+            Answer 1
+          </label>
+          <label class="selection-button">
+            <input type="checkbox" name="question-2" id="question-2-answer-2" value="answer-2" />
+            Answer 2
+          </label>
+          <label class="selection-button">
+            <input type="checkbox" name="question-2" id="question-2-answer-3" value="answer-3" />
+            Answer 3
+          </label>
+          <label class="selection-button">
+            <input type="checkbox" name="question-2" id="question-2-answer-4" value="answer-4" />
+            Answer 4
+          </label>
+          <label class="selection-button">
+            <input type="checkbox" name="question-2" id="question-2-answer-5" value="answer-5" />
+            Answer 5
+          </label>
+        </fieldset>
+      </form>
+    </div>
+  </main>

@@ -27,7 +27,7 @@ content: >
         <h1>Selection buttons</h1>
       </header>
       <form action="" method="get">
-        <fieldset>
+        <fieldset class="question first-question">
           <legend class="question-heading">Radio buttons</legend>
           <label class="selection-button">
             Hour
@@ -46,7 +46,7 @@ content: >
             <input type="radio" name="radio-1" id="radio-4" value="val-4" />
           </label>
         </fieldset>
-        <fieldset>
+        <fieldset class="question">
           <legend class="question-heading">Checkboxes</legend>
           <label class="selection-button">
             Accounting and finance
@@ -61,7 +61,7 @@ content: >
             <input type="checkbox" name="checkbox-3" id="checkbox-3" value="val-3" />
           </label>
         </fieldset>
-        <fieldset>
+        <fieldset class="question">
           <legend class="question-heading">Boolean</legend>
           <label class="selection-button selection-button-boolean">
             Yes
@@ -72,7 +72,7 @@ content: >
             <input type="radio" name="boolean-1" id="boolean-2" value="val-2" />
           </label>
         </fieldset>
-        <fieldset>
+        <fieldset class="question">
           <legend class="question-heading question-heading-with-hint">Checkbox with hint and description</legend>
           <p class="hint">
             Hint giving some information about how to answer the question.

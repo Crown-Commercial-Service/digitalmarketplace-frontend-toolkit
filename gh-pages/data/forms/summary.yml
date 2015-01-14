@@ -32,7 +32,7 @@ content: >
       <header class="page-heading">
         <h1>Summary</h1>
       </header>
-      <h2 class="summary-item-heading">
+      <h2 class="summary-item-heading first-summary-item-heading">
           Summary item with no entries
       </h2>
       <p class="hint summary-item-no-content">

@@ -1,6 +1,15 @@
 @import "_colours";
 @import "_typography.scss";
 
+.question {
+  margin: 15px 0 0 0;
+  clear: both;
+}
+
+.question-first {
+  margin-top: 0;
+}
+
 .question-heading {
   display: block;
   @include heading-24;

@@ -128,6 +128,13 @@
 @-o-viewport {
   width: device-width; }
 
+.question {
+  margin: 15px 0 0 0;
+  clear: both; }
+
+.first-question {
+  margin-top: 0; }
+
 .question-heading, .question-heading-with-hint {
   display: block;
   font-family: "nta", Arial, sans-serif;
@@ -350,6 +357,9 @@
     .summary-item-heading {
       font-size: 18px;
       line-height: 1.2; } }
+
+.first-summary-item-heading {
+  padding-top: 0; }
 
 .summary-item-heading-number {
   position: absolute;
