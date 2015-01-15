@@ -1,10 +1,19 @@
 @import "_colours.scss";
 @import "_typography.scss";
 
-.page-heading {
-  padding: $gutter 0px;
+// Mainly taken from http://govuk-component-guide.herokuapp.com/component/title
+.page-heading,
+%page-heading {
+  margin: $gutter-half 0;
+
   @include media(tablet) {
-    padding: ($gutter * 1.5) 0px ($gutter * 1.5);
+    margin: ($gutter * 1.5) 0 ($gutter * 1.5); // Specific to Digital Marketplace
+  }
+
+  .context {
+    @include core-24;
+    color: $secondary-text-colour;
+    margin: 0;
   }
 
   h1 {
@@ -13,11 +22,11 @@
 }
 
 .page-heading-no-breadcrumb {
-  padding-top: ($gutter * 1.5) + 44px;
+  @extend %page-heading;
+  margin-top: $gutter-half + 40px;
+
+  @include media(tablet) {
+    margin-top: ($gutter * 1.5) + 44px;
+  }
 }
 
-.page-heading-with-context .context {
-  @include core-24;
-  color: $secondary-text-colour;
-  margin: 0;
-}
