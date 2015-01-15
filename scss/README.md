@@ -45,6 +45,10 @@ $mobile-ie6: false;
 
 The naming of classes and ids normally follows one of these patterns:
 
+### Thing
+
+For example `.question`.
+
 ### Thing + type
 
 | Thing   | Type |
