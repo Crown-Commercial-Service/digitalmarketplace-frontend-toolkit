@@ -45,6 +45,10 @@ $mobile-ie6: false;
 
 The naming of classes and ids normally follows one of these patterns:
 
+### Thing
+
+For example `.question`.
+
 ### Thing + type
 
 | Thing   | Type |
@@ -60,16 +64,14 @@ All types should be built using @extend to extend a base abstract block (which d
 For example:
 
 ```
-%summary-item-field {
-  white-space: nowrap;
-  vertical-align: middle;
-  text-align: left;
+%banner {
+  background: $highlight-colour;
+  @include core-24;
+  padding: 20px 20px 25px 20px;
 }
 
-.summary-item-field-name {
-  @extend %summary-item-field;
-  width: 50%;
-  padding-right: 25px;
+.banner-default {
+  @extend %banner;
 }
 ```
 
@@ -86,15 +88,24 @@ For example `.page-heading-no-breadcrumb`.
 Variations should use @extend to extend the base class (which will appear as a class in the final CSS).
 
 ```
-.question,
-%question {
-  margin: 15px 0 0 0;
-  clear: both;
+.text-box
+%text-box {
+  @include core-19;
+  @include box-sizing(border-box);
+  display: block;
+  height: 50px;
+  margin: 0 0 15px 0;
+  padding: 5px;
+  border: 1px solid $border-colour;
+
+  @include media(desktop){
+    width: 66%;
+  }
 }
 
-.question-first {
-  @extend %question;
-  margin-top: 0;
+.text-box-medium {
+  @extend textbox; 
+  height: 6.25em;
 }
 ```
 
