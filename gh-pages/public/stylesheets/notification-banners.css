@@ -8,34 +8,40 @@
 @-o-viewport {
   width: device-width; }
 
-.banner, .banner-destructive, .banner-warning, .banner-success {
+.banner-destructive-without-action, .banner-destructive-with-action, .banner-warning-with-action, .banner-warning-without-action, .banner-success-with-action, .banner-success-without-action {
   background: #f8f8f8;
   font-family: "nta", Arial, sans-serif;
   font-size: 24px;
   line-height: 1.25;
   font-weight: 400;
   text-transform: none;
-  padding: 20px 20px 25px 20px;
+  padding: 20px;
   margin-top: 15px; }
   @media (max-width: 640px) {
-    .banner, .banner-destructive, .banner-warning, .banner-success {
+    .banner-destructive-without-action, .banner-destructive-with-action, .banner-warning-with-action, .banner-warning-without-action, .banner-success-with-action, .banner-success-without-action {
       font-size: 18px;
       line-height: 1.2; } }
 
-.banner-destructive {
+.banner-destructive-without-action, .banner-destructive-with-action {
   border-left: 5px solid #b10e1e;
   color: #b10e1e; }
 
-.banner-warning {
+.banner-destructive-with-action {
+  padding-bottom: 25px; }
+
+.banner-warning-with-action, .banner-warning-without-action {
   border-left: 5px solid #cd4c0b;
   color: #cd4c0b; }
 
-.banner-success {
+.banner-warning-without-action {
+  padding-bottom: 25px; }
+
+.banner-success-with-action, .banner-success-without-action {
   border-left: 5px solid #006435;
   color: #006435; }
 
-.banner-without-action {
-  padding: 20px 20px 20px 20px; }
+.banner-success-without-action {
+  padding-bottom: 25px; }
 
 .banner-action {
   margin-top: 15px; }
