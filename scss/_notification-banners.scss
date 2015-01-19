@@ -2,33 +2,56 @@
 @import "_digital-marketplace-colours.scss";
 @import "_typography.scss";
 
-.banner {
+%banner {
   background: $highlight-colour;
   @include core-24;
-  padding: 20px 20px 25px 20px;
+  padding: 20px;
   margin-top: 15px;
 }
 
-.banner-destructive {
-  @extend .banner;
+%banner-destructive {
+  @extend %banner;
   border-left: 5px solid $red;
   color: $red;
 }
 
-.banner-warning {
-  @extend .banner;
+.banner-destructive-without-action {
+  @extend %banner-destructive;
+}
+
+.banner-destructive-with-action {
+  @extend %banner-destructive;
+  padding-bottom: 25px;
+}
+
+%banner-warning {
+  @extend %banner;
   border-left: 5px solid $accessible-orange;
   color: $accessible-orange;
 }
 
-.banner-success {
-  @extend .banner;
+.banner-warning-with-action {
+  @extend %banner-warning;
+}
+
+.banner-warning-without-action {
+  @extend %banner-warning;
+  padding-bottom: 25px;
+}
+
+%banner-success {
+  @extend %banner;
   border-left: 5px solid $green;
   color: $green;
 }
 
-.banner-without-action {
-  padding: 20px 20px 20px 20px;
+.banner-success-with-action {
+  @extend %banner-success;
+}
+
+.banner-success-without-action {
+  @extend %banner-success;
+  padding-bottom: 25px;
 }
 
 .banner-action {

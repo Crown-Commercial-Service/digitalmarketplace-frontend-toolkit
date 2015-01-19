@@ -3,14 +3,8 @@
 @import "_typography.scss";
 @import "_conditionals.scss";
 
-.summary-item {
-  width: 100%;
-  margin: 10px 0 15px 0;
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-.summary-item-heading {
+.summary-item-heading,
+%summary-item-heading {
   @include core-24;
   font-weight: bold;
   position: relative;
@@ -19,7 +13,8 @@
   @include box-sizing(border-box);
 }
 
-.first-summary-item-heading {
+.summary-item-heading-first {
+  @extend %summary-item-heading;
   padding-top: 0;
 }
 
@@ -43,54 +38,66 @@
   }
 }
 
-.summary-item-no-content {
-  border-top: 1px solid $grey-3;
+%summary-item-body {
+  width: 100%;
+  margin: 0 0 15px 0;
   border-bottom: 1px solid $grey-3;
+}
+
+p.summary-item-body {
+  @extend %summary-item-body;
+  @include core-19;
+  border-top: 1px solid $grey-3;
   padding-top: 10px;
   padding-bottom: 10px;
-  margin: 0 0 30px 0;
   max-width: 100%;
 }
 
-.summary-item-field-headings tr {
-  position: absolute;
-  left: -9999em;
-}
-
-.summary-item-body {
-  border-bottom: 1px solid $grey-3;
-  margin: 0 0 30px 0;
-}
-
-.summary-item-row {
+%summary-item-row {
   @include core-19;
   text-align: right;
   border-top: 1px solid $grey-3;
+}
 
-  td {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    vertical-align: top;
+table.summary-item-body {
+  @extend %summary-item-body;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  thead tr {
+    position: absolute;
+    left: -9999em;
+  }
+
+  tbody {
+    .summary-item-row {
+      @extend %summary-item-row;
+    }
+
+    td {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      vertical-align: top;
+    }
   }
 }
 
-.summary-item-content-field,
-.summary-item-action-field {
+%summary-item-field {
   white-space: nowrap;
-  padding-left: 20px;
   vertical-align: middle;
+  text-align: left;
 }
 
-.summary-item-name-field {
+.summary-item-field-name {
+  @extend %summary-item-field;
   width: 50%;
-  text-align: left;
   padding-right: 25px;
 }
 
-.summary-item-content-field {
+.summary-item-field-content {
+  @extend %summary-item-field;
   width: 50%;
   padding-left: 25px;
-  text-align: left;
 
   ul {
     margin: 0;
@@ -99,7 +106,14 @@
   }
 }
 
+.summary-item-field-action {
+  @extend %summary-item-field;
+  padding-left: 20px;
+}
+
 .summary-item-row-incomplete {
+  @extend %summary-item-row;
+
   .summary-item-name-field {
     span {
       padding-left: 10px;
@@ -107,7 +121,7 @@
     }
   }
 
-  .summary-item-content-field {
+  .summary-item-field-content {
     color: $accessible-orange;
     a {
       color: $accessible-orange;

@@ -124,11 +124,11 @@
 @-o-viewport {
   width: device-width; }
 
-.question {
+.question, .question-first {
   margin: 15px 0 0 0;
   clear: both; }
 
-.first-question {
+.question-first {
   margin-top: 0; }
 
 .question-heading, .question-heading-with-hint {
@@ -244,6 +244,13 @@
 @-o-viewport {
   width: device-width; }
 
+.checkbox-filter .head {
+  zoom: 1; }
+  .checkbox-filter .head:after {
+    content: "";
+    display: block;
+    clear: both; }
+
 .input-list .list-entry {
   vertical-align: middle; }
 .input-list .list-entry-remove {
@@ -318,13 +325,7 @@
 @-o-viewport {
   width: device-width; }
 
-.summary-item {
-  width: 100%;
-  margin: 10px 0 15px 0;
-  border-collapse: collapse;
-  border-spacing: 0; }
-
-.summary-item-heading {
+.summary-item-heading, .summary-item-heading-first {
   font-family: "nta", Arial, sans-serif;
   font-size: 24px;
   line-height: 1.25;
@@ -338,11 +339,11 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
   @media (max-width: 640px) {
-    .summary-item-heading {
+    .summary-item-heading, .summary-item-heading-first {
       font-size: 18px;
       line-height: 1.2; } }
 
-.first-summary-item-heading {
+.summary-item-heading-first {
   padding-top: 0; }
 
 .summary-item-heading-number {
@@ -372,23 +373,27 @@
       font-size: 16px;
       line-height: 1.25; } }
 
-.summary-item-no-content {
+p.summary-item-body, table.summary-item-body {
+  width: 100%;
+  margin: 0 0 15px 0;
+  border-bottom: 1px solid #dee0e2; }
+
+p.summary-item-body {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 400;
+  text-transform: none;
   border-top: 1px solid #dee0e2;
-  border-bottom: 1px solid #dee0e2;
   padding-top: 10px;
   padding-bottom: 10px;
-  margin: 0 0 30px 0;
   max-width: 100%; }
+  @media (max-width: 640px) {
+    p.summary-item-body {
+      font-size: 16px;
+      line-height: 1.25; } }
 
-.summary-item-field-headings tr {
-  position: absolute;
-  left: -9999em; }
-
-.summary-item-body {
-  border-bottom: 1px solid #dee0e2;
-  margin: 0 0 30px 0; }
-
-.summary-item-row {
+table.summary-item-body tbody .summary-item-row, .summary-item-row-incomplete {
   font-family: "nta", Arial, sans-serif;
   font-size: 19px;
   line-height: 1.31579;
@@ -397,37 +402,156 @@
   text-align: right;
   border-top: 1px solid #dee0e2; }
   @media (max-width: 640px) {
-    .summary-item-row {
+    table.summary-item-body tbody .summary-item-row, .summary-item-row-incomplete {
       font-size: 16px;
       line-height: 1.25; } }
-  .summary-item-row td {
+
+table.summary-item-body {
+  border-collapse: collapse;
+  border-spacing: 0; }
+  table.summary-item-body thead tr {
+    position: absolute;
+    left: -9999em; }
+  table.summary-item-body tbody td {
     padding-top: 10px;
     padding-bottom: 10px;
     vertical-align: top; }
 
-.summary-item-content-field, .summary-item-action-field {
+.summary-item-field-name, .summary-item-field-content, .summary-item-field-action {
   white-space: nowrap;
-  padding-left: 20px;
-  vertical-align: middle; }
+  vertical-align: middle;
+  text-align: left; }
 
-.summary-item-name-field {
+.summary-item-field-name {
   width: 50%;
-  text-align: left;
   padding-right: 25px; }
 
-.summary-item-content-field {
+.summary-item-field-content {
   width: 50%;
-  padding-left: 25px;
-  text-align: left; }
-  .summary-item-content-field ul {
+  padding-left: 25px; }
+  .summary-item-field-content ul {
     margin: 0;
     list-style-type: disc;
     padding: 0 0 0 20px; }
 
+.summary-item-field-action {
+  padding-left: 20px; }
+
 .summary-item-row-incomplete .summary-item-name-field span {
   padding-left: 10px;
   border-left: 3px solid #cd4c0b; }
-.summary-item-row-incomplete .summary-item-content-field {
+.summary-item-row-incomplete .summary-item-field-content {
   color: #cd4c0b; }
-  .summary-item-row-incomplete .summary-item-content-field a {
+  .summary-item-row-incomplete .summary-item-field-content a {
     color: #cd4c0b; }
+
+@-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
+  width: device-width; }
+
+.checkbox-filter .head {
+  zoom: 1; }
+  .checkbox-filter .head:after {
+    content: "";
+    display: block;
+    clear: both; }
+
+.filter {
+  margin-bottom: 30px;
+  background-color: #dee0e2;
+  padding: 0 5px; }
+  .filter:focus {
+    outline: 3px solid #ffbf47; }
+  .filter .legend {
+    font-family: "nta", Arial, sans-serif;
+    font-size: 19px;
+    line-height: 1.31579;
+    font-weight: 400;
+    text-transform: none;
+    display: -moz-inline-stack;
+    display: inline-block;
+    zoom: 1;
+    display: inline;
+    margin-right: 40px;
+    font-weight: bold;
+    padding-top: 10px; }
+    @media (max-width: 640px) {
+      .filter .legend {
+        font-size: 16px;
+        line-height: 1.25; } }
+
+.radio-filter, .text-filter {
+  padding: 0 10px; }
+  .radio-filter label, .text-filter label {
+    margin-right: 10px;
+    display: -moz-inline-stack;
+    display: inline-block;
+    zoom: 1;
+    display: inline; }
+
+.radio-filter input {
+  width: 14px; }
+
+.checkbox-filter {
+  padding-bottom: 5px;
+  /* Only apply these styles to chrome/firefox/safari and ie8 upwards
+     this is because checkbox filters are always open on ie6/7 so no
+     need to have closed styles or toggles. */
+  /* Redefine scrollbars so they are always visible in scrolling checkbox lists */ }
+  .checkbox-filter:hover {
+    background-color: #bfc1c3; }
+  .checkbox-filter ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px; }
+  .checkbox-filter ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5); }
+  .checkbox-filter .head {
+    padding: 0 5px;
+    position: relative; }
+    .checkbox-filter .head .controls {
+      position: absolute;
+      right: 5px;
+      top: 10px; }
+      .checkbox-filter .head .controls .clear-selected {
+        display: -moz-inline-stack;
+        display: inline-block;
+        zoom: 1;
+        display: inline;
+        margin-right: 5px; }
+        .checkbox-filter .head .controls .clear-selected.js-hidden {
+          left: -9999em;
+          position: relative;
+          height: 0px;
+          overflow: hidden; }
+  .checkbox-filter .checkbox-container {
+    position: relative;
+    margin-top: 5px;
+    background-color: #fff;
+    height: 200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /* IE6 doesn't support psuedo selectors so scoping to checkbox-container instead of using a psuedo selector */ }
+    .checkbox-filter .checkbox-container ul {
+      margin: 0;
+      padding: 0;
+      list-style: none; }
+      .checkbox-filter .checkbox-container ul ul {
+        padding-left: 20px; }
+    .checkbox-filter .checkbox-container label {
+      display: -moz-inline-stack;
+      display: inline-block;
+      zoom: 1;
+      display: inline;
+      padding: 7px 0 7px 30px;
+      width: 90%;
+      border-bottom: 1px solid #bfc1c3; }
+      .checkbox-filter .checkbox-container label:hover {
+        background-color: #f8f8f8; }
+    .checkbox-filter .checkbox-container input {
+      margin-left: -23px;
+      vertical-align: top;
+      position: absolute; }
