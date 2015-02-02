@@ -56,12 +56,12 @@
         height: 15px;
         width: 23px;
         @include inline-block;
-        background-image: image-url('toggle-sprite.png');
+        background-image: file-url('toggle-sprite.png');
         background-repeat:no-repeat;
         background-position:0 3px;
 
         @include device-pixel-ratio() {
-          background-image:image-url('toggle-sprite-retina.png');
+          background-image:file-url('toggle-sprite-retina.png');
           background-size: 32px 50px;
         }
       }

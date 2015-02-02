@@ -147,6 +147,12 @@
 @-o-viewport {
   width: device-width; }
 
+/*
+  The file-url helper requires the setting of a $path variable to the path of your app's static
+  assets endpoint. For example:
+
+  $path : '/assets/';
+*/
 #global-breadcrumb {
   background-color: #fff;
   max-width: 1020px;
