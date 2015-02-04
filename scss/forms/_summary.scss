@@ -94,6 +94,15 @@ table.summary-item-body {
   padding-right: 25px;
 }
 
+.summary-item-field-headings {
+
+  tr {
+    position: absolute;
+    left: -9999em;
+  }
+  
+}
+
 .summary-item-field-content {
   @extend %summary-item-field;
   width: 50%;
