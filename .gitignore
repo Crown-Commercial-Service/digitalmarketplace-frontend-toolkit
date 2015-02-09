@@ -1,4 +1,6 @@
 .DS_Store
 *.pyc
 __pycache__
-build_tools
+govuk_template
+pages
+gh-pages

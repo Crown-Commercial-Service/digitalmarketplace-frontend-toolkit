@@ -1,0 +1,102 @@
+pageTitle: List entry textbox - Forms - Test toolkit
+assetPath: ../govuk_template/assets/
+head: >
+  <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/forms/index.css" />
+bodyEnd: >
+  <script type="text/javascript" src="../public/javascripts/vendor/jquery-1.11.0.js"></script>
+  <script type="text/javascript" src="../public/javascripts/vendor/hogan-3.0.2.min.js"></script>
+  <script type="text/javascript" src="../public/javascripts/list-entry.js"></script>
+  <script type="text/javascript" src="../public/javascripts/word-counter.js"></script>
+  <script type="text/javascript" src="../public/javascripts/onready.js"></script>
+content: >
+  <div id="global-breadcrumb" class="header-context">
+    <nav>
+      <ol class="group" role="breadcrumbs">
+        <li>
+          <a href="../">Home</a>
+        </li>
+        <li>
+          <a href="./">Forms</a>
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <main role="main" id="content" class="wrapper">
+    <div id="wrapper">
+      <header class="page-heading">
+        <h1>List entry textbox</h1>
+      </header>
+      <form action="" method="get">
+        <fieldset class="question first-question" id="p5q1">
+          <legend class="question-heading  question-heading-with-hint ">
+            List entry textbox
+          </legend>
+          <p class="hint">
+            Include the technical features of your product, eg graphical workflow, remote access. (Maximum 10 words per feature. Maximum 10 features.)
+          </p>
+          <div class="input-list" data-list-item-name="feature">
+            <div class="list-entry">
+              <label for="p1q1val1" class="text-box-number-label">
+                <span class="visuallyhidden">feature number </span>1.
+              </label>
+              <input type="text" name="p1q1val1" id="p1q1val1" class="text-box" value="" />
+            </div>
+            <div class="list-entry">
+              <label for="p1q1val2" class="text-box-number-label">
+                <span class="visuallyhidden">feature number </span>2.
+              </label>
+              <input type="text" name="p1q1val2" id="p1q1val2" class="text-box" value="" />
+            </div>
+            <div class="list-entry">
+              <label for="p1q1val3" class="text-box-number-label">
+                <span class="visuallyhidden">feature number </span>3.
+              </label>
+              <input type="text" name="p1q1val3" id="p1q1val3" class="text-box" value="" />
+            </div>
+            <div class="list-entry">
+              <label for="p1q1val4" class="text-box-number-label">
+                <span class="visuallyhidden">feature number </span>4.
+              </label>
+              <input type="text" name="p1q1val4" id="p1q1val4" class="text-box" value="" />
+            </div>
+            <div class="list-entry">
+              <label for="p1q1val5" class="text-box-number-label">
+                <span class="visuallyhidden">feature number </span>5.
+              </label>
+              <input type="text" name="p1q1val5" id="p1q1val5" class="text-box" value="" />
+            </div>
+            <div class="list-entry">
+              <label for="p1q1val6" class="text-box-number-label">
+                <span class="visuallyhidden">feature number </span>6.
+              </label>
+              <input type="text" name="p1q1val6" id="p1q1val6" class="text-box" value="" />
+            </div>
+            <div class="list-entry">
+              <label for="p1q1val7" class="text-box-number-label">
+                <span class="visuallyhidden">feature number </span>7.
+              </label>
+              <input type="text" name="p1q1val7" id="p1q1val7" class="text-box" value="" />
+            </div>
+            <div class="list-entry">
+              <label for="p1q1val8" class="text-box-number-label">
+                <span class="visuallyhidden">feature number </span>8.
+              </label>
+              <input type="text" name="p1q1val8" id="p1q1val8" class="text-box" value="" />
+            </div>
+            <div class="list-entry">
+              <label for="p1q1val9" class="text-box-number-label">
+                <span class="visuallyhidden">feature number </span>9.
+              </label>
+              <input type="text" name="p1q1val9" id="p1q1val9" class="text-box" value="" />
+            </div>
+            <div class="list-entry">
+              <label for="p1q1val10" class="text-box-number-label">
+                <span class="visuallyhidden">feature number </span>10.
+              </label>
+              <input type="text" name="p1q1val10" id="p1q1val10" class="text-box" value="" />
+            </div>
+          </div>
+      </form>
+    </div>
+  </main>

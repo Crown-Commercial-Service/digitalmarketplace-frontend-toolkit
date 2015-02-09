@@ -1,7 +1,8 @@
 @import "_colours.scss";
-@import "_digital-marketplace-colours.scss";
 @import "_typography.scss";
 @import "_conditionals.scss";
+@import "_css3.scss";
+@import "_digital-marketplace-colours.scss";
 
 .summary-item-heading,
 %summary-item-heading {
@@ -99,7 +100,7 @@ table.summary-item-body {
     position: absolute;
     left: -9999em;
   }
-  
+
 }
 
 .summary-item-field-content {

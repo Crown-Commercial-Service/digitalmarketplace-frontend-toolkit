@@ -6,7 +6,9 @@
 @import "_measurements.scss";
 @import "_device-pixels.scss";
 @import "_shims.scss";
-@import "_not-ie-conditional.scss";
+@import "_typography.scss";
+
+@import "../_not-ie-conditional.scss";
 
 .filter {
   margin-bottom: $gutter;

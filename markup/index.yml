@@ -1,0 +1,21 @@
+pageTitle: Test toolkit
+assetPath: govuk_template/assets/
+head: >
+  <link rel="stylesheet" media="all" type="text/css" href="public/stylesheets/index.css" />
+content: >
+  <main role="main" id="content" class="wrapper">
+    <div id="wrapper">
+      <header class="page-heading page-heading-no-breadcrumb">
+        <h1>Test toolkit</h1>
+      </header>
+      <ul>
+        <li><a href="beta-banner.html">Beta banner</a></li>
+        <li><a href="breadcrumb.html">Breadcrumb</a></li>
+        <li><a href="page-headings">Page headings</a></li>
+        <li><a href="notification-banners.html">Notification banners</a></li>
+        <li><a href="buttons.html">Buttons</a></li>
+        <li><a href="grids">Grids</a></li>
+        <li><a href="forms">Forms</a></li>
+      </ul>
+    </div>
+  </main>

@@ -7,6 +7,7 @@
 @import "colours";
 @import "measurements";
 @import "conditionals";
+@import "typography";
 
 // By default, block labels stack vertically
 .selection-button {
@@ -73,4 +74,3 @@
 .selection-button-with-description {
   margin-top: 15px;
 }
-

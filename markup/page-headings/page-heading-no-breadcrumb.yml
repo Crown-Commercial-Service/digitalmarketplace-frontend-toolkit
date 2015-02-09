@@ -1,0 +1,12 @@
+pageTitle: Page heading, no breadcrumb - Page headings - Forms - Test toolkit
+assetPath: ../govuk_template/assets/
+head: >
+  <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/index.css" />
+content: >
+  <main role="main" id="content" class="wrapper">
+    <div id="wrapper">
+      <header class="page-heading page-heading-no-breadcrumb">
+        <h1>Page heading, no breadcrumb</h1>
+      </header>
+    </div>
+  </main>

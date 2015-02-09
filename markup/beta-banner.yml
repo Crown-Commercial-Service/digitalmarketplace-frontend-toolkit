@@ -1,0 +1,26 @@
+pageTitle: Beta banner - Test toolkit
+assetPath: govuk_template/assets/
+head: >
+  <link rel="stylesheet" media="all" type="text/css" href="public/stylesheets/index.css" />
+content: >
+  <div class="phase-banner phase-banner-beta">
+     <p>
+        <strong class="phase-tag">BETA</strong> This is a <a href="">beta service</a> - please send your feedback to <a href="" title="Please send feedback to">enquiries@digitalmarketplace.service.gov.uk</a>
+     </p>
+  </div>
+  <div id="global-breadcrumb" class="header-context">
+    <nav>
+      <ol class="group" role="breadcrumbs">
+        <li>
+          <a href="./">Home</a>
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <main role="main" id="content" class="wrapper">
+    <div id="wrapper">
+      <header class="page-heading page-heading-no-breadcrumb">
+        <h1>Beta banner</h1>
+      </header>
+    </div>
+  </main>

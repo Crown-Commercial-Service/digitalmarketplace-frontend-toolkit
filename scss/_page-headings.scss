@@ -1,5 +1,6 @@
 @import "_colours.scss";
 @import "_typography.scss";
+@import "_measurements.scss";
 
 // Mainly taken from http://govuk-component-guide.herokuapp.com/component/title
 .page-heading,
@@ -29,4 +30,3 @@
     margin-top: ($gutter * 1.5) + 44px;
   }
 }
-
