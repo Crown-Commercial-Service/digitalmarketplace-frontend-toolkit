@@ -41,7 +41,7 @@ content: >
       <h2 class="summary-item-heading">
           Summary item
       </h2>
-      <table class="summary-item">
+      <table class="summary-item-body">
         <thead class="summary-item-field-headings">
           <tr>
             <th scope="col">
@@ -52,12 +52,12 @@ content: >
             </th>
           </tr>
         </thead>
-        <tbody class="summary-item-body">
+        <tbody class="summary-item">
           <tr class="summary-item-row">
-            <td class="summary-item-name-field">
+            <td class="summary-item-field-name">
               <span>Summary item name</span>
             </td>
-            <td class="summary-item-content-field">
+            <td class="summary-item-field-content">
               Summary item content
             </td>
             <td class="summary-item-action-field">
@@ -72,7 +72,7 @@ content: >
       <p class="summary-item-top-level-action">
         <a href="" class="summary-change-link">Edit <span class="visuallyhidden"> Summary item with action</span></a>
       </p>
-      <table class="summary-item">
+      <table class="summary-item-body">
         <thead class="summary-item-field-headings">
           <tr>
             <th scope="col">
@@ -83,12 +83,12 @@ content: >
             </th>
           </tr>
         </thead>
-        <tbody class="summary-item-body">
+        <tbody>
           <tr class="summary-item-row">
-            <td class="summary-item-name-field">
+            <td class="summary-item-field-name">
               <span>Summary item name</span>
             </td>
-            <td class="summary-item-content-field">
+            <td class="summary-item-field-content">
               Summary item content
             </td>
             <td class="summary-item-action-field">
@@ -101,7 +101,7 @@ content: >
           <span class="summary-item-heading-number">1.</span>
           Summary item with number
       </h2>
-      <table class="summary-item">
+      <table class="summary-item-body">
         <thead class="summary-item-field-headings">
           <tr>
             <th scope="col">
@@ -112,12 +112,12 @@ content: >
             </th>
           </tr>
         </thead>
-        <tbody class="summary-item-body">
+        <tbody>
           <tr class="summary-item-row">
-            <td class="summary-item-name-field">
+            <td class="summary-item-field-name">
               <span>Summary item name</span>
             </td>
-            <td class="summary-item-content-field">
+            <td class="summary-item-field-content">
               Summary item content
             </td>
             <td class="summary-item-action-field">
@@ -129,7 +129,7 @@ content: >
       <h2 class="summary-item-heading">
           Summary item with name field as link
       </h2>
-      <table class="summary-item">
+      <table class="summary-item-body">
         <thead class="summary-item-field-headings">
           <tr>
             <th scope="col">
@@ -140,12 +140,12 @@ content: >
             </th>
           </tr>
         </thead>
-        <tbody class="summary-item-body">
+        <tbody>
           <tr class="summary-item-row">
-            <td class="summary-item-name-field">
+            <td class="summary-item-field-name">
               <a href="">Summary item name</a>
             </td>
-            <td class="summary-item-content-field">
+            <td class="summary-item-field-content">
               Summary item content
             </td>
             <td class="summary-item-action-field">
@@ -157,7 +157,7 @@ content: >
       <h2 class="summary-item-heading">
           Summary item with content field as list
       </h2>
-      <table class="summary-item">
+      <table class="summary-item-body">
         <thead class="summary-item-field-headings">
           <tr>
             <th scope="col">
@@ -168,12 +168,12 @@ content: >
             </th>
           </tr>
         </thead>
-        <tbody class="summary-item-body">
+        <tbody class="summary-item">
           <tr class="summary-item-row">
-            <td class="summary-item-name-field">
+            <td class="summary-item-field-name">
               <span>Summary item name</span>
             </td>
-            <td class="summary-item-content-field">
+            <td class="summary-item-field-content">
               <ul>
                 <li>Summary item content 1</li>
                 <li>Summary item content 2</li>
@@ -188,7 +188,7 @@ content: >
       <h2 class="summary-item-heading">
           Summary item with incomplete entry
       </h2>
-      <table class="summary-item">
+      <table class="summary-item-body">
         <thead class="summary-item-field-headings">
           <tr>
             <th scope="col">
@@ -199,20 +199,19 @@ content: >
             </th>
           </tr>
         </thead>
-        <tbody class="summary-item-body">
-          <tr class="summary-item-row summary-item-row-incomplete">
-            <td class="summary-item-name-field">
+        <tbody class="summary-item">
+          <tr class="summary-item-row-incomplete">
+            <td class="summary-item-field-name">
               <span>Summary item name</span>
             </td>
-            <td class="summary-item-content-field">
-              <a href="">Summary item content</a>
+            <td class="summary-item-field-content">
+              <a href="#">Summary item content</a>
             </td>
             <td class="summary-item-action-field">
-              <a href="">Change<span class="visuallyhidden"> Summary item</span></a>
+              <a href="#">Change<span class="visuallyhidden"> Summary item</span></a>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
   </main>
-
