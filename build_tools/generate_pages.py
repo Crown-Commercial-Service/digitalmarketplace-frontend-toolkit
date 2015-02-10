@@ -23,6 +23,7 @@ class Styleguide_publisher(object):
     self.compile_assets("scss")
     self.compile_assets("build_tools/assets/scss")
     self.copy_javascripts()
+    self.copy_images()
 
   def get_template_folder(self):
     template_handler = TemplateHandler()
@@ -72,6 +73,11 @@ class Styleguide_publisher(object):
     print "\nCOPYING JAVASCRIPTS\n"
     dir_util.copy_tree("javascripts", "pages/public/javascripts")
     dir_util.copy_tree("build_tools/assets/javascripts", "pages/public/javascripts/")
+    print "★ Done"
+
+  def copy_images(self):
+    print "\nCOPYING IMAGES\n"
+    dir_util.copy_tree("images", "pages/public/images")
     print "★ Done"
 
   def __get_output_dir(self, directory):
