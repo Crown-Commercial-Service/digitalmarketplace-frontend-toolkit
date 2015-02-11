@@ -3,8 +3,8 @@ var manifest = {
   support : [
     'javascripts/vendor/jquery.js',
     'javascripts/vendor/hogan.js',
-    '../../javascripts/list-entry.js',
-    '../../javascripts/word-counter.js'
+    '../../toolkit/javascripts/list-entry.js',
+    '../../toolkit/javascripts/word-counter.js'
   ],
   test : [
     '../unit/wordCountSpec.js',

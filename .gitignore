@@ -2,5 +2,5 @@
 *.pyc
 __pycache__
 govuk_template
-pages
+/pages
 gh-pages

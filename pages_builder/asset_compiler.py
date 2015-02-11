@@ -7,14 +7,14 @@ import shutil
 class AssetCompiler(object):
   def __init__(self):
     self.repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-    self.sass_src_root = os.path.join(self.repo_root, "scss")
+    self.sass_src_root = os.path.join(self.repo_root, "toolkit/scss")
     self.sass_dest_root = os.path.join(self.repo_root, "pages/public/stylesheets")
     self.sass_default_options = {
       "output_style" : "nested",
       "include_paths" : [
-        os.path.join(self.repo_root, "govuk_frontend_toolkit/stylesheets/"),
-        os.path.join(self.repo_root, "scss"),
-        os.path.join(self.repo_root, "build_tools/assets/scss")
+        os.path.join(self.repo_root, "pages_builer/govuk_frontend_toolkit/stylesheets/"),
+        os.path.join(self.repo_root, "toolkit/scss"),
+        os.path.join(self.repo_root, "pages_builer/assets/scss")
       ]
     }
     self.clean()

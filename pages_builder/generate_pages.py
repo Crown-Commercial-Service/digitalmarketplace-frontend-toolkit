@@ -15,13 +15,13 @@ class Styleguide_publisher(object):
   pages = []
 
   def __init__(self):
-    self.pages_dirname = "markup"
+    self.pages_dirname = "pages_builer/pages"
     self.output_dirname = "pages"
     self.template_dir = self.get_template_folder()
     self.template_view = self.get_template_view()
     self.render_pages()
-    self.compile_assets("scss")
-    self.compile_assets("build_tools/assets/scss")
+    self.compile_assets("toolkit/scss")
+    self.compile_assets("pages_builer/assets/scss")
     self.copy_javascripts()
     self.copy_images()
 
@@ -71,13 +71,13 @@ class Styleguide_publisher(object):
 
   def copy_javascripts(self):
     print "\nCOPYING JAVASCRIPTS\n"
-    dir_util.copy_tree("javascripts", "pages/public/javascripts")
-    dir_util.copy_tree("build_tools/assets/javascripts", "pages/public/javascripts/")
+    dir_util.copy_tree("toolkit/javascripts", "pages/public/javascripts")
+    dir_util.copy_tree("pages_builer/assets/javascripts", "pages/public/javascripts/")
     print "★ Done"
 
   def copy_images(self):
     print "\nCOPYING IMAGES\n"
-    dir_util.copy_tree("images", "pages/public/images")
+    dir_util.copy_tree("toolkit/images", "pages/public/images")
     print "★ Done"
 
   def __get_output_dir(self, directory):
