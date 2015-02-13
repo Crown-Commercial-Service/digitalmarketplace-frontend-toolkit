@@ -1,24 +1,24 @@
 pageTitle: Multi-selects - Forms - Test toolkit
 assetPath: ../govuk_template/assets/
 head: >
-  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/index.css" />
-  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/grids/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/grids/index.css" />
   <!--[if gt IE 8]><!-->
-    <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/forms/index.css" />
+    <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/forms/index.css" />
   <!--<![endif]-->
   <!--[if IE 6]>
-    <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/forms/index-ie6.css" />
+    <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/forms/index-ie6.css" />
   <![endif]-->
   <!--[if IE 7]>
-    <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/forms/index-ie7.css" />
+    <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/forms/index-ie7.css" />
   <![endif]-->
   <!--[if IE 8]>
-    <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/forms/index-ie8.css" />
+    <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/forms/index-ie8.css" />
   <![endif]-->
 bodyEnd: >
-  <script type="text/javascript" src="../gh-pages/public/javascripts/vendor/jquery-1.11.0.js"></script>
-  <script type="text/javascript" src="../javascripts/"></script>
-  <script type="text/javascript" src="../gh-pages/public/javascripts/onready.js"></script>
+  <script type="text/javascript" src="../public/javascripts/vendor/jquery-1.11.0.js"></script>
+  <script type="text/javascript" src="../public/javascripts/multi-selects.js"></script>
+  <script type="text/javascript" src="../public/javascripts/onready.js"></script>
 content: >
   <div id="global-breadcrumb" class="header-context">
     <nav>
@@ -130,7 +130,7 @@ content: >
                 </div>
               </div>
             </div>
-          </form> 
+          </form>
         </div>
         <div class="grid-cell two-third-column">
           <div id="js-search-results-info">

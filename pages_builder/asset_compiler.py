@@ -12,9 +12,9 @@ class AssetCompiler(object):
     self.sass_default_options = {
       "output_style" : "nested",
       "include_paths" : [
-        os.path.join(self.repo_root, "pages_builer/govuk_frontend_toolkit/stylesheets/"),
+        os.path.join(self.repo_root, "pages_builder/govuk_frontend_toolkit/stylesheets"),
         os.path.join(self.repo_root, "toolkit/scss"),
-        os.path.join(self.repo_root, "pages_builer/assets/scss")
+        os.path.join(self.repo_root, "pages_builder/assets/scss")
       ]
     }
     self.clean()

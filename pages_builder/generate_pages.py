@@ -15,13 +15,15 @@ class Styleguide_publisher(object):
   pages = []
 
   def __init__(self):
-    self.pages_dirname = "pages_builer/pages"
-    self.output_dirname = "pages"
+    self.repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    self.pages_dirname = os.path.join(self.repo_root, "pages_builder/pages")
+    self.output_dirname = os.path.join(self.repo_root, "pages")
     self.template_dir = self.get_template_folder()
     self.template_view = self.get_template_view()
+    self.asset_compiler = AssetCompiler()
     self.render_pages()
-    self.compile_assets("toolkit/scss")
-    self.compile_assets("pages_builer/assets/scss")
+    self.compile_assets(os.path.join(self.repo_root,"pages_builder/assets/scss"))
+    self.compile_assets(os.path.join(self.repo_root, "toolkit/scss"))
     self.copy_javascripts()
     self.copy_images()
 
@@ -37,7 +39,7 @@ class Styleguide_publisher(object):
 
   def render_pages(self):
 
-    print "\nCREATING PAGES\n"
+    print "\nCREATING PAGES from " + self.pages_dirname + " \n"
 
     if os.path.isdir(self.output_dirname) is False:
       print "★ Creating " + self.output_dirname
@@ -65,14 +67,13 @@ class Styleguide_publisher(object):
     open(output_file, "w+").write(page_render)
 
   def compile_assets(self, folder):
-    print "\nCOMPILING ASSETS\n"
-    asset_compiler = AssetCompiler()
-    asset_compiler.compile(folder)
+    print "\nCOMPILING ASSETS from " + folder + "\n"
+    self.asset_compiler.compile(folder)
 
   def copy_javascripts(self):
     print "\nCOPYING JAVASCRIPTS\n"
     dir_util.copy_tree("toolkit/javascripts", "pages/public/javascripts")
-    dir_util.copy_tree("pages_builer/assets/javascripts", "pages/public/javascripts/")
+    dir_util.copy_tree("pages_builder/assets/javascripts", "pages/public/javascripts/")
     print "★ Done"
 
   def copy_images(self):

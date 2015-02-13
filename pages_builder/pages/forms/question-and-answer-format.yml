@@ -1,8 +1,8 @@
 pageTitle: Question and answer format - Test toolkit
 assetPath: ../govuk_template/assets/
 head: >
-  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/index.css" />
-  <link rel="stylesheet" media="all" type="text/css" href="../gh-pages/public/stylesheets/forms/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/forms/index.css" />
 content: >
   <div id="global-breadcrumb" class="header-context">
     <nav>
