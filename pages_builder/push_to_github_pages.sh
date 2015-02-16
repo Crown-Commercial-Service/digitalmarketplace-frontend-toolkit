@@ -1,5 +1,22 @@
 #!/bin/sh
 set -e
+function usage {
+  cat << EOF
+
+  Usage: $0 <tag>
+
+  Build and push the documentation to Github pages based on the specified
+  version of the toolkit (typically a release tag, eg v0.0.1).
+
+EOF
+}
+
+if [ $# -eq 0 ]
+then
+  usage
+  exit 0
+fi
+
 current_branch=$(git rev-parse --abbrev-ref HEAD)
 build_from=$1
 destination_repo=git@github.com:alphagov/digitalmarketplace-frontend-toolkit.git
