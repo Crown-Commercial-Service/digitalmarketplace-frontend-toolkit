@@ -1,3 +1,4 @@
+set -e
 current_branch=$(git rev-parse --abbrev-ref HEAD)
 destination_branch=gh-pages
 echo "================================================================================"
@@ -15,7 +16,7 @@ echo
 echo "--------------------------------------------------------------------------------"
 echo "Deleting stuff that isn't needed for Github Pages"
 echo "--------------------------------------------------------------------------------"
-find . | grep -v "pages" | grep -v ".git" | xargs rm -rf
+ls -A ./ | grep -v "pages" | grep -v ".git" | xargs rm -rf
 mv pages/* ./
 rm -r pages
 echo "--------------------------------------------------------------------------------"
