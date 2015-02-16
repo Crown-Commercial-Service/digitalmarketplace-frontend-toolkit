@@ -411,13 +411,16 @@ table.summary-item-body {
     vertical-align: top; }
 
 .summary-item-field-name, .summary-item-field-content, .summary-item-field-action {
-  white-space: nowrap;
   vertical-align: middle;
   text-align: left; }
 
 .summary-item-field-name {
   width: 50%;
   padding-right: 25px; }
+
+.summary-item-field-headings tr {
+  position: absolute;
+  left: -9999em; }
 
 .summary-item-field-content {
   width: 50%;
