@@ -1,0 +1,21 @@
+@import "design-patterns/_buttons.scss";
+@import "_colours.scss";
+@import "_typography.scss";
+@import "_shims.scss";
+
+.button-save {
+  @include button;
+  @include core-19;
+  margin: 0 0 25px 0;
+}
+
+.button-secondary {
+  @include button($grey-3);
+  @include core-19;
+}
+
+.button-destructive {
+  @include button($red);
+  @include core-19;
+}
+
