@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-function usage {
+usage () {
   cat << EOF
 
   Usage: $0 <tag>
