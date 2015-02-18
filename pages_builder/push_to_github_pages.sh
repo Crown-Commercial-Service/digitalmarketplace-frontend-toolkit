@@ -43,7 +43,7 @@ echo "--------------------------------------------------------------------------
 rm -rf ./*
 cd ..
 python ./pages_builder/generate_pages.py
-sed -i -e "s/\[VERSION\]/Digital Marketplace Frontend Toolkit @ $build_from/g" ./pages/index.html
+#sed "s/<h1>(.*)</h1>/<h1>Digital Marketplace Frontend Toolkit @ $build_from</h1>/g" pages/index.html > pages/index.html
 echo "--------------------------------------------------------------------------------"
 echo "Commiting changes to generated pages"
 echo "--------------------------------------------------------------------------------"
