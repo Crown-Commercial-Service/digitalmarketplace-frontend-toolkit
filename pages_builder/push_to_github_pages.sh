@@ -49,5 +49,5 @@ echo "Commiting changes to generated pages"
 echo "--------------------------------------------------------------------------------"
 cd pages
 git add .
-git commit -m "Publishing Digital Marketplace Frontend Toolkit documentation from $build_from"
+git commit --allow-empty -m "Publishing Digital Marketplace Frontend Toolkit documentation from $build_from"
 git push origin $destination_branch
