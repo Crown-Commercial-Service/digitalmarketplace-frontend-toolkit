@@ -74,6 +74,7 @@ class Styleguide_publisher(object):
     print "\nCOPYING JAVASCRIPTS\n"
     dir_util.copy_tree("toolkit/javascripts", "pages/public/javascripts")
     dir_util.copy_tree("pages_builder/assets/javascripts", "pages/public/javascripts/")
+    dir_util.copy_tree("pages_builder/govuk_frontend_toolkit/javascripts", "pages/public/javascripts/govuk_frontend_toolkit/")
     print "★ Done"
 
   def copy_images(self):
