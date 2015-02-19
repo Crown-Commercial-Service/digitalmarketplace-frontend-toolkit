@@ -9,27 +9,22 @@ content: >
         <li>
           <a href="../">Home</a>
         </li>
+        <li>
+          <a href="./">Page headings</a>
+        </li>
       </ol>
     </nav>
   </div>
   <main role="main" id="content" class="wrapper">
     <div id="wrapper">
-      <header class="page-heading">
-        <h1>Page headings</h1>
+      <header class="page-heading-smaller">
+        <h1>Page heading (smaller)</h1>
       </header>
-      <ul>
-        <li>
-          <a href="page-heading.html">Page heading</a>
-        </li>
-        <li>
-          <a href="page-heading-no-breadcrumb.html">Page heading, no breadcrumb</a>
-        </li>
-        <li>
-          <a href="page-heading-with-context.html">Page heading with context</a>
-        </li>
-        <li>
-          <a href="page-heading-smaller.html">Page heading (smaller)</a>
-        </li>
-      </ul>
+      <header class="page-heading-smaller">
+        <p class="context">
+          Context
+        </p>
+        <h1>Page heading (smaller)</h1>
+      </header>
     </div>
   </main>
