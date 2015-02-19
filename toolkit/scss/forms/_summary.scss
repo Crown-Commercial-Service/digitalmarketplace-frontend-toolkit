@@ -123,11 +123,13 @@ table.summary-item-body {
 .summary-item-row-incomplete {
   @extend %summary-item-row;
 
-  .summary-item-name-field {
+  .summary-item-field-name {
+
     span {
       padding-left: 10px;
       border-left: 3px solid $accessible-orange;
     }
+
   }
 
   .summary-item-field-content {
