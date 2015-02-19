@@ -44,7 +44,7 @@ pip install -r ./pages_builder/requirements.txt
 ### Generate the pages locally
 
 ```
-python build_tools/generate_pages.py
+python pages_builder/generate_pages.py
 ```
 
 ### Run the server
