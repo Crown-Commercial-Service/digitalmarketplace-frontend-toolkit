@@ -22,9 +22,9 @@ content: >
       <div class="grid-row">
         <div class="two-third-column">
           <div class="search-result">
-            <h1 class="search-result-title">
+            <h2 class="search-result-title">
               <a href="#">Digital Marketplace frontend toolkit as a service</a>
-            </h1>
+            </h2>
             <p class="search-result-supplier">
               by Knight Technology Ltd.
             </p>
@@ -45,9 +45,9 @@ content: >
             </ul>
           </div>
           <div class="search-result">
-            <h1 class="search-result-title">
+            <h2 class="search-result-title">
               <a href="#">Digital Marketplace frontend toolkit as a service</a>
-            </h1>
+            </h2>
             <p class="search-result-supplier">
               by Knight Technology Ltd.
             </p>
@@ -68,9 +68,9 @@ content: >
             </ul>
           </div>
           <div class="search-result">
-            <h1 class="search-result-title">
+            <h2 class="search-result-title">
               <a href="#">Digital Marketplace frontend toolkit as a service</a>
-            </h1>
+            </h2>
             <p class="search-result-supplier">
               by Knight Technology Ltd.
             </p>
