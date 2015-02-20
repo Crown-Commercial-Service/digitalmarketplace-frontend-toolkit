@@ -1,0 +1,49 @@
+@import "_colours.scss";
+@import "_typography.scss";
+@import "_measurements.scss";
+
+%search-result,
+.search-result {
+  margin: 0;
+  padding: 0 0 $gutter 0;
+}
+
+.search-result-title {
+  @include heading-24;
+  margin: 0;
+}
+
+.search-result-supplier {
+  @include copy-19;
+  color: $secondary-text-colour;
+  margin: 0;
+}
+
+.search-result-excerpt {
+  @include copy-19;
+  margin: 0;
+}
+
+.search-result-highlighted-text {
+  padding: 0 2px;
+  display: inline-block;
+  background-color: $yellow-25;
+  background-image: file-url('images/search-result-highlight-mask.png');
+  background-position: 0 -6px;
+  background-repeat: repeat;
+}
+
+.search-result-tags {
+  margin: 5px 0 0 0;
+  padding: 0;
+}
+
+.search-result-tags-tag {
+  list-style: none;
+  display: inline-block;
+  background: $highlight-colour;
+  border: 1px dotted $grey-3;
+  padding: 2px 6px;
+  margin: 0 4px 0 0;
+  @include core-16;
+}
