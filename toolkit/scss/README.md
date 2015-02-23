@@ -59,7 +59,8 @@ For example `.button-save`.
 
 #### Usage
 
-All types should be built using @extend to extend a base abstract block (which does not appear in the final CSS).
+All types should be built using @extend to extend a base abstract block. This block appears in the
+final CSS but with a selector built from those of all types.
 
 For example:
 
