@@ -2,7 +2,6 @@
 @import "_typography.scss";
 @import "_measurements.scss";
 
-%search-result,
 .search-result {
   margin: 0;
   padding: 0 0 $gutter 0;
@@ -33,12 +32,12 @@
   background-repeat: repeat;
 }
 
-.search-result-tags {
+.search-result-metadata {
   margin: 5px 0 0 0;
   padding: 0;
 }
 
-.search-result-tags-tag {
+.search-result-metadata-item {
   list-style: none;
   display: inline-block;
   background: $highlight-colour;
