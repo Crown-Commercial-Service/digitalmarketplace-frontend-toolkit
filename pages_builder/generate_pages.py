@@ -27,6 +27,9 @@ class Styleguide_publisher(object):
     self.copy_javascripts()
     self.copy_images()
 
+  def get_version(self):
+    return open(os.path.join(self.repo_root, "VERSION.txt")).read().rstrip()
+
   def get_template_folder(self):
     template_handler = TemplateHandler()
     if template_handler.needs_update():
@@ -61,6 +64,10 @@ class Styleguide_publisher(object):
   def render_page(self, input_file):
     output_file = self.__get_page_filename(input_file)
     partial = yaml.load(open(input_file, "r").read())
+    # if the main index page, add the version number from the VERSION.txt file
+    if self.__is_main_index(output_file):
+      partial['content'] = pystache.render(partial['content'], { "version" : self.get_version() })
+
     page_render = pystache.render(self.template_view, partial)
     print "\n  " + input_file
     print "▸ " + output_file
@@ -93,6 +100,9 @@ class Styleguide_publisher(object):
   def __is_yaml(self, file):
     filename, extension = os.path.splitext(file)
     return extension == ".yml"
+
+  def __is_main_index(self, filename):
+    return filename == os.path.join(self.repo_root, "pages/index.html")
 
 if __name__ == "__main__":
   styleguide_publisher = Styleguide_publisher()
