@@ -43,11 +43,10 @@ echo "--------------------------------------------------------------------------
 rm -rf ./*
 cd ..
 python ./pages_builder/generate_pages.py
-#sed "s/<h1>(.*)</h1>/<h1>Digital Marketplace Frontend Toolkit @ $build_from</h1>/g" pages/index.html > pages/index.html
 echo "--------------------------------------------------------------------------------"
 echo "Commiting changes to generated pages"
 echo "--------------------------------------------------------------------------------"
 cd pages
 git add .
-git commit --allow-empty -m "Publishing Digital Marketplace Frontend Toolkit documentation from $build_from"
+git commit --allow-empty -m "Publish documentation from $build_from"
 git push origin $destination_branch
