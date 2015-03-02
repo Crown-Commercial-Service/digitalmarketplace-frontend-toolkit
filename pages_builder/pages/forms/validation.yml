@@ -35,10 +35,10 @@ content: >
           <label for="example-textbox" class="question-heading">
             What was the name of your first pet?
           </label>
-          <p class="validation-message">
+          <p class="validation-message" id="error-example-textbox">
             This question requires an answer
           </p>
-          <input class="text-box" id="example-textbox" type="text" />
+          <input class="text-box" id="example-textbox" type="text" aria-describedby="error-example-textbox" />
         </div>
       </div>
       <div class="validation-wrapper">
@@ -46,10 +46,10 @@ content: >
           <label for="example-textbox-2" class="question-heading">
             What street did you grow up on?
           </label>
-          <p class="validation-message">
+          <p class="validation-message" id="error-example-textbox-2">
             This question requires an answer
           </p>
-          <input class="text-box" id="example-textbox-2" type="text" />
+          <input class="text-box" id="example-textbox-2" type="text" aria-describedby="error-example-textbox-2" />
         </div>
       </div>
     </div>
