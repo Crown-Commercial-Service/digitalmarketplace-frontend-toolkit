@@ -23,8 +23,8 @@ content: >
       <header class="page-heading">
         <h1>Validation</h1>
       </header>
-      <div class="validation-masthead">
-        <h3 class="validation-masthead-heading">
+      <div class="validation-masthead" aria-labelledby="validation-masthead-heading">
+        <h3 class="validation-masthead-heading" id="validation-masthead-heading">
           There was a problem with your answer to the following questions
         </h3>
         <a href="#example-textbox" class="validation-masthead-link">What was the name of your first pet?</a>
