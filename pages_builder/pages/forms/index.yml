@@ -42,6 +42,9 @@ content: >
         <li>
           <a href="multi-selects.html">Multi-selects</a>
         </li>
+        <li>
+          <a href="validation.html">Validation</a>
+        </li>
       </ul>
     </div>
   </main>
