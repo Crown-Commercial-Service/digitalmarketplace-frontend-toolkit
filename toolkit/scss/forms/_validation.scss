@@ -1,0 +1,37 @@
+@import "colours";
+@import "typography";
+
+.validation-masthead {
+
+  border: 3px solid $red;
+  padding: 15px 20px 30px 20px;
+  margin-bottom: 30px;
+
+  .validation-masthead-heading {
+    @include heading-24;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  .validation-masthead-link,
+  .validation-masthead-link:link,
+  .validation-masthead-link:visited {
+    display: block;
+    @include core-19;
+    color: $red;
+  }
+
+}
+
+.validation-wrapper {
+  border-left: 3px solid $red;
+  padding: 0 0 5px 20px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.validation-message {
+  @include copy-19;
+  color: $red;
+  margin-bottom: 5px;
+}
