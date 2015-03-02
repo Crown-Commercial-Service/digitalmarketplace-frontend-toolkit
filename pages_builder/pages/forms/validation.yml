@@ -1,0 +1,58 @@
+pageTitle: Question and answer format - Test toolkit
+assetPath: ../govuk_template/assets/
+head: >
+  <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/index.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/forms/_questions.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/forms/_textboxes.css" />
+  <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/forms/_validation.css" />
+content: >
+  <div id="global-breadcrumb" class="header-context">
+    <nav>
+      <ol class="group" role="breadcrumbs">
+        <li>
+          <a href="../">Home</a>
+        </li>
+        <li>
+          <a href="./">Forms</a>
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <main role="main" id="content" class="wrapper">
+    <div id="wrapper">
+      <header class="page-heading">
+        <h1>Validation</h1>
+      </header>
+      <form>
+        <div class="validation-masthead" aria-labelledby="validation-masthead-heading">
+          <h3 class="validation-masthead-heading" id="validation-masthead-heading">
+            There was a problem with your answer to the following questions
+          </h3>
+          <a href="#example-textbox" class="validation-masthead-link">What was the name of your first pet?</a>
+          <a href="#example-textbox-2" class="validation-masthead-link">What street did you grow up on?</a>
+        </div>
+        <div class="validation-wrapper">
+          <div class="question">
+            <label for="example-textbox" class="question-heading">
+              What was the name of your first pet?
+            </label>
+            <p class="validation-message" id="error-example-textbox">
+              This question requires an answer
+            </p>
+            <input class="text-box" id="example-textbox" type="text" aria-describedby="error-example-textbox" />
+          </div>
+        </div>
+        <div class="validation-wrapper">
+          <div class="question">
+            <label for="example-textbox-2" class="question-heading">
+              What street did you grow up on?
+            </label>
+            <p class="validation-message" id="error-example-textbox-2">
+              This question requires an answer
+            </p>
+            <input class="text-box" id="example-textbox-2" type="text" aria-describedby="error-example-textbox-2" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
