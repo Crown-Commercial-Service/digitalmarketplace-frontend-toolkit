@@ -1,8 +1,5 @@
 pageTitle: Documents - Test toolkit
 assetPath: govuk_template/assets/
-head: >
-  <link rel="stylesheet" media="all" type="text/css" href="public/stylesheets/index.css" />
-  <link rel="stylesheet" media="all" type="text/css" href="public/stylesheets/_document.css" />
 content: >
   <div id="global-breadcrumb" class="header-context">
     <nav>

@@ -1,10 +1,5 @@
 pageTitle: Question and answer format - Test toolkit
 assetPath: ../govuk_template/assets/
-head: >
-  <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/index.css" />
-  <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/forms/_questions.css" />
-  <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/forms/_textboxes.css" />
-  <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/forms/_validation.css" />
 content: >
   <div id="global-breadcrumb" class="header-context">
     <nav>

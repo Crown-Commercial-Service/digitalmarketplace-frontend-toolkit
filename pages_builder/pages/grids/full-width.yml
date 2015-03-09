@@ -1,15 +1,5 @@
 pageTitle: "One column grid: 100% - Grids - Test toolkit"
 assetPath: ../govuk_template/assets/
-head: >
-  <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/index.css" />
-  <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/grids/index.css" />
-  <style>
-    .grid-column {
-      padding: 0 15px;
-      border: solid black 1px;
-      min-height: 40em;
-    }
-  </style>
 content: >
   <div id="global-breadcrumb" class="header-context">
     <nav>
@@ -28,8 +18,8 @@ content: >
       <header class="page-heading">
         <h1>One column grid: 100%</h1>
       </header>
-      <div class="grid-row">
-        <div class="grid-column">
+      <div class="grid-row grid-example">
+        <div class="one-column">
           <h2>One column</h2>
         </div>
       </div>

@@ -68,6 +68,23 @@ class Styleguide_publisher(object):
     if self.__is_main_index(output_file):
       partial['content'] = pystache.render(partial['content'], { "version" : self.get_version() })
 
+    partial['head'] = """
+        <!--[if !IE]><!-->
+        <link rel="stylesheet" href="/public/stylesheets/index.css "/>
+        <!--<![endif]-->
+        <!--[if IE 6]>
+        <link rel="stylesheet" href="/public/stylesheets/index-ie6.css "/>
+        <![endif]-->
+        <!--[if IE 7]>
+        <link rel="stylesheet" href="/public/stylesheets/index-ie7.css "/>
+        <![endif]-->
+        <!--[if IE 8]>
+        <link rel="stylesheet" href="/public/stylesheets/index-ie8.css "/>
+        <![endif]-->
+        <!--[if IE 9]>
+        <link rel="stylesheet" href="/public/stylesheets/index-ie9.css "/>
+        <![endif]-->
+    """
     page_render = pystache.render(self.template_view, partial)
     print "\n  " + input_file
     print "▸ " + output_file
