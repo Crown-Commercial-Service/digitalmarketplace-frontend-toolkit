@@ -1,9 +1,5 @@
 pageTitle: Search result - Test toolkit
 assetPath: govuk_template/assets/
-head: >
-  <link rel="stylesheet" media="all" type="text/css" href="public/stylesheets/index.css" />
-  <link rel="stylesheet" media="all" type="text/css" href="public/stylesheets/grids/index.css" />
-  <link rel="stylesheet" media="all" type="text/css" href="public/stylesheets/_search-result-wrapper.css" />
 content: >
   <div id="global-breadcrumb" class="header-context">
     <nav>

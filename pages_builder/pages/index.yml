@@ -1,7 +1,5 @@
 pageTitle: Test toolkit
 assetPath: govuk_template/assets/
-head: >
-  <link rel="stylesheet" media="all" type="text/css" href="public/stylesheets/index.css" />
 content: >
   <main role="main" id="content" class="wrapper">
     <div id="wrapper">
@@ -17,6 +15,7 @@ content: >
         <li><a href="grids">Grids</a></li>
         <li><a href="forms">Forms</a></li>
         <li><a href="search-result.html">Search result</a></li>
+        <li><a href="document.html">Documents</a></li>
       </ul>
     </div>
   </main>

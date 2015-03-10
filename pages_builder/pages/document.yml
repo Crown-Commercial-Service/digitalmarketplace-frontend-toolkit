@@ -1,0 +1,45 @@
+pageTitle: Documents - Test toolkit
+assetPath: govuk_template/assets/
+content: >
+  <div id="global-breadcrumb" class="header-context">
+    <nav>
+      <ol class="group" role="breadcrumbs">
+        <li>
+          <a href="./">Home</a>
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <main role="main" id="content" class="wrapper">
+    <div id="wrapper">
+      <header class="page-heading">
+        <h1>Document list</h1>
+      </header>
+      <ul class='document-list'>
+        <li class='document-list-item'>
+          <a href="#" class='document-link-with-icon'>
+            <span class='document-icon'>PDF<span> document:</span></span>
+            Service definition
+          </a>
+        </li>
+        <li class='document-list-item'>
+          <a href="#" class='document-link-with-icon'>
+            <span class='document-icon'>PDF<span> document:</span></span>
+            Terms and conditions
+          </a>
+        </li>
+        <li class='document-list-item'>
+          <a href="#" class='document-link'>
+            Document without icon
+          </a>
+        </li>
+      </ul>
+      <h2>
+        Single document (not in a list)
+      </h2>
+      <a href="#" class='document-link-with-icon'>
+        <span class='document-icon'>CSV<span> document:</span></span>
+        Service definition
+      </a>
+    </div>
+  </main>

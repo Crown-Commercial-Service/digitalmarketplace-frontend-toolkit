@@ -1,0 +1,89 @@
+@import "_colours.scss";
+@import "_typography.scss";
+@import "_not-ie-conditional.scss";
+@import "_shims.scss";
+
+.document-list {
+  margin: 0;
+  padding: 0 0 30px 0;
+}
+
+.document-list-item {
+  list-style: none;
+}
+
+%document-link,
+.document-link {
+  @include core-19;
+  margin: 5px 0;
+  padding: 10px 0 10px 0;
+  position: relative;
+  @include inline-block;
+  width: 100%; /* Trigger HasLayout on older IEs */
+}
+
+.document-link-with-icon {
+
+  @extend %document-link;
+  padding-left: 65px;
+
+  @include ie-lte(8) {
+    padding-left: 55px;
+  }
+
+}
+
+.document-icon {
+
+  @include bold-16;
+  border: 1px solid $border-colour;
+  color: $grey-1;
+  padding: 7px 13px 5px 5px;
+  margin: -18px 10px 5px 0;
+  display: block;
+  position: absolute;
+  top: 51%;
+  left: 0;
+  background: transparent;
+  text-transform: lowercase;
+  text-decoration: none;
+
+  @include ie-lte(8) {
+    padding-right: 7px;
+  }
+
+  &:before {
+    content: '.'; /* Insert this with CSS so that it doesn't get read out */
+  }
+
+  @include not-ie-lte(8) {
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      height: 10px;
+      width: 10px;
+      text-transform: lowercase;
+      background: $white; /* For browsers that don't support linear gradient */
+      background: linear-gradient(
+        45deg,
+        $white,
+        $white 47%,
+        $border-colour 48%,
+        $border-colour 53%,
+        $white 53%
+      );
+      box-shadow: -1px 1px 0 0 $border-colour, -2px 2px 5px 0 rgba($border-colour, 0.2);
+    }
+
+  }
+
+  span { /* Text for screen readers, visually hidden */
+    position: absolute;
+    top: 0;
+    left: -999em;
+  }
+
+}

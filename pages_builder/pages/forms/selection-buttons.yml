@@ -1,8 +1,5 @@
 pageTitle: Selection buttons - Test toolkit
 assetPath: ../govuk_template/assets/
-head: >
-  <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/index.css" />
-  <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/forms/index.css" />
 bodyEnd: >
   <script type="text/javascript" src="../public/javascripts/vendor/jquery-1.11.0.js"></script>
   <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/vendor/polyfills/bind.js"></script>
