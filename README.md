@@ -8,7 +8,8 @@ The documentation can be accessed at [http://alphagov.github.io/digitalmarketpla
 
 ### Static assets
 
-The pages use `pages` as the root directory so you can include any assets from `./pages/public/javascripts` or `./pages/public/images` directly.
+The pages use `pages` as the root directory so you can include any assets from `/pages/public/javascripts` or `/pages/public/images` directly. If `pages` is not your root directory then you need to set the path to
+'pages' in an environment variable, eg: `ROOT_DIRECTORY='/digitalmarketplace-frontend-toolkit'`
 
 ### Example markup
 
