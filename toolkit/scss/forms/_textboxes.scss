@@ -2,6 +2,7 @@
 @import "_conditionals.scss";
 @import "_typography.scss";
 @import "_css3.scss";
+@import "_shims.scss";
 
 .text-box {
   @include core-19;
@@ -26,14 +27,14 @@
 }
 
 .text-box-percentage {
-  display: inline-block;
+  @include inline-block;
   width: 6em;
   text-align: right;
   padding-right: 5px;
 }
 
 .text-box-percentage-label {
-  display: inline-block;
+  @include inline-block;
   @include core-19;
 }
 
