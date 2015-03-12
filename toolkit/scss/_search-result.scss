@@ -1,6 +1,7 @@
 @import "_colours.scss";
 @import "_typography.scss";
 @import "_measurements.scss";
+@import "_shims.scss";
 
 .search-result {
   margin: 0;
@@ -25,7 +26,7 @@
 
 .search-result-highlighted-text {
   padding: 0 2px;
-  display: inline-block;
+  @include inline-block;
   background-color: $yellow-25;
   background-image: file-url('search-result-highlight-mask.png');
   background-position: 0 -6px;
@@ -39,7 +40,7 @@
 
 .search-result-metadata-item {
   list-style: none;
-  display: inline-block;
+  @include inline-block;
   background: $highlight-colour;
   border: 1px dotted $grey-3;
   padding: 2px 6px;
