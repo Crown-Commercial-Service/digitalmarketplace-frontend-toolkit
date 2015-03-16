@@ -14,8 +14,7 @@
 
 .search-result-title {
 
-  @include core-19;
-  font-weight: bold;
+  @include bold-19;
   margin: 0;
 
   a {
@@ -44,7 +43,7 @@
 }
 
 .search-result-metadata {
-  margin: 0 0 0 0;
+  margin: 0;
   padding: 0;
 }
 
