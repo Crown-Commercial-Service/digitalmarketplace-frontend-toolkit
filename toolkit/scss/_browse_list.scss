@@ -1,0 +1,30 @@
+@import "_colours.scss";
+@import "_typography.scss";
+@import "_measurements.scss";
+
+.browse-list {
+  padding: 0;
+}
+
+.browse-list-item {
+  list-style: none;
+  margin-bottom: $gutter;
+}
+
+.browse-list-item-link {
+  display: block;
+  @include heading-27;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.browse-list-item-body {
+  margin: 0;
+  @include copy-19;
+}
+
+.browse-list-item-subtext {
+  margin: 0;
+  @include core-14;
+  color: $secondary-text-colour;
+}

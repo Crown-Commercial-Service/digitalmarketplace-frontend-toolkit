@@ -1,0 +1,54 @@
+pageTitle: Browse list - Test toolkit
+assetPath: govuk_template/assets/
+content: >
+  <div id="global-breadcrumb" class="header-context">
+    <nav>
+      <ol class="group" role="breadcrumbs">
+        <li>
+          <a href="./">Home</a>
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <main role="main" id="content" class="wrapper">
+    <div id="wrapper">
+      <header class="page-heading">
+        <h1>Browse list</h1>
+      </header>
+      <div class="grid-row">
+        <div class="two-third-column">
+
+          <ul class="browse-list">
+            <li class="browse-list-item">
+              <a class="browse-list-item-link" href="#">Find cloud technology and support</a>
+              <p class="browse-list-item-body">
+                eg web hosting or IT health checks
+              </p>
+              <p class="browse-list-item-subtext">
+                Procurement framework: G-Cloud
+              </p>
+            </li>
+            <li class="browse-list-item">
+              <a class="browse-list-item-link" href="#">Find specialists to work on digital projects</a>
+              <p class="browse-list-item-body">
+                eg web hosting or IT health checks
+              </p>
+              <p class="browse-list-item-subtext">
+                Procurement framework: Digital Services
+              </p>
+            </li>
+            <li class="browse-list-item">
+              <a class="browse-list-item-link" href="#">Software as a Service</a>
+              <p class="browse-list-item-body">
+                Find applications or services that are run over the internet or in the cloud
+              </p>
+              <p class="browse-list-item-subtext">
+                eg accounting, email
+              </p>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </main>
