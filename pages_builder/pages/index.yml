@@ -1,12 +1,15 @@
-pageTitle: Test toolkit
+pageTitle: Digital Marketplace frontend toolkit
 assetPath: govuk_template/assets/
 content: >
   <main role="main" id="content" class="wrapper">
     <div id="wrapper">
       <header class="page-heading page-heading-no-breadcrumb">
-        <h1>Digital Marketplace front end toolkit, version {{ version }}</h1>
+        <p class="context">
+          <a class="version-link" href="https://github.com/alphagov/digitalmarketplace-frontend-toolkit/releases/tag/v{{ version }}">Version {{ version }}</a>
+        </p>
+        <h1>Digital Marketplace frontend toolkit</h1>
       </header>
-      <ul>
+      <ul class="index-list">
         <li><a href="beta-banner.html">Beta banner</a></li>
         <li><a href="breadcrumb.html">Breadcrumb</a></li>
         <li><a href="page-headings.html">Page headings</a></li>
