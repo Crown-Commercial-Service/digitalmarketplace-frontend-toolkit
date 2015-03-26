@@ -1,116 +1,177 @@
-/* 
- * Taken from the version in https://github.com/alphagov/finder-frontend
- *
- * Version: https://github.com/alphagov/finder-frontend/commit/9c7a4e8796063462af48822e7af71a9ffb0d650d
- */
-(function() {
+/*
+* Taken from the component in https://github.com/alphagov/static
+*
+* Version: https://github.com/alphagov/static/commit/b01d121bffad6d472ee5fb9b7ceeec581c1979f7
+*/
+(function ($) {
   "use strict";
-
   window.GOVUK = window.GOVUK || {};
 
-  function CheckboxFilter(options){
-    var allowCollapsible = (typeof ieVersion == "undefined" || ieVersion > 7) ? true : false;
+  function OptionSelect(options){
+   /* This JavaScript provides two functional enhancements to option-select components:
+     1) A link that clears all of the checkboxes (referred to here as the "clearing link")
+     2) Open/closing of the list of checkboxes - this is not provided for ie6 and 7 as the performance is too janky.
+   */
 
-    this.$filter = options.el;
-    this.$checkboxResetter = this.$filter.find('.clear-selected');
-    this.$checkboxes = this.$filter.find("input[type='checkbox']");
+   this.$optionSelect = options.$el;
+   this.$options = this.$optionSelect.find("input[type='checkbox']");
+   this.$labels = this.$optionSelect.find("label");
+   this.$optionsContainer = this.$optionSelect.find('.options-container');
+   this.$optionList = this.$optionsContainer.children('.js-auto-height-inner');
 
-    this.$checkboxResetter.on('click', this.resetCheckboxes.bind(this));
+   // Build clearing link
+   this.$clearingLink = this.attachClearingLink();
+   this.updateClearingLink();
 
-    this.$checkboxes.on('click', this.updateCheckboxResetter.bind(this));
-    this.$checkboxes.on('focus', this.ensureFinderIsOpen.bind(this));
+   // Attach event listeners for clearing
+   this.$clearingLink.on('click', this.resetOptions.bind(this));
+   this.$options.on('click', this.updateClearingLink.bind(this));
 
-    // setupHeight is called on open, but filters containing checked checkboxes will already be open
-    if (this.isOpen() || !allowCollapsible) {
-      this.setupHeight();
-    }
+   // Performance in ie 6/7 is not good enough to support animating the opening/closing
+   // so do not allow option-selects to be collapsible in this case
+   var allowCollapsible = (typeof ieVersion == "undefined" || ieVersion > 7) ? true : false;
+   if(allowCollapsible){
 
-    if(allowCollapsible){
-      // set up open/close listeners
-      this.$filter.find('.head').on('click', this.toggleFinder.bind(this));
-      this.$filter.on('focus', this.listenForKeys.bind(this));
-      this.$filter.on('blur', this.stopListeningForKeys.bind(this));
-    }
+     // Add js-collapsible class to parent for CSS
+     this.$optionSelect.addClass('js-collapsible');
+
+     // Add the little arrow toggle image
+     this.attachOpenCloseToggleIndicator();
+
+     // Add open/close listeners
+     this.$optionSelect.find('.js-container-head').on('click', this.toggleOptionSelect.bind(this));
+
+     // Add key listeners the option-select is fully usable with a keyboard
+     this.$optionSelect.on('focus', this.listenForKeys.bind(this));
+     this.$optionSelect.on('blur', this.stopListeningForKeys.bind(this));
+
+     // Add a listener to the checkboxes so if you navigate to them with the keyboard you can definitely see them
+     this.$options.on('focus', this.open.bind(this));
+
+     this.close();
+   }
   }
 
-  CheckboxFilter.prototype.setupHeight = function setupHeight(){
-    var checkboxContainer = this.$filter.find('.checkbox-container');
-    var checkboxList = checkboxContainer.children('.js-auto-height-inner');
-    var initCheckboxContainerHeight = checkboxContainer.height();
-    var height = checkboxList.height();
-
-    if (height < initCheckboxContainerHeight) {
-      // Resize if the list is smaller than its container
-      checkboxContainer.height(height);
-
-    } else if (checkboxList.height() < initCheckboxContainerHeight + 50) {
-      // Resize if the list is only slightly bigger than its container
-      checkboxContainer.height(checkboxList.height());
-    }
-  }
-
-  CheckboxFilter.prototype.isOpen = function isOpen(){
-    return !this.$filter.hasClass('closed');
-  }
-
-  CheckboxFilter.prototype.open = function open(){
-    this.$filter.removeClass('closed');
-    this.setupHeight();
+  OptionSelect.prototype.attachClearingLink = function attachClearingLink(){
+   this.$optionSelect.find('.js-container-head').append('<a class="js-clear-selected">clear</a>');
+   return this.$optionSelect.find('.js-clear-selected');
   };
 
-  CheckboxFilter.prototype.close = function close(){
-    this.$filter.addClass('closed');
+  OptionSelect.prototype.resetOptions = function resetOptions(){
+   this.$options.prop({
+     indeterminate: false,
+     checked: false
+   }).trigger("change");
+   this.$clearingLink.addClass('js-hidden');
+
+   // Prevent the event from bubbling as there is a click handler on the parent
+   // to open/close the option-select.
+   return false;
   };
 
-  CheckboxFilter.prototype.listenForKeys = function listenForKeys(){
-    this.$filter.keypress(this.checkForSpecialKeys.bind(this));
+  OptionSelect.prototype.updateClearingLink = function updateClearingLink(){
+   var anyOptions = this.$options.is(":checked"),
+       clearingLinkHidden = this.$clearingLink.hasClass('js-hidden');
+
+   if (anyOptions && clearingLinkHidden) {
+     this.$clearingLink.removeClass('js-hidden');
+   } else if (!anyOptions && !clearingLinkHidden) {
+     this.$clearingLink.addClass('js-hidden');
+   }
   };
 
-  CheckboxFilter.prototype.checkForSpecialKeys = function checkForSpecialKeys(e){
-    if(e.keyCode == 13) {
-
-      // keyCode 13 is the return key.
-      this.toggleFinder();
-    }
+  OptionSelect.prototype.attachOpenCloseToggleIndicator = function attachOpenCloseToggleIndicator(){
+   this.$optionSelect.find('.js-container-head').append('<div class="js-toggle-indicator"></div>');
   };
 
-  CheckboxFilter.prototype.stopListeningForKeys = function stopListeningForKeys(){
-    this.$filter.unbind('keypress');
+  OptionSelect.prototype.toggleOptionSelect = function toggleOptionSelect(){
+   if (this.isClosed()) {
+     this.open();
+   } else {
+     this.close();
+   }
   };
 
-  CheckboxFilter.prototype.ensureFinderIsOpen = function ensureFinderIsOpen(){
-    if (this.$filter.hasClass('closed')) {
-      this.open();
-    }
+  OptionSelect.prototype.open = function open(){
+   if (this.isClosed()) {
+     this.$optionSelect.removeClass('js-closed');
+     this.setupHeight();
+   }
   };
 
-  CheckboxFilter.prototype.toggleFinder = function toggleFinder(){
-    if (this.$filter.hasClass('closed')) {
-      this.open();
-    } else {
-      this.close();
-    }
+  OptionSelect.prototype.close = function close(){
+   this.$optionSelect.addClass('js-closed');
   };
 
-  CheckboxFilter.prototype.resetCheckboxes = function resetCheckboxes(){
-    this.$filter.find("input[type='checkbox']").prop({
-      indeterminate: false,
-      "checked": false
-    }).trigger("change");
-    this.$checkboxResetter.addClass('js-hidden');
-    return false;
+  OptionSelect.prototype.isClosed = function isClosed(){
+   return this.$optionSelect.hasClass('js-closed');
   };
 
-  CheckboxFilter.prototype.updateCheckboxResetter = function updateCheckboxResetter(){
-    var anyCheckedBoxes = this.$checkboxes.is(":checked"),
-        checkboxResetterHidden = this.$checkboxResetter.hasClass('js-hidden');
-
-    if (anyCheckedBoxes && checkboxResetterHidden) {
-      this.$checkboxResetter.removeClass('js-hidden');
-    } else if (!anyCheckedBoxes && !checkboxResetterHidden) {
-      this.$checkboxResetter.addClass('js-hidden');
-    }
+  OptionSelect.prototype.setContainerHeight = function setContainerHeight(height){
+   this.$optionsContainer.css({
+     'max-height': 'none', // Have to clear the 'max-height' set by the CSS in order for 'height' to be applied
+     'height': height
+   });
   };
 
-  GOVUK.CheckboxFilter = CheckboxFilter;
-}());
+  OptionSelect.prototype.isLabelVisible = function isLabelVisible(index, option){
+   var $label = $(option);
+   var initialOptionContainerHeight = this.$optionsContainer.height();
+   var optionListOffsetTop = this.$optionList.offset().top;
+   var distanceFromTopOfContainer = $label.offset().top - optionListOffsetTop;
+   return distanceFromTopOfContainer < initialOptionContainerHeight;
+  };
+
+  OptionSelect.prototype.getVisibleLabels = function getVisibleLabels(){
+   return this.$labels.filter(this.isLabelVisible.bind(this));
+  };
+
+  OptionSelect.prototype.setupHeight = function setupHeight(){
+   var initialOptionContainerHeight = this.$optionsContainer.height();
+   var height = this.$optionList.height();
+   var lastVisibleLabel, position, topBorder, topPadding, lineHeight;
+
+   if (height < initialOptionContainerHeight + 50) {
+     // Resize if the list is only slightly bigger than its container
+     this.setContainerHeight(height);
+     return;
+   }
+
+   // Resize to cut last item cleanly in half
+   lastVisibleLabel = this.getVisibleLabels().last();
+   position = lastVisibleLabel.position().top;
+   topBorder = parseInt(lastVisibleLabel.css('border-top-width'), 10);
+   topPadding = parseInt(lastVisibleLabel.css('padding-top'), 10);
+   if ("normal" == lastVisibleLabel.css('line-height')) {
+     lineHeight = parseInt(lastVisibleLabel.css('font-size'), 10);
+   } else {
+     lineHeight = parseInt(lastVisibleLabel.css('line-height'), 10);
+   }
+
+   this.setContainerHeight(position + topBorder + topPadding + (lineHeight / 2));
+
+  };
+
+  OptionSelect.prototype.listenForKeys = function listenForKeys(){
+   this.$optionSelect.keypress(this.checkForSpecialKeys.bind(this));
+  };
+
+  OptionSelect.prototype.checkForSpecialKeys = function checkForSpecialKeys(e){
+   if(e.keyCode == 13) {
+
+     // keyCode 13 is the return key.
+     this.toggleOptionSelect();
+   }
+  };
+
+  OptionSelect.prototype.stopListeningForKeys = function stopListeningForKeys(){
+   this.$optionSelect.unbind('keypress');
+  };
+
+  GOVUK.OptionSelect = OptionSelect;
+
+  // Instantiate an option select for each one found on the page
+  var filters = $('.govuk-option-select').map(function(){
+   return new GOVUK.OptionSelect({$el:$(this)});
+  });
+})(jQuery);

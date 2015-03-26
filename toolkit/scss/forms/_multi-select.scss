@@ -1,6 +1,6 @@
-// Taken from https://github.com/alphagov/finder-frontend
-// Specifically: https://github.com/alphagov/finder-frontend/blob/master/app/assets/stylesheets/finder_frontend.scss#L170
-// Version: https://github.com/alphagov/finder-frontend/commit/39494b5904de51a1b913f659289d2df87e9936e6
+// Taken from https://github.com/alphagov/static
+// Specifically: https://github.com/alphagov/static/blob/master/app/assets/stylesheets/govuk-component/_option-select.scss
+// Version: https://github.com/alphagov/static/commit/60e04853df0d4d0aa3335ccc7634bf2996f439b4
 
 @import "_colours.scss";
 @import "_measurements.scss";
@@ -8,142 +8,126 @@
 @import "_shims.scss";
 @import "_typography.scss";
 
-@import "../_not-ie-conditional.scss";
+.govuk-option-select {
+  background-color: $grey-3;
+  padding: 0 5px 5px 5px;
 
-.filter {
-  margin-bottom: $gutter;
-  background-color:$grey-3;
-  padding: 0 5px;
+  @include media(desktop){
+    /* Redefine scrollbars on desktop where these lists are scrollable
+    so they are always visible in option lists */
+    ::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 7px;
+    }
+    ::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: rgba(0,0,0,.5);
+      -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+    }
+  }
 
   &:focus {
-    outline: 3px solid #ffbf47;
+    outline: 3px solid $yellow;
   }
 
-  .legend {
+  .container-head {
+    padding: 0 5px;
+  }
+
+  .option-select-label {
     @include core-19;
-    @include inline-block;
-    margin-right:40px;
-    font-weight:bold;
+    margin-right: 40px;
+    font-weight: bold;
     padding-top: $gutter-one-third;
   }
-}
-.radio-filter,
-.text-filter {
-  padding: 0 $gutter-one-third;
 
-  label {
-    margin-right:$gutter-one-third;
-    @include inline-block;
+  .options-container {
+    position:relative;
+    background-color: $page-colour;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-top: 5px;
+    @include media(desktop){
+      max-height: 200px;
+    }
+
+    label {
+      @include inline-block;
+      padding: 7px 0 7px 30px;
+      border-bottom: 1px solid $border-colour;
+      width: 100%;
+      cursor:pointer;
+
+      @include media(desktop){
+        /* leave room for the scroll bars on desktop*/
+        width: 90%;
+      }
+      &:hover {
+        background-color: $highlight-colour;
+      }
+    }
+
+    input {
+      margin-left: -23px;
+      vertical-align: top;
+      position: absolute;
+    }
   }
-}
-.radio-filter input {
-  width:14px;
-}
 
-.checkbox-filter {
-  padding-bottom: 5px;
-  &:hover {
-    background-color:$grey-2;
-  }
+  .js-enabled & {
 
-  /* Only apply these styles to chrome/firefox/safari and ie8 upwards
-     this is because checkbox filters are always open on ie6/7 so no
-     need to have closed styles or toggles. */
-  @include not-ie-lte(7) {
-    .js-enabled & {
-      .head {
+    /* styles for collapsibleness. .js-collapsible is added by the javascript if the browser is not ie6/7 in which case these don't collapse */
+    &.js-collapsible {
+      &:hover {
+        background-color: $grey-2;
         cursor:pointer;
       }
-      .toggle {
-        height: 15px;
-        width: 23px;
-        @include inline-block;
-        background-image: file-url('toggle-sprite.png');
-        background-repeat:no-repeat;
-        background-position:0 3px;
 
-        @include device-pixel-ratio() {
-          background-image:file-url('toggle-sprite-retina.png');
-          background-size: 32px 50px;
-        }
-      }
-      &.closed {
-        .checkbox-container {
+      &.js-closed {
+        .options-container {
           position:absolute;
           left:-9999px;
           padding:0;
           margin:0;
         }
-        .toggle {
+        .js-toggle-indicator {
           background-position: 0 -33px;
         }
       }
-    }
-  }
-  /* Redefine scrollbars so they are always visible in scrolling checkbox lists */
-  ::-webkit-scrollbar {
-    -webkit-appearance: none;
-    width: 7px;
-  }
-  ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background-color: rgba(0,0,0,.5);
-    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
-  }
 
-  .head {
-    @extend %contain-floats;
-    padding: 0 5px;
-    position:relative;
-
-    .controls {
-      position:absolute;
-      right:5px;
-      top:10px;
-      .clear-selected {
+      .js-toggle-indicator {
         @include inline-block;
-        margin-right: 5px;
-
-        &.js-hidden {
-          left: -9999em;
-          position: relative;
-          height:0px;
-          overflow:hidden;
+        height: 15px;
+        width: 23px;
+        background-image: image-url('govuk-component/option-select-toggle-sprite.png');
+        background-repeat:no-repeat;
+        background-position:0 3px;
+        position:absolute;
+        right:3px;
+        top:10px;
+        @include device-pixel-ratio() {
+          background-image:image-url('govuk-component/option-select-toggle-sprite-retina.png');
+          background-size: 32px 50px;
         }
       }
     }
-  }
-  .checkbox-container {
-    position:relative;
-    margin-top: 5px;
-    background-color: $white;
-    height:200px;
-    overflow-y:scroll;
-    overflow-x:hidden;
 
-    ul {
-      margin:0;
-      padding:0;
-      list-style:none;
-      ul {
-        padding-left: $gutter-two-thirds;
-      }
+    /* styles for clear link */
+    .js-container-head {
+      position:relative;
     }
-    label {
+
+    .js-clear-selected {
       @include inline-block;
-      padding: 7px 0 7px 30px;
-      width: 90%;
-      border-bottom: 1px solid $border-colour;
-
-      &:hover {
-        background-color: $grey-4;
-      }
-    }
-    /* IE6 doesn't support psuedo selectors so scoping to checkbox-container instead of using a psuedo selector */
-    input {
-      margin-left: -23px;
-      vertical-align: top;
       position:absolute;
+      right: 23px;
+      top:7px;
+      cursor:pointer;
+      &.js-hidden {
+        left: -9999em;
+        height:0px;
+        overflow:hidden;
+      }
     }
   }
 }
