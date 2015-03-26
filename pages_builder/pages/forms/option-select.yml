@@ -1,0 +1,83 @@
+pageTitle: Option selects
+assetPath: ../govuk_template/assets/
+bodyEnd: >
+  <script type="text/javascript" src="../public/javascripts/vendor/jquery-1.11.0.js"></script>
+  <script type="text/javascript" src="../public/javascripts/option-select.js"></script>
+  <script type="text/javascript" src="../public/javascripts/onready.js"></script>
+examples:
+  -
+    title: With overflowing options
+    markup: >
+      <div class="govuk-option-select">
+        <div class="container-head js-container-head">
+          <div class="option-select-label">Market sector</div>
+        </div>
+        <div class="options-container">
+          <div class="js-auto-height-inner">
+            <label for="aerospace">
+              <input name="market_sector[]" value="aerospace" id="aerospace" type="checkbox" aria-controls="">
+              Aerospace
+            </label>
+            <label for="agriculture-environment-and-natural-resources">
+              <input name="market_sector[]" value="agriculture-environment-and-natural-resources" id="agriculture-environment-and-natural-resources" type="checkbox"  aria-controls="">
+              Agriculture, environment and natural resources
+            </label>
+            <label for="building-and-construction">
+              <input name="market_sector[]" value="building-and-construction" id="building-and-construction" type="checkbox" aria-controls="">
+              Building and construction
+            </label>
+            <label for="chemicals">
+              <input name="market_sector[]" value="chemicals" id="chemicals" type="checkbox" aria-controls="">
+              Chemicals
+            </label>
+            <label for="clothing-footwear-and-fashion">
+              <input name="market_sector[]" value="clothing-footwear-and-fashion" id="clothing-footwear-and-fashion" type="checkbox" aria-controls="">
+              Clothing, footwear and fashion
+            </label>
+            <label for="defence">
+              <input name="market_sector[]" value="defence" id="defence" type="checkbox" aria-controls="">
+              Defence
+            </label>
+            <label for="distribution-and-service-industries">
+              <input name="market_sector[]" value="distribution-and-service-industries" id="distribution-and-service-industries" type="checkbox" aria-controls="">
+              Distribution and Service Industries
+            </label>
+            <label for="electronics-industry">
+              <input name="market_sector[]" value="electronics-industry" id="electronics-industry" type="checkbox" aria-controls="">
+              Electronics Industry
+            </label>
+            <label for="energy">
+              <input name="market_sector[]" value="energy" id="energy" type="checkbox" aria-controls="">
+              Energy
+            </label>
+            <label for="engineering">
+              <input name="market_sector[]" value="engineering" id="engineering" type="checkbox" aria-controls="">
+              Engineering
+            </label>
+          </div>
+        </div>
+      </div>
+  -
+    title: With a prechecked option, without overflow
+    markup: >
+      <div class="govuk-option-select">
+        <div class="container-head js-container-head">
+          <div class="option-select-label">Market sector</div>
+        </div>
+        <div class="options-container">
+          <div class="js-auto-height-inner">
+            <label for="carrot">
+              <input name="vegetables[]" value="carrot" id="carrot" type="checkbox" aria-controls="" checked="checked">
+              Carrot
+            </label>
+            <label for="potato">
+              <input name="vegetables[]" value="potato" id="potato" type="checkbox"  aria-controls="">
+              Potato
+            </label>
+            <label for="swede">
+              <input name="vegetables[]" value="swede" id="swede" type="checkbox" aria-controls="">
+              Swede
+            </label>
+          </div>
+        </div>
+      </div>
