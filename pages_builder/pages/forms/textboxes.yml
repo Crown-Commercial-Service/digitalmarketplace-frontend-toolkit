@@ -1,30 +1,16 @@
-pageTitle: Textboxes - Test toolkit
+pageTitle: Textboxes
 assetPath: ../govuk_template/assets/
-content: >
-  <div id="global-breadcrumb" class="header-context">
-    <nav>
-      <ol class="group" role="breadcrumbs">
-        <li>
-          <a href="../">Home</a>
-        </li>
-        <li>
-          <a href="./">Forms</a>
-        </li>
-      </ol>
-    </nav>
-  </div>
-  <main role="main" id="content" class="wrapper">
-    <div id="wrapper">
-      <header class="page-heading">
-        <h1>Textboxes</h1>
-      </header>
-      <form action="" method="get">
+examples:
+  -
+    markup: >
         <div class="question first-question">
           <label for="question-1" class="question-heading">
             Textbox
           </label>
           <input type="text" name="question-1" id="question-1" class="text-box" value="" />
         </div>
+  -
+    markup: >
         <div class="question">
           <label for="question-2" class="question-heading-with-hint">
             Textbox with hint
@@ -34,12 +20,11 @@ content: >
           </p>
           <input type="text" name="question-2" id="question-2" class="text-box" value="" />
         </div>
+  -
+    markup: >
         <div class="question">
           <label for="question-1" class="question-heading">
             Large textbox
           </label>
           <textarea class="text-box text-box-large" name="question-3" id="question-3">Large textbox</textarea>
         </div>
-      </form>
-    </div>
-  </main>

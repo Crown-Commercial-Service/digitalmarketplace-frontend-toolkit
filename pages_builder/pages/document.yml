@@ -1,20 +1,9 @@
-pageTitle: Documents - Test toolkit
+pageTitle: Documents
 assetPath: govuk_template/assets/
-content: >
-  <div id="global-breadcrumb" class="header-context">
-    <nav>
-      <ol class="group" role="breadcrumbs">
-        <li>
-          <a href="./">Home</a>
-        </li>
-      </ol>
-    </nav>
-  </div>
-  <main role="main" id="content" class="wrapper">
-    <div id="wrapper">
-      <header class="page-heading">
-        <h1>Document list</h1>
-      </header>
+examples:
+  -
+    title: Document list
+    markup: >
       <ul class='document-list'>
         <li class='document-list-item'>
           <a href="#" class='document-link-with-icon'>
@@ -34,12 +23,10 @@ content: >
           </a>
         </li>
       </ul>
-      <h2>
-        Single document (not in a list)
-      </h2>
+  -
+    title: Single document (not in a list)
+    markup: >
       <a href="#" class='document-link-with-icon'>
         <span class='document-icon'>CSV<span> document:</span></span>
         Service definition
       </a>
-    </div>
-  </main>

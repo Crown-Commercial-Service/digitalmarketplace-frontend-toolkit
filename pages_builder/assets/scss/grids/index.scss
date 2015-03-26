@@ -30,5 +30,11 @@
     inset -15px 0 0 0 rgba($red, 0.1),
     inset  15px 0 0 0 rgba($red, 0.1),
     inset 0 0 0 1px rgba($red, 0.3);
-  min-height: 40em;
+  min-height: 20vh;
+
+  p {
+    margin: 0;
+    color: rgba($red, 0.3);
+  }
+
 }

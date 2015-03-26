@@ -1,29 +1,16 @@
-pageTitle: Summary - Forms - Test toolkit
+pageTitle: Summary
 assetPath: ../govuk_template/assets/
-content: >
-  <div id="global-breadcrumb" class="header-context">
-    <nav>
-      <ol class="group" role="breadcrumbs">
-        <li>
-          <a href="../">Home</a>
-        </li>
-        <li>
-          <a href="./">Forms</a>
-        </li>
-      </ol>
-    </nav>
-  </div>
-  <main role="main" id="content" class="wrapper">
-    <div id="wrapper">
-      <header class="page-heading">
-        <h1>Summary</h1>
-      </header>
+examples:
+  -
+    markup: >
       <h2 class="summary-item-heading first-summary-item-heading">
           Summary item with no entries
       </h2>
       <p class="hint summary-item-no-content">
         You haven't submitted any services yet.
       </p>
+  -
+    markup: >
       <h2 class="summary-item-heading">
           Summary item
       </h2>
@@ -52,6 +39,8 @@ content: >
           </tr>
         </tbody>
       </table>
+  -
+    markup: >
       <h2 class="summary-item-heading">
           Summary item with action
       </h2>
@@ -83,6 +72,8 @@ content: >
           </tr>
         </tbody>
       </table>
+  -
+    markup: >
       <h2 class="summary-item-heading">
           <span class="summary-item-heading-number">1.</span>
           Summary item with number
@@ -112,6 +103,8 @@ content: >
           </tr>
         </tbody>
       </table>
+  -
+    markup: >
       <h2 class="summary-item-heading">
           Summary item with name field as link
       </h2>
@@ -140,6 +133,8 @@ content: >
           </tr>
         </tbody>
       </table>
+  -
+    markup: >
       <h2 class="summary-item-heading">
           Summary item with content field as list
       </h2>
@@ -171,6 +166,8 @@ content: >
           </tr>
         </tbody>
       </table>
+  -
+    markup: >
       <h2 class="summary-item-heading">
           Summary item with incomplete entry
       </h2>
@@ -199,5 +196,3 @@ content: >
           </tr>
         </tbody>
       </table>
-    </div>
-  </main>
