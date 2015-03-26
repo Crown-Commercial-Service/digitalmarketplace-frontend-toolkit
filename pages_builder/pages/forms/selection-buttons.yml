@@ -1,29 +1,13 @@
-pageTitle: Selection buttons - Test toolkit
+pageTitle: Selection buttons
 assetPath: ../govuk_template/assets/
 bodyEnd: >
   <script type="text/javascript" src="../public/javascripts/vendor/jquery-1.11.0.js"></script>
   <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/vendor/polyfills/bind.js"></script>
   <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/govuk/selection-buttons.js"></script>
   <script type="text/javascript" src="../public/javascripts/onready.js"></script>
-content: >
-  <div id="global-breadcrumb" class="header-context">
-    <nav>
-      <ol class="group" role="breadcrumbs">
-        <li>
-          <a href="../">Home</a>
-        </li>
-        <li>
-          <a href="./">Forms</a>
-        </li>
-      </ol>
-    </nav>
-  </div>
-  <main role="main" id="content" class="wrapper">
-    <div id="wrapper">
-      <header class="page-heading">
-        <h1>Selection buttons</h1>
-      </header>
-      <form action="" method="get">
+examples:
+  -
+    markup: >
         <fieldset class="question first-question">
           <legend class="question-heading">Radio buttons</legend>
           <label class="selection-button">
@@ -43,6 +27,8 @@ content: >
             <input type="radio" name="radio-1" id="radio-4" value="val-4" />
           </label>
         </fieldset>
+  -
+    markup: >
         <fieldset class="question">
           <legend class="question-heading">Checkboxes</legend>
           <label class="selection-button">
@@ -58,6 +44,8 @@ content: >
             <input type="checkbox" name="checkbox-3" id="checkbox-3" value="val-3" />
           </label>
         </fieldset>
+  -
+    markup: >
         <fieldset class="question">
           <legend class="question-heading">Boolean</legend>
           <label class="selection-button selection-button-boolean">
@@ -69,6 +57,8 @@ content: >
             <input type="radio" name="boolean-1" id="boolean-2" value="val-2" />
           </label>
         </fieldset>
+  -
+    markup: >
         <fieldset class="question">
           <legend class="question-heading question-heading-with-hint">Checkbox with hint and description</legend>
           <p class="hint">
@@ -84,6 +74,3 @@ content: >
             entirely over the internet, without having to pay for your own hardware.
           </p>
         </fieldset>
-      </form>
-    </div>
-  </main>

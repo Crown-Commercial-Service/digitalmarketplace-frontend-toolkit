@@ -9,11 +9,11 @@ content: >
       <ul>
         <li><a href="beta-banner.html">Beta banner</a></li>
         <li><a href="breadcrumb.html">Breadcrumb</a></li>
-        <li><a href="page-headings">Page headings</a></li>
+        <li><a href="page-headings.html">Page headings</a></li>
         <li><a href="notification-banners.html">Notification banners</a></li>
         <li><a href="buttons.html">Buttons</a></li>
-        <li><a href="grids">Grids</a></li>
-        <li><a href="forms">Forms</a></li>
+        <li><a href="grids.html">Grids</a></li>
+        <li><a href="forms/">Forms</a></li>
         <li><a href="search-result.html">Search result</a></li>
         <li><a href="document.html">Documents</a></li>
         <li><a href="browse-list.html">Browse list</a></li>

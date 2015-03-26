@@ -81,6 +81,27 @@ class Styleguide_publisher(object):
             partial['content'] = pystache.render(
                 partial['content'], {"version": self.get_version()}
             )
+        else:
+            if "examples" in partial:
+                partial['content'] = pystache.render(
+                    """
+                        <main role="main" id="content" class="wrapper">
+                            <div id="wrapper">
+                                <header class="page-heading">
+                                    <h1>{{pageTitle}}</h1>
+                                </header>
+                                {{#examples}}
+                                    {{#title}}<h2>{{title}}</h2>{{/title}}
+                                    {{{markup}}}
+                                    <pre>{{markup}}</pre>
+                                {{/examples}}
+                            </div>
+                        </main>
+                    """, {
+                        "examples": partial['examples'],
+                        "pageTitle": partial['pageTitle']
+                    }
+                )
         root = os.getenv("ROOT_DIRECTORY") or ""
 
         partial['head'] = (

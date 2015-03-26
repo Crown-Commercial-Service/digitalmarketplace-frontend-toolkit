@@ -1,4 +1,4 @@
-pageTitle: Textbox with word count - Forms - Test toolkit
+pageTitle: Textbox with word count
 assetPath: ../govuk_template/assets/
 bodyEnd: >
   <script type="text/javascript" src="../public/javascripts/vendor/jquery-1.11.0.js"></script>
@@ -6,34 +6,15 @@ bodyEnd: >
   <script type="text/javascript" src="../javascripts/list-entry.js"></script>
   <script type="text/javascript" src="../javascripts/word-counter.js"></script>
   <script type="text/javascript" src="../public/javascripts/onready.js"></script>
-content: >
-  <div id="global-breadcrumb" class="header-context">
-    <nav>
-      <ol class="group" role="breadcrumbs">
-        <li>
-          <a href="../">Home</a>
-        </li>
-        <li>
-          <a href="./">Forms</a>
-        </li>
-      </ol>
-    </nav>
-  </div>
-  <main role="main" id="content" class="wrapper">
-    <div id="wrapper">
-      <header class="page-heading">
-        <h1>Textbox with word count</h1>
-      </header>
-      <form action="" method="get">
-        <div class="word-count question first-question">
-          <label for="p4q2-text-box" class="question-heading question-heading-with-hint">
-            Textbox with word count
-          </label>
-          <p class="hint">
-            Please provide a short description. (Maximum 50 words.)
-          </p>
-          <textarea class="text-box text-box-large" name="question-1" id="question-1" data-max-length-in-words="50"></textarea>
-        </div>
-      </form>
-    </div>
-  </main>
+examples:
+  -
+    markup: >
+      <div class="word-count question first-question">
+        <label for="p4q2-text-box" class="question-heading question-heading-with-hint">
+          Describe your service
+        </label>
+        <p class="hint">
+          Please provide a short description. (Maximum 50 words.)
+        </p>
+        <textarea class="text-box text-box-large" name="question-1" id="question-1" data-max-length-in-words="50"></textarea>
+      </div>

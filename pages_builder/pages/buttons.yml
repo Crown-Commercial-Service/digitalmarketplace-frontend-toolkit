@@ -1,28 +1,15 @@
-pageTitle: Buttons - Test toolkit
+pageTitle: Buttons
 assetPath: govuk_template/assets/
-content: >
-  <div id="global-breadcrumb" class="header-context">
-    <nav>
-      <ol class="group" role="breadcrumbs">
-        <li>
-          <a href="./">Home</a>
-        </li>
-      </ol>
-    </nav>
-  </div>
-  <main role="main" id="content" class="wrapper">
-    <div id="wrapper">
-      <header class="page-heading">
-        <h1>Buttons</h1>
-      </header>
-      <p>
-        <button class="button-save">Save button</button>
-      </p>
-      <p>
-        <button class="button-secondary">Secondary button</button>
-      </p>
-      <p>
-        <button class="button-destructive">Destructive button</button>
-      </p>
-    </div>
-  </main>
+examples:
+  -
+    title: Save button
+    markup: >
+      <button class="button-save">Save and continue</button>
+  -
+    title: Secondary button
+    markup: >
+      <button class="button-secondary">Return service to drafts</button>
+  -
+    title: Destructive button
+    markup: >
+      <button class="button-destructive">Delete this user</button>

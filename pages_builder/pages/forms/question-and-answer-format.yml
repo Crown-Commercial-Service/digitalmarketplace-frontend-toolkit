@@ -1,36 +1,26 @@
-pageTitle: Question and answer format - Test toolkit
+pageTitle: Question and answer format
 assetPath: ../govuk_template/assets/
 content: >
-  <div id="global-breadcrumb" class="header-context">
-    <nav>
-      <ol class="group" role="breadcrumbs">
-        <li>
-          <a href="../">Home</a>
-        </li>
-        <li>
-          <a href="./">Forms</a>
-        </li>
-      </ol>
-    </nav>
-  </div>
-  <main role="main" id="content" class="wrapper">
-    <div id="wrapper">
-      <header class="page-heading">
-        <h1>Question and answer format</h1>
-      </header>
+examples:
+  -
+    title: Question with a single answer
+    markup: >
       <form action="" method="get">
         <div class="question first-question">
           <label for="question-1" class="question-heading question-heading-with-hint">
-            Question a with single answer
+            What was the name of your first pet?
           </label>
           <p class="hint">
             the question and answer are wrapped in a div with the question the answer field's label
           </p>
           <input type="text" name="question-1" id="question-1" class="text-box" value="" />
         </div>
+  -
+    title: Question with multiple answers
+    markup: >
         <fieldset class="question" id="question-2">
           <legend class="question-heading question-heading-with-hint ">
-            Question with multiple answers
+            What are your favourite colours?
           </legend>
           <p class="hint">
             the question and answer are wrapped in a fieldset with the question its legend
@@ -56,6 +46,3 @@ content: >
             Answer 5
           </label>
         </fieldset>
-      </form>
-    </div>
-  </main>

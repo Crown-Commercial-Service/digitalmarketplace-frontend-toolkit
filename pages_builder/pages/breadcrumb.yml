@@ -1,28 +1,23 @@
-pageTitle: Breadcrumb - Test toolkit
+pageTitle: Breadcrumb
 assetPath: govuk_template/assets/
-content: >
-  <div id="global-breadcrumb" class="header-context">
-    <nav>
-      <ol class="group" role="breadcrumbs">
-        <li>
-          <a href="./">Home</a>
-        </li>
-        <li>
-          <a href="">Item 1</a>
-        </li>
-        <li>
-          <a href="">Item 2</a>
-        </li>
-        <li>
-          <a href="">Item 3</a>
-        </li>
-      </ol>
-    </nav>
-  </div>
-  <main role="main" id="content" class="wrapper">
-    <div id="wrapper">
-      <header class="page-heading">
-        <h1>Breadcrumb</h1>
-      </header>
-    </div>
-  </main>
+examples:
+  -
+    markup: >
+      <div id="global-breadcrumb" class="header-context">
+        <nav>
+          <ol class="group" role="breadcrumbs">
+            <li>
+              <a href="./">Home</a>
+            </li>
+            <li>
+              <a href="#">Item 1</a>
+            </li>
+            <li>
+              <a href="#">Item 2</a>
+            </li>
+            <li>
+              Item 3
+            </li>
+          </ol>
+        </nav>
+      </div>
