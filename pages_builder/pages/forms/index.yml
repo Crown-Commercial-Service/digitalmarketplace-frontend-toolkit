@@ -1,24 +1,12 @@
-pageTitle: Textboxes - Forms - Test toolkit
+pageTitle: Forms
 assetPath: ../govuk_template/assets/
 content: >
-  <div id="global-breadcrumb" class="header-context">
-    <nav>
-      <ol class="group" role="breadcrumbs">
-        <li>
-          <a href="../">Home</a>
-        </li>
-        <li>
-          Forms
-        </li>
-      </ol>
-    </nav>
-  </div>
   <main role="main" id="content" class="wrapper">
     <div id="wrapper">
       <header class="page-heading">
         <h1>Forms</h1>
       </header>
-      <ul>
+      <ul class="index-list">
         <li>
           <a href="textboxes.html">Textboxes</a>
         </li>

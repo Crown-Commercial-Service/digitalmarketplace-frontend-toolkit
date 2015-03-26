@@ -1,4 +1,4 @@
-pageTitle: List entry textbox - Forms - Test toolkit
+pageTitle: List entry
 assetPath: ../govuk_template/assets/
 bodyEnd: >
   <script type="text/javascript" src="../public/javascripts/vendor/jquery-1.11.0.js"></script>
@@ -8,7 +8,6 @@ bodyEnd: >
   <script type="text/javascript" src="../public/javascripts/onready.js"></script>
 examples:
   -
-    title: List entry
     markup: >
       <fieldset class="question first-question" id="p5q1">
         <legend class="question-heading  question-heading-with-hint ">

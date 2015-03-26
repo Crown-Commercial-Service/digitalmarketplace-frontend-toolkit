@@ -82,13 +82,27 @@ class Styleguide_publisher(object):
                 partial['content'], {"version": self.get_version()}
             )
         else:
+            partial['pageHeading'] = partial['pageTitle']
+            partial['pageTitle'] = (
+                partial['pageTitle'] +
+                " - Digital Marketplace frontend toolkit"
+            )
             if "examples" in partial:
                 partial['content'] = pystache.render(
                     """
+                        <div id="global-breadcrumb" class="header-context">
+                          <nav>
+                            <ol class="group" role="breadcrumbs">
+                              <li>
+                                <a href="/">Home</a>
+                              </li>
+                            </ol>
+                          </nav>
+                        </div>
                         <main role="main" id="content" class="wrapper">
                             <div id="wrapper">
                                 <header class="page-heading">
-                                    <h1>{{pageTitle}}</h1>
+                                    <h1>{{pageHeading}}</h1>
                                 </header>
                                 {{#examples}}
                                     {{#title}}<h2>{{title}}</h2>{{/title}}
@@ -99,7 +113,8 @@ class Styleguide_publisher(object):
                         </main>
                     """, {
                         "examples": partial['examples'],
-                        "pageTitle": partial['pageTitle']
+                        "pageTitle": partial['pageTitle'],
+                        "pageHeading": partial['pageHeading']
                     }
                 )
         root = os.getenv("ROOT_DIRECTORY") or ""
