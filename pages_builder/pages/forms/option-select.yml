@@ -2,7 +2,7 @@ pageTitle: Option selects
 assetPath: ../govuk_template/assets/
 bodyEnd: >
   <script type="text/javascript" src="../public/javascripts/vendor/jquery-1.11.0.js"></script>
-  <script type="text/javascript" src="../public/javascripts/multi-selects.js"></script>
+  <script type="text/javascript" src="../public/javascripts/option-select.js"></script>
   <script type="text/javascript" src="../public/javascripts/onready.js"></script>
 examples:
   -
