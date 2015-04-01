@@ -11,7 +11,7 @@
 
   ListEntry = function (elm) {
     var $elm = $(elm),
-        idPattern = this.getIdPattern($elm.find('input')[0]);
+        idPattern = $elm.prop('id');
 
     if (!idPattern) { return false; }
     this.idPattern = idPattern;
@@ -76,7 +76,12 @@
     this.entries = newEntries.reverse();
   };
   ListEntry.prototype.getId = function (num) {
-    return this.idPattern + num;
+    var pattern = this.idPattern.replace("list-entry-", "");
+    if ("undefined" === typeof num) {
+      return pattern;
+    } else {
+      return pattern + "-" + num;
+    }
   };
   ListEntry.prototype.bindEvents = function () {
     this.$wrapper.on('click', '.list-entry-remove', function (e) {
@@ -131,7 +136,7 @@
           dataObj = {
             'id' : this.getId(entryNumber),
             'number' : entryNumber,
-            'name' : this.getId(entryNumber),
+            'name' : this.getId(),
             'value' : entry,
             'listItemName' : this.listItemName
           };

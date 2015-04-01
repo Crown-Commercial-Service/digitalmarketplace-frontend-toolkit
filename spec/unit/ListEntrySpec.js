@@ -1,17 +1,20 @@
 describe("ListEntryField", function () {
-  var entryFieldTemplate = Hogan.compile('<div class="list-entry">' +
-                                          '<label for="{{{id}}}" class="text-box-number-label">' +
-                                            '<span class="hidden">Fieldset legend number </span>{{number}}.' +
-                                          '</label>' +
-                                          '<input type="text" name="{{{id}}}" id="{{{id}}}" class="text-box" value="">' +
-                                        '</div>'
-                            ),
-      wrapperHTML = '<div class="input-list" data-list-item-name="feature">' +
-                      '<fieldset class="question">' +
-                        '<legend class="question-heading question-heading-with-hint ">Service features</legend>' +
-                        '<p class="question-hint">Include the technical features of your product, eg graphical workflow, remote access. (Maximum 10 words per feature. Maximum 10 features.)</p>' +
-                      '</fieldset>' +
-                    '</div>',
+  var entryFieldTemplate = Hogan.compile(
+        '<div class="list-entry">' +
+          '<label for="{{{id}}}" class="text-box-number-label">' +
+            '<span class="hidden">Item number </span>{{number}}.' +
+          '</label>' +
+          '<input type="text" name="{{{name}}}" id="{{{id}}}" class="text-box" value="">' +
+        '</div>'
+      ),
+      wrapperHTML = (
+          '<fieldset class="question" id="features">' +
+            '<legend class="question-heading question-heading-with-hint ">Service features</legend>' +
+            '<p class="question-hint">Include the technical features of your product, eg graphical workflow, remote access. (Maximum 10 words per feature. Maximum 10 features.)</p>' +
+            '<div class="input-list" data-list-item-name="feature" id="list-entry-features">' +
+            '</div>' +
+          '</fieldset>'
+      ),
       $wrapper,
       mock4Entries;
 
@@ -23,12 +26,14 @@ describe("ListEntryField", function () {
   };
 
   beforeEach(function () {
+    var idx;
     $wrapper = $(wrapperHTML);
 
     for (idx in [1,2,3,4,5,6,7,8,9,10]) {
-      $wrapper.append(entryFieldTemplate.render({
-        'id' : 'p1q1val' + idx,
-        'number' : idx
+      $wrapper.find(".input-list").append(entryFieldTemplate.render({
+        'name': 'features',
+        'id': 'features-' + idx,
+        'number': idx
       }));
     }
     $(document.body).append($wrapper);
