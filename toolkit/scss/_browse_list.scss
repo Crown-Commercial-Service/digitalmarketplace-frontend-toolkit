@@ -1,6 +1,7 @@
 @import "_colours.scss";
 @import "_typography.scss";
 @import "_measurements.scss";
+@import "_shims.scss";
 
 .browse-list {
   padding: 0;
@@ -12,7 +13,7 @@
 }
 
 .browse-list-item-link {
-  display: block;
+  @include inline-block;
   @include heading-27;
   font-weight: bold;
   text-decoration: none;
