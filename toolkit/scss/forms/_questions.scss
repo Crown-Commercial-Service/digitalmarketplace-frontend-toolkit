@@ -3,9 +3,9 @@
 
 .question,
 %question {
+  @extend %contain-floats;
   margin: 15px 0 30px 0;
   clear: both;
-  overflow: hidden;
 }
 
 .question-first {
