@@ -1,0 +1,13 @@
+.service-id {
+}
+
+.service-id-chunk {
+
+  display: inline;
+  padding-right: 5px;
+
+  &:last-child {
+    padding-right: 0;
+  }
+
+}
