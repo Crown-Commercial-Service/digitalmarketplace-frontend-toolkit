@@ -1,0 +1,23 @@
+@import "_typography.scss";
+@import "_measurements.scss";
+
+.search-summary {
+  @include core-14;
+
+  @include media(tablet) {
+    @include core-16;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  .search-summary-count {
+    @include bold-48;
+    padding-right: 6px;
+
+    @include media(tablet) {
+      padding-right: 10px;
+    }
+  }
+}

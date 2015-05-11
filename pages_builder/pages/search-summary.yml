@@ -1,0 +1,11 @@
+pageTitle: Search summary
+assetPath: govuk_template/assets/
+examples:
+  -
+    title: Search summary
+    markup: >
+      <p class="search-summary">
+        <span class="search-summary-count">34</span>
+        services found in <strong>Software as a Service</strong>, under the categories <strong>Accounting and finance</strong> and <strong>Collaboration</strong>, 
+        with a minimum contract period of an <strong>Hour</strong> or a <strong>Day</strong>
+      </p>
