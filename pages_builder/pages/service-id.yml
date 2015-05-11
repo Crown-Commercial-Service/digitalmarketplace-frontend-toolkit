@@ -1,0 +1,15 @@
+pageTitle: Service ID
+assetPath: ../govuk_template/assets/
+head: >
+  <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/index.css" />
+examples:
+  -
+    markup: >
+      <div class="service-id">
+        <span class="service-id-chunk">1234</span><span class="service-id-chunk">5678</span><span class="service-id-chunk">9012</span><span class="service-id-chunk">3456</span>
+      </div>
+  -
+    markup: >
+      <div class="service-id">
+        5.G2.0151.068
+      </div>
