@@ -88,10 +88,16 @@ table.summary-item-body {
   text-align: left;
 }
 
+%summary-item-field-name,
 .summary-item-field-name {
   @extend %summary-item-field;
-  width: 50%;
+  width: 33.333%;
   padding-right: 25px;
+}
+
+.summary-item-field-name-wider {
+  @extend %summary-item-field-name;
+  width: 50%;
 }
 
 .summary-item-field-headings {
@@ -105,7 +111,7 @@ table.summary-item-body {
 
 .summary-item-field-content {
   @extend %summary-item-field;
-  width: 50%;
+  width: 66.666%;
   padding-left: 25px;
 
   ul {
