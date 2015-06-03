@@ -3,15 +3,15 @@
 @import "_measurements.scss";
 
 .contact-details-heading {
-  @include copy-16;
+  @include core-16;
   font-weight: bold;
-  margin: 0;
+  margin: 0 0 5px;
 }
 
 %contact-details-block,
 .contact-details-block {
 
-  margin: 0 0 $gutter;
+  margin: 0 0 5px;
 
   span {
     display: block;

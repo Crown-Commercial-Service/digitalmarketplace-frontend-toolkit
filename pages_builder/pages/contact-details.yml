@@ -5,7 +5,7 @@ examples:
     markup: >
       <div class="contact-details" itemscope itemtype="http://schema.org/Organization">
         <h1 class="contact-details-heading">
-          Contact <span itemprop="name">Government Digital Service</span>
+          <span itemprop="name">Government Digital Service</span>
         </h1>
         <p class="contact-details-block">
           <span itemscope itemtype="http://schema.org/Person">
@@ -13,9 +13,13 @@ examples:
               Jo Little
             </span>
           </span>
+        </p>
+        <p class="contact-details-block">
           <span itemprop="telephone">
             012345 678910
           </span>
+        </p>
+        <p class="contact-details-block">
           <span itemprop="email">
             <a href="mailto:hello@example.com" data-event-category="Email a supplier" data-event-label="Government Digital Service">hello@example.com</a>
           </span>
