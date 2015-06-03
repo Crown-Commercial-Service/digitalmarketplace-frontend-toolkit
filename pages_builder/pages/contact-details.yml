@@ -2,6 +2,7 @@ pageTitle: Contact details
 assetPath: govuk_template/assets/
 examples:
   -
+    title: Standalone
     markup: >
       <div class="contact-details" itemscope itemtype="http://schema.org/Organization">
         <h1 class="contact-details-heading">
@@ -37,3 +38,39 @@ examples:
           </span>
         </p>
       </div>
+  -
+    title: In a table (without spacing)
+    markup: >
+        <table class="summary-item-body">
+          <thead class="summary-item-field-headings">
+            <tr>
+              <th scope="col">
+                Name
+              </th>
+              <th scope="col">
+                Content
+              </th>
+            </tr>
+          </thead>
+          <tbody class="summary-item">
+            <tr class="summary-item-row">
+              <td class="summary-item-field-name">
+                <span>Address</span>
+              </td>
+              <td class="summary-item-field-content">
+                <p class="contact-details-block-without-spacing" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                  <span itemprop="streetAddress">
+                    Aviation House<br />
+                    125 Kingsway
+                  </span>
+                  <span itemprop="addressLocality">
+                    London
+                  </span>
+                  <span itemprop="postalCode">
+                    WC2B 6NH
+                  </span>
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
