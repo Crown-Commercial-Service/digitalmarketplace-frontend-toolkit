@@ -1,0 +1,25 @@
+@import "_colours.scss";
+@import "_typography.scss";
+@import "_measurements.scss";
+
+.contact-details-heading {
+  @include copy-16;
+  font-weight: bold;
+  margin: 0;
+}
+
+%contact-details-block,
+.contact-details-block {
+
+  margin: 0 0 $gutter;
+
+  span {
+    display: block;
+  }
+
+}
+
+.contact-details-block-without-spacing {
+  @extend %contact-details-block;
+  margin: 0;
+}
