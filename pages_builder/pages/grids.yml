@@ -3,42 +3,34 @@ assetPath: ../govuk_template/assets/
 examples:
   -
     title: One column, full width
-    markup: >
-      <div class="grid-row grid-example">
-        <div class="one-column">
-          <p>Contents</p>
-        </div>
-      </div>
+    items:
+      -
+        type: one-column
+        contents: Contents
   -
     title: Two columns, 1/3 and 2/3
-    markup: >
-      <div class="grid-row">
-        <div class="grid-column third-column grid-example">
-          <p>Contents</p>
-        </div>
-        <div class="grid-column two-third-column grid-example">
-          <p>Contents</p>
-        </div>
-      </div>
+    items:
+      -
+        type: third-column
+        contents: Contents
+      -
+        type: third-column
+        contents: Contents
   -
     title: Two columns, 1/2 and 1/2
-    markup: >
-      <div class="grid-row">
-        <div class="grid-column half-column grid-example">
-          <p>Contents</p>
-        </div>
-        <div class="grid-column half-column grid-example">
-          <p>Contents</p>
-        </div>
-      </div>
+    items:
+      -
+        type: half-column
+        contents: Contents
+      -
+        type: half-column
+        contents: Contents
   -
     title: Two columns, 2/3 and 1/3
-    markup: >
-      <div class="grid-row">
-        <div class="grid-column two-third-column grid-example">
-          <p>Contents</p>
-        </div>
-        <div class="grid-column third-column grid-example">
-          <p>Contents</p>
-        </div>
-      </div>
+    items:
+      -
+        type: two-third-column
+        contents: Contents
+      -
+        type: third-column
+        contents: Contents

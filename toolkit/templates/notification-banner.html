@@ -1,0 +1,6 @@
+<div class="banner-{{ type }}{% if action is defined %}-with-action{% else %}-without-action{% endif %}">
+  <p class="banner-message">
+    {{ message }}
+  </p>
+  {{ action }}
+</div>

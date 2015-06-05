@@ -1,0 +1,46 @@
+<h2 class="summary-item-heading">
+    {% if index is defined %}
+      <span class="summary-item-heading-number">{{ index }}.</span>
+    {% endif %}
+    {{ heading }}
+</h2>
+{% if edit_link is defined %}
+  <p class="summary-item-top-level-action">
+    <a href="{{ edit_link }}" class="summary-change-link">Edit <span class="visuallyhidden"> {{ heading }}</span></a>
+  </p>
+{% endif %}
+{% if rows is defined %}
+  <table class="summary-item-body">
+    <thead class="summary-item-field-headings">
+      <tr>
+        <th scope="col">
+          Name
+        </th>
+        <th scope="col">
+          Content
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+        <tr class="summary-item-row{% if row.incomplete %}-incomplete{% endif %}">
+          <td class="summary-item-field-name">
+            <span>{{ row.name }}</span>
+          </td>
+          <td class="summary-item-field-content">
+            {{ row.content }}
+          </td>
+          {% if row.action %}
+            <td class="summary-item-action-field">
+              {{ row.action }}
+            </td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p class="hint summary-item-no-content">
+    {{ empty_message }}
+  </p>
+{% endif %}

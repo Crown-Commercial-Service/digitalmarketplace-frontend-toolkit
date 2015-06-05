@@ -1,4 +1,4 @@
-pageTitle: List entry
+pageTitle: Textboxes
 assetPath: ../govuk_template/assets/
 bodyEnd: >
   <script type="text/javascript" src="../public/javascripts/vendor/jquery-1.11.0.js"></script>
@@ -8,11 +8,21 @@ bodyEnd: >
   <script type="text/javascript" src="../public/javascripts/onready.js"></script>
 examples:
   -
-    question: Service features
-    id: feature
-    hint: Include the technical features of your product, eg graphical workflow, remote access. (Maximum 10 words per feature. Maximum 10 features.)
-    number_of_items: 10
-    values:
-      - One
-      - Two
-      - Three
+    question: Text box
+    id: question-1
+  -
+    question: Text box with hint
+    hint: Hint comprising further information about the question
+    id: question-2
+    value: Now I know what to type here
+  -
+    question: Large textbox
+    id: question-3
+    large: true
+    value: Large textbox
+  -
+    question: Large textbox with word count limit of 50 words
+    id: question-4
+    large: true
+    value: One two three four five
+    max_length_in_words: 50

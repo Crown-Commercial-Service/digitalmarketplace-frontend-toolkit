@@ -1,0 +1,29 @@
+pageTitle: Notification banners
+assetPath: govuk_template/assets/
+examples:
+  -
+    title: Success banner
+    type: success
+    message: With plain text
+  -
+    title: Success banner
+    type: success
+    message: '<a href="#">With a link</a> and some plain text'
+  -
+    title: Warning banner
+    type: warning
+    message: '<a href="#">With a link</a> and some plain text but without an action'
+  -
+    title: Destructive banner
+    type: destructive
+    message: With some plain text and an action
+    action: '<button class="button-destructive banner-action">Action button</button>'
+  -
+    title: Destructive banner
+    type: destructive
+    message: <a href="#">With a link</a>, some plain text and an action
+    action: '<button class="button-destructive banner-action">Action button</button>'
+  -
+    title: Destructive banner
+    type: destructive
+    message: <a href="#">With a link</a> and some plain text but without an action

@@ -3,11 +3,16 @@
 import os
 import pystache
 import yaml
+import json
+import sys
 from subprocess import call
 from distutils import dir_util
 from template_handler import TemplateHandler
 from asset_compiler import AssetCompiler
-
+from jinja2 import Template
+from pygments import highlight
+from pygments.lexers import HtmlLexer, JavascriptLexer
+from pygments.formatters import HtmlFormatter
 
 class Styleguide_publisher(object):
     "publish a styleguide for the toolkit"
@@ -71,9 +76,10 @@ class Styleguide_publisher(object):
 
             for file in files:
                 if self.__is_yaml(file):
-                    self.render_page(os.path.join(root, file))
+                    self.render_page(root, file)
 
-    def render_page(self, input_file):
+    def render_page(self, root, file):
+        input_file = os.path.join(root, file)
         output_file = self.__get_page_filename(input_file)
         partial = yaml.load(open(input_file, "r").read())
         # if main index page, add version number from VERSION.txt
@@ -87,7 +93,40 @@ class Styleguide_publisher(object):
                 partial['pageTitle'] +
                 " - Digital Marketplace frontend toolkit"
             )
-            if "examples" in partial:
+            if (
+                "examples" in partial
+            ):
+                template_file = (
+                    "toolkit/templates/" +
+                    file.replace(".yml", ".html")
+                )
+                if (os.path.isfile(template_file)):
+                    template = Template(
+                        open(template_file, "r").read()
+                    )
+                else:
+                    sys.exit("\n⚡ " + template_file + " not found ⚡")
+                for index, example in enumerate(partial["examples"]):
+                    parameters = dict(partial["examples"][index])
+                    if "title" in partial["examples"][index]:
+                        parameters.pop("title", None)
+                    partial["examples"][index]["parameters"] = highlight(
+                        json.dumps(parameters, indent=4),
+                        JavascriptLexer(),
+                        HtmlFormatter(noclasses=True)
+                    )
+                    rendered_markup = template.render(
+                        partial["examples"][index]
+                    )
+                    partial["examples"][index]["markup"] = (
+                        rendered_markup
+                    )
+                    partial["examples"][index]["highlighted_markup"] = (
+                        highlight(
+                            rendered_markup,
+                            HtmlLexer(), HtmlFormatter(noclasses=True)
+                        )
+                    )
                 partial['content'] = pystache.render(
                     """
                         <div id="global-breadcrumb" class="header-context">
@@ -107,14 +146,16 @@ class Styleguide_publisher(object):
                                 {{#examples}}
                                     {{#title}}<h2>{{title}}</h2>{{/title}}
                                     {{{markup}}}
-                                    <pre>{{markup}}</pre>
+                                    <div class="code open"><p class="code-label">Template ({{ templateFile }})</p>{{{highlighted_markup}}}</div>
+                                    <div class="code open"><p class="code-label">Parameters</p>{{{parameters}}}</div>
                                 {{/examples}}
                             </div>
                         </main>
                     """, {
                         "examples": partial['examples'],
                         "pageTitle": partial['pageTitle'],
-                        "pageHeading": partial['pageHeading']
+                        "pageHeading": partial['pageHeading'],
+                        "templateFile": template_file.replace("toolkit/templates/", "")
                     }
                 )
         root = os.getenv("ROOT_DIRECTORY") or ""

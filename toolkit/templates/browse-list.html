@@ -1,0 +1,13 @@
+<ul class="browse-list">
+  {% for item in items %}
+    <li class="browse-list-item">
+      <a class="browse-list-item-link" href="{{ item.link }}">{{ item.title }}</a>
+      <p class="browse-list-item-body">
+        {{ item.body }}
+      </p>
+      <p class="browse-list-item-subtext">
+        {{ item.subtext }}
+      </p>
+    </li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,15 @@
+pageTitle: Buttons
+assetPath: govuk_template/assets/
+examples:
+  -
+    title: Save button
+    type: save
+    label: Save and continue
+  -
+    title: Secondary button
+    type: secondary
+    label: Return service to drafts
+  -
+    title: Destructive button
+    type: destructive
+    label: Delete this user

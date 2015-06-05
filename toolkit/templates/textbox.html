@@ -1,0 +1,21 @@
+<div class="question">
+  <label for="question-2" class="question-heading{% if hint is defined %}-with-hint{% endif %}">
+    {{ question }}
+  </label>
+  {% if hint is defined %}
+    <p class="hint">
+      {{ hint }}
+    </p>
+  {% endif %}
+  {% if large %}
+    {% if max_length_in_words is defined %}
+      <div class="word-count">
+        <textarea class="text-box text-box-large" name="{{ id }}" id="{{ id }}" data-max-length-in-words="{{ max_length_in_words }}">{{ value }}</textarea>
+      </div>
+    {% else %}
+      <textarea class="text-box text-box-large" name="{{ id }}" id="{{ id }}">{{ value }}</textarea>
+    {% endif %}
+  {% else %}
+    <input type="text" name="{{ id }}" id="{{ id }}" class="text-box" value="{{ value }}" />
+  {% endif %}
+</div>

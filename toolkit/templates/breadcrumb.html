@@ -1,0 +1,15 @@
+<div id="global-breadcrumb" class="header-context">
+  <nav>
+    <ol class="group" role="breadcrumbs">
+      {%- for item in items -%}
+        <li>
+          {%- if item.link -%}
+            <a href="{{ item.link }}">{{ item.label }}</a>
+          {%- else -%}
+            {{ item.label }}
+          {%- endif -%}
+        </li>
+      {% endfor %}
+    </ol>
+  </nav>
+</div>

@@ -2,33 +2,19 @@ pageTitle: Browse list
 assetPath: govuk_template/assets/
 examples:
   -
-    markup: >
-      <ul class="browse-list">
-        <li class="browse-list-item">
-          <a class="browse-list-item-link" href="#">Find cloud technology and support</a>
-          <p class="browse-list-item-body">
-            eg web hosting or IT health checks
-          </p>
-          <p class="browse-list-item-subtext">
-            Procurement framework: G-Cloud
-          </p>
-        </li>
-        <li class="browse-list-item">
-          <a class="browse-list-item-link" href="#">Find specialists to work on digital projects</a>
-          <p class="browse-list-item-body">
-            eg web hosting or IT health checks
-          </p>
-          <p class="browse-list-item-subtext">
-            Procurement framework: Digital Services
-          </p>
-        </li>
-        <li class="browse-list-item">
-          <a class="browse-list-item-link" href="#">Software as a Service</a>
-          <p class="browse-list-item-body">
-            Find applications or services that are run over the internet or in the cloud
-          </p>
-          <p class="browse-list-item-subtext">
-            eg accounting, email
-          </p>
-        </li>
-      </ul>
+    items:
+      -
+        title: Find cloud technology and support
+        link: '#'
+        body: eg web hosting or IT health checks
+        subtext: 'Procurement framework: G-Cloud'
+      -
+        title: Find specialists to work on digital projects
+        link: '#'
+        body: eg web hosting or IT health checks
+        subtext: 'Procurement framework: Digital Services'
+      -
+        title: Software as a Service
+        link: '#'
+        body: 'Find applications or services that are run over the internet or in the cloud'
+        subtext: eg accounting, email

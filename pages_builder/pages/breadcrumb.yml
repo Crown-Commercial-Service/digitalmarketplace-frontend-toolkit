@@ -2,22 +2,15 @@ pageTitle: Breadcrumb
 assetPath: govuk_template/assets/
 examples:
   -
-    markup: >
-      <div id="global-breadcrumb" class="header-context">
-        <nav>
-          <ol class="group" role="breadcrumbs">
-            <li>
-              <a href="./">Home</a>
-            </li>
-            <li>
-              <a href="#">Item 1</a>
-            </li>
-            <li>
-              <a href="#">Item 2</a>
-            </li>
-            <li>
-              Item 3
-            </li>
-          </ol>
-        </nav>
-      </div>
+    items:
+      -
+        label: Home
+        link: ./
+      -
+        label: Item 1
+        link: '#'
+      -
+        label: Item 2
+        link: '#'
+      -
+        label: Item 3
