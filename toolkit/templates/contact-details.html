@@ -1,0 +1,55 @@
+{% if organisation is defined %}
+<div class="contact-details" itemscope itemtype="http://schema.org/Organization">
+  <p class="contact-details-organisation">
+    <span itemprop="name">{{ organisation }}</span>
+  </p>
+  {% if contact_name is defined %}
+  <p class="contact-details-block">
+    <span itemscope itemtype="http://schema.org/Person">
+      <span itemprop="name">
+        {{ contact_name }}
+      </span>
+    </span>
+  </p>
+  {% endif %}
+  {% if telephone is defined %}
+  <p class="contact-details-block">
+    <span itemprop="telephone">
+      {{ telephone }}
+    </span>
+  </p>
+  {% endif %}
+  {% if email_address is defined %}
+  <p class="contact-details-block">
+    <span itemprop="email">
+      <a href="mailto:{{ email_address }}" data-event-category="Email a {{ organisation_type }}" data-event-label="{{ organisation }}">{{ email_address }}</a>
+    </span>
+  </p>
+  {% endif %}
+{% endif %}
+{% if
+  street_address is defined or
+  locality is defined or
+  postcode is defined
+%}
+  <p class="contact-details-block{% if without_spacing %}-without-spacing{% endif %}" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+    {% if street_address is defined %}
+    <span itemprop="streetAddress">
+      {{ street_address }}
+    </span>
+    {% endif %}
+    {% if street_address is defined %}
+    <span itemprop="addressLocality">
+      {{ locality }}
+    </span>
+    {% endif %}
+    {% if postcode is defined %}
+    <span itemprop="postalCode">
+      {{ postcode }}
+    </span>
+    {% endif %}
+  </p>
+{% endif %}
+{% if organisation is defined %}
+</div>
+{% endif %}
