@@ -14,6 +14,7 @@ from pygments import highlight
 from pygments.lexers import HtmlLexer, JavascriptLexer
 from pygments.formatters import HtmlFormatter
 
+
 class Styleguide_publisher(object):
     "publish a styleguide for the toolkit"
 
@@ -97,7 +98,8 @@ class Styleguide_publisher(object):
                 "examples" in partial
             ):
                 template_file = (
-                    "toolkit/templates/" +
+                    "toolkit/templates" +
+                    root.replace(self.pages_dirname, "") + "/" +
                     file.replace(".yml", ".html")
                 )
                 if (os.path.isfile(template_file)):
@@ -155,7 +157,9 @@ class Styleguide_publisher(object):
                         "examples": partial['examples'],
                         "pageTitle": partial['pageTitle'],
                         "pageHeading": partial['pageHeading'],
-                        "templateFile": template_file.replace("toolkit/templates/", "")
+                        "templateFile": template_file.replace(
+                            "toolkit/templates/", ""
+                        )
                     }
                 )
         root = os.getenv("ROOT_DIRECTORY") or ""
