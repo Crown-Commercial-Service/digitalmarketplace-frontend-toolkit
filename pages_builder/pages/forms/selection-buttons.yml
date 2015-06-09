@@ -47,3 +47,15 @@ examples:
           Infrastructure is the hardware that makes software work. It's the networks, hosting facilities
           and servers that platforms and software depend on. IaaS is infrastructure you can order and run
           entirely over the internet, without having to pay for your own hardware.
+  -
+    type: checkbox
+    name: vegetables
+    question: Checkboxes with an error
+    error: Answer required
+    options:
+      -
+        label: Carrot
+      -
+        label: Onion
+      -
+        label: Collaboration

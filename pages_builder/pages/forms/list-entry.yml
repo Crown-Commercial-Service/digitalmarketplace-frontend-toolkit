@@ -16,3 +16,8 @@ examples:
       - One
       - Two
       - Three
+  -
+    question: With an error
+    id: feature
+    error: Answer required
+    number_of_items: 3

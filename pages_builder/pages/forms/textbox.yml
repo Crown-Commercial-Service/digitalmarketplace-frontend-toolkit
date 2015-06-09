@@ -9,20 +9,25 @@ bodyEnd: >
 examples:
   -
     question: Text box
-    id: question-1
+    name: question-1
   -
     question: Text box with hint
     hint: Hint comprising further information about the question
-    id: question-2
+    name: question-2
     value: Now I know what to type here
   -
     question: Large textbox
-    id: question-3
+    name: question-3
     large: true
     value: Large textbox
   -
     question: Large textbox with word count limit of 50 words
-    id: question-4
+    name: question-4
     large: true
     value: One two three four five
     max_length_in_words: 50
+  -
+    question: Text box with error
+    error: Must be a valid email address
+    name: question-5
+    value: hello2example.com
