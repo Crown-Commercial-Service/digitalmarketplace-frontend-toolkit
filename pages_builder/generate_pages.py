@@ -110,6 +110,8 @@ class Styleguide_publisher(object):
                 for index, example in enumerate(partial["examples"]):
                     parameters = dict(partial["examples"][index])
                     if "title" in partial["examples"][index]:
+                        # title is a parameter reserved for naming the pattern
+                        # in the documentation
                         parameters.pop("title", None)
                     partial["examples"][index]["parameters"] = highlight(
                         json.dumps(parameters, indent=4),
