@@ -83,6 +83,7 @@ class Styleguide_publisher(object):
         input_file = os.path.join(root, file)
         output_file = self.__get_page_filename(input_file)
         partial = yaml.load(open(input_file, "r").read())
+        url_root = os.getenv("ROOT_DIRECTORY") or ""
         # if main index page, add version number from VERSION.txt
         if self.__is_main_index(output_file):
             partial['content'] = pystache.render(
@@ -136,7 +137,7 @@ class Styleguide_publisher(object):
                           <nav>
                             <ol class="group" role="breadcrumbs">
                               <li>
-                                <a href="/">Home</a>
+                                <a href="{{urlRoot}}/">Home</a>
                               </li>
                             </ol>
                           </nav>
@@ -158,26 +159,26 @@ class Styleguide_publisher(object):
                         "examples": partial['examples'],
                         "pageTitle": partial['pageTitle'],
                         "pageHeading": partial['pageHeading'],
-                        "templateFile": template_file.replace(self.repo_root, "").replace("/toolkit/templates/", "")
+                        "templateFile": template_file.replace(self.repo_root, "").replace("/toolkit/templates/", ""),
+                        "urlRoot": url_root
                     }
                 )
-        root = os.getenv("ROOT_DIRECTORY") or ""
 
         partial['head'] = (
             '<!--[if !IE]><!-->'
-            '<link rel="stylesheet" href="' + root + '/public/stylesheets/index.css "/>'  # noqa
+            '<link rel="stylesheet" href="' + url_root + '/public/stylesheets/index.css "/>'  # noqa
             '<!--<![endif]-->'
             '<!--[if IE 6]>'
-            '<link rel="stylesheet" href="' + root + '/public/stylesheets/index-ie6.css "/>'  # noqa
+            '<link rel="stylesheet" href="' + url_root + '/public/stylesheets/index-ie6.css "/>'  # noqa
             '<![endif]-->'
             '<!--[if IE 7]>'
-            '<link rel="stylesheet" href="' + root + '/public/stylesheets/index-ie7.css "/>'  # noqa
+            '<link rel="stylesheet" href="' + url_root + '/public/stylesheets/index-ie7.css "/>'  # noqa
             '<![endif]-->'
             '<!--[if IE 8]>'
-            '<link rel="stylesheet" href="' + root + '/public/stylesheets/index-ie8.css "/>'  # noqa
+            '<link rel="stylesheet" href="' + url_root + '/public/stylesheets/index-ie8.css "/>'  # noqa
             '<![endif]-->'
             '<!--[if IE 9]>'
-            '<link rel="stylesheet" href="' + root + '/public/stylesheets/index-ie9.css "/>'  # noqa
+            '<link rel="stylesheet" href="' + url_root + '/public/stylesheets/index-ie9.css "/>'  # noqa
             '<![endif]-->'
         )
         page_render = pystache.render(self.template_view, partial)
