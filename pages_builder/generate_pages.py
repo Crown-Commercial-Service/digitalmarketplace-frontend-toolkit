@@ -95,10 +95,13 @@ class Styleguide_publisher(object):
                 " - Digital Marketplace frontend toolkit"
             )
             if "examples" in partial:
-                template_file = (
-                    "toolkit/templates" +
-                    root.replace(self.pages_dirname, "") + "/" +
-                    file.replace(".yml", ".html")
+                template_name, template_extension = os.path.splitext(file)
+                template_subfolder = root.replace(self.pages_dirname, "")
+                template_file = os.path.join(
+                    self.repo_root,
+                    "toolkit/templates",
+                    template_subfolder.strip("/"),
+                    template_name + ".html"
                 )
                 if (os.path.isfile(template_file)):
                     template = Template(open(template_file, "r").read())
@@ -144,8 +147,8 @@ class Styleguide_publisher(object):
                                 {{#examples}}
                                     {{#title}}<h2>{{title}}</h2>{{/title}}
                                     {{{markup}}}
-                                    <div class="code open"><p class="code-label">Template ({{ templateFile }})</p>{{{highlighted_markup}}}</div>
-                                    <div class="code open"><p class="code-label">Parameters</p>{{{parameters}}}</div>
+                                    <div class="code open"><h3 class="code-label">Template ({{ templateFile }})</h3>{{{highlighted_markup}}}</div>
+                                    <div class="code open"><h3 class="code-label">Parameters</h3>{{{parameters}}}</div>
                                 {{/examples}}
                             </div>
                         </main>
@@ -153,9 +156,7 @@ class Styleguide_publisher(object):
                         "examples": partial['examples'],
                         "pageTitle": partial['pageTitle'],
                         "pageHeading": partial['pageHeading'],
-                        "templateFile": template_file.replace(
-                            "toolkit/templates/", ""
-                        )
+                        "templateFile": template_file.replace(self.repo_root, "").replace("/toolkit/templates/", "")
                     }
                 )
         root = os.getenv("ROOT_DIRECTORY") or ""
