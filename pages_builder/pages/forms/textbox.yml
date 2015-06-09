@@ -1,0 +1,33 @@
+pageTitle: Textboxes
+assetPath: ../govuk_template/assets/
+bodyEnd: >
+  <script type="text/javascript" src="../public/javascripts/vendor/jquery-1.11.0.js"></script>
+  <script type="text/javascript" src="../public/javascripts/vendor/hogan-3.0.2.min.js"></script>
+  <script type="text/javascript" src="../public/javascripts/list-entry.js"></script>
+  <script type="text/javascript" src="../public/javascripts/word-counter.js"></script>
+  <script type="text/javascript" src="../public/javascripts/onready.js"></script>
+examples:
+  -
+    question: Text box
+    name: question-1
+  -
+    question: Text box with hint
+    hint: Hint comprising further information about the question
+    name: question-2
+    value: Now I know what to type here
+  -
+    question: Large textbox
+    name: question-3
+    large: true
+    value: Large textbox
+  -
+    question: Large textbox with word count limit of 50 words
+    name: question-4
+    large: true
+    value: One two three four five
+    max_length_in_words: 50
+  -
+    question: Text box with error
+    error: Must be a valid email address
+    name: question-5
+    value: hello2example.com

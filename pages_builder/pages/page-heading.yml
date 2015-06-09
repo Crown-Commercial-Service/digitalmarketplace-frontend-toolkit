@@ -1,0 +1,20 @@
+pageTitle: Page headings
+assetPath: ../govuk_template/assets/
+head: >
+  <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/index.css" />
+examples:
+  -
+    heading: Page heading
+  -
+    heading: Page heading, no breadcrumb
+    class: page-heading page-heading-without-breadcrumb
+  -
+    heading: Page heading with context
+    context: Context
+  -
+    heading: Page heading (smaller)
+    smaller: true
+  -
+    context: Context
+    heading: Page heading (smaller)
+    smaller: true

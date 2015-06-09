@@ -8,13 +8,10 @@ content: >
       </header>
       <ul class="index-list">
         <li>
-          <a href="textboxes.html">Textboxes</a>
+          <a href="textbox.html">Textboxes</a>
         </li>
         <li>
           <a href="selection-buttons.html">Selection buttons</a>
-        </li>
-        <li>
-          <a href="word-count.html">Textbox with word count</a>
         </li>
         <li>
           <a href="list-entry.html">List entry textbox</a>

@@ -1,0 +1,17 @@
+pageTitle: Documents
+assetPath: govuk_template/assets/
+examples:
+  -
+    title: Document list
+    items:
+      -
+        title: Service definition
+        link: '#'
+        file_type: "PDF"
+      -
+        title: Terms and conditions
+        link: '#'
+        file_type: "PDF"
+      -
+        title: Document without icon
+        link: '#'

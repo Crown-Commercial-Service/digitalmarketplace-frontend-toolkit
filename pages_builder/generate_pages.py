@@ -3,10 +3,16 @@
 import os
 import pystache
 import yaml
+import json
+import sys
 from subprocess import call
 from distutils import dir_util
 from template_handler import TemplateHandler
 from asset_compiler import AssetCompiler
+from jinja2 import Template
+from pygments import highlight
+from pygments.lexers import HtmlLexer, JavascriptLexer
+from pygments.formatters import HtmlFormatter
 
 
 class Styleguide_publisher(object):
@@ -71,11 +77,13 @@ class Styleguide_publisher(object):
 
             for file in files:
                 if self.__is_yaml(file):
-                    self.render_page(os.path.join(root, file))
+                    self.render_page(root, file)
 
-    def render_page(self, input_file):
+    def render_page(self, root, file):
+        input_file = os.path.join(root, file)
         output_file = self.__get_page_filename(input_file)
         partial = yaml.load(open(input_file, "r").read())
+        url_root = os.getenv("ROOT_DIRECTORY") or ""
         # if main index page, add version number from VERSION.txt
         if self.__is_main_index(output_file):
             partial['content'] = pystache.render(
@@ -88,13 +96,48 @@ class Styleguide_publisher(object):
                 " - Digital Marketplace frontend toolkit"
             )
             if "examples" in partial:
+                template_name, template_extension = os.path.splitext(file)
+                template_subfolder = root.replace(self.pages_dirname, "")
+                template_file = os.path.join(
+                    self.repo_root,
+                    "toolkit/templates",
+                    template_subfolder.strip("/"),
+                    template_name + ".html"
+                )
+                if (os.path.isfile(template_file)):
+                    template = Template(open(template_file, "r").read())
+                else:
+                    sys.exit("\n⚡ " + template_file + " not found ⚡")
+                for index, example in enumerate(partial["examples"]):
+                    parameters = dict(partial["examples"][index])
+                    if "title" in partial["examples"][index]:
+                        # title is a parameter reserved for naming the pattern
+                        # in the documentation
+                        parameters.pop("title", None)
+                    partial["examples"][index]["parameters"] = highlight(
+                        json.dumps(parameters, indent=4),
+                        JavascriptLexer(),
+                        HtmlFormatter(noclasses=True)
+                    )
+                    rendered_markup = template.render(
+                        partial["examples"][index]
+                    )
+                    partial["examples"][index]["markup"] = (
+                        rendered_markup
+                    )
+                    partial["examples"][index]["highlighted_markup"] = (
+                        highlight(
+                            rendered_markup,
+                            HtmlLexer(), HtmlFormatter(noclasses=True)
+                        )
+                    )
                 partial['content'] = pystache.render(
                     """
                         <div id="global-breadcrumb" class="header-context">
                           <nav>
                             <ol class="group" role="breadcrumbs">
                               <li>
-                                <a href="/">Home</a>
+                                <a href="{{urlRoot}}/">Home</a>
                               </li>
                             </ol>
                           </nav>
@@ -107,33 +150,35 @@ class Styleguide_publisher(object):
                                 {{#examples}}
                                     {{#title}}<h2>{{title}}</h2>{{/title}}
                                     {{{markup}}}
-                                    <pre>{{markup}}</pre>
+                                    <div class="code open"><h3 class="code-label">Template ({{ templateFile }})</h3>{{{highlighted_markup}}}</div>
+                                    <div class="code open"><h3 class="code-label">Parameters</h3>{{{parameters}}}</div>
                                 {{/examples}}
                             </div>
                         </main>
                     """, {
                         "examples": partial['examples'],
                         "pageTitle": partial['pageTitle'],
-                        "pageHeading": partial['pageHeading']
+                        "pageHeading": partial['pageHeading'],
+                        "templateFile": template_file.replace(self.repo_root, "").replace("/toolkit/templates/", ""),
+                        "urlRoot": url_root
                     }
                 )
-        root = os.getenv("ROOT_DIRECTORY") or ""
 
         partial['head'] = (
             '<!--[if !IE]><!-->'
-            '<link rel="stylesheet" href="' + root + '/public/stylesheets/index.css "/>'  # noqa
+            '<link rel="stylesheet" href="' + url_root + '/public/stylesheets/index.css "/>'  # noqa
             '<!--<![endif]-->'
             '<!--[if IE 6]>'
-            '<link rel="stylesheet" href="' + root + '/public/stylesheets/index-ie6.css "/>'  # noqa
+            '<link rel="stylesheet" href="' + url_root + '/public/stylesheets/index-ie6.css "/>'  # noqa
             '<![endif]-->'
             '<!--[if IE 7]>'
-            '<link rel="stylesheet" href="' + root + '/public/stylesheets/index-ie7.css "/>'  # noqa
+            '<link rel="stylesheet" href="' + url_root + '/public/stylesheets/index-ie7.css "/>'  # noqa
             '<![endif]-->'
             '<!--[if IE 8]>'
-            '<link rel="stylesheet" href="' + root + '/public/stylesheets/index-ie8.css "/>'  # noqa
+            '<link rel="stylesheet" href="' + url_root + '/public/stylesheets/index-ie8.css "/>'  # noqa
             '<![endif]-->'
             '<!--[if IE 9]>'
-            '<link rel="stylesheet" href="' + root + '/public/stylesheets/index-ie9.css "/>'  # noqa
+            '<link rel="stylesheet" href="' + url_root + '/public/stylesheets/index-ie9.css "/>'  # noqa
             '<![endif]-->'
         )
         page_render = pystache.render(self.template_view, partial)

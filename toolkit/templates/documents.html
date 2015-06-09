@@ -1,0 +1,16 @@
+<ul class='document-list'>
+  {% for item in items %}
+    <li class='document-list-item'>
+      {% if item.file_type %}
+        <a href="{{ item.link }}" class='document-link-with-icon'>
+          <span class='document-icon'>{{ item.file_type }}<span> document:</span></span>
+          {{ item.title }}
+        </a>
+      {% else %}
+        <a href="{{ item.link }}" class='document-link'>
+          {{ item.title }}
+        </a>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
