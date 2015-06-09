@@ -6,19 +6,19 @@
     </p>
   {% endif %}
   {% if type == "boolean" %}
-    <label class="selection-button selection-button-boolean" for="{{ id }}-yes">
+    <label class="selection-button selection-button-boolean" for="{{ name }}-yes">
       Yes
-      <input type="radio" name="{{ id }}" id="{{ id }}-yes" value="val-1" />
+      <input type="radio" name="{{ name }}" id="{{ name }}-yes" value="val-1" />
     </label>
-    <label class="selection-button selection-button-boolean" for="{{ id }}-no">
+    <label class="selection-button selection-button-boolean" for="{{ name }}-no">
       No
-      <input type="radio" name="{{ id }}" id="{{ id }}-no" value="val-2" />
+      <input type="radio" name="{{ name }}" id="{{ name }}-no" value="val-2" />
     </label>
   {% else %}
     {% for option in options %}
-      <label class="selection-button" for="{{ id }}-{{ loop.index }}">
+      <label class="selection-button" for="{{ name }}-{{ loop.index }}">
         {{ option.label }}
-        <input type="{{ type }}" name="{{ id }}" id="{{ id }}-{{ loop.index }}" value="{{ option.value or option.label }}" />
+        <input type="{{ type }}" name="{{ name }}" id="{{ name }}-{{ loop.index }}" value="{{ option.value or option.label }}" />
       </label>
       {% if option.description is defined %}
         <p class="question-description">

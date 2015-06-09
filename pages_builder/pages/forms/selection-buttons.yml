@@ -8,7 +8,7 @@ bodyEnd: >
 examples:
   -
     type: radio
-    id: minimumContractPeriod
+    name: minimumContractPeriod
     question: Radio buttons
     options:
       -
@@ -22,7 +22,7 @@ examples:
         label : Year
   -
     type: checkbox
-    id: categories
+    name: categories
     question: Choose a category
     options:
       -
@@ -34,11 +34,12 @@ examples:
   -
     type: boolean
     question: Offline working supported
-    id: offlineWorking
+    name: offlineWorking
   -
     type: radio
     question: Checkbox with hint and description
     hint: Hint giving some information about how to answer the question.
+    name: lot
     options:
       -
         label: Infrastructure as a Service
