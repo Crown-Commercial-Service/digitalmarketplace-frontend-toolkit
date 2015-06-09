@@ -94,18 +94,14 @@ class Styleguide_publisher(object):
                 partial['pageTitle'] +
                 " - Digital Marketplace frontend toolkit"
             )
-            if (
-                "examples" in partial
-            ):
+            if "examples" in partial:
                 template_file = (
                     "toolkit/templates" +
                     root.replace(self.pages_dirname, "") + "/" +
                     file.replace(".yml", ".html")
                 )
                 if (os.path.isfile(template_file)):
-                    template = Template(
-                        open(template_file, "r").read()
-                    )
+                    template = Template(open(template_file, "r").read())
                 else:
                     sys.exit("\n⚡ " + template_file + " not found ⚡")
                 for index, example in enumerate(partial["examples"]):
