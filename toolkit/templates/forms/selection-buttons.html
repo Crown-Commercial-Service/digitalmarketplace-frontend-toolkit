@@ -1,4 +1,4 @@
-{% if error is defined %}
+{% if error %}
   <div class="validation-wrapper">
 {% endif %}
   <fieldset class="question first-question">
@@ -8,7 +8,7 @@
         {{ hint }}
       </p>
     {% endif %}
-    {% if error is defined %}
+    {% if error %}
       <p class="validation-message" id="error-{{ name }}">
         {{ error }}
       </p>
@@ -36,6 +36,6 @@
       {% endfor %}
     {% endif %}
   </fieldset>
-{% if error is defined %}
+{% if error %}
   </div>
 {% endif %}

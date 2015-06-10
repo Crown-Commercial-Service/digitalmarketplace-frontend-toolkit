@@ -1,4 +1,4 @@
-{% if error is defined %}
+{% if error %}
   <div class="validation-wrapper">
 {% endif %}
   <div class="question">
@@ -10,7 +10,7 @@
         {{ hint }}
       </p>
     {% endif %}
-    {% if error is defined %}
+    {% if error %}
       <p class="validation-message" id="error-{{ name }}">
         {{ error }}
       </p>
@@ -27,6 +27,6 @@
       <input type="text" name="{{ name }}" id="{{ name }}" class="text-box" value="{{ value }}" />
     {% endif %}
   </div>
-{% if error is defined %}
+{% if error %}
   </div>
 {% endif %}
