@@ -35,10 +35,14 @@
   <p class="contact-details-block{% if without_spacing %}-without-spacing{% endif %}" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
     {% if street_address is defined %}
     <span itemprop="streetAddress">
-      {{ street_address }}
+      {{ street_address.line_1 }}
+      {% if street_address.line_2 %}
+        <br />
+        {{ street_address.line_2 }}
+      {% endif %}
     </span>
     {% endif %}
-    {% if street_address is defined %}
+    {% if locality is defined %}
     <span itemprop="addressLocality">
       {{ locality }}
     </span>
