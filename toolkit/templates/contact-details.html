@@ -1,9 +1,9 @@
-{% if organisation is defined %}
+{% if organisation %}
 <div class="contact-details" itemscope itemtype="http://schema.org/Organization">
   <p class="contact-details-organisation">
     <span itemprop="name">{{ organisation }}</span>
   </p>
-  {% if contact_name is defined %}
+  {% if contact_name %}
   <p class="contact-details-block">
     <span itemscope itemtype="http://schema.org/Person">
       <span itemprop="name">
@@ -12,14 +12,14 @@
     </span>
   </p>
   {% endif %}
-  {% if telephone is defined %}
+  {% if telephone %}
   <p class="contact-details-block">
     <span itemprop="telephone">
       {{ telephone }}
     </span>
   </p>
   {% endif %}
-  {% if email_address is defined %}
+  {% if email_address %}
   <p class="contact-details-block">
     <span itemprop="email">
       <a href="mailto:{{ email_address }}" data-event-category="Email a {{ organisation_type }}" data-event-label="{{ organisation }}">{{ email_address }}</a>
@@ -28,12 +28,13 @@
   {% endif %}
 {% endif %}
 {% if
-  street_address is defined or
-  locality is defined or
-  postcode is defined
+  street_address or
+  locality or
+  country or
+  postcode
 %}
   <p class="contact-details-block{% if without_spacing %}-without-spacing{% endif %}" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-    {% if street_address is defined %}
+    {% if street_address %}
     <span itemprop="streetAddress">
       {{ street_address.line_1 }}
       {% if street_address.line_2 %}
@@ -42,18 +43,23 @@
       {% endif %}
     </span>
     {% endif %}
-    {% if locality is defined %}
+    {% if locality %}
     <span itemprop="addressLocality">
       {{ locality }}
     </span>
     {% endif %}
-    {% if postcode is defined %}
+    {% if country %}
+    <span itemprop="addressCountry">
+      {{ country }}
+    </span>
+    {% endif %}
+    {% if postcode %}
     <span itemprop="postalCode">
       {{ postcode }}
     </span>
     {% endif %}
   </p>
 {% endif %}
-{% if organisation is defined %}
+{% if organisation %}
 </div>
 {% endif %}
