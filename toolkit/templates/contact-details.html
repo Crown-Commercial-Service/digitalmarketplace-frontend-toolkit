@@ -28,7 +28,8 @@
   {% endif %}
 {% endif %}
 {% if
-  street_address or
+  street_address_line_1 or
+  street_address_line_2 or
   locality or
   country or
   postcode
@@ -36,10 +37,14 @@
   <p class="contact-details-block{% if without_spacing %}-without-spacing{% endif %}" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
     {% if street_address %}
     <span itemprop="streetAddress">
-      {{ street_address.line_1 }}
-      {% if street_address.line_2 %}
+      {% if street_address_line_1 %}
+        {{ street_address_line_1 }}
+      {% endif %}
+      {% if street_address_line_1 and street_address_line_2 %}
         <br />
-        {{ street_address.line_2 }}
+      {% endif %}
+      {% if street_address_line_2 %}
+        {{ street_address_line_2 }}
       {% endif %}
     </span>
     {% endif %}
