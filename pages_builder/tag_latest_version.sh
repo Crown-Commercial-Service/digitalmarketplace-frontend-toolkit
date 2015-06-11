@@ -4,6 +4,7 @@ echo "≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡�
 echo "TAGGING LATEST VERSION"
 echo "--------------------------------------------------------------------------------"
 git checkout master
+git pull origin master
 commit=$(git log master --pretty=oneline --abbrev-commit --no-decorate | grep "Bump version to" | head -n1)
 sha=$(echo $commit | cut -d ' ' -f1)
 version=v$(cat VERSION.txt)
