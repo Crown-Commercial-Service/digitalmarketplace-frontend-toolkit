@@ -1,7 +1,3 @@
 <div class="service-id">
-  {% if id is string -%}
-    {{ id }}
-  {%- else -%}
-    {% for chunk in id %}<span class="service-id-chunk">{{chunk}}</span>{% endfor %}
-  {%- endif %}
+  {% for chunk in id -%}<span class="service-id-chunk">{{chunk}}</span>{%- endfor %}
 </div>
