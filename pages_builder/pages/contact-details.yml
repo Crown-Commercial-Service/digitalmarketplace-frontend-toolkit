@@ -8,16 +8,16 @@ examples:
     contact_name: Jo Johnston
     telephone: 012345 678910
     email_address: jo@example.com
-    street_address: >
-      Aviation House<br />
-      125 Kingsway
+    street_address:
+      - line_1: Aviation House
+      - line_2: 125 Kingsway
     locality: London
     postcode: WC2B 6NH
   -
     title: Without spacing (for use in a table, for example)
     without_spacing: true
-    street_address: >
-      Aviation House<br />
-      125 Kingsway
+    street_address:
+      - line_1: Aviation House
+      - line_2: 125 Kingsway
     locality: London
     postcode: WC2B 6NH
