@@ -10,46 +10,55 @@ examples:
     label: Market sector
     options:
       -
-        name: market_sector
+        name: market-sector
         id: aerospace
+        value: aerospace
         label: Aerospace
       -
-        name: market_sector
-        id: agriculture_environment_and_natural_resources
+        name: market-sector
+        id: agriculture-environment-and-natural-resources
+        value: agriculture environment and natural resources
         label: Agriculture, environment and natural resources
       -
-        name: market_sector
+        name: market-sector
         id: building-and-construction
+        value: building and construction
         label: Building and construction
       -
-        name: market_sector
+        name: market-sector
         id: chemicals
+        value: chemicals
         label: Chemicals
       -
-        name: market_sector
-        id: clothing_footwear_and_fashion
+        name: market-sector
+        id: clothing-footwear-and-fashion
+        value: clothing footwear and fashion
         label: Clothing, footwear and fashion
       -
-        name: market_sector
+        name: market-sector
         id: defence
+        value: defence
         label: Defence
       -
-        name: market_sector
-        id: distribution_and_service_industries
+        name: market-sector
+        id: distribution-and-service-industries
+        value: distribution and service industries
         label: Distribution and Service Industries
       -
-        name: market_sector
-        id: electronics_industry
+        name: market-sector
+        id: electronics-industry
+        value: electronics industry
         label: Electronics Industry
       -
-        name: market_sector
+        name: market-sector
         id: energy
+        value: energy
         label: Energy
       -
-        name: market_sector
+        name: market-sector
         id: engineering
         label: Engineering
-
+        value: engineering
   -
     title: With a prechecked option, without overflow
     label: Vegetables
@@ -59,25 +68,28 @@ examples:
         id: carrot
         label: Carrot
         checked: true
+        value: carrot
       -
         name: vegetables
         id: potato
         label: Potato
+        value: potato
       -
         name: vegetables
         id: swede
         label: Swede
+        value: swede
   -
     title: With multiple POST parameters
     label: Pricing options
     options:
       -
-        name: free_tier
+        name: free-tier
         id: free-option-available
         label: Free option available
         value: true
       -
-        name: trial_option
+        name: trial-option
         id: trial-option-available
         label: Trial option offereded
         value: true
