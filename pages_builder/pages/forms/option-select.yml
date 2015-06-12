@@ -75,9 +75,9 @@ examples:
         name: free_tier
         id: free-option-available
         label: Free option available
-        value: Free option
+        value: true
       -
         name: trial_option
         id: trial-option-available
         label: Trial option offereded
-        value: Trial
+        value: true
