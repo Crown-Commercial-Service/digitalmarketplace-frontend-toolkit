@@ -7,52 +7,77 @@ bodyEnd: >
 examples:
   -
     title: With overflowing options
-    name: Market sector
-    id: market_sector
+    label: Market sector
     options:
       -
+        name: market_sector
         id: aerospace
         label: Aerospace
       -
-        id: agriculture-environment-and-natural-resources
+        name: market_sector
+        id: agriculture_environment_and_natural_resources
         label: Agriculture, environment and natural resources
       -
+        name: market_sector
         id: building-and-construction
         label: Building and construction
       -
+        name: market_sector
         id: chemicals
         label: Chemicals
       -
-        id: clothing-footwear-and-fashion
+        name: market_sector
+        id: clothing_footwear_and_fashion
         label: Clothing, footwear and fashion
       -
+        name: market_sector
         id: defence
         label: Defence
       -
-        id: distribution-and-service-industries
+        name: market_sector
+        id: distribution_and_service_industries
         label: Distribution and Service Industries
       -
-        id: electronics-industry
+        name: market_sector
+        id: electronics_industry
         label: Electronics Industry
       -
+        name: market_sector
         id: energy
         label: Energy
       -
+        name: market_sector
         id: engineering
         label: Engineering
 
   -
     title: With a prechecked option, without overflow
-    name: Vegetables
-    id: vegetables
+    label: Vegetables
     options:
       -
+        name: vegetables
         id: carrot
         label: Carrot
         checked: true
       -
+        name: vegetables
         id: potato
         label: Potato
       -
+        name: vegetables
         id: swede
         label: Swede
+  -
+    title: With multiple POST parameters
+    label: Pricing options
+    options:
+      -
+        name: free_tier
+        id: free-option-available
+        label: Free option available
+        value: Free option
+      -
+        name: trial_option
+        id: trial-option-available
+        label: Trial option offereded
+        value: Trial

@@ -1,12 +1,12 @@
 <div class="govuk-option-select">
   <div class="container-head js-container-head">
-    <div class="option-select-label">{{ name }}</div>
+    <div class="option-select-label">{{ label }}</div>
   </div>
   <div class="options-container">
     <div class="js-auto-height-inner">
       {% for option in options %}
-        <label for="aerospace">
-          <input name="{{id}}" value="{{ option.id }}" id="{{ option.id }}" type="checkbox" aria-controls=""{% if option.checked %} checked="checked"{% endif %}>
+        <label for="{{ option.name }}-{{ option.id }}">
+          <input name="{{ option.name }}" value="{{ option.value or option.label }}" id="{{ option.name }}-{{ option.id }}" type="checkbox" aria-controls=""{% if option.checked %} checked="checked"{% endif %}>
           {{ option.label }}
         </label>
       {% endfor %}
