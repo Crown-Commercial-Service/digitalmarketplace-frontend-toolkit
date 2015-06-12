@@ -7,52 +7,89 @@ bodyEnd: >
 examples:
   -
     title: With overflowing options
-    name: Market sector
-    id: market_sector
+    label: Market sector
     options:
       -
+        name: market-sector
         id: aerospace
+        value: aerospace
         label: Aerospace
       -
+        name: market-sector
         id: agriculture-environment-and-natural-resources
+        value: agriculture environment and natural resources
         label: Agriculture, environment and natural resources
       -
+        name: market-sector
         id: building-and-construction
+        value: building and construction
         label: Building and construction
       -
+        name: market-sector
         id: chemicals
+        value: chemicals
         label: Chemicals
       -
+        name: market-sector
         id: clothing-footwear-and-fashion
+        value: clothing footwear and fashion
         label: Clothing, footwear and fashion
       -
+        name: market-sector
         id: defence
+        value: defence
         label: Defence
       -
+        name: market-sector
         id: distribution-and-service-industries
+        value: distribution and service industries
         label: Distribution and Service Industries
       -
+        name: market-sector
         id: electronics-industry
+        value: electronics industry
         label: Electronics Industry
       -
+        name: market-sector
         id: energy
+        value: energy
         label: Energy
       -
+        name: market-sector
         id: engineering
         label: Engineering
-
+        value: engineering
   -
     title: With a prechecked option, without overflow
-    name: Vegetables
-    id: vegetables
+    label: Vegetables
     options:
       -
+        name: vegetables
         id: carrot
         label: Carrot
         checked: true
+        value: carrot
       -
+        name: vegetables
         id: potato
         label: Potato
+        value: potato
       -
+        name: vegetables
         id: swede
         label: Swede
+        value: swede
+  -
+    title: With multiple POST parameters
+    label: Pricing options
+    options:
+      -
+        name: free-tier
+        id: free-option-available
+        label: Free option available
+        value: true
+      -
+        name: trial-option
+        id: trial-option-available
+        label: Trial option offereded
+        value: true
