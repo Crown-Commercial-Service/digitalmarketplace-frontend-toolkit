@@ -5,8 +5,8 @@
   <div class="options-container">
     <div class="js-auto-height-inner">
       {% for option in options %}
-        <label for="{{ option.name }}-{{ option.id }}">
-          <input name="{{ option.name }}" value="{{ option.value }}" id="{{ option.name }}-{{ option.id }}" type="checkbox" aria-controls=""{% if option.checked %} checked="checked"{% endif %}>
+        <label for="{{ option.id }}">
+          <input name="{{ option.name }}" value="{{ option.value }}" id="{{ option.id }}" type="checkbox" aria-controls=""{% if option.checked %} checked="checked"{% endif %}>
           {{ option.label }}
         </label>
       {% endfor %}
