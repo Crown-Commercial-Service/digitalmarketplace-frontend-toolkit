@@ -11,27 +11,27 @@ examples:
     options:
       -
         name: market-sector
-        id: aerospace
+        id: market-sector-aerospace
         value: aerospace
         label: Aerospace
       -
         name: market-sector
-        id: agriculture-environment-and-natural-resources
+        id: market-sector-agriculture-environment-and-natural-resources
         value: agriculture environment and natural resources
         label: Agriculture, environment and natural resources
       -
         name: market-sector
-        id: building-and-construction
+        id: market-sector-building-and-construction
         value: building and construction
         label: Building and construction
       -
         name: market-sector
-        id: chemicals
+        id: market-sector-chemicals
         value: chemicals
         label: Chemicals
       -
         name: market-sector
-        id: clothing-footwear-and-fashion
+        id: market-sector-clothing-footwear-and-fashion
         value: clothing footwear and fashion
         label: Clothing, footwear and fashion
       -
@@ -41,22 +41,22 @@ examples:
         label: Defence
       -
         name: market-sector
-        id: distribution-and-service-industries
+        id: market-sector-distribution-and-service-industries
         value: distribution and service industries
         label: Distribution and Service Industries
       -
         name: market-sector
-        id: electronics-industry
+        id: market-sector-electronics-industry
         value: electronics industry
         label: Electronics Industry
       -
         name: market-sector
-        id: energy
+        id: market-sector-energy
         value: energy
         label: Energy
       -
         name: market-sector
-        id: engineering
+        id: market-sector-engineering
         label: Engineering
         value: engineering
   -
@@ -65,18 +65,18 @@ examples:
     options:
       -
         name: vegetables
-        id: carrot
+        id: vegetables-carrot
         label: Carrot
         checked: true
         value: carrot
       -
         name: vegetables
-        id: potato
+        id: vegetables-potato
         label: Potato
         value: potato
       -
         name: vegetables
-        id: swede
+        id: vegetables-swede
         label: Swede
         value: swede
   -
@@ -84,12 +84,12 @@ examples:
     label: Pricing options
     options:
       -
-        name: free-tier
-        id: free-option-available
+        name: free-option
+        id: free-option
         label: Free option available
         value: true
       -
         name: trial-option
-        id: trial-option-available
+        id: trial-option
         label: Trial option offereded
         value: true
