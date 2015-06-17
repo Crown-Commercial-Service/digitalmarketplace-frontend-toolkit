@@ -14,17 +14,17 @@
       </p>
     {% endif %}
     {% if error %}
-      <p class="validation-message" id="error-{{ name }}">
+      <p class="validation-message" id="error-{{ id }}">
         {{ error }}
       </p>
     {% endif %}
-    <div class="input-list" data-list-item-name="feature" id="list-entry-feature">
+    <div class="input-list" data-list-item-name="{{ item_name }}" id="list-entry-{{id}}">
       {% for index in range(1, number_of_items + 1) %}
         <div class="list-entry">
-          <label for="{{id}}-{{index}}" class="text-box-number-label">
-            <span class="visuallyhidden">feature number </span>{{index}}.
+          <label for="{{ id }}-{{ index }}" class="text-box-number-label">
+            <span class="visuallyhidden">{{item_name}} number </span>{{ index }}.
           </label>
-          <input type="text" name="{{id}}" id="{{id}}-{{index}}" class="text-box" value="{{ values[index] }}" />
+          <input type="text" name="{{ id }}" id="{{ id }}-{{ index }}" class="text-box" value="{{ values[index] }}" />
         </div>
       {% endfor %}
     </div>

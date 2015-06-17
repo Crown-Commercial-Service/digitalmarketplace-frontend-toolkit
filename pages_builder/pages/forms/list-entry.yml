@@ -9,15 +9,17 @@ bodyEnd: >
 examples:
   -
     question: Service features
-    id: feature
+    id: serviceFeatures
     hint: Include the technical features of your product, eg graphical workflow, remote access. (Maximum 10 words per feature. Maximum 10 features.)
     number_of_items: 10
+    item_name: service feature
     values:
       - One
       - Two
       - Three
   -
     question: With an error
-    id: feature
+    id: serviceBenefits
     error: Answer required
     number_of_items: 3
+    item_name: benefit
