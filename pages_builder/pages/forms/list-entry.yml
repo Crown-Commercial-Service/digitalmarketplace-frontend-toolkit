@@ -19,7 +19,7 @@ examples:
       - Three
   -
     question: With an error
-    id: service benefit
+    id: serviceBenefits
     error: Answer required
     number_of_items: 3
-    item_name: feature
+    item_name: benefit
