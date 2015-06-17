@@ -2,7 +2,7 @@
   <div class="validation-wrapper">
 {% endif %}
   <div class="question">
-    <label for="question-2" class="question-heading{% if hint is defined %}-with-hint{% endif %}">
+    <label for="{{ name }}" class="question-heading{% if hint is defined %}-with-hint{% endif %}">
       {{ question }}
     </label>
     {% if hint is defined %}
