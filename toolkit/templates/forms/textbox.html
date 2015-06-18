@@ -2,19 +2,21 @@
   <div class="validation-wrapper">
 {% endif %}
   <div class="question">
-    <label for="{{ name }}" class="question-heading{% if hint is defined %}-with-hint{% endif %}">
-      {{ question }}
+    <label for="{{ name }}">
+      <span class="question-heading{% if hint is defined %}-with-hint{% endif %}">
+        {{ question }}
+      </span>
+      {% if hint is defined %}
+        <span class="hint">
+          {{ hint }}
+        </span>
+      {% endif %}
+      {% if error %}
+        <span class="validation-message" id="error-{{ name }}">
+          {{ error }}
+        </span>
+      {% endif %}
     </label>
-    {% if hint is defined %}
-      <p class="hint">
-        {{ hint }}
-      </p>
-    {% endif %}
-    {% if error %}
-      <p class="validation-message" id="error-{{ name }}">
-        {{ error }}
-      </p>
-    {% endif %}
     {% if large %}
       {% if max_length_in_words is defined %}
         <div class="word-count">

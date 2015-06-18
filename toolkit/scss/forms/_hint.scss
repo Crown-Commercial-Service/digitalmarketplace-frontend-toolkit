@@ -2,7 +2,8 @@
 @import "_typography.scss";
 
 .hint {
-  @include copy-19;
+  display: block;
+  @include core-19;
   margin: 0 0 5px 0;
   color: $secondary-text-colour;
 }

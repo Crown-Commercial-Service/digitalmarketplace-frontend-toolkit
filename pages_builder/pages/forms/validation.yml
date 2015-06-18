@@ -3,7 +3,6 @@ assetPath: ../govuk_template/assets/
 examples:
   -
     title: Masthead
-    lede: There was a problem with your answer to the following questions
     errors:
       -
         input_name: example-textbox
@@ -12,8 +11,9 @@ examples:
         input_name: example-textbox-2
         question: What street did you grow up on?
   -
-    title: With a custom message
+    title: With a custom message and description
     lede: Something went wrong
+    description: Please make it right
     errors:
       -
         input_name: example-textbox
