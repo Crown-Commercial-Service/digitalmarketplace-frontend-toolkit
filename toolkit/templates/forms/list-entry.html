@@ -19,10 +19,10 @@
       </p>
     {% endif %}
     <div class="input-list" data-list-item-name="{{ item_name }}" id="list-entry-{{id}}">
-      {% for index in range(1, number_of_items + 1) %}
+      {% for index in range(0, number_of_items) %}
         <div class="list-entry">
           <label for="{{ id }}-{{ index }}" class="text-box-number-label">
-            <span class="visuallyhidden">{{item_name}} number </span>{{ index }}.
+            <span class="visuallyhidden">{{item_name}} number </span>{{ index + 1 }}.
           </label>
           <input type="text" name="{{ id }}" id="{{ id }}-{{ index }}" class="text-box" value="{{ values[index] }}" />
         </div>
