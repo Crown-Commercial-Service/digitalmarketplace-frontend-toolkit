@@ -2,11 +2,13 @@
   <div class="validation-wrapper">
 {% endif %}
   <fieldset class="question first-question">
-    <legend class="question-heading">{{ question }}</legend>
     {% if hint is defined %}
+    <legend class="question-heading question-heading-with-hint">{{ question }}</legend>
       <p class="hint">
         {{ hint }}
       </p>
+    {% else %}
+    <legend class="question-heading">{{ question }}</legend>
     {% endif %}
     {% if error %}
       <p class="validation-message" id="error-{{ name }}">
@@ -24,9 +26,9 @@
       </label>
     {% else %}
       {% for option in options %}
-        <label class="selection-button" for="{{ name }}-{{ loop.index }}">
+        <label class="selection-button {{ option.class }}" for="{{ name }}-{{ loop.index }}">
           {{ option.label }}
-          <input type="{{ type }}" name="{{ name }}" id="{{ name }}-{{ loop.index }}" value="{{ option.value or option.label }}" />
+          <input type="{{ type }}" name="{{ name }}" id="{{ name }}-{{ loop.index }}" value="{{ option.value or option.label }}" {% if option.checked %}checked="checked"{% endif %} />
         </label>
         {% if option.description is defined %}
           <p class="question-description">
