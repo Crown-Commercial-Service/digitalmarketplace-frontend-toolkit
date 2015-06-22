@@ -66,7 +66,7 @@ source ~/Envs/digitalmarketplace-frontend_toolkit/bin/activate
 *Note*: you can set the virtualenv to any location on your system by swapping
 out `~/Envs/digitalmarketplace-frontend_toolkit` to your choice of folder.
 
-### Install the dependancies
+### Install the dependencies
 
 ``` shell
 pip install -r ./pages_builder/requirements.txt
