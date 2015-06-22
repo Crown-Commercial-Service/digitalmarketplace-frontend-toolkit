@@ -20,13 +20,13 @@
     {% if large %}
       {% if max_length_in_words is defined %}
         <div class="word-count">
-          <textarea class="text-box text-box-large" name="{{ name }}" id="{{ name }}" data-max-length-in-words="{{ max_length_in_words }}">{{ value }}</textarea>
+          <textarea class="text-box text-box-large{% if error %}-with-error{% endif %}" name="{{ name }}" id="{{ name }}" data-max-length-in-words="{{ max_length_in_words }}">{{ value }}</textarea>
         </div>
       {% else %}
         <textarea class="text-box text-box-large" name="{{ name }}" id="{{ name }}">{{ value }}</textarea>
       {% endif %}
     {% else %}
-      <input type="text" name="{{ name }}" id="{{ name }}" class="text-box" value="{{ value }}" />
+      <input type="text" name="{{ name }}" id="{{ name }}" class="text-box{% if error %}-with-error{% endif %}" value="{{ value }}" />
     {% endif %}
   </div>
 {% if error %}
