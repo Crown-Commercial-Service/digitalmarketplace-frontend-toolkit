@@ -26,7 +26,7 @@
       </label>
     {% else %}
       {% for option in options %}
-        <label class="selection-button {{ option.class }}" for="{{ name }}-{{ loop.index }}">
+        <label class="selection-button{% if inline is defined %} selection-button-inline{% endif %}" for="{{ name }}-{{ loop.index }}">
           {{ option.label }}
           <input type="{{ type }}" name="{{ name }}" id="{{ name }}-{{ loop.index }}" value="{{ option.value or option.label }}" {% if option.checked %}checked="checked"{% endif %} />
         </label>

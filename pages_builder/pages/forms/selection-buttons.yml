@@ -21,6 +21,17 @@ examples:
       -
         label : Year
   -
+    type: radio
+    name: serviceStatus
+    question: Inline radio buttons
+    inline: True
+    options:
+      -
+        label: Public
+        checked: true
+      -
+        label: Private
+  -
     type: checkbox
     name: categories
     question: Choose a category
