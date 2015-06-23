@@ -7,6 +7,7 @@
 
   .list-entry {
     vertical-align: middle;
+    margin-bottom: 15px;
   }
 
   .list-entry-remove {
@@ -23,6 +24,7 @@
   .text-box {
     padding-left: 1.84em;
     width: 100%;
+    margin-bottom: 0;
 
     @include ie-lte(8) {
       width: 95%;

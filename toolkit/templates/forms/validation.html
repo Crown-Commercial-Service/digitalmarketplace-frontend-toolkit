@@ -2,6 +2,11 @@
   <h3 class="validation-masthead-heading" id="validation-masthead-heading">
     {{ lede or "There was a problem with your answer to the following questions"}}
   </h3>
+  {% if description %}
+    <p class="validation-masthead-description">
+      {{ description }}
+    </p>
+  {% endif %}
   {% for error in errors %}
     <a href="#{{ error.input_name }}" class="validation-masthead-link">{{ error.question }}</a>
   {% endfor %}

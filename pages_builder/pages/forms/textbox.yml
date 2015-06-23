@@ -28,6 +28,12 @@ examples:
     max_length_in_words: 50
   -
     question: Text box with error
-    error: Must be a valid email address
+    error: Answer cannot be more than 50 characters
     name: question-5
+    value: hello2example.com
+  -
+    question: Text box with hint and error
+    hint: eg hello@example.com
+    error: Must be a valid email address
+    name: question-6
     value: hello2example.com

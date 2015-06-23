@@ -3,8 +3,8 @@
 
 .validation-masthead {
 
-  border: 3px solid $red;
-  padding: 15px 20px 30px 20px;
+  border: 5px solid $red;
+  padding: 15px 15px 20px 15px;
   margin-bottom: 30px;
 
   .validation-masthead-heading {
@@ -13,25 +13,39 @@
     margin-bottom: 15px;
   }
 
+  .validation-masthead-description {
+    @include copy-19;
+    margin-bottom: 5px;
+  }
+
   .validation-masthead-link,
   .validation-masthead-link:link,
   .validation-masthead-link:visited {
     display: block;
     @include core-19;
+    font-weight: bold;
     color: $red;
   }
 
 }
 
 .validation-wrapper {
-  border-left: 3px solid $red;
-  padding: 0 0 5px 20px;
-  margin-bottom: 15px;
+
+  border-left: 5px solid $red;
+  padding: 0 0 5px 15px;
+  margin: 15px 0 30px 0;
   overflow: hidden;
+
+  .question {
+    margin: 0;
+  }
+
 }
 
 .validation-message {
-  @include copy-19;
+  display: block;
+  @include core-19;
+  font-weight: bold;
   color: $red;
-  margin-bottom: 5px;
+  margin: 5px 0 7px 0;
 }

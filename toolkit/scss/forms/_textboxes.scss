@@ -4,6 +4,7 @@
 @import "_css3.scss";
 @import "_shims.scss";
 
+%text-box,
 .text-box {
   @include core-19;
   @include box-sizing(border-box);
@@ -18,12 +19,28 @@
   }
 }
 
+%text-box-error {
+  border: 5px solid $red;
+  margin-bottom: 0;
+}
+
+.text-box-with-error {
+  @extend %text-box;
+  @extend %text-box-error;
+}
+
 .text-box-medium {
   height: 6.25em;
 }
 
+%text-box-large,
 .text-box-large {
   height: 10.25em;
+}
+
+.text-box-large-with-error {
+  @extend %text-box-large;
+  @extend %text-box-error;
 }
 
 .text-box-percentage {
@@ -37,4 +54,3 @@
   @include inline-block;
   @include core-19;
 }
-
