@@ -20,11 +20,11 @@
     {% if type == "boolean" %}
       <label class="selection-button selection-button-boolean" for="{{ name }}-yes">
         Yes
-        <input type="radio" name="{{ name }}" id="{{ name }}-yes" value="val-1" />
+        <input type="radio" name="{{ name }}" id="{{ name }}-yes" value="val-1" {% if value is sameas true %} checked{% endif %} />
       </label>
       <label class="selection-button selection-button-boolean" for="{{ name }}-no">
         No
-        <input type="radio" name="{{ name }}" id="{{ name }}-no" value="val-2" />
+        <input type="radio" name="{{ name }}" id="{{ name }}-no" value="val-2" {% if value is sameas false %} checked{% endif %} />
       </label>
     {% else %}
       {% for option in options %}

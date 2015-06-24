@@ -46,6 +46,7 @@ examples:
     type: boolean
     question: Offline working supported
     name: offlineWorking
+    value: True
   -
     type: radio
     question: Checkbox with hint and description
