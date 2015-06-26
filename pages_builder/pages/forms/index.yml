@@ -28,6 +28,9 @@ content: >
         <li>
           <a href="validation.html">Validation</a>
         </li>
+        <li>
+          <a href="upload.html">File upload</a>
+        </li>
       </ul>
     </div>
   </main>

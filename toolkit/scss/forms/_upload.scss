@@ -1,0 +1,11 @@
+@import "_typography.scss";
+
+.file-upload-existing-value {
+  @include core-19;
+  margin: 0;
+}
+
+.file-upload-input {
+  @include core-19;
+  margin-top: 5px;
+}

@@ -33,6 +33,18 @@
 
 }
 
+.document-link-with-narrow-icon {
+
+  @extend %document-link;
+  padding-left: 45px;
+
+  @include ie-lte(8) {
+    padding-left: 35px;
+  }
+
+}
+
+%document-icon,
 .document-icon {
 
   @include bold-16;
@@ -84,6 +96,19 @@
     position: absolute;
     top: 0;
     left: -999em;
+  }
+
+}
+
+.document-icon-blank {
+
+  @extend .document-icon;
+
+  min-width: 8px;
+  min-height: 20px;
+
+  &:before {
+    content: "";
   }
 
 }
