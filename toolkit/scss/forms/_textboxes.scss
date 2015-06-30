@@ -43,14 +43,50 @@
   @extend %text-box-error;
 }
 
-.text-box-percentage {
+%text-box-with-unit {
+  @extend %text-box;
   @include inline-block;
-  width: 6em;
-  text-align: right;
-  padding-right: 5px;
+  width: 7em;
 }
 
-.text-box-percentage-label {
+%text-box-with-unit-before,
+.text-box-with-unit-before {
+  @extend %text-box-with-unit;
+  margin-left: -40px;
+  padding-left: 30px;
+}
+
+%text-box-with-unit-after,
+.text-box-with-unit-after {
+  @extend %text-box-with-unit;
+  text-align: right;
+  margin-right: -40px;
+  padding-right: 30px;
+}
+
+.text-box-unit {
   @include inline-block;
+  color: $grey-2;
   @include core-19;
+  font-weight: bold;
+  width: 40px;
+  position: relative;
+  z-index: 10;
+  pointer-events: none;
+  text-align: center;
+}
+
+.text-box-with-unit-before-with-error {
+  @extend %text-box-with-unit-before;
+  @extend %text-box-error;
+}
+
+.text-box-with-unit-after-with-error {
+  @extend %text-box-with-unit-after;
+  @extend %text-box-error;
+}
+
+.text-box-unit-qualifier {
+  position: absolute;
+  left: -9999em;
 }

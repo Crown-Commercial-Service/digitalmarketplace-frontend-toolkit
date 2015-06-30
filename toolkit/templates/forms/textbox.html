@@ -5,6 +5,9 @@
     <label for="{{ name }}">
       <span class="question-heading{% if hint is defined %}-with-hint{% endif %}">
         {{ question }}
+        {% if unit_in_full %}
+          <span class="text-box-unit-qualifier">(in {{ unit_in_full }})</span>
+        {% endif %}
       </span>
       {% if hint is defined %}
         <span class="hint">
@@ -26,7 +29,17 @@
         <textarea class="text-box text-box-large" name="{{ name }}" id="{{ name }}">{{ value }}</textarea>
       {% endif %}
     {% else %}
-      <input type="text" name="{{ name }}" id="{{ name }}" class="text-box{% if error %}-with-error{% endif %}" value="{{ value }}" />
+      {% if unit_position == "before" %}
+        <label for="{{ name }}" class="text-box-unit">
+          {{ unit }}
+        </label>
+      {% endif %}
+      <input type="text" name="{{ name }}" id="{{ name }}" class="text-box{% if unit %}-with-unit-{{ unit_position }}{% endif %}{% if error %}-with-error{% endif %}" value="{{ value }}" />
+      {% if unit_position == "after" %}
+        <label for="{{ name }}" class="text-box-unit">
+          {{ unit }}
+        </label>
+      {% endif %}
     {% endif %}
   </div>
 {% if error %}
