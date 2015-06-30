@@ -37,3 +37,20 @@ examples:
     error: Must be a valid email address
     name: question-6
     value: hello2example.com
+  -
+    question: Numeric textbox with unit before
+    name: question-7
+    unit: before
+    unit_symbol: "$"
+  -
+    question: Numeric textbox with unit after
+    name: question-7
+    unit: after
+    unit_symbol: "%"
+  -
+    question: Numeric textbox with error
+    name: question-7
+    value: aaaaaa
+    error: Price must not contain letters
+    unit: before
+    unit_symbol: "$"

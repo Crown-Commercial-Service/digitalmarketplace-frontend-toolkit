@@ -26,7 +26,19 @@
         <textarea class="text-box text-box-large" name="{{ name }}" id="{{ name }}">{{ value }}</textarea>
       {% endif %}
     {% else %}
-      <input type="text" name="{{ name }}" id="{{ name }}" class="text-box{% if error %}-with-error{% endif %}" value="{{ value }}" />
+      {% if unit == "before" %}
+        <label for="{{ name }}" class="text-box-unit">
+          <span class="text-box-unit-qualifier">in </span>
+          {{ unit_symbol }}
+        </label>
+      {% endif %}
+      <input type="text" name="{{ name }}" id="{{ name }}" class="text-box{% if unit %}-with-unit-{{unit}}{% endif %}{% if error %}-with-error{% endif %}" value="{{ value }}" />
+      {% if unit == "after" %}
+        <label for="{{ name }}" class="text-box-unit">
+          <span class="text-box-unit-qualifier">in </span>
+          {{ unit_symbol }}
+        </label>
+      {% endif %}
     {% endif %}
   </div>
 {% if error %}
