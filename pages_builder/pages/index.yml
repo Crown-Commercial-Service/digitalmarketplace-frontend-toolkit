@@ -23,6 +23,7 @@ content: >
         <li><a href="browse-list.html">Browse list</a></li>
         <li><a href="service-id.html">Service ID</a></li>
         <li><a href="contact-details.html">Contact details</a></li>
+        <li><a href="previous-next-navigation.html">Previous/next navigation</a></li>
       </ul>
     </div>
   </main>
