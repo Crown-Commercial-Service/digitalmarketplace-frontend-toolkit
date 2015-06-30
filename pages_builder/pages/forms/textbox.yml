@@ -38,19 +38,25 @@ examples:
     name: question-6
     value: hello2example.com
   -
-    question: Numeric textbox with unit before
+    title: Numeric textbox with unit before
+    question: Price
     name: question-7
     unit: "$"
+    unit_in_full: dollars
     unit_position: before
   -
-    question: Numeric textbox with unit after
+    title: Numeric textbox with unit after
+    question: Uptime
     name: question-7
     unit: "%"
+    unit_in_full: percent
     unit_position: after
   -
-    question: Numeric textbox with error
-    name: question-7
+    title: Numeric textbox with error
+    question: Price
+    name: question-8
     value: aaaaaa
     error: Price must not contain letters
     unit: "$"
+    unit_in_full: dollars
     unit_position: before
