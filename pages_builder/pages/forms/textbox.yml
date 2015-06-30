@@ -40,17 +40,17 @@ examples:
   -
     question: Numeric textbox with unit before
     name: question-7
-    unit: before
-    unit_symbol: "$"
+    unit: "$"
+    unit_position: before
   -
     question: Numeric textbox with unit after
     name: question-7
-    unit: after
-    unit_symbol: "%"
+    unit: "%"
+    unit_position: after
   -
     question: Numeric textbox with error
     name: question-7
     value: aaaaaa
     error: Price must not contain letters
-    unit: before
-    unit_symbol: "$"
+    unit: "$"
+    unit_position: before
