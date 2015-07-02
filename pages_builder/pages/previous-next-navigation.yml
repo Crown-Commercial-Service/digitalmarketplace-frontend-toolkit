@@ -1,0 +1,12 @@
+pageTitle: Previous/next navigation
+assetPath: govuk_template/assets/
+examples:
+  -
+    previous_page:
+      url: "#"
+      title: Previous page
+      label: 1 of 3
+    next_page:
+      url: "#"
+      title: Next page
+      label: 3 of 3
