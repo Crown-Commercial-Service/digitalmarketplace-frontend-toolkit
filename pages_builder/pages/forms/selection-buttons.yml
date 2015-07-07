@@ -25,16 +25,19 @@ examples:
     name: serviceStatus
     question: Inline radio buttons
     inline: True
+    value: 'Public'
     options:
       -
         label: Public
-        checked: true
       -
         label: Private
   -
     type: checkbox
     name: categories
     question: Choose a category
+    value: 
+      - Accounting and finance
+      - Collaboration
     options:
       -
         label: Accounting and finance
