@@ -20,11 +20,26 @@ a.browse-list-item-link {
   @include heading-24;
   font-weight: bold;
   text-decoration: none;
+  border-bottom: 1px solid;
+  position: relative;
+  top: -12px;
+
   @include ie-lte(9) {
     text-decoration: underline;
+    border-bottom: none;
+    top: 0;
   }
-  box-shadow: inset 0 -11px 0 0 $white, inset 0 -12px 0 0; // 1px underline, same
-                                                            // colour as text
+
+  span {
+
+    position: relative;
+    top: 12px;
+
+    @include ie-lte(9) {
+      top: 0;
+    }
+
+  }
 
   &:visited {
     color: $link-visited-colour;
@@ -36,7 +51,27 @@ a.browse-list-item-link {
 
   &:active,
   &:focus {
-    box-shadow: inset 0 -11px 0 0 $yellow, inset 0 -11px 0 0, inset 0 -12px 0 0, inset 0 0 0 2em $yellow;
+
+    outline: none;
+    background: none;
+
+    @include ie-lte(9) {
+      background: $yellow;
+      outline: 3px solid $yellow;
+    }
+
+    span {
+
+      background: $yellow;
+      outline: 3px solid $yellow;
+
+      @include ie-lte(9) {
+        background: none;
+        outline: none;
+      }
+
+    }
+
   }
 
 }
