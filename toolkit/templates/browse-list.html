@@ -1,7 +1,7 @@
 <ul class="browse-list">
   {% for item in items %}
     <li class="browse-list-item">
-      <a class="browse-list-item-link" href="{{ item.link }}">{{ item.title }}</a>
+      <a class="browse-list-item-link" href="{{ item.link }}"><span>{{ item.title }}</span></a>
       <p class="browse-list-item-body">
         {{ item.body }}
       </p>

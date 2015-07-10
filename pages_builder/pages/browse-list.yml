@@ -5,16 +5,22 @@ examples:
     items:
       -
         title: Find cloud technology and support
-        link: '#'
+        link: 'https://www.gov.uk'
         body: eg web hosting or IT health checks
-        subtext: 'Procurement framework: G-Cloud'
+        subtext: 'Procurement framework: <a href="#">G-Cloud</a>'
       -
-        title: Find specialists to work on digital projects
-        link: '#'
+        title: Find specialists to work on digital projects to work on digital projects to work on digital projects to work on digital projects
+        link: '#nope'
         body: eg web hosting or IT health checks
-        subtext: 'Procurement framework: Digital Services'
+        subtext: 'Procurement framework: <a href="#">Digital Services</a>'
       -
         title: Software as a Service
-        link: '#'
+        link: '#nope'
         body: 'Find applications or services that are run over the internet or in the cloud'
         subtext: eg accounting, email
+  -
+    items:
+      -
+        title: Apply to G-Cloud 10
+        link: '#nope'
+        body: G-Cloud 10 is open for applications until 1 October 2019
