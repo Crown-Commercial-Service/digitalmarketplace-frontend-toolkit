@@ -20,7 +20,7 @@ a.browse-list-item-link {
   @include heading-24;
   font-weight: bold;
   text-decoration: none;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid; // No border colour, is inherited from text colour
   position: relative;
   top: -12px;
 
