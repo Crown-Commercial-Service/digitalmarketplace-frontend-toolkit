@@ -2,7 +2,7 @@
 {%
   with' }}
 {%- for key, value in parameters.iteritems() %}
-  {{ key }} = "{{ value }}",
+  {{ key }} = {{ value }},
 {%- endfor %}
 {{ '%}' }}
   {{ '{% include "toolkit/templates/' }}{{ file }}{{ '.html" %}' }}

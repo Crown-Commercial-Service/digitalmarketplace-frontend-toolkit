@@ -121,9 +121,13 @@ class Styleguide_publisher(object):
                     parameters_template = Template(
                         open(parameters_template_file).read()
                     )
+                    presented_parameters = {
+                        key: json.dumps(value, indent=4)
+                        for key, value in parameters.iteritems()
+                    }
                     rendered_parameters = parameters_template.render(
                         {
-                            "parameters": parameters,
+                            "parameters": presented_parameters,
                             "file": template_subfolder.strip("/") + "/" + template_name
                         }
                     )
