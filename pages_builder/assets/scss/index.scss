@@ -50,7 +50,7 @@ $path : '../images/';
   padding: 10px 10px 15px 15px;
   font-family: monospace;
   font-size: 17px;
-  margin-bottom: 30px;
+  margin: $gutter/2 0;
   color: $grey-1;
   position: relative;
   max-height: 1em;
