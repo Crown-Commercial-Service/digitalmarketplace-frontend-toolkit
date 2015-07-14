@@ -1,11 +1,8 @@
 pageTitle: Textboxes
 assetPath: ../govuk_template/assets/
 bodyEnd: >
-  <script type="text/javascript" src="../public/javascripts/vendor/jquery-1.11.0.js"></script>
   <script type="text/javascript" src="../public/javascripts/vendor/hogan-3.0.2.min.js"></script>
-  <script type="text/javascript" src="../public/javascripts/list-entry.js"></script>
   <script type="text/javascript" src="../public/javascripts/word-counter.js"></script>
-  <script type="text/javascript" src="../public/javascripts/onready.js"></script>
 examples:
   -
     question: Text box

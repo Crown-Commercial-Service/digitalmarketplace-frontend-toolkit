@@ -1,10 +1,8 @@
 pageTitle: Selection buttons
 assetPath: ../govuk_template/assets/
 bodyEnd: >
-  <script type="text/javascript" src="../public/javascripts/vendor/jquery-1.11.0.js"></script>
   <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/vendor/polyfills/bind.js"></script>
   <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/govuk/selection-buttons.js"></script>
-  <script type="text/javascript" src="../public/javascripts/onready.js"></script>
 examples:
   -
     type: radio
@@ -35,7 +33,7 @@ examples:
     type: checkbox
     name: categories
     question: Choose a category
-    value: 
+    value:
       - Accounting and finance
       - Collaboration
     options:

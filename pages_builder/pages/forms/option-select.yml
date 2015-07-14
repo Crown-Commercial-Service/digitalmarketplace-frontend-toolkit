@@ -1,9 +1,7 @@
 pageTitle: Option select
 assetPath: ../govuk_template/assets/
 bodyEnd: >
-  <script type="text/javascript" src="../public/javascripts/vendor/jquery-1.11.0.js"></script>
   <script type="text/javascript" src="../public/javascripts/option-select.js"></script>
-  <script type="text/javascript" src="../public/javascripts/onready.js"></script>
 examples:
   -
     title: With overflowing options

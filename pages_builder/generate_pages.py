@@ -194,6 +194,12 @@ class Styleguide_publisher(object):
             '<link rel="stylesheet" href="' + url_root + '/public/stylesheets/index-ie9.css "/>'  # noqa
             '<![endif]-->'
         )
+        bodyEnd = partial['bodyEnd'] if "bodyEnd" in partial else ""
+        partial['bodyEnd'] = (
+            '<script type="text/javascript" src="' + url_root + '/public/javascripts/vendor/jquery-1.11.0.js"></script>' +  # noqa
+            bodyEnd +
+            '<script type="text/javascript" src="' + url_root + '/public/javascripts/onready.js"></script>'  # noqa
+        )
         page_render = pystache.render(self.template_view, partial)
         print "\n  " + input_file
         print "▸ " + output_file
