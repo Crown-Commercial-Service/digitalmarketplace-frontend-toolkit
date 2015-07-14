@@ -7,7 +7,7 @@
       {{ result.supplier }}
     </p>
     <p class="search-result-excerpt">
-      {{ result.excerpt }}
+      {{ result.excerpt|safe }}
     </p>
     <ul class="search-result-metadata">
       {% for item in result.metadata %}
