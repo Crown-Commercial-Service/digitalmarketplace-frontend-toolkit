@@ -1,0 +1,9 @@
+{{ '
+{%
+  with' }}
+{%- for key, value in parameters.iteritems() %}
+  {{ key }} = "{{ value }}",
+{%- endfor %}
+{{ '%}' }}
+  {{ '{% include "toolkit/templates/' }}{{ file }}{{ '.html" %}' }}
+{{ '{% endwith %}' }}

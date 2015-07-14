@@ -11,7 +11,7 @@ from template_handler import TemplateHandler
 from asset_compiler import AssetCompiler
 from jinja2 import Template
 from pygments import highlight
-from pygments.lexers import HtmlLexer, JavascriptLexer
+from pygments.lexers import HtmlLexer, DjangoLexer
 from pygments.formatters import HtmlFormatter
 
 
@@ -104,6 +104,10 @@ class Styleguide_publisher(object):
                     template_subfolder.strip("/"),
                     template_name + ".html"
                 )
+                parameters_template_file = os.path.join(
+                    self.repo_root,
+                    "pages_builder/parameters_template.html"
+                )
                 if (os.path.isfile(template_file)):
                     template = Template(open(template_file, "r").read())
                 else:
@@ -114,9 +118,20 @@ class Styleguide_publisher(object):
                         # title is a parameter reserved for naming the pattern
                         # in the documentation
                         parameters.pop("title", None)
+                    print("==========x=x=x=x=x=x=x====")
+                    print(parameters)
+                    parameters_template = Template(
+                        open(parameters_template_file).read()
+                    )
+                    rendered_parameters = parameters_template.render(
+                        {
+                            "parameters": parameters,
+                            "file": template_subfolder.strip("/") + "/" + template_name
+                        }
+                    )
                     partial["examples"][index]["parameters"] = highlight(
-                        json.dumps(parameters, indent=4),
-                        JavascriptLexer(),
+                        rendered_parameters,
+                        DjangoLexer(),
                         HtmlFormatter(noclasses=True)
                     )
                     rendered_markup = template.render(
@@ -150,8 +165,8 @@ class Styleguide_publisher(object):
                                 {{#examples}}
                                     {{#title}}<h2>{{title}}</h2>{{/title}}
                                     {{{markup}}}
-                                    <div class="code open"><h3 class="code-label">Template ({{ templateFile }})</h3>{{{highlighted_markup}}}</div>
-                                    <div class="code open"><h3 class="code-label">Parameters</h3>{{{parameters}}}</div>
+                                    <div class="code open"><h3 class="code-label">HTML</h3>{{{highlighted_markup}}}</div>
+                                    <div class="code open"><h3 class="code-label">Jinja</h3>{{{parameters}}}</div>
                                 {{/examples}}
                             </div>
                         </main>
