@@ -118,8 +118,6 @@ class Styleguide_publisher(object):
                         # title is a parameter reserved for naming the pattern
                         # in the documentation
                         parameters.pop("title", None)
-                    print("==========x=x=x=x=x=x=x====")
-                    print(parameters)
                     parameters_template = Template(
                         open(parameters_template_file).read()
                     )
@@ -165,8 +163,8 @@ class Styleguide_publisher(object):
                                 {{#examples}}
                                     {{#title}}<h2>{{title}}</h2>{{/title}}
                                     {{{markup}}}
-                                    <div class="code open"><h3 class="code-label">HTML</h3>{{{highlighted_markup}}}</div>
-                                    <div class="code open"><h3 class="code-label">Jinja</h3>{{{parameters}}}</div>
+                                    <div class="code open" data-lang="html"><h3 class="code-label">HTML</h3>{{{highlighted_markup}}}</div>
+                                    <div class="code open" data-lang="jinja"><h3 class="code-label">Jinja</h3>{{{parameters}}}</div>
                                 {{/examples}}
                             </div>
                         </main>
