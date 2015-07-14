@@ -163,8 +163,8 @@ class Styleguide_publisher(object):
                                 {{#examples}}
                                     {{#title}}<h2>{{title}}</h2>{{/title}}
                                     {{{markup}}}
-                                    <div class="code open" data-lang="html"><h3 class="code-label">HTML</h3>{{{highlighted_markup}}}</div>
                                     <div class="code open" data-lang="jinja"><h3 class="code-label">Jinja</h3>{{{parameters}}}</div>
+                                    <div class="code open" data-lang="html"><h3 class="code-label">HTML</h3>{{{highlighted_markup}}}</div>
                                 {{/examples}}
                             </div>
                         </main>
