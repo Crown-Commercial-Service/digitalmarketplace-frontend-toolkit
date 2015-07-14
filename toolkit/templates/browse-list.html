@@ -6,7 +6,7 @@
         {{ item.body }}
       </p>
       <p class="browse-list-item-subtext">
-        {{ item.subtext }}
+        {{ item.subtext|safe }}
       </p>
     </li>
   {% endfor %}
