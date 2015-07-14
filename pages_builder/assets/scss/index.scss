@@ -33,18 +33,64 @@ $path : '../images/';
 
 .code {
 
-  box-shadow: inset 0 0 50px 0 rgba(50, 20, 0, .025);
-  background: rgb(250, 250, 250);
+  $code-background: rgb(250, 250, 250);
+  $code-keyline: rgb(230, 230, 230);
+
+  background: rgb(245, 245, 245);
+  background-image: linear-gradient(
+      0deg,
+      $code-background 0,
+      $code-background 1.2em,
+      $code-keyline 1.2em,
+      $code-keyline 1.25em
+    );
+  background-size: 1.25em 1.25em;
+  background-position: 0 10px;
+  box-shadow: inset 0 0 0 1px $code-keyline, inset 0 3em 0 0 $code-background;
   padding: 10px 10px 15px 15px;
   font-family: monospace;
   font-size: 17px;
   margin-bottom: 30px;
-  color: #888;
+  color: $grey-1;
   position: relative;
-  overflow: scroll;
+  max-height: 1em;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:before {
+    content: "\25b6";
+    color: rgba($grey-1, 0.5);
+  }
 
   &:hover {
-    color: #111;
+
+    &:before {
+      color: $grey-1;
+    }
+
+  }
+
+  .highlight {
+    display: none;
+    overflow: scroll;
+    background: transparent !important;
+  }
+
+  &.open {
+
+    cursor: default;
+    max-height: none;
+    padding-bottom: 5px;
+
+    &:before {
+      content: "\25bc";
+      cursor: pointer;
+    }
+
+    .highlight {
+      display: block;
+    }
+
   }
 
 }
@@ -54,10 +100,10 @@ $path : '../images/';
   position: absolute;
   top: 0;
   right: 0;
-  margin: 10px 10px 0 0;
+  margin: 5px 10px 0 0;
   z-index: 100;
   color: rgba(0, 0, 0, 0.3);
-  font-weight: bold;
+  font-weight: normal;
 }
 
 

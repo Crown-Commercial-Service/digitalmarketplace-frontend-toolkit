@@ -26,4 +26,9 @@
       filters[0].open();
     }
   }
+
+  $('.code').removeClass("open").click(function() {
+      $(this).toggleClass('open');
+  });
+
 })(window);
