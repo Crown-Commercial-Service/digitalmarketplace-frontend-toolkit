@@ -1,46 +1,39 @@
 <h2 class="summary-item-heading">
-    {% if index is defined %}
+    {% if index %}
       <span class="summary-item-heading-number">{{ index }}.</span>
     {% endif %}
     {{ heading }}
 </h2>
-{% if edit_link is defined %}
+{% if top_link %}
   <p class="summary-item-top-level-action">
-    <a href="{{ edit_link }}" class="summary-change-link">Edit <span class="visuallyhidden"> {{ heading }}</span></a>
+    <a href="{{ top_link }}" class="summary-change-link">{{ top_link_label }}</a>
   </p>
 {% endif %}
-{% if rows is defined %}
+{% if rows %}
   <table class="summary-item-body">
-    <thead class="summary-item-field-headings">
+    <thead class="summary-item-field-headings{% if field_headings_visible %}-visible{% endif %}">
       <tr>
-        <th scope="col">
-          Name
-        </th>
-        <th scope="col">
-          Content
-        </th>
+        {% for field_heading in field_headings %}
+          <th scope="col" class="summary-item-field-heading{% if loop.first %}-first{% endif %}">
+            {{ field_heading }}
+          </th>
+        {% endfor %}
       </tr>
     </thead>
     <tbody>
       {% for row in rows %}
         <tr class="summary-item-row{% if row.incomplete %}-incomplete{% endif %}">
-          <td class="summary-item-field-name">
-            <span>{{ row.name }}</span>
-          </td>
-          <td class="summary-item-field-content">
-            {{ row.content }}
-          </td>
-          {% if row.action %}
-            <td class="summary-item-action-field">
-              {{ row.action }}
+          {% for field in row.fields %}
+            <td class="summary-item-field{% if loop.first %}-first{% endif %}{% if loop.first and wide_first_column %}-wider{% endif %}{% if loop.last and with_action_field %}-with-action{% endif %}">
+              <span>{{ field }}</span>
             </td>
-          {% endif %}
+          {% endfor %}
         </tr>
       {% endfor %}
     </tbody>
   </table>
 {% else %}
-  <p class="hint summary-item-no-content">
+  <p class="summary-item-no-content">
     {{ empty_message }}
   </p>
 {% endif %}
