@@ -25,7 +25,7 @@
         <tr class="summary-item-row{% if row.incomplete %}-incomplete{% endif %}">
           {% for field in row.fields %}
             <td class="summary-item-field{% if loop.first %}-first{% endif %}{% if loop.first and wide_first_column %}-wider{% endif %}{% if loop.last and with_action_field %}-with-action{% endif %}">
-              <span>{{ field }}</span>
+              <span>{{ field|safe }}</span>
             </td>
           {% endfor %}
         </tr>
