@@ -5,51 +5,98 @@ examples:
     heading: Summary item with no entries
     empty_message: You haven't submitted any services yet
   -
-    heading: Summary item
+    heading: Summary item with column headings
+    field_headings:
+      - Name
+      - Content
+    field_headings_visible: True
     rows:
       -
-        name: Summary item name
-        content: Summary item content
-        action: '<a href="#">Change<span class="visuallyhidden"> Summary item</span></a>'
+        fields:
+          - Summary item name
+          - Summary item content
+      -
+        fields:
+          - Summary item name
+          - Summary item content
+      -
+        fields:
+          - Summary item name
+          - Summary item content
+      -
+        fields:
+          - Summary item name
+          - Summary item content
   -
-    heading: Summary item with action
-    edit_link: "#"
+    heading: Summary item with many columns
+    field_headings:
+      - Name
+      - ID
+      - Framework
+      - Lot
+      - Last edited
+      - Action
+    field_headings_visible: True
+    with_action_field: True
     rows:
       -
-        name: Summary item name
-        content: Summary item content
-        action: '<a href="#">Change<span class="visuallyhidden"> Summary item</span></a>'
+        fields:
+          - <a href="#">Excelsior CMS</a>
+          - 1234 5678 9012 3456
+          - G-Cloud 5
+          - SaaS
+          - 12 June 2015
+          - <a href="#">Edit</a>
+  -
+    heading: Summary item with wide first column
+    wide_first_column: True
+    rows:
+      -
+        fields:
+          - User access control within management interfaces
+          - Yes
+  -
+    heading: Summary item with top-level action
+    top_link: "#"
+    top_link_label: Add new service
+    rows:
+      -
+        fields:
+          - Summary item name
+          - Summary item content
   -
     heading: Summary item with number
     index: 1
+    with_action_field: True
     rows:
       -
-        name: Summary item name
-        content: Summary item content
-        action: '<a href="#">Change<span class="visuallyhidden"> Summary item</span></a>'
+        fields:
+          - Summary item name
+          - Summary item content
+          - '<a href="#">Change<span class="visuallyhidden"> Summary item</span></a>'
   -
     heading: Summary item with name field as link
+    with_action_field: True
     rows:
       -
-        name: <a href="#">Summary item name</a>
-        content: Summary item content
-        action: '<a href="#">Change<span class="visuallyhidden"> Summary item</span></a>'
+        fields:
+          - <a href="#">Summary item name</a>
+          - Summary item content
+          - '<a href="#">Change<span class="visuallyhidden"> Summary item</span></a>'
   -
     heading: Summary item with content field as list
     rows:
       -
-        name: Summary item name
-        content: >
-          <ul>
-            <li>Summary item content 1</li>
-            <li>Summary item content 2</li>
-          </ul>
-        action: '<a href="#">Change<span class="visuallyhidden"> Summary item</span></a>'
+        fields:
+          - Summary item name
+          - <ul><li>Summary item content 1</li><li>Summary item content 2</li></ul>
   -
     heading: Summary item with incomplete entry
+    top_link: "#"
+    top_link_label: Edit <span class="visuallyhidden">summary item with incomplete entry</span>
     rows:
       -
         incomplete: true
-        name: Summary item name
-        content: Summary item content
-        action: '<a href="#">Change<span class="visuallyhidden"> Summary item</span></a>'
+        fields:
+          - Summary item name
+          - '<a href="#">Summary item content</a>'
