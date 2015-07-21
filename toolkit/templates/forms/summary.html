@@ -1,9 +1,11 @@
+{% if heading %}
 <h2 class="summary-item-heading">
     {% if index %}
       <span class="summary-item-heading-number">{{ index }}.</span>
     {% endif %}
     {{ heading }}
 </h2>
+{% endif %}
 {% if top_link %}
   <p class="summary-item-top-level-action">
     <a href="{{ top_link }}" class="summary-change-link">{{ top_link_label }}</a>

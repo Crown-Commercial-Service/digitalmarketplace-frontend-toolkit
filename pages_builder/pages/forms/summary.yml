@@ -2,6 +2,32 @@ pageTitle: Summary
 assetPath: ../govuk_template/assets/
 examples:
   -
+    field_headings:
+      - Subject
+      - Verb
+      - Adjective
+      - Object
+    field_headings_visible: True
+    rows:
+      -
+        fields:
+          - This table
+          - has
+          - "no"
+          - table heading
+      -
+        fields:
+          - This table
+          - has
+          - visible
+          - field headings
+      -
+        fields:
+          - This table
+          - has
+          - three
+          - content rows
+  -
     heading: Summary item with no entries
     empty_message: You haven't submitted any services yet
   -
