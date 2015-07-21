@@ -27,8 +27,8 @@
     }
   }
 
-  $('.code').removeClass("open").click(function() {
-      $(this).toggleClass('open');
+  $('.code').removeClass("open").find('.code-label').click(function() {
+      $(this).parent().toggleClass('open');
   });
 
 })(window);
