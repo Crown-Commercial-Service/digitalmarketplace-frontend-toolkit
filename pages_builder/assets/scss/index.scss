@@ -98,13 +98,15 @@ $path : '../images/';
 
 .code-label {
   text-align: right;
+  width: 100%;
   position: absolute;
   top: 0;
   right: 0;
-  margin: 5px 10px 0 0;
+  padding: 5px 10px 5px 0;
   z-index: 100;
   color: rgba(0, 0, 0, 0.3);
   font-weight: normal;
+  cursor: pointer;
 }
 
 
