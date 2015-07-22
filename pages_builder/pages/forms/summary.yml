@@ -75,6 +75,9 @@ examples:
           - <a href="#">Edit</a>
   -
     heading: Summary item with wide first column
+    field_headings:
+      - Name
+      - Content
     wide_first_column: True
     rows:
       -
@@ -83,6 +86,9 @@ examples:
           - Yes
   -
     heading: Summary item with top-level action
+    field_headings:
+      - Name
+      - Content
     top_link: "#"
     top_link_label: Add new service
     rows:
@@ -92,6 +98,9 @@ examples:
           - Summary item content
   -
     heading: Summary item with number
+    field_headings:
+      - Name
+      - Content
     index: 1
     with_action_field: True
     rows:
@@ -102,6 +111,9 @@ examples:
           - '<a href="#">Change<span class="visuallyhidden"> Summary item</span></a>'
   -
     heading: Summary item with name field as link
+    field_headings:
+      - Name
+      - Content
     with_action_field: True
     rows:
       -
@@ -111,6 +123,9 @@ examples:
           - '<a href="#">Change<span class="visuallyhidden"> Summary item</span></a>'
   -
     heading: Summary item with content field as list
+    field_headings:
+      - Name
+      - Content
     rows:
       -
         fields:
@@ -118,6 +133,9 @@ examples:
           - <ul><li>Summary item content 1</li><li>Summary item content 2</li></ul>
   -
     heading: Summary item with incomplete entry
+    field_headings:
+      - Name
+      - Content
     top_link: "#"
     top_link_label: Edit <span class="visuallyhidden">summary item with incomplete entry</span>
     rows:

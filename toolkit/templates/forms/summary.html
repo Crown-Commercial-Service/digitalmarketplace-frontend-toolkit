@@ -17,7 +17,11 @@
       <tr>
         {% for field_heading in field_headings %}
           <th scope="col" class="summary-item-field-heading{% if loop.first %}-first{% endif %}">
-            {{ field_heading|safe }}
+            {% if field_headings_visible %}
+              {{ field_heading|safe }}
+            {% else %}
+              <span class="visuallyhidden">{{ field_heading|safe }}</span>
+            {% endif %}
           </th>
         {% endfor %}
       </tr>
