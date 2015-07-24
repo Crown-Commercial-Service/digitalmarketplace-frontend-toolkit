@@ -1,4 +1,6 @@
 pageTitle: Summary tables
+pageDescription: |
+  Examples use <a href="http://jinja.pocoo.org/docs/dev/templates/#call">Jinja2 "macro call" syntax</a>.
 assetPath: ../govuk_template/assets/
 examples:
   - |

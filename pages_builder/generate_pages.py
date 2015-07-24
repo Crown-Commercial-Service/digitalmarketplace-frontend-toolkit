@@ -163,6 +163,11 @@ class Styleguide_publisher(object):
                                 <header class="page-heading">
                                     <h1>{{pageHeading}}</h1>
                                 </header>
+                                {{#pageDescription}}
+                                <div>
+                                    {{{pageDescription}}}
+                                </div>
+                                {{/pageDescription}}
                                 {{#examples}}
                                     {{#title}}<h2>{{title}}</h2>{{/title}}
                                     {{{markup}}}
@@ -174,6 +179,7 @@ class Styleguide_publisher(object):
                     """, {
                         "examples": examples,
                         "pageTitle": partial['pageTitle'],
+                        "pageDescription": partial.get('pageDescription'),
                         "pageHeading": partial['pageHeading'],
                         "templateFile": template_file,
                         "urlRoot": url_root
