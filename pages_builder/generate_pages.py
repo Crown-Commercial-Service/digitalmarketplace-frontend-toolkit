@@ -9,7 +9,7 @@ from subprocess import call
 from distutils import dir_util
 from template_handler import TemplateHandler
 from asset_compiler import AssetCompiler
-from jinja2 import Template
+from jinja2 import Environment, FileSystemLoader, Template
 from pygments import highlight
 from pygments.lexers import HtmlLexer, DjangoLexer
 from pygments.formatters import HtmlFormatter
@@ -79,6 +79,34 @@ class Styleguide_publisher(object):
                 if self.__is_yaml(file):
                     self.render_page(root, file)
 
+    def parameters_example(self, template_subfolder, template_name, parameters):
+        parameters = parameters.copy()
+        parameters_template_file = os.path.join(
+            self.repo_root,
+            "pages_builder/parameters_template.html"
+        )
+
+        parameters_template = Template(
+            open(parameters_template_file).read()
+        )
+
+        if "title" in parameters:
+            # title is a parameter reserved for naming the pattern
+            # in the documentation
+            parameters.pop("title", None)
+
+        presented_parameters = {
+            key: json.dumps(value, indent=4)
+            for key, value in parameters.iteritems()
+        }
+
+        return parameters_template.render(
+            {
+                "parameters": presented_parameters,
+                "file": template_subfolder.strip("/") + "/" + template_name
+            }
+        )
+
     def render_page(self, root, file):
         input_file = os.path.join(root, file)
         output_file = self.__get_page_filename(input_file)
@@ -98,56 +126,27 @@ class Styleguide_publisher(object):
             if "examples" in partial:
                 template_name, template_extension = os.path.splitext(file)
                 template_subfolder = root.replace(self.pages_dirname, "")
-                template_file = os.path.join(
-                    self.repo_root,
-                    "toolkit/templates",
-                    template_subfolder.strip("/"),
-                    template_name + ".html"
+                env = Environment(
+                    loader=FileSystemLoader(os.path.join(self.repo_root, "toolkit/templates"))
                 )
-                parameters_template_file = os.path.join(
-                    self.repo_root,
-                    "pages_builder/parameters_template.html"
-                )
-                if (os.path.isfile(template_file)):
-                    template = Template(open(template_file, "r").read())
-                else:
-                    sys.exit("\n⚡ " + template_file + " not found ⚡")
+
+                template_file = os.path.join(template_subfolder.strip("/"), template_name + ".html")
+                template = env.get_template(template_file)
+                examples = []
                 for index, example in enumerate(partial["examples"]):
-                    parameters = dict(partial["examples"][index])
-                    if "title" in partial["examples"][index]:
-                        # title is a parameter reserved for naming the pattern
-                        # in the documentation
-                        parameters.pop("title", None)
-                    parameters_template = Template(
-                        open(parameters_template_file).read()
-                    )
-                    presented_parameters = {
-                        key: json.dumps(value, indent=4)
-                        for key, value in parameters.iteritems()
-                    }
-                    rendered_parameters = parameters_template.render(
-                        {
-                            "parameters": presented_parameters,
-                            "file": template_subfolder.strip("/") + "/" + template_name
-                        }
-                    )
-                    partial["examples"][index]["parameters"] = highlight(
-                        rendered_parameters,
-                        DjangoLexer(),
-                        HtmlFormatter(noclasses=True)
-                    )
-                    rendered_markup = template.render(
-                        partial["examples"][index]
-                    )
-                    partial["examples"][index]["markup"] = (
-                        rendered_markup
-                    )
-                    partial["examples"][index]["highlighted_markup"] = (
-                        highlight(
-                            rendered_markup,
-                            HtmlLexer(), HtmlFormatter(noclasses=True)
-                        )
-                    )
+                    if isinstance(example, dict):
+                        example_template = self.parameters_example(template_subfolder, template_name, example)
+                        example_markup = template.render(example)
+                    else:
+                        example_template = example
+                        example_markup = env.from_string(example_template).render({})
+
+                    examples.append({
+                        "parameters": highlight(example_template, DjangoLexer(), HtmlFormatter(noclasses=True)),
+                        "markup": example_markup,
+                        "highlighted_markup": highlight(example_markup, HtmlLexer(), HtmlFormatter(noclasses=True))
+
+                    })
                 partial['content'] = pystache.render(
                     """
                         <div id="global-breadcrumb" class="header-context">
@@ -164,6 +163,11 @@ class Styleguide_publisher(object):
                                 <header class="page-heading">
                                     <h1>{{pageHeading}}</h1>
                                 </header>
+                                {{#pageDescription}}
+                                <div>
+                                    {{{pageDescription}}}
+                                </div>
+                                {{/pageDescription}}
                                 {{#examples}}
                                     {{#title}}<h2>{{title}}</h2>{{/title}}
                                     {{{markup}}}
@@ -173,10 +177,11 @@ class Styleguide_publisher(object):
                             </div>
                         </main>
                     """, {
-                        "examples": partial['examples'],
+                        "examples": examples,
                         "pageTitle": partial['pageTitle'],
+                        "pageDescription": partial.get('pageDescription'),
                         "pageHeading": partial['pageHeading'],
-                        "templateFile": template_file.replace(self.repo_root, "").replace("/toolkit/templates/", ""),
+                        "templateFile": template_file,
                         "urlRoot": url_root
                     }
                 )

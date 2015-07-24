@@ -1,0 +1,198 @@
+pageTitle: Summary tables
+pageDescription: |
+  Examples use <a href="http://jinja.pocoo.org/docs/dev/templates/#call">Jinja2 "macro call" syntax</a>.
+assetPath: ../govuk_template/assets/
+examples:
+  - |
+    {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table") }}
+    {% call(item) summary.table(
+      [
+        {"name": "Service 1", "lot": "SCS"},
+        {"name": "Service 2", "lot": "SaaS"},
+        {"name": "Service 2", "lot": "IaaS"},
+      ],
+      caption="Summary table",
+      empty_message="You haven't submited any services yet",
+      field_headings=[
+        "Service",
+        "Lot",
+        summary.hidden_field_heading("Action")
+      ],
+      field_headings_visible=True
+    ) %}
+      {% call summary.row() %}
+        {{ summary.service_link(item.name, '#') }}
+        {{ summary.text(item.lot) }}
+        {{ summary.edit_link("Edit", '#') }}
+      {% endcall %}
+    {% endcall %}
+
+  - |
+    {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table with no entries") }}
+    {% call(item) summary.table(
+      [],
+      caption="Summary table with no entries",
+      empty_message="You haven't submited any services yet",
+    ) %}
+      {% call summary.row() %}
+        {{ summary.service_link(item.name, '#') }}
+        {{ summary.text(item.lot) }}
+        {{ summary.edit_link("Edit", '#') }}
+      {% endcall %}
+    {% endcall %}
+
+  - |
+    {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table with many columns") }}
+    {% call(item) summary.table(
+      [
+        {"name": "Service 1", "lot": "SCS", "id": "1234 5678 9012 3456", "date": "12 June 2015", "framework": "G-Cloud 6"},
+        {"name": "Service 2", "lot": "SaaS", "id": "1234 5678 9012 3456", "date": "12 June 2015", "framework": "G-Cloud 6"},
+        {"name": "Service 2", "lot": "IaaS", "id": "1234 5678 9012 3456", "date": "12 June 2015", "framework": "G-Cloud 6"},
+      ],
+      caption="Summary table with many columns",
+      empty_message="You haven't submited any services yet",
+      field_headings=[
+        "Service",
+        "ID",
+        "Framework",
+        "Lot",
+        "Last edited",
+        summary.hidden_field_heading("")
+      ],
+      field_headings_visible=True
+    ) %}
+      {% call summary.row() %}
+        {{ summary.service_link(item.name, '#', wide=False) }}
+        {{ summary.text(item.id) }}
+        {{ summary.text(item.framework) }}
+        {{ summary.text(item.lot) }}
+        {{ summary.text(item.date) }}
+        {{ summary.edit_link("Edit", '#') }}
+      {% endcall %}
+    {% endcall %}
+
+  - |
+    {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table with top-level action") }}
+    {{ summary.top_link("Add new service", '#') }}
+    {% call(item) summary.table(
+      [],
+      caption="Summary table with top-level action",
+      empty_message="You haven't submited any services yet",
+    ) %}
+      {% call summary.row() %}
+        {{ summary.service_link(item.name, '#') }}
+        {{ summary.text(item.lot) }}
+        {{ summary.edit_link("Edit", '#') }}
+      {% endcall %}
+    {% endcall %}
+
+  - |
+    {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table with number", index=12) }}
+    {% call(item) summary.table(
+      [],
+      caption="Summary table with top-level action",
+      empty_message="You haven't submited any services yet",
+    ) %}
+      {% call summary.row() %}
+        {{ summary.service_link(item.name, '#') }}
+        {{ summary.text(item.lot) }}
+        {{ summary.edit_link("Edit", '#') }}
+      {% endcall %}
+    {% endcall %}
+
+  - |
+    {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table with name field as link") }}
+    {% call(item) summary.table(
+      [
+        {"name": "Service 1", "lot": "SCS"},
+        {"name": "Service 2", "lot": "SaaS"},
+        {"name": "Service 2", "lot": "IaaS"},
+      ],
+      caption="Summary table with name field as link",
+      empty_message="You haven't submited any services yet",
+      field_headings=[
+        "Service",
+        "Lot",
+        summary.hidden_field_heading("Action")
+      ],
+      field_headings_visible=True
+    ) %}
+      {% call summary.row() %}
+        {{ summary.service_link(item.name, '#') }}
+        {{ summary.text(item.lot) }}
+        {{ summary.edit_link("Change", "#", hidden_text="summary item") }}
+      {% endcall %}
+    {% endcall %}
+
+  - |
+    {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table with action button") }}
+    {% call(item) summary.table(
+      [
+        {"name": "Service 1", "lot": "SCS"},
+        {"name": "Service 2", "lot": "SaaS"},
+        {"name": "Service 2", "lot": "IaaS"},
+      ],
+      caption="Summary table with name field as link",
+      empty_message="You haven't submited any services yet",
+      field_headings=[
+        "Service",
+        "Lot",
+        summary.hidden_field_heading("Action")
+      ],
+      field_headings_visible=True
+    ) %}
+      {% call summary.row() %}
+        {{ summary.service_link(item.name, '#') }}
+        {{ summary.text(item.lot) }}
+        {{ summary.button("Delete", "#", csrf_token_value='random') }}
+      {% endcall %}
+    {% endcall %}
+
+  - |
+    {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table with content field as list") }}
+    {% call(item) summary.table(
+      [
+        ("Features", ["Feature 1", "Feature 2", "Feature 3"]),
+      ],
+      caption="Summary table with content field as list",
+      empty_message="You haven't submited any services yet",
+      field_headings=[
+        "Field name",
+        "Field value",
+      ],
+      field_headings_visible=False
+    ) %}
+      {% call summary.row() %}
+        {{ summary.field_name(item[0]) }}
+        {{ summary.list(item[1], assurance="Assured by independent validation of assertion") }}
+      {% endcall %}
+    {% endcall %}
+
+  - |
+    {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table with incomplete entry") }}
+    {% call(item) summary.table(
+      [
+        ("Features", "Item Content"),
+      ],
+      caption="Summary table with incomplete entry",
+      empty_message="You haven't submited any services yet",
+      field_headings=[
+        "Field name",
+        "Field value",
+      ],
+      field_headings_visible=False
+    ) %}
+      {% call summary.row(complete=False) %}
+        {{ summary.field_name(item[0]) }}
+        {{ summary.text(item[1]) }}
+      {% endcall %}
+    {% endcall %}
