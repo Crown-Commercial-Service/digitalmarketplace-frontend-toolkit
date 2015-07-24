@@ -1,16 +1,16 @@
-pageTitle: Summary
+pageTitle: Summary tables
 assetPath: ../govuk_template/assets/
 examples:
   - |
-    {% import "forms/summary.html" as summary %}
-    {{ summary.heading("Summary item") }}
+    {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table") }}
     {% call(item) summary.table(
       [
         {"name": "Service 1", "lot": "SCS"},
         {"name": "Service 2", "lot": "SaaS"},
         {"name": "Service 2", "lot": "IaaS"},
       ],
-      caption="Summary item",
+      caption="Summary table",
       empty_message="You haven't submited any services yet",
       field_headings=[
         "Service",
@@ -27,11 +27,11 @@ examples:
     {% endcall %}
 
   - |
-    {% import "forms/summary.html" as summary %}
-    {{ summary.heading("Summary item with no entries") }}
+    {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table with no entries") }}
     {% call(item) summary.table(
       [],
-      caption="Summary item with no entries",
+      caption="Summary table with no entries",
       empty_message="You haven't submited any services yet",
     ) %}
       {% call summary.row() %}
@@ -42,15 +42,15 @@ examples:
     {% endcall %}
 
   - |
-    {% import "forms/summary.html" as summary %}
-    {{ summary.heading("Summary item with many columns") }}
+    {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table with many columns") }}
     {% call(item) summary.table(
       [
         {"name": "Service 1", "lot": "SCS", "id": "1234 5678 9012 3456", "date": "12 June 2015", "framework": "G-Cloud 6"},
         {"name": "Service 2", "lot": "SaaS", "id": "1234 5678 9012 3456", "date": "12 June 2015", "framework": "G-Cloud 6"},
         {"name": "Service 2", "lot": "IaaS", "id": "1234 5678 9012 3456", "date": "12 June 2015", "framework": "G-Cloud 6"},
       ],
-      caption="Summary item with many columns",
+      caption="Summary table with many columns",
       empty_message="You haven't submited any services yet",
       field_headings=[
         "Service",
@@ -73,12 +73,12 @@ examples:
     {% endcall %}
 
   - |
-    {% import "forms/summary.html" as summary %}
-    {{ summary.heading("Summary item with top-level action") }}
+    {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table with top-level action") }}
     {{ summary.top_link("Add new service", '#') }}
     {% call(item) summary.table(
       [],
-      caption="Summary item with top-level action",
+      caption="Summary table with top-level action",
       empty_message="You haven't submited any services yet",
     ) %}
       {% call summary.row() %}
@@ -89,11 +89,11 @@ examples:
     {% endcall %}
 
   - |
-    {% import "forms/summary.html" as summary %}
-    {{ summary.heading("Summary item with number", index=12) }}
+    {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table with number", index=12) }}
     {% call(item) summary.table(
       [],
-      caption="Summary item with top-level action",
+      caption="Summary table with top-level action",
       empty_message="You haven't submited any services yet",
     ) %}
       {% call summary.row() %}
@@ -104,15 +104,15 @@ examples:
     {% endcall %}
 
   - |
-    {% import "forms/summary.html" as summary %}
-    {{ summary.heading("Summary item with name field as link") }}
+    {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table with name field as link") }}
     {% call(item) summary.table(
       [
         {"name": "Service 1", "lot": "SCS"},
         {"name": "Service 2", "lot": "SaaS"},
         {"name": "Service 2", "lot": "IaaS"},
       ],
-      caption="Summary item with name field as link",
+      caption="Summary table with name field as link",
       empty_message="You haven't submited any services yet",
       field_headings=[
         "Service",
@@ -129,15 +129,15 @@ examples:
     {% endcall %}
 
   - |
-    {% import "forms/summary.html" as summary %}
-    {{ summary.heading("Summary item with action button") }}
+    {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table with action button") }}
     {% call(item) summary.table(
       [
         {"name": "Service 1", "lot": "SCS"},
         {"name": "Service 2", "lot": "SaaS"},
         {"name": "Service 2", "lot": "IaaS"},
       ],
-      caption="Summary item with name field as link",
+      caption="Summary table with name field as link",
       empty_message="You haven't submited any services yet",
       field_headings=[
         "Service",
@@ -154,13 +154,13 @@ examples:
     {% endcall %}
 
   - |
-    {% import "forms/summary.html" as summary %}
-    {{ summary.heading("Summary item with content field as list") }}
+    {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table with content field as list") }}
     {% call(item) summary.table(
       [
         ("Features", ["Feature 1", "Feature 2", "Feature 3"]),
       ],
-      caption="Summary item with content field as list",
+      caption="Summary table with content field as list",
       empty_message="You haven't submited any services yet",
       field_headings=[
         "Field name",
@@ -175,13 +175,13 @@ examples:
     {% endcall %}
 
   - |
-    {% import "forms/summary.html" as summary %}
-    {{ summary.heading("Summary item with incomplete entry") }}
+    {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table with incomplete entry") }}
     {% call(item) summary.table(
       [
         ("Features", "Item Content"),
       ],
-      caption="Summary item with incomplete entry",
+      caption="Summary table with incomplete entry",
       empty_message="You haven't submited any services yet",
       field_headings=[
         "Field name",
