@@ -170,7 +170,7 @@ examples:
     ) %}
       {% call summary.row() %}
         {{ summary.field_name(item[0]) }}
-        {{ summary.list(item[1]) }}
+        {{ summary.list(item[1], assurance="Assured by independent validation of assertion") }}
       {% endcall %}
     {% endcall %}
 
