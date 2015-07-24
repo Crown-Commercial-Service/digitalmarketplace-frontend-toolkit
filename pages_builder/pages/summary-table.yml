@@ -6,7 +6,7 @@ examples:
   - |
     {% import "summary-table.html" as summary %}
     {{ summary.heading("Summary table") }}
-    {% call(item) summary.table(
+    {% call(item) summary.list_table(
       [
         {"name": "Service 1", "lot": "SCS"},
         {"name": "Service 2", "lot": "SaaS"},
@@ -31,7 +31,7 @@ examples:
   - |
     {% import "summary-table.html" as summary %}
     {{ summary.heading("Summary table with no entries") }}
-    {% call(item) summary.table(
+    {% call(item) summary.list_table(
       [],
       caption="Summary table with no entries",
       empty_message="You haven't submited any services yet",
@@ -46,7 +46,7 @@ examples:
   - |
     {% import "summary-table.html" as summary %}
     {{ summary.heading("Summary table with many columns") }}
-    {% call(item) summary.table(
+    {% call(item) summary.list_table(
       [
         {"name": "Service 1", "lot": "SCS", "id": "1234 5678 9012 3456", "date": "12 June 2015", "framework": "G-Cloud 6"},
         {"name": "Service 2", "lot": "SaaS", "id": "1234 5678 9012 3456", "date": "12 June 2015", "framework": "G-Cloud 6"},
@@ -76,9 +76,38 @@ examples:
 
   - |
     {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table with manual rows") }}
+    {% call summary.mapping_table(
+      caption="Summary table with many columns",
+      field_headings=[
+        "Label",
+        "Value",
+      ],
+      field_headings_visible=False
+    ) %}
+      {% call summary.row() %}
+        {{ summary.field_name("Service Name") }}
+        {{ summary.text("Service 1") }}
+      {% endcall %}
+      {% call summary.row() %}
+        {{ summary.field_name("Service ID") }}
+        {{ summary.text("1234 1234 1234") }}
+      {% endcall %}
+      {% call summary.row(complete=False) %}
+        {{ summary.field_name("Description") }}
+        {{ summary.text("Answer required") }}
+      {% endcall %}
+      {% call summary.row() %}
+        {{ summary.field_name("Clients") }}
+        {{ summary.list(["Client 1", "Client 2", "Client 3"]) }}
+      {% endcall %}
+    {% endcall %}
+
+  - |
+    {% import "summary-table.html" as summary %}
     {{ summary.heading("Summary table with top-level action") }}
     {{ summary.top_link("Add new service", '#') }}
-    {% call(item) summary.table(
+    {% call(item) summary.list_table(
       [],
       caption="Summary table with top-level action",
       empty_message="You haven't submited any services yet",
@@ -93,7 +122,7 @@ examples:
   - |
     {% import "summary-table.html" as summary %}
     {{ summary.heading("Summary table with number", index=12) }}
-    {% call(item) summary.table(
+    {% call(item) summary.list_table(
       [],
       caption="Summary table with top-level action",
       empty_message="You haven't submited any services yet",
@@ -108,7 +137,7 @@ examples:
   - |
     {% import "summary-table.html" as summary %}
     {{ summary.heading("Summary table with name field as link") }}
-    {% call(item) summary.table(
+    {% call(item) summary.list_table(
       [
         {"name": "Service 1", "lot": "SCS"},
         {"name": "Service 2", "lot": "SaaS"},
@@ -133,7 +162,7 @@ examples:
   - |
     {% import "summary-table.html" as summary %}
     {{ summary.heading("Summary table with action button") }}
-    {% call(item) summary.table(
+    {% call(item) summary.list_table(
       [
         {"name": "Service 1", "lot": "SCS"},
         {"name": "Service 2", "lot": "SaaS"},
@@ -158,12 +187,8 @@ examples:
   - |
     {% import "summary-table.html" as summary %}
     {{ summary.heading("Summary table with content field as list") }}
-    {% call(item) summary.table(
-      [
-        ("Features", ["Feature 1", "Feature 2", "Feature 3"]),
-      ],
+    {% call summary.mapping_table(
       caption="Summary table with content field as list",
-      empty_message="You haven't submited any services yet",
       field_headings=[
         "Field name",
         "Field value",
@@ -171,15 +196,16 @@ examples:
       field_headings_visible=False
     ) %}
       {% call summary.row() %}
-        {{ summary.field_name(item[0]) }}
-        {{ summary.list(item[1], assurance="Assured by independent validation of assertion") }}
+        {{ summary.field_name("Features") }}
+        {{ summary.list(["Feature 1", "Feature 2", "Feature 3"],
+          assurance="Assured by independent validation of assertion") }}
       {% endcall %}
     {% endcall %}
 
   - |
     {% import "summary-table.html" as summary %}
     {{ summary.heading("Summary table with incomplete entry") }}
-    {% call(item) summary.table(
+    {% call(item) summary.list_table(
       [
         ("Features", "Item Content"),
       ],
