@@ -13,9 +13,7 @@
 </p>
 {%- endmacro %}
 
-
-{% macro table(items, caption='', empty_message='', field_headings='', field_headings_visible=True) -%}
-{% if items %}
+{% macro mapping_table(caption='', field_headings='', field_headings_visible=True) -%}
   <table class="summary-item-body">
     <caption class="visuallyhidden">
       {{ caption }}
@@ -34,17 +32,27 @@
       </tr>
     </thead>
     <tbody>
-      {% for item in items %}
-        {{ caller(item) }}
-      {% endfor %}
+      {{ caller() }}
     </tbody>
   </table>
+{%- endmacro %}
+
+{% macro list_table(items, caption='', empty_message='', field_headings='', field_headings_visible=True) -%}
+{% if items %}
+  {% set parent_caller = caller %}
+  {% call mapping_table(caption, field_headings, field_headings_visisble) %}
+    {% for item in items %}
+      {{ parent_caller(item) }}
+    {% endfor %}
+  {% endcall %}
 {% else %}
   <p class="summary-item-no-content">
     {{ empty_message }}
   </p>
 {% endif %}
 {%- endmacro %}
+
+{% set table = list_table %}
 
 
 {% macro hidden_field_heading(name) -%}
