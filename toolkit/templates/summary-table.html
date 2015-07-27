@@ -40,7 +40,7 @@
 {% macro list_table(items, caption='', empty_message='', field_headings='', field_headings_visible=True) -%}
 {% if items %}
   {% set parent_caller = caller %}
-  {% call mapping_table(caption, field_headings, field_headings_visisble) %}
+  {% call mapping_table(caption, field_headings, field_headings_visible) %}
     {% for item in items %}
       {{ parent_caller(item) }}
     {% endfor %}
