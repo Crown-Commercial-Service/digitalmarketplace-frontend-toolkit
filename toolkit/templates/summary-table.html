@@ -60,26 +60,29 @@
 {%- endmacro %}
 
 
+{% macro row(complete=True) -%}
+  <tr class="summary-item-row{% if not complete %}-incomplete{% endif %}">
+    {{ caller() }}
+  </tr>
+{%- endmacro %}
+
+
+GENERIC FIELD
+===============================================================================
+
+{% macro field(first=False, wide=False, action=False) -%}
+  <td class="summary-item-field{% if first %}-first{% endif %}{% if first and wide %}-wider{% endif %}{% if action %}-with-action{% endif %}">
+    <span>{{ caller() }}</span>
+  </td>
+{%- endmacro %}
+
+
+'SPECIAL' FIELD TYPES
+===============================================================================
+
 {% macro service_link(service_name, link, wide=True) -%}
   {% call field(first=True, wide=wide) %}
     <a href="{{ link }}">{{ service_name }}</a>
-  {% endcall %}
-{%- endmacro %}
-
-
-{% macro text(text, assurance=None) -%}
-  {% call field() %}{{ text }}{% endcall %}
-{%- endmacro %}
-
-
-{% macro list(items, assurance=None) -%}
-  {% call field() %}
-    <ul>
-    {% for item in items %}
-      <li>{{ item }}</li>
-    {% endfor %}
-    </ul>
-    {% if assurance %}<span>{{ assurance }}</span>{% endif %}
   {% endcall %}
 {%- endmacro %}
 
@@ -108,15 +111,21 @@
 {%- endmacro %}
 
 
-{% macro row(complete=True) -%}
-  <tr class="summary-item-row{% if not complete %}-incomplete{% endif %}">
-    {{ caller() }}
-  </tr>
+FIELDS for PRESENTING SERVICE DATA
+===============================================================================
+
+{% macro text(text, assurance=None) -%}
+  {% call field() %}{{ text }}{% endcall %}
 {%- endmacro %}
 
 
-{% macro field(first=False, wide=False, action=False) -%}
-  <td class="summary-item-field{% if first %}-first{% endif %}{% if first and wide %}-wider{% endif %}{% if action %}-with-action{% endif %}">
-    <span>{{ caller() }}</span>
-  </td>
+{% macro list(items, assurance=None) -%}
+  {% call field() %}
+    <ul>
+    {% for item in items %}
+      <li>{{ item }}</li>
+    {% endfor %}
+    </ul>
+    {% if assurance %}<span>{{ assurance }}</span>{% endif %}
+  {% endcall %}
 {%- endmacro %}
