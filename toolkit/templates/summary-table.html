@@ -67,6 +67,11 @@
 {%- endmacro %}
 
 
+{% macro text(text, assurance=None) -%}
+  {% call field() %}{{ text }}{% endcall %}
+{%- endmacro %}
+
+
 {% macro list(items, assurance=None) -%}
   {% call field() %}
     <ul>
@@ -83,11 +88,6 @@
   {% call field(action=True) %}
     <a href="{{ link }}">{{ label }}{% if hidden_text %}<span class="visuallyhidden"> {{ hidden_text }}</span>{% endif %}</a>
   {% endcall %}
-{%- endmacro %}
-
-
-{% macro text(text) -%}
-  {% call field() %}{{ text }}{% endcall %}
 {%- endmacro %}
 
 
