@@ -1,0 +1,20 @@
+pageTitle: Pricing
+assetPath: ../govuk_template/assets/
+examples:
+  -
+    question: Price
+    hint: Hint comprising further information about the price
+    name: price
+
+  - question: Price with default values
+    hint: Hint comprising further information about the price
+    name: price
+    priceMin: 12.12
+    priceMax: 15.15
+    priceUnit: Person
+    priceInterval: Second
+
+  - question: Price with an error
+    name: anotherPrice
+    error: This is not ok
+
