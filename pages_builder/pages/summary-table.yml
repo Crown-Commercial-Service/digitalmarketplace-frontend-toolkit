@@ -48,9 +48,9 @@ examples:
     {{ summary.heading("Summary table with many columns") }}
     {% call(item) summary.list_table(
       [
-        {"name": "Service 1", "lot": "SCS", "id": "1234 5678 9012 3456", "date": "12 June 2015", "framework": "G-Cloud 6"},
-        {"name": "Service 2", "lot": "SaaS", "id": "1234 5678 9012 3456", "date": "12 June 2015", "framework": "G-Cloud 6"},
-        {"name": "Service 2", "lot": "IaaS", "id": "1234 5678 9012 3456", "date": "12 June 2015", "framework": "G-Cloud 6"},
+        {"name": "Service 1", "lot": "SCS",  "id": ["1234", "5678", "9012", "3456"], "date": "12 June 2015", "framework": "G-Cloud 6"},
+        {"name": "Service 2", "lot": "SaaS", "id": ["5678", "9012", "1234", "3456"], "date": "12 June 2015", "framework": "G-Cloud 6"},
+        {"name": "Service 2", "lot": "IaaS", "id": ["9012", "1234", "5678", "3456"], "date": "12 June 2015", "framework": "G-Cloud 6"},
       ],
       caption="Summary table with many columns",
       empty_message="You haven't submited any services yet",
@@ -66,7 +66,7 @@ examples:
     ) %}
       {% call summary.row() %}
         {{ summary.service_link(item.name, '#', wide=False) }}
-        {{ summary.text(item.id) }}
+        {{ summary.service_id(item.id) }}
         {{ summary.text(item.framework) }}
         {{ summary.text(item.lot) }}
         {{ summary.text(item.date) }}
@@ -78,7 +78,7 @@ examples:
     {% import "summary-table.html" as summary %}
     {{ summary.heading("Summary table with manual rows") }}
     {% call summary.mapping_table(
-      caption="Summary table with many columns",
+      caption="Summary table with manual rows",
       field_headings=[
         "Label",
         "Value",
@@ -186,7 +186,7 @@ examples:
 
   - |
     {% import "summary-table.html" as summary %}
-    {{ summary.heading("Summary table with content field as list") }}
+    {{ summary.heading("Summary table with various types of service content") }}
     {% call summary.mapping_table(
       caption="Summary table with content field as list",
       field_headings=[
@@ -198,16 +198,37 @@ examples:
       {% call summary.row() %}
         {{ summary.field_name("Features") }}
         {{ summary.list(["Feature 1", "Feature 2", "Feature 3"],
-          assurance="Assured by independent validation of assertion") }}
+          assurance="Independent validation of assertion") }}
+      {% endcall %}
+      {% call summary.row() %}
+        {{ summary.field_name("Data centre tier") }}
+        {{ summary.text("Uptime institute Tier 1",
+          assurance="Independent validation of assertion") }}
+      {% endcall %}
+      {% call summary.row() %}
+        {{ summary.field_name("Uptime") }}
+        {{ summary.percentage(99.999,
+          assurance="Independent validation of assertion") }}
+      {% endcall %}
+      {% call summary.row() %}
+        {{ summary.field_name("Description") }}
+        {{ summary.textbox_large(
+          "An advanced, web-based content management system that helps users create, manage and publish content quickly and easily."
+        ) }}
+      {% endcall %}
+      {% call summary.row() %}
+        {{ summary.field_name("Support available") }}
+        {{ summary.boolean(True, "CESG-assured components") }}
       {% endcall %}
     {% endcall %}
 
   - |
     {% import "summary-table.html" as summary %}
     {{ summary.heading("Summary table with incomplete entry") }}
+    {{ summary.top_link("Edit", '#') }}
     {% call(item) summary.list_table(
       [
-        ("Features", "Item Content"),
+        ("Features", "Answer required"),
       ],
       caption="Summary table with incomplete entry",
       empty_message="You haven't submited any services yet",
