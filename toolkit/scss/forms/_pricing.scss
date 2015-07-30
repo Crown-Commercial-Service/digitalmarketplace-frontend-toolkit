@@ -1,0 +1,95 @@
+@import "_colours.scss";
+@import "_shims.scss";
+@import "_typography.scss";
+
+.pricing {
+
+  .pricing-column {
+    position: relative;
+    @include inline-block;
+    min-height: 105px;
+    min-width: 2em;
+    margin: 0 10px;
+    vertical-align: bottom;
+
+    @include ie(6) {
+      height: 105px;
+      width: 2em;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    label,
+    .question-hint {
+      @include core-19;
+    }
+
+    label {
+      display: block;
+      width: 8em;
+    }
+
+    .question-hint {
+      margin: 0;
+    }
+
+  }
+
+  .pricing-input {
+
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    z-index: 10;
+
+    @include ie-lte(7) {
+      width:75%;
+    }
+
+    &-with-unit {
+      @extend .pricing-input;
+      padding-left: 1.6em;
+    }
+
+    &-select {
+      @extend .pricing-input;
+      margin: 0 0 15px 2%;
+      width: 98%; // Chrome tries to chop the sides off when you make the font bigger
+      font-size: 19px;
+
+      @include ie-lte(8) {
+        width: auto;
+        margin-right: 1px;
+      }
+    }
+
+  }
+
+  .pricing-unit {
+    color: $grey-2;
+    position: absolute;
+    bottom: 12px;
+    left: 10px;
+    z-index: 20;
+    font-weight: bold;
+  }
+
+  .pricing-preposition {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 12px;
+  }
+
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -999em;
+}

@@ -1,0 +1,99 @@
+{% macro _option(label, current) -%}
+  {% if label == current %}
+    <option value='{{ label }}' selected='selected'>{{ label }}</option>
+    {% else %}
+    <option value='{{ label }}'>{{ label }}</option>
+  {% endif %}
+{%- endmacro %}
+
+{% if error %}
+  <div class="validation-wrapper">
+{% endif %}
+  <fieldset class="question first-question">
+    <legend>
+      <span class="question-heading {% if hint %}question-heading-with-hint{% endif %}">
+        {{ question }}
+      </span>
+      {% if hint %}
+        <span class="hint">
+          {{ hint }}
+        </span>
+      {% endif %}
+      {% if error %}
+        <span class="validation-message" id="error-{{ name }}">
+          {{ error }}
+        </span>
+      {% endif %}
+    </legend>
+    <div class="pricing">
+      <div class="pricing-column">
+        <label for="{{ name }}MinPrice">
+          Minimum price
+          <span class="visually-hidden">in</span>
+          <span class="pricing-unit">£</span>
+        </label>
+        <input type="text" class="text-box pricing-input-with-unit" name="{{ name }}" id="{{ name }}MinPrice" value="{{ priceMin }}"/>
+      </div>
+      <div class="pricing-column">
+        <div class="pricing-preposition">to</div>
+      </div>
+      <div class="pricing-column">
+        <label for="{{ name }}MaxPrice">
+          Maximum price
+          <span class="visuall-hidden">in</span>
+          <span class="pricing-unit">£</span>
+        </label>
+        <p class="question-hint">Optional</p>
+        <input type="text" class="text-box pricing-input-with-unit" name="{{ name }}" id="{{ name }}MaxPrice" value="{{ priceMax or "" }}"/>
+      </div>
+      <div class="pricing-column">
+        <span class="pricing-preposition">per</span>
+      </div>
+      <div class="pricing-column">
+        <label for="{{ name }}Unit">
+          Unit
+        </label>
+        <select class="pricing-input-select" name="{{ name }}" id="{{ name }}Unit">
+          {{ _option("", priceUnit) }}
+          {{ _option("Unit", priceUnit) }}
+          {{ _option("Person", priceUnit) }}
+          {{ _option("Licence", priceUnit) }}
+          {{ _option("User", priceUnit) }}
+          {{ _option("Device", priceUnit) }}
+          {{ _option("Instance", priceUnit) }}
+          {{ _option("Server", priceUnit) }}
+          {{ _option("Virtual machine", priceUnit) }}
+          {{ _option("Transaction", priceUnit) }}
+          {{ _option("Megabyte", priceUnit) }}
+          {{ _option("Gigabyte", priceUnit) }}
+          {{ _option("Terabyte", priceUnit) }}
+        </select>
+      </div>
+      <div class="pricing-column">
+        <span class="pricing-preposition">per</span>
+      </div>
+      <div class="pricing-column">
+        <label for="{{ name }}Interval">
+          Interval
+        </label>
+        <p class="question-hint">
+          Optional
+        </p>
+        <select class="pricing-input-select" name="{{ name }}" id="{{ name }}Interval">
+          {{ _option("", priceInterval) }}
+          {{ _option("Second", priceInterval) }}
+          {{ _option("Minute", priceInterval) }}
+          {{ _option("Hour", priceInterval) }}
+          {{ _option("Day", priceInterval) }}
+          {{ _option("Week", priceInterval) }}
+          {{ _option("Month", priceInterval) }}
+          {{ _option("Quarter", priceInterval) }}
+          {{ _option("6 months", priceInterval) }}
+          {{ _option("Year", priceInterval) }}
+        </select>
+      </div>
+    </div>
+  </fieldset>
+{% if error %}
+  </div>
+{% endif %}
