@@ -67,8 +67,8 @@
 {%- endmacro %}
 
 
-GENERIC FIELD
-===============================================================================
+{# GENERIC FIELD #}
+{# ============= #}
 
 {% macro field(first=False, wide=False, action=False) -%}
   <td class="summary-item-field{% if first %}-first{% endif %}{% if first and wide %}-wider{% endif %}{% if action %}-with-action{% endif %}">
@@ -77,8 +77,8 @@ GENERIC FIELD
 {%- endmacro %}
 
 
-SPECIAL FIELD TYPES
-===============================================================================
+{# SPECIAL FIELD TYPES #}
+{# =================== #}
 
 {% macro service_link(service_name, link, wide=True) -%}
   {% call field(first=True, wide=wide) %}
@@ -111,8 +111,8 @@ SPECIAL FIELD TYPES
 {%- endmacro %}
 
 
-FIELDS for PRESENTING SERVICE DATA
-===============================================================================
+{# FIELDS for PRESENTING SERVICE DATA #}
+{# ================================== #}
 
 {% macro text(text, assurance=None) -%}
   {% call field() %}
