@@ -139,7 +139,7 @@ FIELDS for PRESENTING SERVICE DATA
       {% endif %}
     {% endcall %}
   {% elif items | length == 1 %}
-    {{ text(value.0, assurance) }}
+    {{ text(items[0], assurance) }}
   {% endif %}
 {%- endmacro %}
 
@@ -175,7 +175,11 @@ FIELDS for PRESENTING SERVICE DATA
 
 
 {% macro radios(value='', assurance=None) -%}
-  {{ text(value, assurance) }}
+  {% if value is string %}
+    {{ text(value, assurance) }}
+  {% else %}
+    {{ list(value, assurance) }}
+  {% endif %}
 {%- endmacro %}
 
 
