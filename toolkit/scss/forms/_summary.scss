@@ -153,6 +153,7 @@ table.summary-item-body {
   .summary-item-field-first {
 
     span {
+      display: block;
       padding-left: 10px;
       border-left: 3px solid $accessible-orange;
     }
