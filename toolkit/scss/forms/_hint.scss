@@ -2,6 +2,7 @@
 @import "_typography.scss";
 
 .hint {
+  @include grid-column( 2/3 );
   display: block;
   @include core-19;
   margin: 0 0 5px 0;
