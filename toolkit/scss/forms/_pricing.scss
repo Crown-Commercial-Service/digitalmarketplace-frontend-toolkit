@@ -1,8 +1,11 @@
 @import "_colours.scss";
+@import "_measurements.scss";
 @import "_shims.scss";
 @import "_typography.scss";
 
 .pricing {
+  
+  margin-top: $gutter-half;
 
   .pricing-column {
     position: relative;
@@ -33,6 +36,7 @@
 
     .question-hint {
       margin: 0;
+      color: $secondary-text-colour;
     }
 
   }
