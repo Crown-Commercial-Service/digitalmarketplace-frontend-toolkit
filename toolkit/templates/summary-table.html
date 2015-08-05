@@ -151,8 +151,8 @@
 
 {% macro upload(value, assurance=None) -%}
   {% call field() %}
-    {% if 'url' in value and 'filename' in value %}
-      <a href="{{ value.url }}">{{ value.filename }}</a>
+    {% if value %}
+      <a href="{{ value }}">{{ value.split("/")[-1] }}</a>
     {% endif %}
   {% endcall %}
 {%- endmacro %}
