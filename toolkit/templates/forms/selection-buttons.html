@@ -30,7 +30,11 @@
       {% for option in options %}
         <label class="selection-button{% if inline %} selection-button-inline{% endif %}" for="{{ name }}-{{ loop.index }}">
           {{ option.label }}
-          <input type="{{ type }}" name="{{ name }}" id="{{ name }}-{{ loop.index }}" value="{{ option.value or option.label }}" {% if option.label in value %}checked="checked"{% endif %} />
+          {% if type == "radios" %}
+            <input type="{{ type }}" name="{{ name }}" id="{{ name }}-{{ loop.index }}" value="{{ option.value or option.label }}" {% if option.label == value %}checked="checked"{% endif %} />
+          {% elif type == "checkboxes" %}
+            <input type="{{ type }}" name="{{ name }}" id="{{ name }}-{{ loop.index }}" value="{{ option.value or option.label }}" {% if option.label in value %}checked="checked"{% endif %} />  
+          {% endif %}
         </label>
         {% if option.description is defined %}
           <p class="question-description">
