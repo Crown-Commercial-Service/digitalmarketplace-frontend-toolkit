@@ -211,6 +211,10 @@ examples:
           assurance="Independent validation of assertion") }}
       {% endcall %}
       {% call summary.row() %}
+        {{ summary.field_name("Pricing document") }}
+        {{ summary.upload("http://example.com/pricingDocument.pdf") }}
+      {% endcall %}
+      {% call summary.row() %}
         {{ summary.field_name("Description") }}
         {{ summary.textbox_large(
           "An advanced, web-based content management system that helps users create, manage and publish content quickly and easily."
