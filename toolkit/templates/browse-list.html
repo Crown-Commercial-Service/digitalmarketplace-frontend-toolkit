@@ -3,12 +3,16 @@
     {% for item in items %}
       <li class="browse-list-item">
         <a class="browse-list-item-link" href="{{ item.link }}"><span>{{ item.title }}</span></a>
-        <p class="browse-list-item-body">
-          {{ item.body }}
-        </p>
-        <p class="browse-list-item-subtext">
-          {{ item.subtext|safe }}
-        </p>
+        {% if item.body %}
+          <p class="browse-list-item-body">
+            {{ item.body }}
+          </p>
+        {% endif %}
+        {% if item.subtext %}
+          <p class="browse-list-item-subtext">
+            {{ item.subtext|safe }}
+          </p>
+        {% endif %}
       </li>
     {% endfor %}
   </ul>

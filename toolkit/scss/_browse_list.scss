@@ -77,12 +77,12 @@ a.browse-list-item-link {
 }
 
 .browse-list-item-body {
-  margin: 5px 0 5px 0;
-  @include core-16;
+  margin: 5px 0 0 0;
+  @include core-19;
 }
 
 .browse-list-item-subtext {
   margin: 0;
-  @include core-16;
+  @include copy-16;
   color: $secondary-text-colour;
 }
