@@ -23,10 +23,18 @@
     {% if large %}
       {% if max_length_in_words is defined %}
         <div class="word-count">
-          <textarea class="text-box text-box-large{% if error %}-with-error{% endif %}" name="{{ name }}" id="{{ name }}" data-max-length-in-words="{{ max_length_in_words }}">{{ value }}</textarea>
+          <textarea class="text-box text-box-large{% if error %}-with-error{% endif %}" name="{{ name }}" id="{{ name }}" data-max-length-in-words="{{ max_length_in_words }}">
+          {% if value != None %}
+          	{{ value }}
+          {% endif %}
+	</textarea>
         </div>
       {% else %}
-        <textarea class="text-box text-box-large" name="{{ name }}" id="{{ name }}">{{ value }}</textarea>
+        <textarea class="text-box text-box-large" name="{{ name }}" id="{{ name }}">
+        {% if value != None %}
+        	{{ value }}
+        {% endif %}
+	</textarea>
       {% endif %}
     {% else %}
       {% if unit_position == "before" %}
@@ -34,7 +42,7 @@
           {{ unit }}
         </label>
       {% endif %}
-      <input type="text" name="{{ name }}" id="{{ name }}" class="text-box{% if unit %}-with-unit-{{ unit_position }}{% endif %}{% if error %}-with-error{% endif %}" value="{{ value }}" />
+      <input type="text" name="{{ name }}" id="{{ name }}" class="text-box{% if unit %}-with-unit-{{ unit_position }}{% endif %}{% if error %}-with-error{% endif %}" value="{% if value !=  None %}{{ value }}{% endif %}" />
       {% if unit_position == "after" %}
         <label for="{{ name }}" class="text-box-unit">
           {{ unit }}
