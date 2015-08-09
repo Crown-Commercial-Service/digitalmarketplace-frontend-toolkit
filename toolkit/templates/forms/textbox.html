@@ -24,16 +24,16 @@
       {% if max_length_in_words is defined %}
         <div class="word-count">
           <textarea class="text-box text-box-large{% if error %}-with-error{% endif %}" name="{{ name }}" id="{{ name }}" data-max-length-in-words="{{ max_length_in_words }}">
-          {% if value != None %}
+          {%- if value != None -%}
           	{{ value }}
-          {% endif %}
+          {%- endif -%}
 	</textarea>
         </div>
       {% else %}
         <textarea class="text-box text-box-large" name="{{ name }}" id="{{ name }}">
-        {% if value != None %}
+        {%- if value != None -%}
         	{{ value }}
-        {% endif %}
+        {%- endif -%}
 	</textarea>
       {% endif %}
     {% else %}
