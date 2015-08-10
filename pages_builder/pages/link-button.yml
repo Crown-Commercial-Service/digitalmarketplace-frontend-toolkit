@@ -1,0 +1,8 @@
+pageTitle: Link buttons
+assetPath: ../govuk_template/assets/
+head: >
+  <link rel="stylesheet" media="all" type="text/css" href="../public/stylesheets/index.css" />
+examples:
+  -
+    label: View service
+    url: '#'

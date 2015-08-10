@@ -25,6 +25,7 @@ content: >
         <li><a href="service-id.html">Service ID</a></li>
         <li><a href="contact-details.html">Contact details</a></li>
         <li><a href="previous-next-navigation.html">Previous/next navigation</a></li>
+        <li><a href="link-button.html">Link button</a></li>
       </ul>
     </div>
   </main>
