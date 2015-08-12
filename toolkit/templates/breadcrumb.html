@@ -2,6 +2,7 @@
   <nav>
     <ol class="group" role="breadcrumbs">
       {%- for item in items -%}
+        {% if item.label %}
         <li>
           {%- if item.link -%}
             <a href="{{ item.link }}">{{ item.label }}</a>
@@ -9,6 +10,7 @@
             {{ item.label }}
           {%- endif -%}
         </li>
+        {% endif %}
       {% endfor %}
     </ol>
   </nav>
