@@ -1,8 +1,8 @@
 {% if error %}
 <div class="validation-wrapper">
 {% endif %}
-  <div class="question">
-    <label for="{{ name }}">
+  <div class="question" id="{{ name }}">
+    <label for="input-{{ name }}">
       <span class="question-heading{% if hint is defined %}-with-hint{% endif %}">
         {% if question_number %}
           <span class="question-number">
@@ -38,7 +38,7 @@
         {% endif %}
       </p>
     {% endif %}
-    <input type="file" name="{{ name }}" id="{{ name }}" class="file-upload-input" />
+    <input type="file" name="{{ name }}" id="input-{{ name }}" class="file-upload-input" />
   </div>
 {% if error %}
 </div>

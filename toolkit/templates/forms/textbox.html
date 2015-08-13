@@ -1,8 +1,8 @@
 {% if error %}
   <div class="validation-wrapper">
 {% endif %}
-  <div class="question">
-    <label for="{{ name }}">
+  <div class="question" id="{{ name }}">
+    <label for="input-{{ name }}">
       <span class="question-heading{% if hint is defined %}-with-hint{% endif %}">
         {% if question_number %}
           <span class="question-number">
@@ -28,14 +28,14 @@
     {% if large %}
       {% if max_length_in_words is defined %}
         <div class="word-count">
-          <textarea class="text-box text-box-large{% if error %}-with-error{% endif %}" name="{{ name }}" id="{{ name }}" data-max-length-in-words="{{ max_length_in_words }}">
+          <textarea class="text-box text-box-large{% if error %}-with-error{% endif %}" name="{{ name }}" id="input-{{ name }}" data-max-length-in-words="{{ max_length_in_words }}">
           {%- if value != None -%}
-          	{{ value }}
+            {{ value }}
           {%- endif -%}
-	</textarea>
+          </textarea>
         </div>
       {% else %}
-        <textarea class="text-box text-box-large" name="{{ name }}" id="{{ name }}">
+        <textarea class="text-box text-box-large" name="{{ name }}" id="input-{{ name }}">
         {%- if value != None -%}
         	{{ value }}
         {%- endif -%}
@@ -43,13 +43,13 @@
       {% endif %}
     {% else %}
       {% if unit_position == "before" %}
-        <label for="{{ name }}" class="text-box-unit">
+        <label for="input-{{ name }}" class="text-box-unit">
           {{ unit }}
         </label>
       {% endif %}
-      <input type="text" name="{{ name }}" id="{{ name }}" class="text-box{% if unit %}-with-unit-{{ unit_position }}{% endif %}{% if error %}-with-error{% endif %}" value="{% if value !=  None %}{{ value }}{% endif %}" />
+      <input type="text" name="{{ name }}" id="input-{{ name }}" class="text-box{% if unit %}-with-unit-{{ unit_position }}{% endif %}{% if error %}-with-error{% endif %}" value="{% if value !=  None %}{{ value }}{% endif %}" />
       {% if unit_position == "after" %}
-        <label for="{{ name }}" class="text-box-unit">
+        <label for="input-{{ name }}" class="text-box-unit">
           {{ unit }}
         </label>
       {% endif %}

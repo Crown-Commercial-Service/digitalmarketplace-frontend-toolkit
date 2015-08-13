@@ -1,7 +1,7 @@
 {% if error %}
   <div class="validation-wrapper">
 {% endif %}
-  <fieldset class="question first-question">
+  <fieldset class="question first-question" id="{{ name }}">
     <legend>
       <span class="question-heading {% if hint is defined %}question-heading-with-hint{% endif %}">
         {% if question_number %}

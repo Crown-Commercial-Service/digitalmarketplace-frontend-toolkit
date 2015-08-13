@@ -9,7 +9,7 @@
 {% if error %}
   <div class="validation-wrapper">
 {% endif %}
-  <fieldset class="question first-question">
+  <fieldset class="question first-question" id="{{ name }}">
     <legend>
       <span class="question-heading {% if hint %}question-heading-with-hint{% endif %}">
         {{ question }}
