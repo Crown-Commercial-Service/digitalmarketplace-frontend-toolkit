@@ -31,3 +31,31 @@
   margin: 0 0 10px 0;
   clear: left;
 }
+
+.question-number {
+
+  @include bold-24;
+  display: block;
+  margin-bottom: -20px;
+
+  &:after {
+    content: ".";
+  }
+
+  @include media(1080px) {
+
+    position: relative;
+    height: 50px;
+    display: block;
+    margin: 20px 0 -50px 0;
+    left: -100px;
+    width: 80px;
+    text-align: right;
+
+    &:after {
+      content: "";
+    }
+
+  }
+
+}

@@ -4,6 +4,11 @@
   <div class="question">
     <label for="{{ name }}">
       <span class="question-heading{% if hint is defined %}-with-hint{% endif %}">
+        {% if question_number %}
+          <span class="question-number">
+            {{ question_number }}
+          </span>
+        {% endif %}
         {{ question }}
         {% if unit_in_full %}
           <span class="text-box-unit-qualifier">(in {{ unit_in_full }})</span>

@@ -4,7 +4,12 @@
   <fieldset class="question first-question">
     <legend>
       <span class="question-heading {% if hint is defined %}question-heading-with-hint{% endif %}">
-          {{ question }}
+        {% if question_number %}
+          <span class="question-number">
+            {{ question_number }}
+          </span>
+        {% endif %}
+        {{ question }}
       </span>
       {% if hint %}
         <span class="hint">
@@ -33,7 +38,7 @@
           {% if type == "radio" %}
             <input type="{{ type }}" name="{{ name }}" id="{{ name }}-{{ loop.index }}" value="{{ option.value or option.label }}" {% if option.label == value %}checked="checked"{% endif %} />
           {% elif type == "checkbox" %}
-            <input type="{{ type }}" name="{{ name }}" id="{{ name }}-{{ loop.index }}" value="{{ option.value or option.label }}" {% if option.label in value %}checked="checked"{% endif %} />  
+            <input type="{{ type }}" name="{{ name }}" id="{{ name }}-{{ loop.index }}" value="{{ option.value or option.label }}" {% if option.label in value %}checked="checked"{% endif %} />
           {% endif %}
         </label>
         {% if option.description is defined %}

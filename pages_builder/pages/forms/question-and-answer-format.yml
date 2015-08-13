@@ -46,3 +46,19 @@ examples:
             Answer 5
           </label>
         </fieldset>
+  -
+    title: Numbered question
+    markup: >
+      <form action="" method="get">
+        <div class="question first-question">
+          <label for="question-1" class="question-heading question-heading-with-hint">
+            <span class="question-number">
+              12
+            </span>
+            What was the name of your first pet?
+          </label>
+          <p class="hint">
+            the question and answer are wrapped in a div with the question the answer field's label
+          </p>
+          <input type="text" name="question-1" id="question-1" class="text-box" value="" />
+        </div>

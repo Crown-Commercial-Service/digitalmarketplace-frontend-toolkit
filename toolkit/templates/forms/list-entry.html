@@ -7,6 +7,11 @@
   <fieldset class="question {% if first_question %}first-question{% endif %}" id="{{ id }}">
     <legend>
       <span class="question-heading {% if hint is defined %}question-heading-with-hint{% endif %}">
+        {% if question_number %}
+          <span class="question-number">
+            {{ question_number }}
+          </span>
+        {% endif %}
         {{ question }}
       </span>
       {% if hint %}
