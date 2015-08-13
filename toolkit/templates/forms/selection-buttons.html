@@ -23,22 +23,22 @@
       {% endif %}
     </legend>
     {% if type == "boolean" %}
-      <label class="selection-button selection-button-boolean" for="{{ name }}-yes">
+      <label class="selection-button selection-button-boolean" for="input-{{ name }}-yes">
         Yes
-        <input type="radio" name="{{ name }}" id="{{ name }}-yes" value="true" {% if value is sameas true %} checked{% endif %} />
+        <input type="radio" name="{{ name }}" id="input-{{ name }}-yes" value="true" {% if value is sameas true %} checked{% endif %} />
       </label>
-      <label class="selection-button selection-button-boolean" for="{{ name }}-no">
+      <label class="selection-button selection-button-boolean" for="input-{{ name }}-no">
         No
-        <input type="radio" name="{{ name }}" id="{{ name }}-no" value="false" {% if value is sameas false %} checked{% endif %} />
+        <input type="radio" name="{{ name }}" id="input-{{ name }}-no" value="false" {% if value is sameas false %} checked{% endif %} />
       </label>
     {% else %}
       {% for option in options %}
-        <label class="selection-button{% if inline %} selection-button-inline{% endif %}" for="{{ name }}-{{ loop.index }}">
+        <label class="selection-button{% if inline %} selection-button-inline{% endif %}" for="input-{{ name }}-{{ loop.index }}">
           {{ option.label }}
           {% if type == "radio" %}
-            <input type="{{ type }}" name="{{ name }}" id="{{ name }}-{{ loop.index }}" value="{{ option.value or option.label }}" {% if option.label == value %}checked="checked"{% endif %} />
+            <input type="{{ type }}" name="{{ name }}" id="input-{{ name }}-{{ loop.index }}" value="{{ option.value or option.label }}" {% if option.label == value %}checked="checked"{% endif %} />
           {% elif type == "checkbox" %}
-            <input type="{{ type }}" name="{{ name }}" id="{{ name }}-{{ loop.index }}" value="{{ option.value or option.label }}" {% if option.label in value %}checked="checked"{% endif %} />
+            <input type="{{ type }}" name="{{ name }}" id="input-{{ name }}-{{ loop.index }}" value="{{ option.value or option.label }}" {% if option.label in value %}checked="checked"{% endif %} />
           {% endif %}
         </label>
         {% if option.description is defined %}
