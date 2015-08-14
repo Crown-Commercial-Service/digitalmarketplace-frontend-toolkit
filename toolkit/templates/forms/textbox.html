@@ -28,7 +28,13 @@
     {% if large %}
       {% if max_length_in_words is defined %}
         <div class="word-count">
-          <textarea class="text-box text-box-large{% if error %}-with-error{% endif %}" name="{{ name }}" id="input-{{ name }}" data-max-length-in-words="{{ max_length_in_words }}">
+          <textarea
+            class="text-box text-box-large{% if error %}-with-error{% endif %}"
+            name="{{ name }}"
+            id="input-{{ name }}"
+            data-max-length-in-words="{{ max_length_in_words }}"
+            {% if error %}aria-describedby="error-{{ name }}"{% endif %}
+          >
           {%- if value != None -%}
             {{ value }}
           {%- endif -%}

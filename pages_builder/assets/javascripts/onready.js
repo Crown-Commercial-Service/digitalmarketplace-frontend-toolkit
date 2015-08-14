@@ -2,6 +2,10 @@
   var GOVUK = root.GOVUK || {};
   GOVUK.GDM = GOVUK.GDM || {};
 
+  $('.code').removeClass("open").find('.code-label').click(function() {
+      $(this).parent().toggleClass('open');
+  });
+
   if (GOVUK.GDM.wordCounter) {
     GOVUK.GDM.wordCounter();
   }
@@ -27,8 +31,8 @@
     }
   }
 
-  $('.code').removeClass("open").find('.code-label').click(function() {
-      $(this).parent().toggleClass('open');
-  });
+  if (GOVUK.GDM.validation) {
+    GOVUK.GDM.validation();
+  }
 
 })(window);

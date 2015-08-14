@@ -7,6 +7,10 @@
   padding: 15px 15px 20px 15px;
   margin-bottom: 30px;
 
+  &:focus {
+    outline: 3px solid $yellow;
+  }
+
   .validation-masthead-heading {
     @include heading-24;
     font-weight: bold;

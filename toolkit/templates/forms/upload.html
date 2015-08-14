@@ -38,7 +38,7 @@
         {% endif %}
       </p>
     {% endif %}
-    <input type="file" name="{{ name }}" id="input-{{ name }}" class="file-upload-input" />
+    <input type="file" name="{{ name }}" id="input-{{ name }}" class="file-upload-input" {% if error %}aria-describedby="error-{{ name }}"{% endif %} />
   </div>
 {% if error %}
 </div>
