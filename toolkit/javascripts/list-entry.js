@@ -69,9 +69,9 @@
   ListEntry.prototype.getId = function (num) {
     var pattern = this.idPattern.replace("list-entry-", "");
     if ("undefined" === typeof num) {
-      return pattern;
+      return "input-" + pattern;
     } else {
-      return pattern + "-" + num;
+      return "input-" + pattern + "-" + num;
     }
   };
   ListEntry.prototype.bindEvents = function () {

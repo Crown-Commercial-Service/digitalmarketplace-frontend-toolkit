@@ -1,5 +1,8 @@
 pageTitle: Validation
 assetPath: ../govuk_template/assets/
+bodyEnd: >
+  <script type="text/javascript" src="../public/javascripts/validation.js"></script>
+  <script type="text/javascript" src="../public/javascripts/selection-buttons.js"></script>
 examples:
   -
     title: Masthead

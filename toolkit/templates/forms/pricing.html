@@ -9,7 +9,7 @@
 {% if error %}
   <div class="validation-wrapper">
 {% endif %}
-  <fieldset class="question first-question">
+  <fieldset class="question first-question" id="{{ name }}">
     <legend>
       <span class="question-heading {% if hint %}question-heading-with-hint{% endif %}">
         {{ question }}
@@ -32,7 +32,7 @@
           <span class="visually-hidden">in</span>
           <span class="pricing-unit">£</span>
         </label>
-        <input type="text" class="text-box pricing-input-with-unit" name="{{ name }}" id="{{ name }}MinPrice" value="{{ priceMin }}"/>
+        <input type="text" class="text-box pricing-input-with-unit" name="{{ name }}" id="input-{{ name }}-MinPrice" value="{{ priceMin }}"/>
       </div>
       <div class="pricing-column">
         <div class="pricing-preposition">to</div>
@@ -44,16 +44,16 @@
           <span class="pricing-unit">£</span>
         </label>
         <p class="question-hint">Optional</p>
-        <input type="text" class="text-box pricing-input-with-unit" name="{{ name }}" id="{{ name }}MaxPrice" value="{{ priceMax or "" }}"/>
+        <input type="text" class="text-box pricing-input-with-unit" name="{{ name }}" id="input-{{ name }}-MaxPrice" value="{{ priceMax or "" }}"/>
       </div>
       <div class="pricing-column">
         <span class="pricing-preposition">per</span>
       </div>
       <div class="pricing-column">
-        <label for="{{ name }}Unit">
+        <label for="input-{{ name }}-Unit">
           Unit
         </label>
-        <select class="pricing-input-select" name="{{ name }}" id="{{ name }}Unit">
+        <select class="pricing-input-select" name="{{ name }}" id="input-{{ name }}-Unit">
           {{ _option("", priceUnit) }}
           {{ _option("Unit", priceUnit) }}
           {{ _option("Person", priceUnit) }}
@@ -73,13 +73,13 @@
         <span class="pricing-preposition">per</span>
       </div>
       <div class="pricing-column">
-        <label for="{{ name }}Interval">
+        <label for="input-{{ name }}-Interval">
           Interval
         </label>
         <p class="question-hint">
           Optional
         </p>
-        <select class="pricing-input-select" name="{{ name }}" id="{{ name }}Interval">
+        <select class="pricing-input-select" name="{{ name }}" id="input-{{ name }}-Interval">
           {{ _option("", priceInterval) }}
           {{ _option("Second", priceInterval) }}
           {{ _option("Minute", priceInterval) }}
