@@ -152,7 +152,7 @@
 {% macro upload(value, assurance=None) -%}
   {% call field() %}
     {% if value %}
-      <a href="{{ value }}">{{ value.split("/")[-1] }}</a>
+      <a href="{{ value }}">View uploaded document</a>
     {% endif %}
   {% endcall %}
 {%- endmacro %}
