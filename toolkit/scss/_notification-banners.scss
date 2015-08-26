@@ -3,7 +3,6 @@
 @import "_typography.scss";
 
 %banner {
-  background: $highlight-colour;
   @include core-24;
   padding: 20px;
   margin-top: 15px;
@@ -11,7 +10,7 @@
 
 %banner-destructive {
   @extend %banner;
-  border-left: 5px solid $red;
+  border: 5px solid $red;
   color: $red;
 }
 
@@ -21,12 +20,11 @@
 
 .banner-destructive-with-action {
   @extend %banner-destructive;
-  padding-bottom: 25px;
 }
 
 %banner-warning {
   @extend %banner;
-  border-left: 5px solid $accessible-orange;
+  border: 5px solid $accessible-orange;
   color: $accessible-orange;
 }
 
@@ -36,12 +34,11 @@
 
 .banner-warning-without-action {
   @extend %banner-warning;
-  padding-bottom: 25px;
 }
 
 %banner-success {
   @extend %banner;
-  border-left: 5px solid $green;
+  border: 5px solid $green;
   color: $green;
 }
 
@@ -51,16 +48,16 @@
 
 .banner-success-without-action {
   @extend %banner-success;
-  padding-bottom: 25px;
 }
 
 .banner-action {
-  margin-top: 15px;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 .banner-message {
   @include core-24;
+  font-weight: bold;
   margin: 0;
-  padding: 0;
 }
 
