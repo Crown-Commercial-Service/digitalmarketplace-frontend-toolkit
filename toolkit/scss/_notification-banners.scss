@@ -38,8 +38,8 @@
 
 %banner-success {
   @extend %banner;
-  border: 5px solid $green;
-  color: $green;
+  border: 5px solid $button-colour;
+  color: $button-colour;
 }
 
 .banner-success-with-action {
@@ -60,4 +60,3 @@
   font-weight: bold;
   margin: 0;
 }
-
