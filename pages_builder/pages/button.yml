@@ -1,5 +1,6 @@
 pageTitle: Buttons
 assetPath: govuk_template/assets/
+pageDescription: Buttons must be used inside a form, which they will submit when clicked
 examples:
   -
     title: Save button
@@ -13,3 +14,8 @@ examples:
     title: Destructive button
     type: destructive
     label: Delete this user
+  -
+    title: Button with a name
+    type: secondary
+    label: Save and continue
+    name: continue_to_next_section
