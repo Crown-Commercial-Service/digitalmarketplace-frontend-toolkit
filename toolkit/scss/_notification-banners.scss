@@ -6,11 +6,12 @@
   @include core-24;
   padding: 20px;
   margin-top: 15px;
+  border-width: 5px;
+  border-style: solid;
 }
 
 %banner-destructive {
   @extend %banner;
-  border: 5px solid $red;
   color: $red;
 }
 
@@ -24,7 +25,6 @@
 
 %banner-warning {
   @extend %banner;
-  border: 5px solid $accessible-orange;
   color: $accessible-orange;
 }
 
@@ -38,7 +38,6 @@
 
 %banner-success {
   @extend %banner;
-  border: 5px solid $button-colour;
   color: $button-colour;
 }
 
