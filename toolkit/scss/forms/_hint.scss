@@ -1,9 +1,16 @@
 @import "_colours.scss";
 @import "_typography.scss";
 
+%hint,
 .hint {
   display: block;
   @include core-19;
   margin: 0 0 5px 0;
   color: $secondary-text-colour;
+  clear: both;
+}
+
+.hint-underneath {
+  @extend %hint;
+  padding-top: 10px;
 }

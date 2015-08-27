@@ -62,6 +62,19 @@ examples:
           entirely over the internet, without having to pay for your own hardware.
   -
     type: checkbox
+    question: Is your service assured by
+    hint: The hint for this question only makes sense when it's underneath the options.
+    hint_underneath: True
+    name: lot
+    options:
+      -
+        label: service provider assertion?
+      -
+        label: independent validation of assertion?
+      -
+        label: independent testing of implementation?
+  -
+    type: checkbox
     name: vegetables
     question: Checkboxes with an error
     error: Answer required
