@@ -3,7 +3,7 @@
 {% endif %}
   <fieldset class="question first-question" id="{{ name }}">
     <legend>
-      <span class="question-heading {% if hint is defined %}question-heading-with-hint{% endif %}">
+      <span class="question-heading {% if hint %}question-heading-with-hint{% endif %}" {%- if hint and hint_underneath %} aria-describedby="hint-{{ name }}"{% endif %}>
         {% if question_number %}
           <span class="question-number">
             {{ question_number }}
@@ -11,7 +11,7 @@
         {% endif %}
         {{ question }}
       </span>
-      {% if hint %}
+      {% if hint and not hint_underneath %}
         <span class="hint">
           {{ hint }}
         </span>
@@ -47,6 +47,11 @@
           </p>
         {% endif %}
       {% endfor %}
+    {% endif %}
+    {% if hint and hint_underneath %}
+      <p class="hint-underneath" id="hint-{{ name }}">
+        {{ hint }}
+      </p>
     {% endif %}
   </fieldset>
 {% if error %}
