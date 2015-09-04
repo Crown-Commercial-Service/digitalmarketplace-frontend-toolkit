@@ -39,7 +39,7 @@
           {% if type == "radio" %}
             <input type="{{ type }}" name="{{ name }}" id="input-{{ name }}-{{ loop.index }}" value="{{ input_value }}" {% if input_value == value %}checked="checked"{% endif %} />
           {% elif type == "checkbox" %}
-            <input type="{{ type }}" name="{{ name }}" id="input-{{ name }}-{{ loop.index }}" value="{{ input_value }}" {% if input_value in value %}checked="checked"{% endif %} />
+            <input type="{{ type }}" name="{{ name }}" id="input-{{ name }}-{{ loop.index }}" value="{{ input_value }}" {% if value and input_value in value %}checked="checked"{% endif %} />
           {% endif %}
         </label>
         {% if option.description is defined %}
