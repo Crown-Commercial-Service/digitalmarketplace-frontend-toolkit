@@ -103,7 +103,7 @@ class Styleguide_publisher(object):
         return parameters_template.render(
             {
                 "parameters": presented_parameters,
-                "file": template_subfolder.strip("/") + "/" + template_name
+                "file": os.path.join("toolkit", template_subfolder, template_name) + ".html"
             }
         )
 
@@ -125,12 +125,12 @@ class Styleguide_publisher(object):
             )
             if "examples" in partial:
                 template_name, template_extension = os.path.splitext(file)
-                template_subfolder = root.replace(self.pages_dirname, "")
+                template_subfolder = root.replace(self.pages_dirname, "").strip("/")
                 env = Environment(
                     loader=FileSystemLoader(os.path.join(self.repo_root, "toolkit/templates"))
                 )
 
-                template_file = os.path.join(template_subfolder.strip("/"), template_name + ".html")
+                template_file = os.path.join(template_subfolder, template_name + ".html")
                 template = env.get_template(template_file)
                 examples = []
                 for index, example in enumerate(partial["examples"]):
