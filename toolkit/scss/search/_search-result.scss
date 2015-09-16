@@ -34,12 +34,8 @@
 }
 
 .search-result-highlighted-text {
-  padding: 0 2px;
-  @include inline-block;
-  background-color: $yellow-25;
-  background-image: file-url('search-result-highlight-mask.png');
-  background-position: 0 -8px;
-  background-repeat: repeat;
+  display: inline;
+  @include bold-16;
 }
 
 .search-result-metadata {
