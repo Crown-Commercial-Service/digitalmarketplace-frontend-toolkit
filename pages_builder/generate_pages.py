@@ -160,6 +160,9 @@ class Styleguide_publisher(object):
                     "templateFile": template_file,
                     "urlRoot": url_root
                 }
+                if "grid" in partial:
+                    partial_data['grid'] = partial['grid']
+
                 partial['content'] = self.render_include(
                     os.path.join(self.repo_root, "pages_builder", "includes", "content.html"),
                     partial_data

@@ -1,5 +1,6 @@
 pageTitle: Option select
 assetPath: ../govuk_template/assets/
+grid: third-column
 bodyEnd: >
   <script type="text/javascript" src="../public/javascripts/option-select.js"></script>
 examples:

@@ -1,5 +1,6 @@
 pageTitle: Search result
 assetPath: govuk_template/assets/
+grid: two-third-column
 examples:
   -
     title: Search results
