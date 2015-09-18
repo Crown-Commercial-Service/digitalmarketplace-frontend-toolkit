@@ -13,8 +13,5 @@
   margin: 5px 0 0 0;
   padding: 0;
   color: $secondary-text-colour;
-
-  @include media(desktop) {
-    width: 66%;
-  }
+  width: 100%;
 }
