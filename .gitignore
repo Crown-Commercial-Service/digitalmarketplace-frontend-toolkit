@@ -6,3 +6,4 @@ npm-debug.log
 govuk_template
 /pages
 gh-pages
+node_modules
