@@ -13,9 +13,11 @@
   margin: 0 0 15px 0;
   padding: 5px;
   border: 1px solid $border-colour;
+  width: 100%;
 
-  @include media(desktop){
-    width: 66%;
+  /* IE<8 cannot include borders and padding as part of width */
+  @include ie-lte(7) {
+    width: 98%;
   }
 }
 

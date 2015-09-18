@@ -7,6 +7,12 @@
   
   margin-top: $gutter-half;
 
+  @include media($min-width: 900px) {
+    .two-third-column & {
+      margin-right: -100%;
+    }
+  }
+
   .pricing-column {
     position: relative;
     @include inline-block;
@@ -14,6 +20,25 @@
     min-width: 2em;
     margin: 0 10px;
     vertical-align: bottom;
+
+    .two-third-column & {
+      min-height: 0;
+      width: 100%;
+      margin-left: 0;
+      margin-top: $gutter-half;
+
+      @include media($min-width: 900px) {
+        min-height: 105px;
+        width: auto;
+        margin-left: 10px;
+        margin-top: 0;
+      }
+    }
+
+    /* IE7's font rendering meant some of the text was obscured with the default min-height */
+    @include ie-lte(7) {
+      min-height: 115px;
+    }
 
     @include ie(6) {
       height: 105px;
@@ -44,33 +69,40 @@
   .pricing-input {
 
     width: 100%;
-    position: absolute;
+    position: static;
     bottom: 0;
     left: 0;
     margin: 0;
     z-index: 10;
 
+    @include media($min-width: 900px) {
+      position: absolute;
+    }
+
     @include ie-lte(7) {
       width:75%;
     }
+  }
 
-    &-with-unit {
-      @extend .pricing-input;
-      padding-left: 1.6em;
+  .pricing-input-with-unit {
+    @extend .pricing-input;
+    padding-left: 1.6em;
+  }
+
+  .pricing-input-select {
+    @extend .pricing-input;
+    margin: 0 0 15px 0;
+    width: 98%; // Chrome tries to chop the sides off when you make the font bigger
+    font-size: 19px;
+
+    @include media($min-width: 900px) {
+      margin-left: 0;
     }
 
-    &-select {
-      @extend .pricing-input;
-      margin: 0 0 15px 2%;
-      width: 98%; // Chrome tries to chop the sides off when you make the font bigger
-      font-size: 19px;
-
-      @include ie-lte(8) {
-        width: auto;
-        margin-right: 1px;
-      }
+    @include ie-lte(8) {
+      width: auto;
+      margin-right: 1px;
     }
-
   }
 
   .pricing-unit {
@@ -89,6 +121,11 @@
     width: 100%;
     text-align: center;
     padding-bottom: 12px;
+    display: none;
+
+    @include media($min-width: 900px) {
+      display: block;
+    }
   }
 
 }
