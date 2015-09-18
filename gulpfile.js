@@ -27,7 +27,6 @@ gulp.task('test', function () {
       'jasmine': '2.0',
       'integration': true,
       'abortOnFail': true,
-      'keepRunner': true,
       'vendor': manifest.support
     }));
 });
