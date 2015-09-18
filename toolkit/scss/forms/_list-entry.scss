@@ -8,16 +8,38 @@
   .list-entry {
     vertical-align: middle;
     margin-bottom: 15px;
+    position: relative;
+
+    @include ie-lte(7) {
+      zoom: 1;
+    }
+
+    @include media(tablet) {
+      .text-box {
+        width: 100%;
+      }
+    }
   }
 
   .list-entry-remove {
     @include core-19;
     display: block;
     margin-bottom: 15px;
+    margin-top: 5px;
+    position: static;
 
-    @include media(desktop) {
+    @include media(tablet) {
       @include inline-block;
       margin: 0 0 0 0.6em;
+      position: absolute;
+      top: 6px; /* height of textbox minus its top-padding */
+      left: 100%;
+      margin-left: 0.6em;
+    }
+
+    @include ie-lte(7) {
+      top: auto;
+      left: 110%;
     }
   }
 

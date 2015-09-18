@@ -107,6 +107,11 @@ class Styleguide_publisher(object):
             }
         )
 
+    def render_include(self, include_file_name, data):
+        template_file = os.path.join(self.repo_root, "pages_builder", "includes", include_file_name)
+        template = open(template_file, "r").read()
+        return pystache.render(template, data)
+
     def render_page(self, root, file):
         input_file = os.path.join(root, file)
         output_file = self.__get_page_filename(input_file)
@@ -147,67 +152,33 @@ class Styleguide_publisher(object):
                         "highlighted_markup": highlight(example_markup, HtmlLexer(), HtmlFormatter(noclasses=True))
 
                     })
-                partial['content'] = pystache.render(
-                    """
-                        <div id="global-breadcrumb" class="header-context">
-                          <nav>
-                            <ol class="group" role="breadcrumbs">
-                              <li>
-                                <a href="{{urlRoot}}/">Home</a>
-                              </li>
-                            </ol>
-                          </nav>
-                        </div>
-                        <main role="main" id="content" class="wrapper">
-                            <div id="wrapper">
-                                <header class="page-heading">
-                                    <h1>{{pageHeading}}</h1>
-                                </header>
-                                {{#pageDescription}}
-                                <div>
-                                    {{{pageDescription}}}
-                                </div>
-                                {{/pageDescription}}
-                                {{#examples}}
-                                    {{#title}}<h2>{{title}}</h2>{{/title}}
-                                    {{{markup}}}
-                                    <div class="code open" data-lang="jinja"><h3 class="code-label">Jinja</h3>{{{parameters}}}</div>
-                                    <div class="code open" data-lang="html"><h3 class="code-label">HTML</h3>{{{highlighted_markup}}}</div>
-                                {{/examples}}
-                            </div>
-                        </main>
-                    """, {
-                        "examples": examples,
-                        "pageTitle": partial['pageTitle'],
-                        "pageDescription": partial.get('pageDescription'),
-                        "pageHeading": partial['pageHeading'],
-                        "templateFile": template_file,
-                        "urlRoot": url_root
-                    }
+                partial_data = {
+                    "examples": examples,
+                    "pageTitle": partial['pageTitle'],
+                    "pageDescription": partial.get('pageDescription'),
+                    "pageHeading": partial['pageHeading'],
+                    "templateFile": template_file,
+                    "urlRoot": url_root
+                }
+                if "grid" in partial:
+                    partial_data['grid'] = partial['grid']
+
+                partial['content'] = self.render_include(
+                    os.path.join(self.repo_root, "pages_builder", "includes", "content.html"),
+                    partial_data
                 )
 
-        partial['head'] = (
-            '<!--[if !IE]><!-->'
-            '<link rel="stylesheet" href="' + url_root + '/public/stylesheets/index.css "/>'  # noqa
-            '<!--<![endif]-->'
-            '<!--[if IE 6]>'
-            '<link rel="stylesheet" href="' + url_root + '/public/stylesheets/index-ie6.css "/>'  # noqa
-            '<![endif]-->'
-            '<!--[if IE 7]>'
-            '<link rel="stylesheet" href="' + url_root + '/public/stylesheets/index-ie7.css "/>'  # noqa
-            '<![endif]-->'
-            '<!--[if IE 8]>'
-            '<link rel="stylesheet" href="' + url_root + '/public/stylesheets/index-ie8.css "/>'  # noqa
-            '<![endif]-->'
-            '<!--[if IE 9]>'
-            '<link rel="stylesheet" href="' + url_root + '/public/stylesheets/index-ie9.css "/>'  # noqa
-            '<![endif]-->'
+        partial['head'] = self.render_include(
+            os.path.join(self.repo_root, "pages_builder", "includes", "head.html"),
+            { "url_root": url_root }
         )
         bodyEnd = partial['bodyEnd'] if "bodyEnd" in partial else ""
-        partial['bodyEnd'] = (
-            '<script type="text/javascript" src="' + url_root + '/public/javascripts/vendor/jquery-1.11.0.js"></script>' +  # noqa
-            bodyEnd +
-            '<script type="text/javascript" src="' + url_root + '/public/javascripts/onready.js"></script>'  # noqa
+        partial['bodyEnd'] = self.render_include(
+            os.path.join(self.repo_root, "pages_builder", "includes", "bodyEnd.html"),
+            {
+                "url_root": url_root,
+                "bodyEnd": bodyEnd
+            }
         )
         page_render = pystache.render(self.template_view, partial)
         print "\n  " + input_file

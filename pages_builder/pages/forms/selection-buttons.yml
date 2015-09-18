@@ -1,5 +1,6 @@
 pageTitle: Selection buttons
 assetPath: ../govuk_template/assets/
+grid: two-third-column
 bodyEnd: >
   <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/vendor/polyfills/bind.js"></script>
   <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/govuk/selection-buttons.js"></script>

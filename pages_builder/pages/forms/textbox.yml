@@ -1,5 +1,6 @@
 pageTitle: Textboxes
 assetPath: ../govuk_template/assets/
+grid: two-third-column
 bodyEnd: >
   <script type="text/javascript" src="../public/javascripts/vendor/hogan-3.0.2.min.js"></script>
   <script type="text/javascript" src="../public/javascripts/word-counter.js"></script>
