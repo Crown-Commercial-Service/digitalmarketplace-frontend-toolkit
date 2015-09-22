@@ -1,8 +1,8 @@
 $path : '../images/';
-@import "grids/index.scss";
 @import "colours";
 
 // Toolkit components
+@import "_grids";
 @import "_phase-banner.scss";
 @import "_breadcrumb.scss";
 @import "_buttons.scss";
@@ -29,6 +29,8 @@ $path : '../images/';
 @import "forms/_word-counter.scss";
 @import "forms/_upload.scss";
 
+// Styles for example pages
+@import "grids/index.scss";
 
 #wrapper {
   @extend %site-width-container;
