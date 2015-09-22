@@ -13,12 +13,6 @@
     @include ie-lte(7) {
       zoom: 1;
     }
-
-    @include media(tablet) {
-      .text-box {
-        width: 100%;
-      }
-    }
   }
 
   .list-entry-remove {
@@ -54,7 +48,6 @@
 
     @include media(desktop) {
       @include inline-block;
-      width: 66%;
     }
   }
 
