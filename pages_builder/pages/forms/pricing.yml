@@ -1,6 +1,6 @@
 pageTitle: Pricing
 assetPath: ../govuk_template/assets/
-grid: two-third-column
+grid: column-two-thirds
 examples:
   -
     question: Price

@@ -29,7 +29,7 @@ examples:
     title: Two columns, 2/3 and 1/3
     items:
       -
-        type: two-third-column
+        type: column-two-thirds
         contents: Contents
       -
         type: column-one-third

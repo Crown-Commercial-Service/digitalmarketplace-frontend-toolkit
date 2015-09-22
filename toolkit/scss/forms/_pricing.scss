@@ -8,7 +8,7 @@
   margin-top: $gutter-half;
 
   @include media($min-width: 900px) {
-    .two-third-column & {
+    .column-two-thirds & {
       margin-right: -100%;
     }
   }
@@ -21,7 +21,7 @@
     margin: 0 10px;
     vertical-align: bottom;
 
-    .two-third-column & {
+    .column-two-thirds & {
       min-height: 0;
       width: 100%;
       margin-left: 0;
