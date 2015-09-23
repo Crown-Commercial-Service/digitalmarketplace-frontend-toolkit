@@ -131,3 +131,15 @@
     }
   }
 }
+
+.govuk-option-select {
+  margin-bottom: $gutter;
+
+  .container-head .option-select-label {
+    display: block;
+  }
+
+  .options-container {
+    @include core-16;
+  }
+}

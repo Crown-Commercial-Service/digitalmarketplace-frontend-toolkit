@@ -20,6 +20,9 @@ content: >
           <a href="option-select.html">Option select</a>
         </li>
         <li>
+          <a href="keyword-search.html">Keyword search</a>
+        </li>
+        <li>
           <a href="validation.html">Validation</a>
         </li>
         <li>

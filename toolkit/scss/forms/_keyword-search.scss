@@ -1,0 +1,11 @@
+@import "_typography.scss";
+@import "_css3.scss";
+@import "_colours.scss";
+
+.govuk-option-select .filter-field-text {
+  @include core-16;
+  @include box-sizing(border-box);
+  width: 100%;
+  padding: 5px;
+  border: 1px solid $border-colour;
+}
