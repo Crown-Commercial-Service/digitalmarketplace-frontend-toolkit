@@ -3,27 +3,6 @@
 @import "_colours.scss";
 @import "_css3.scss";
 
-.grid-row {
-  @extend %grid-row;
-  @extend %outdent-to-full-width;
-
-  .third-column {
-    @include grid-column(1/3);
-  }
-  .two-third-column {
-    @include grid-column(2/3);
-  }
-  .quarter-column {
-    @include grid-column(1/4);
-  }
-  .half-column {
-    @include grid-column(1/2);
-  }
-  .one-column {
-    @include grid-column(1/1);
-  }
-}
-
 .grid-example {
   background: rgba($red, 0.1);
   box-shadow:

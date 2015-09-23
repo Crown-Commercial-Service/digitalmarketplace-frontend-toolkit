@@ -1,6 +1,6 @@
 pageTitle: File upload
 assetPath: ../govuk_template/assets/
-grid: two-third-column
+grid: column-two-thirds
 examples:
   -
     question: Please upload a file
