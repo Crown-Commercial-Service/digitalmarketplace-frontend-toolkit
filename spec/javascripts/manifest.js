@@ -8,8 +8,8 @@ var manifest = {
     '../../../toolkit/javascripts/word-counter.js'
   ],
   test : [
-    '../unit/wordCountSpec.js',
-    '../unit/listEntrySpec.js'
+    '../unit/WordCountSpec.js',
+    '../unit/ListEntrySpec.js'
   ]
 };
 
