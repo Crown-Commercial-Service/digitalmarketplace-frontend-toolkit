@@ -1,0 +1,15 @@
+{
+  "name": "digitalmarketplace-frontend-toolkit",
+  "description": "Front end application for Digital Marketplace suppliers",
+  "version": "0.0.1",
+  "private": true,
+  "engine": "node >= 0.10.0",
+  "dependencies": {
+    "gulp": "3.8.7",
+    "gulp-jasmine-phantom": "2.0.1",
+    "govuk_frontend_toolkit": "4.2.1"
+  },
+  "scripts": {
+    "test": "./node_modules/gulp/bin/gulp.js test"
+  }
+}

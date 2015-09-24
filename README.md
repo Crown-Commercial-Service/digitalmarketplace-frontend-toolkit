@@ -102,6 +102,14 @@ _Only Jenkins or similar should be performing this step_
 sh build_tools/push_to_github_pages.sh
 ```
 
+### Run the tests
+
+To run the JavaScript tests:
+
+```
+npm test
+```
+
 ## Versioning
 
 Releases of this project follow [semantic versioning](http://semver.org/), ie
