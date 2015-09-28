@@ -161,9 +161,13 @@
 {% macro service_id(value='', assurance=None) -%}
   {% call field() %}
     <div class="service-id">
-      {% for chunk in value -%}
-        <span class="service-id-chunk">{{ chunk }}</span>
+    {% if value is string and value.isdigit %}
+      {% for chunk in value|slice(4) -%}
+        <span class="service-id-chunk">{{ chunk|join('') }}</span>
       {%- endfor %}
+    {% else %}
+        <span class="service-id-chunk">{{ value }}</span>
+    {% endif %}
     </div>
   {% endcall %}
 {%- endmacro %}
