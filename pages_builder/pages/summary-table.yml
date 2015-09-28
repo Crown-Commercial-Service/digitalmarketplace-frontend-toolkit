@@ -48,9 +48,9 @@ examples:
     {{ summary.heading("Summary table with many columns") }}
     {% call(item) summary.list_table(
       [
-        {"name": "Service 1", "lot": "SCS",  "id": ["1234", "5678", "9012", "3456"], "date": "12 June 2015", "framework": "G-Cloud 6"},
-        {"name": "Service 2", "lot": "SaaS", "id": ["5678", "9012", "1234", "3456"], "date": "12 June 2015", "framework": "G-Cloud 6"},
-        {"name": "Service 2", "lot": "IaaS", "id": ["9012", "1234", "5678", "3456"], "date": "12 June 2015", "framework": "G-Cloud 6"},
+        {"name": "Service 1", "lot": "SCS",  "id": "1234567890123456", "date": "12 June 2015", "framework": "G-Cloud 6"},
+        {"name": "Service 2", "lot": "SaaS", "id": "5678901212343456", "date": "12 June 2015", "framework": "G-Cloud 6"},
+        {"name": "Service 2", "lot": "IaaS", "id": "9012123456783456", "date": "12 June 2015", "framework": "G-Cloud 6"},
       ],
       caption="Summary table with many columns",
       empty_message="You haven't submited any services yet",
