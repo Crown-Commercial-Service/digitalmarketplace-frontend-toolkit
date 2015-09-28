@@ -1,0 +1,13 @@
+pageTitle: Keyword search
+assetPath: ../govuk_template/assets/
+grid: column-one-third
+examples:
+  -
+    label: Keywords 
+    name: q
+    id: keywords
+  -
+    label: Keywords (maximum 50 characters)
+    name: q
+    id: keywords
+    maxLength: 50

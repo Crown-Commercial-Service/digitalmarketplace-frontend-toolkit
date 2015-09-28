@@ -1,0 +1,8 @@
+<div class="govuk-option-select">
+  <div class="container-head">
+    <label class="option-select-label" for="{{ id }}">
+      {{ label }}
+    </label>
+  </div>
+  <input class="filter-field-text" type="text" name="{{ name }}" id="{{ id }}" value="{{ value }}" maxlength="{% if maxLength %}{{ maxLength }}{% else %}200{% endif %}">
+</div>
