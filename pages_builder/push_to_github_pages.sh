@@ -17,7 +17,6 @@ then
   exit 0
 fi
 
-current_branch=$(git rev-parse --abbrev-ref HEAD)
 build_from=$1
 destination_repo=git@github.com:alphagov/digitalmarketplace-frontend-toolkit.git
 destination_branch=gh-pages
