@@ -1,0 +1,17 @@
+pageTitle: Temporary message
+pageDescription: Used to describe the status of a page at a point in a process
+assetPath: govuk_template/assets/
+grid: column-one-half
+examples:
+  -
+    heading: G‑Cloud 7 is closed for applications
+    messages:
+      - Applications are being reviewed.
+      - G‑Cloud 7 services will be available from 23 November 2015.
+  -
+    heading: The G-Cloud 7 application deadline has passed
+    messages:
+      - No services were submitted because you didn’t mark any as complete.
+      - <a href="#">View your application</a>
+  -
+    heading: Example without any body copy that is quite long and may wrap onto multiple lines
