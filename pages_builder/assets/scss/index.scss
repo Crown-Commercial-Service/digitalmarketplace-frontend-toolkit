@@ -138,3 +138,8 @@ a.version-link {
   }
 
 }
+
+.page-description {
+  margin-bottom: $gutter;
+  @include heading-24;
+}
