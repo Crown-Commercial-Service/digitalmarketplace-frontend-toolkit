@@ -1,0 +1,34 @@
+@import "_colours.scss";
+@import "_typography.scss";
+@import "_measurements.scss";
+@import "_shims.scss";
+@import "_conditionals.scss";
+
+%temporary-message,
+.temporary-message {
+  background: $govuk-blue;
+  color: $white;
+  padding: 15px 15px 18px 15px;
+}
+
+.temporary-message-without-messages {
+  @extend %temporary-message;
+  padding-bottom: 5px;
+}
+
+.temporary-message-heading {
+  @include bold-24;
+  margin: 0 0 10px 0;
+}
+
+.temporary-message-message {
+
+  @include core-16;
+  margin: 0 0 5px 0;
+
+  a {
+    color: $white;
+    text-decoration: underline;
+  }
+
+}
