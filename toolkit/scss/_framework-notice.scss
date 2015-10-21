@@ -1,0 +1,37 @@
+@import "_colours.scss";
+@import "_typography.scss";
+@import "_measurements.scss";
+@import "_shims.scss";
+@import "_conditionals.scss";
+
+
+%g-cloud-7-notice,
+.g-cloud-7-notice {
+  margin-top: 45px;
+
+  .g-cloud-7-notice-heading {
+    @include bold-24;
+    margin-bottom: $gutter-half;
+  }
+
+  .g-cloud-7-notice-subheading {
+    margin-bottom: 5px;
+  }
+
+  p {
+    padding: 0 0 10px 0;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0 0 10px 20px;
+
+     li {
+       padding-bottom: 5px;
+     }
+  }
+}
