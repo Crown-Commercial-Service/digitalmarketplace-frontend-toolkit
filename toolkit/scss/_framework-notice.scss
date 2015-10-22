@@ -1,8 +1,5 @@
-@import "_colours.scss";
 @import "_typography.scss";
 @import "_measurements.scss";
-@import "_shims.scss";
-@import "_conditionals.scss";
 
 
 %framework-notice,
@@ -15,10 +12,13 @@
   }
 
   .framework-notice-subheading {
-    margin-bottom: 5px;
+    @include core-16;
+    color: $secondary-text-colour;
+    margin: 0 0 5px 0;
   }
 
   p {
+    margin: 0;
     padding: 0 0 10px 0;
 
     a {
