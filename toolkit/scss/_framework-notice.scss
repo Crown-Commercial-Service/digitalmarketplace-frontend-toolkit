@@ -5,16 +5,16 @@
 @import "_conditionals.scss";
 
 
-%g-cloud-7-notice,
-.g-cloud-7-notice {
+%framework-notice,
+.framework-notice {
   margin-top: 45px;
 
-  .g-cloud-7-notice-heading {
+  .framework-notice-heading {
     @include bold-24;
     margin-bottom: $gutter-half;
   }
 
-  .g-cloud-7-notice-subheading {
+  .framework-notice-subheading {
     margin-bottom: 5px;
   }
 
