@@ -13,6 +13,7 @@ from jinja2 import Environment, FileSystemLoader, Template
 from pygments import highlight
 from pygments.lexers import HtmlLexer, DjangoLexer
 from pygments.formatters import HtmlFormatter
+from dmutils.filters import markdown_filter
 
 
 class Styleguide_publisher(object):
@@ -134,6 +135,9 @@ class Styleguide_publisher(object):
                 env = Environment(
                     loader=FileSystemLoader(os.path.join(self.repo_root, "toolkit/templates"))
                 )
+                env.filters.update({
+                    'markdown': markdown_filter,
+                })
 
                 template_file = os.path.join(template_subfolder, template_name + ".html")
                 template = env.get_template(template_file)

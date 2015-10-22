@@ -6,3 +6,6 @@ six==1.8.0
 wsgiref==0.1.2
 Jinja2==2.7.3
 Pygments==2.0.2
+
+git+https://github.com/madzak/python-json-logger.git@v0.1.3#egg=python-json-logger==v0.1.3
+git+https://github.com/alphagov/digitalmarketplace-utils.git@10.6.0#egg=digitalmarketplace-utils==10.6.0
