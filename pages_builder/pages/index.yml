@@ -14,6 +14,8 @@ content: >
         <li><a href="breadcrumb.html">Breadcrumb</a></li>
         <li><a href="page-heading.html">Page headings</a></li>
         <li><a href="notification-banner.html">Notification banners</a></li>
+        <li><a href="temporary-message.html">Temporary message</a></li>
+        <li><a href="framework-notice.html">Framework notice</a></li>
         <li><a href="button.html">Buttons</a></li>
         <li><a href="grids.html">Grids</a></li>
         <li><a href="forms/">Forms</a></li>
