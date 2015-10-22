@@ -1,0 +1,37 @@
+@import "_typography.scss";
+@import "_measurements.scss";
+
+
+%framework-notice,
+.framework-notice {
+  margin-top: 45px;
+
+  .framework-notice-heading {
+    @include bold-24;
+    margin-bottom: $gutter-half;
+  }
+
+  .framework-notice-subheading {
+    @include core-16;
+    color: $secondary-text-colour;
+    margin: 0 0 5px 0;
+  }
+
+  p {
+    margin: 0;
+    padding: 0 0 10px 0;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0 0 10px 20px;
+
+     li {
+       padding-bottom: 5px;
+     }
+  }
+}
