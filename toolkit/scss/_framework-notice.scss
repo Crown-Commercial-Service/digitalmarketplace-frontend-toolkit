@@ -5,7 +5,7 @@
 
 %framework-notice,
 .framework-notice {
-  margin-top: 45px;
+  @include core-16;
 
   .framework-notice-heading {
     @include bold-24;
@@ -13,7 +13,6 @@
   }
 
   .framework-notice-subheading {
-    @include core-16;
     color: $secondary-text-colour;
     margin: 0 0 5px 0;
   }
