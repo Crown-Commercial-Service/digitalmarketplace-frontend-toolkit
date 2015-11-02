@@ -6,16 +6,49 @@ examples:
     question: Price
     hint: Hint comprising further information about the price
     name: price
+    fields:
+      minimum_price: priceMin
+      maximum_price: priceMax
+      price_unit: priceUnit
+      price_interval: priceInterval
 
   - question: Price with default values
     hint: Hint comprising further information about the price
     name: price
-    priceMin: 12.12
-    priceMax: 15.15
-    priceUnit: Person
-    priceInterval: Second
+    fields:
+      minimum_price: priceMin
+      maximum_price: priceMax
+      price_unit: priceUnit
+      price_interval: priceInterval
+    minimum_price: 12.12
+    maximum_price: 15.15
+    price_unit: Person
+    price_interval: Second
 
   - question: Price with an error
     name: anotherPrice
     error: This is not ok
+    fields:
+      minimum_price: priceMin
+      maximum_price: priceMax
+      price_unit: priceUnit
+      price_interval: priceInterval
+    minimum_price: 12.12
+    maximum_price: 15.15
+    price_unit: Person
+    price_interval: Second
+
+  - question: Price with only min and max
+    name: price
+    fields:
+      minimum_price: priceMin
+      maximum_price: priceMax
+
+  - question: Single price with hours units prefilled
+    name: price
+    fields:
+      price: price
+      hours_for_price: priceHours 
+    price: 200
+    hours_for_price: "1 hour"
 
