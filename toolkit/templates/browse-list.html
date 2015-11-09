@@ -13,6 +13,19 @@
             {{ item.subtext|safe }}
           </p>
         {% endif %}
+        {% if item.statuses %}
+          <div class="browse-list-item-statuses">
+            {% for status in item.statuses %}
+              {% if status.important %}
+                <div class="browse-list-item-status-important">
+              {% else %}
+                <div class="browse-list-item-status">
+              {% endif %}
+                {{ status.message }}
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
       </li>
     {% endfor %}
   </ul>
