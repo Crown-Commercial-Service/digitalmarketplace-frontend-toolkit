@@ -30,21 +30,27 @@ examples:
         link: '#nope'
         body: Provide teams to build and support digital outcomes.
         statuses:
-          - message: You have completed this service.
+          -
+            message: You have completed this service.
             important: True
-          - message: You can edit it until the deadline.
+          -
+            message: You can edit it until the deadline.
       -
         title: Apply to provide digital specialists
         link: '#nope'
         body: Provide individual specialists to work on digital services, programmes or projects.
         statuses:
-          - message: You have not completed this service.
+          -
+            message: You have not completed this service.
       -
         title: Apply to provide software as a service
         link: '#nope'
         body: G-Cloud 10 is open for applications until 1 October 2019
         statuses:
-          - message: You have 5 completed services
+          -
+            message: You have 5 completed services
             important: True
-          - message: You have 2 draft services
-          - message: You can add or edit services until the deadline
+          -
+            message: You have 2 draft services
+          -
+            message: You can add or edit services until the deadline

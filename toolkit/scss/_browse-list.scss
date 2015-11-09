@@ -86,3 +86,19 @@ a.browse-list-item-link {
   @include copy-16;
   color: $secondary-text-colour;
 }
+
+.browse-list-item-statuses {
+  border-left: 5px solid $border-colour;
+  padding-left: $gutter-half;
+  margin-top: 10px;
+}
+
+.browse-list-item-status {
+  @include core-19;
+  color: $secondary-text-colour;
+}
+
+.browse-list-item-status-important {
+  @include bold-19;
+  color: $text-colour;
+}
