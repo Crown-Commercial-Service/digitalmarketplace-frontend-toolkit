@@ -115,12 +115,10 @@
 {# ================================== #}
 
 {% macro text(text, assurance=None) -%}
-  {% call field() %}
     {{ text }}
     {%- if assurance -%}
       , assured by {{ assurance }}
     {%- endif %}
-  {% endcall %}
 {%- endmacro %}
 
 
@@ -128,7 +126,6 @@
   {% if items | length == 0 %}
     {{ text('') }}
   {% elif items | length > 1 %}
-    {% call field() %}
       <ul>
       {% for item in items %}
         <li>{{ item }}</li>
@@ -137,7 +134,6 @@
       {% if assurance %}
         Assured by {{ assurance }}
       {% endif %}
-    {% endcall %}
   {% elif items | length == 1 %}
     {{ text(items[0], assurance) }}
   {% endif %}
@@ -150,16 +146,13 @@
 
 
 {% macro upload(value, assurance=None) -%}
-  {% call field() %}
     {% if value %}
       <a href="{{ value }}">View uploaded document</a>
     {% endif %}
-  {% endcall %}
 {%- endmacro %}
 
 
 {% macro service_id(value='', assurance=None) -%}
-  {% call field() %}
     <div class="service-id">
     {% if value is string and value.isdigit %}
       {% for chunk in value|slice(4) -%}
@@ -169,7 +162,6 @@
         <span class="service-id-chunk">{{ value }}</span>
     {% endif %}
     </div>
-  {% endcall %}
 {%- endmacro %}
 
 
@@ -180,7 +172,7 @@
 
 {% macro radios(value='', assurance=None) -%}
   {% if value is string %}
-    {{ text(value, assurance) }}
+    {{ radio(value, assurance) }}
   {% else %}
     {{ list(value, assurance) }}
   {% endif %}
@@ -216,3 +208,25 @@
 {% macro percentage(value='', assurance=None) -%}
   {{ text(value|string + '%', assurance) }}
 {%- endmacro %}
+
+{% macro multiquestion(value, assurance) -%}
+  {% for question in value %}
+    {{ _MACROS[question.type](question.value, question.assurance) }}
+  {% endfor %}
+{%- endmacro %}
+
+{% set _MACROS = {
+  'text': text,
+  'list': list,
+  'textbox': textbox,
+  'upload': upload,
+  'service_id': service_id,
+  'checkboxes': checkboxes,
+  'radios': radios,
+  'boolean': boolean,
+  'textbox_large': textbox_large,
+  'pricing': pricing,
+  'percentage': percentage
+}
+
+%}
