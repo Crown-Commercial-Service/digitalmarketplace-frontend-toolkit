@@ -87,18 +87,52 @@ a.browse-list-item-link {
   color: $secondary-text-colour;
 }
 
-.browse-list-item-statuses {
-  border-left: 5px solid $border-colour;
+%browse-list-item-status {
+
+  border-left: 5px solid;
   padding-left: $gutter-half;
-  margin-top: 10px;
+  margin: 10px 0 0 0;
+  padding-bottom: 0 0 10px 0;
+  @include bold-19;
+
+  .browse-list-item-status-title {
+    margin: 0;
+  }
+
+  .browse-list-item-status-hint {
+    @include core-19;
+    color: $secondary-text-colour;
+    margin: 0;
+  }
+
+  .browse-list-item-status-list {
+    @include core-19;
+    color: $secondary-text-colour;
+    list-style: disc;
+    padding: 5px 0 0 20px;
+  }
+
 }
 
-.browse-list-item-status {
+.browse-list-item-status-quiet {
+  @extend %browse-list-item-status;
   @include core-19;
   color: $secondary-text-colour;
+  border-color: $border-colour;
 }
 
-.browse-list-item-status-important {
-  @include bold-19;
+.browse-list-item-status-default {
+  @extend %browse-list-item-status;
   color: $text-colour;
+  border-color: $border-colour;
+}
+
+.browse-list-item-status-happy {
+  @extend %browse-list-item-status;
+  color: $button-colour;
+}
+
+.browse-list-item-status-angry {
+  @extend %browse-list-item-status;
+  color: $red;
 }

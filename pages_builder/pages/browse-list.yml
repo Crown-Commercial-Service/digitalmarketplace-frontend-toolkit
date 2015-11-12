@@ -26,31 +26,42 @@ examples:
   -
     items:
       -
+        title: Apply to G-Cloud 11
+        link: '#nope'
+        statuses:
+          -
+            type: quiet
+            title: You haven’t started this yet
+      -
         title: Apply to provide teams for digital outcomes
         link: '#nope'
         body: Provide teams to build and support digital outcomes.
         statuses:
           -
-            message: You have completed this service.
-            important: True
+            type: happy
+            title: You are submitting
+            list:
+              - digital outcomes
+              - digital specialists
           -
-            message: You can edit it until the deadline.
+            type: quiet
+            title: You are not submitting
+            list:
+              - user research studios
+              - participant recruitment
       -
         title: Apply to provide digital specialists
         link: '#nope'
         body: Provide individual specialists to work on digital services, programmes or projects.
         statuses:
           -
-            message: You have not completed this service.
+            title: You have have completed this service.
+            hint: You can edit it until the deadline
       -
-        title: Apply to provide software as a service
+        title: Make supplier declaration
         link: '#nope'
-        body: G-Cloud 10 is open for applications until 1 October 2019
+        body: Put yourself through the tender window
         statuses:
           -
-            message: You have 5 completed services
-            important: True
-          -
-            message: You have 2 draft services
-          -
-            message: You can add or edit services until the deadline
+            type: angry
+            title: You must do this before any services can be submitted
