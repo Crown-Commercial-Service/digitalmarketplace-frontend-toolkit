@@ -11,3 +11,6 @@ generate_pages: requirements
 
 serve_pages: generate_pages
 	cd pages && python -m SimpleHTTPServer
+
+watch_for_changes: generate_pages
+	python pages_builder/watch_for_changes.py
