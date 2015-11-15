@@ -35,13 +35,8 @@ The documentation is generated from the contents of this repository.
 
 ## Working on the patterns
 
-You can preview changes you make to the patterns by building the documentation.
-Creating a new pattern means writing:
-- a file of example data
-- a Jinja template
-- a SASS stylesheet
-- a Javascript file (if needed)
-- image(s) (if needed)
+You can preview changes you make to the patterns by building the documentation
+locally. There are 3 to 5 parts to a pattern:
 
 ### Example data
 
@@ -49,7 +44,7 @@ Usage examples for each pattern are defined in the `./pages_builder/pages`
 folder. They are YAML files which show what parameters you can pass to a
 template. The examples in the documentation are generated from these files.
 
-### Templates
+### Template
 
 Templates are found in the `./toolkit/templates` folder. They are Jinja
 templates with an `.html` extension. Their name corresponds to the name of the
@@ -59,11 +54,39 @@ provided examples' data.
 ### SASS
 
 Create your SASS file in `./toolkit/templates`. Import it into
-`./pages_builder/assets/index.scss`.
+`./pages_builder/assets/scss/index.scss`.
 
 The `./toolkit/scss`, `./pages_builder/govuk_frontend_toolkit/stylesheets` and
 `./pages_builder/assets/scss` folders are included in the load path so you can
 import any files from them.
+
+When writing SASS for this toolkit, [follow the styleguide](toolkit/scss/README.md).
+
+### Javascript (if needed)
+
+Javascript modules should be initialised by calling them from
+`./pages_builder/assets/javascripts/onready.js`.
+
+jQuery and Hogan are made available for you.
+
+Javascript should be tested with Jasmine (requires [node](https://nodejs.org)
+and [NPM](https://www.npmjs.com)).
+
+To run the tests in `./spec`:
+``` shell
+npm install
+npm test
+```
+
+### Images (if needed)
+
+Images can be added to `./toolkit/images`
+
+Use the `file-url` mixin to reference them in your stylesheet. It will resolve
+paths, eg:
+``` SCSS
+background: file-url('your-image.png');
+```
 
 ## Pushing your local documentation to Github Pages
 
@@ -79,15 +102,6 @@ export ROOT_DIRECTORY='/digitalmarketplace-frontend-toolkit'
 Then:
 ``` shell
 sh pages_builder/push_to_github_pages.sh
-```
-
-## Running the Javascript tests
-
-Requires [node](https://nodejs.org) and [NPM](https://www.npmjs.com).
-
-```
-npm install
-npm test
 ```
 
 ## Versioning
