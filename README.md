@@ -1,8 +1,9 @@
-# Digital Marketplace front-end toolkit
+# Digital Marketplace frontend toolkit
 
 A toolkit for design patterns used across Digital Marketplace projects.
 
-The patterns can be previewed at [alphagov.github.io/digitalmarketplace-frontend-toolkit/](http://alphagov.github.io/digitalmarketplace-frontend-toolkit/)
+Documentation of the patterns:
+[alphagov.github.io/digitalmarketplace-frontend-toolkit/](http://alphagov.github.io/digitalmarketplace-frontend-toolkit/)
 
 ## Using the patterns in an app
 
@@ -13,12 +14,27 @@ Each pattern in `./toolkit/` provides:
 - Images (if needed)
 
 Dependency management and integrating these files into a build pipeline are the
-concern of each project that uses them.
+concern of each project that uses them. This is already set up for all Digital
+Marketplace frontend apps.
+
+## Viewing the documentation locally
+
+### Requirements
+
+- Python
+- [PIP](https://pip.pypa.io/en/latest/)
+- [virtualenv](https://virtualenv.pypa.io/en/latest/)
+
+### Build
+
+- In one shell run `make serve_pages`
+- In another shell run `make watch_for_changes`
+- Visit http://localhost:8000
 
 ## Working on the patterns
 
-The documentation is generated from the contents of this repository and
-published as static HTML to Github Pages. Creating a new pattern means creating:
+The documentation is generated from the contents of this repository. Creating a
+new pattern means creating:
 - a file of example data
 - a template
 - some SASS
@@ -32,9 +48,9 @@ template. The examples in the documentation are generated from these files.
 ### Templates
 
 Templates are found in the `./toolkit/templates` folder. They are Jinja
-templates with an `.html` extension. Their naming matches the naming of the
-example markup files. They get rendered once for each of the provided examples,
-using the provided examples' data.
+templates with an `.html` extension. Their name corresponds to the name of the
+example. They get rendered once for each of the provided examples, using the
+provided examples' data.
 
 ### SASS
 
@@ -45,85 +61,28 @@ The `./toolkit/scss`, `./pages_builder/govuk_frontend_toolkit/stylesheets` and
 `./pages_builder/assets/scss` folders are included in the load path so you can
 import any files from them.
 
-## Building the documentation locally
+## Pushing your local documentation to Github Pages
 
-### Requirements
+**_Only Jenkins should be doing this_**
 
-- Python
-- [PIP](https://pip.pypa.io/en/latest/)
-- [virtualenv](https://virtualenv.pypa.io/en/latest/)
+Set the root directory of the toolkit documentation relative to the root of the
+web server, eg
 
-### Quick version
-
-- Open two shells
-- In the first shell run `make watch_pages`
-- In the second shell run `make serve_pages`
-- Visit http://localhost:8000
-- Make any changes you need to then refresh the page to see them
-
-### Long version
-
-#### Set up a virtualenv
-
-To set up an isolated environment for the project, run these commands:
-
-``` shell
-virtualenv ~/Envs/digitalmarketplace-frontend_toolkit
-source ~/Envs/digitalmarketplace-frontend_toolkit/bin/activate
-```
-
-*Note*: you can set the virtualenv to any location on your system by swapping
-out `~/Envs/digitalmarketplace-frontend_toolkit` to your choice of folder.
-
-#### Install the dependencies
-
-``` shell
-pip install -r ./pages_builder/requirements.txt
-```
-
-#### Generate the pages
-
-``` shell
-python pages_builder/generate_pages.py
-```
-
-If the root directory of your web server does not correspond to `./pages` then
-you need to set an optional environment variable before running the above,
-eg:
 ``` shell
 export ROOT_DIRECTORY='/digitalmarketplace-frontend-toolkit'
 ```
 
-#### Watch for changes and generate the pages
-
-``` shell
-python pages_builder/watch_pages.py
-```
-
-This will watch for changes to any of the files used to generate the
-documentation. If it notices any changes, it will regenerate the documentation.
-
-#### Run the server
-
-``` shell
-cd pages
-python -m SimpleHTTPServer
-```
-…then visit http://localhost:8000 to see the documentation
-
-#### Overwrite the documentation on Github Pages with your local copy
-
-_Only Jenkins or similar should be performing this step_
-
+Then:
 ``` shell
 sh pages_builder/push_to_github_pages.sh
 ```
 
-### Running the tests
+## Running the Javascript tests
 
-To run the JavaScript tests:
+Requires [node](https://nodejs.org) and [NPM](https://www.npmjs.com).
 
 ```
+npm install
 npm test
 ```
 
