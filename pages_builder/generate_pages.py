@@ -174,7 +174,7 @@ class Styleguide_publisher(object):
 
         partial['head'] = self.render_include(
             os.path.join(self.repo_root, "pages_builder", "includes", "head.html"),
-            { "url_root": url_root }
+            {"url_root": url_root}
         )
         bodyEnd = partial['bodyEnd'] if "bodyEnd" in partial else ""
         partial['bodyEnd'] = self.render_include(

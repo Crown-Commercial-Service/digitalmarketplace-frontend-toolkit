@@ -19,6 +19,8 @@ Marketplace frontend apps.
 
 ## Viewing the documentation locally
 
+The documentation is generated from the contents of this repository.
+
 ### Requirements
 
 - Python
@@ -33,11 +35,13 @@ Marketplace frontend apps.
 
 ## Working on the patterns
 
-The documentation is generated from the contents of this repository. Creating a
-new pattern means creating:
+You can preview changes you make to the patterns by building the documentation.
+Creating a new pattern means writing:
 - a file of example data
-- a template
-- some SASS
+- a Jinja template
+- a SASS stylesheet
+- a Javascript file (if needed)
+- image(s) (if needed)
 
 ### Example data
 
@@ -54,8 +58,8 @@ provided examples' data.
 
 ### SASS
 
-The SASS compilation takes files from `./toolkit/scss` and renders CSS files in
-`./pages/public/stylesheets`.
+Create your SASS file in `./toolkit/templates`. Import it into
+`./pages_builder/assets/index.scss`.
 
 The `./toolkit/scss`, `./pages_builder/govuk_frontend_toolkit/stylesheets` and
 `./pages_builder/assets/scss` folders are included in the load path so you can
