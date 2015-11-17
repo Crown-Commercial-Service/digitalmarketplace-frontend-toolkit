@@ -16,7 +16,35 @@ content: >
         <li><a href="button.html">Buttons</a></li>
         <li><a href="contact-details.html">Contact details</a></li>
         <li><a href="documents.html">Documents</a></li>
-        <li><a href="forms/">Forms</a></li>
+        <li>
+          <a href="forms/">Forms</a>
+          <ul class="index-list">
+            <li>
+              <a href="upload.html">File upload</a>
+            </li>
+            <li>
+              <a href="keyword-search.html">Keyword search</a>
+            </li>
+            <li>
+              <a href="list-entry.html">List entry textbox</a>
+            </li>
+            <li>
+              <a href="option-select.html">Option select</a>
+            </li>
+            <li>
+              <a href="pricing.html">Pricing</a>
+            </li>
+            <li>
+              <a href="selection-buttons.html">Selection buttons</a>
+            </li>
+            <li>
+              <a href="textbox.html">Textboxes</a>
+            </li>
+            <li>
+              <a href="validation.html">Validation</a>
+            </li>
+          </ul>
+        </li>
         <li><a href="framework-notice.html">Framework notice</a></li>
         <li><a href="grids.html">Grids</a></li>
         <li><a href="link-button.html">Link button</a></li>
