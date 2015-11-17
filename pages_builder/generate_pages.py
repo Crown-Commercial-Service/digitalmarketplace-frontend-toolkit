@@ -7,6 +7,7 @@ import json
 import sys
 from subprocess import call
 from distutils import dir_util
+from collections import OrderedDict
 from template_handler import TemplateHandler
 from asset_compiler import AssetCompiler
 from jinja2 import Environment, FileSystemLoader, Template
@@ -14,6 +15,20 @@ from pygments import highlight
 from pygments.lexers import HtmlLexer, DjangoLexer
 from pygments.formatters import HtmlFormatter
 from dmutils.filters import markdown_filter
+
+
+# preserve key order when parsing YAML – http://stackoverflow.com/a/21048064/147318
+
+def dict_representer(dumper, data):
+    return dumper.represent_dict(data.iteritems())
+
+
+def dict_constructor(loader, node):
+    return OrderedDict(loader.construct_pairs(node))
+
+
+yaml.add_representer(OrderedDict, dict_representer)
+yaml.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, dict_constructor)
 
 
 class Styleguide_publisher(object):
