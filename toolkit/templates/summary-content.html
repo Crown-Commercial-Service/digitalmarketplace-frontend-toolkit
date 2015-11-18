@@ -1,0 +1,92 @@
+{# CONTENT of PRESENTED SERVICE DATA #}
+{# ================================= #}
+
+{% macro text_content(text, assurance=None) -%}
+    {{ text }}
+    {%- if assurance -%}
+      , assured by {{ assurance }}
+    {%- endif %}
+{%- endmacro %}
+
+
+{% macro list_items_content(items, assurance=None) -%}
+  <ul>
+    {% for item in items %}
+      <li>{{ item }}</li>
+    {% endfor %}
+  </ul>
+  {% if assurance %}
+    Assured by {{ assurance }}
+  {% endif %}
+{%- endmacro %}
+
+
+{% macro list_content(items, assurance=None) -%}
+  {% if items | length == 0 %}
+    {{ text('') }}
+  {% elif items | length == 1 %}
+    {{ text(items[0], assurance) }}
+  {% elif items | length > 1 %}
+    {{ list_items_content(items, assurance) }}
+  {% endif %}
+{%- endmacro %}
+
+
+{% macro upload_content(value, assurance=None) -%}
+    {% if value %}
+      <a href="{{ value }}">View uploaded document</a>
+    {% endif %}
+{%- endmacro %}
+
+
+{% macro service_id_content(value='', assurance=None) -%}
+    <div class="service-id">
+    {% if value is string and value.isdigit %}
+      {% for chunk in value|slice(4) -%}
+        <span class="service-id-chunk">{{ chunk|join('') }}</span>
+      {%- endfor %}
+    {% else %}
+        <span class="service-id-chunk">{{ value }}</span>
+    {% endif %}
+    </div>
+{%- endmacro %}
+
+
+{% macro checkboxes_content(value='', assurance=None) -%}
+  {{ list_content(value, assurance) }}
+{%- endmacro %}
+
+
+{% macro radios_content(value='', assurance=None) -%}
+  {% if value is string %}
+    {{ text_content(value, assurance) }}
+  {% else %}
+    {{ list_content(value, assurance) }}
+  {% endif %}
+{%- endmacro %}
+
+
+{% macro boolean_content(value='', assurance=None) -%}
+  {% if value == True %}
+    {{ text_content("Yes", assurance) }}
+  {% elif value == False %}
+    {{ text_content("No", assurance) }}
+  {% else %}
+    {{ text_content(value, assurance) }}
+  {% endif %}
+{%- endmacro %}
+
+
+{% macro textbox_large_content(value='', assurance=None) -%}
+  {{ text_content(value, assurance) }}
+{%- endmacro %}
+
+
+{% macro pricing_content(value='', assurance=None) -%}
+  {{ text_content(value, assurance) }}
+{%- endmacro %}
+
+
+{% macro percentage_content(value='', assurance=None) -%}
+  {{ text_content(value|string + '%', assurance) }}
+{%- endmacro %}

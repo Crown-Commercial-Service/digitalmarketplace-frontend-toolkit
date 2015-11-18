@@ -1,3 +1,6 @@
+{% import 'toolkit/summary-contents.html' as content %}
+
+
 {% macro heading(heading, index=None) -%}
 <h2 class="summary-item-heading">
     {% if index %}
@@ -116,10 +119,7 @@
 
 {% macro text(text, assurance=None) -%}
   {% call field() %}
-    {{ text }}
-    {%- if assurance -%}
-      , assured by {{ assurance }}
-    {%- endif %}
+    {{ content.text_content(text, assurance) }}
   {% endcall %}
 {%- endmacro %}
 
@@ -127,19 +127,12 @@
 {% macro list(items, assurance=None) -%}
   {% if items | length == 0 %}
     {{ text('') }}
-  {% elif items | length > 1 %}
-    {% call field() %}
-      <ul>
-      {% for item in items %}
-        <li>{{ item }}</li>
-      {% endfor %}
-      </ul>
-      {% if assurance %}
-        Assured by {{ assurance }}
-      {% endif %}
-    {% endcall %}
   {% elif items | length == 1 %}
     {{ text(items[0], assurance) }}
+  {% elif items | length > 1 %}
+    {% call field() %}
+      {{ content.list_items_content(items, assurance) }}
+    {% endcall %}
   {% endif %}
 {%- endmacro %}
 
@@ -151,24 +144,14 @@
 
 {% macro upload(value, assurance=None) -%}
   {% call field() %}
-    {% if value %}
-      <a href="{{ value }}">View uploaded document</a>
-    {% endif %}
+    {{ content.upload_content(value, assurance) }}
   {% endcall %}
 {%- endmacro %}
 
 
 {% macro service_id(value='', assurance=None) -%}
   {% call field() %}
-    <div class="service-id">
-    {% if value is string and value.isdigit %}
-      {% for chunk in value|slice(4) -%}
-        <span class="service-id-chunk">{{ chunk|join('') }}</span>
-      {%- endfor %}
-    {% else %}
-        <span class="service-id-chunk">{{ value }}</span>
-    {% endif %}
-    </div>
+    {{ content.service_id_content(value, assurance) }}
   {% endcall %}
 {%- endmacro %}
 
@@ -184,11 +167,6 @@
   {% else %}
     {{ list(value, assurance) }}
   {% endif %}
-{%- endmacro %}
-
-
-{% macro radio(value='', assurance=None) -%}
-  {{ text(value, assurance) }}
 {%- endmacro %}
 
 
@@ -215,4 +193,12 @@
 
 {% macro percentage(value='', assurance=None) -%}
   {{ text(value|string + '%', assurance) }}
+{%- endmacro %}
+
+
+{% macro multiquestion(value, assurance) -%}
+  {% for question in value %}
+    {% set macro = '{}_content'.format(question.type) %}
+    {{ content[macro](question.value, question.assurance) }}
+  {% endfor %}
 {%- endmacro %}
