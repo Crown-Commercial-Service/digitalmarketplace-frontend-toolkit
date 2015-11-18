@@ -153,6 +153,8 @@ class Styleguide_publisher(object):
                 env.filters.update({
                     'markdown': markdown_filter,
                 })
+                # used in `toolkit/templates/summary-table.html` for a conditional import statement
+                env.globals['PAGES_BUILDER'] = True
 
                 template_file = os.path.join(template_subfolder, template_name + ".html")
                 template = env.get_template(template_file)

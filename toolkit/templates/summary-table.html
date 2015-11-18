@@ -1,5 +1,8 @@
-{% import 'toolkit/summary-contents.html' as content %}
-
+{% if PAGES_BUILDER %}
+  {% import 'summary-content.html' as content %}
+{% else %}
+  {% import 'toolkit/summary-content.html' as content %}
+{% endif %}
 
 {% macro heading(heading, index=None) -%}
 <h2 class="summary-item-heading">
