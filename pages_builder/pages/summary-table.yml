@@ -228,7 +228,7 @@ examples:
         {{ summary.field_name("Developer") }}
         {{ summary.multiquestion([
           {'type': "list", 'value': ["London", "Mississauga", "Rivière-du-Loup", "Singapore"]},
-          {'type': "text", 'value': "£100 to £1000000 per day"},
+          {'type': "text", 'value': "£100 to £1000000 per day"}
          ]) }}
       {% endcall %}
     {% endcall %}

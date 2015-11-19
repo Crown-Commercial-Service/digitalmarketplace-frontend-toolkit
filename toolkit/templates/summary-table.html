@@ -200,8 +200,10 @@
 
 
 {% macro multiquestion(value, assurance) -%}
-  {% for question in value %}
-    {% set macro = '{}_content'.format(question.type) %}
-    {{ content[macro](question.value, question.assurance) }}
-  {% endfor %}
+  {% call field() %}
+    {% for question in value %}
+      {% set macro = '{}_content'.format(question.type) %}
+      <div class="multiquestion-answer">{{ content[macro](question.value, question.assurance) }}</div>
+    {% endfor %}
+  {% endcall %}
 {%- endmacro %}

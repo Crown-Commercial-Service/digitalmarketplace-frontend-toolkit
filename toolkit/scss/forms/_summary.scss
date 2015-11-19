@@ -95,6 +95,13 @@ table.summary-item-body {
     padding: 0 0 0 20px;
   }
 
+  .multiquestion-answer {
+    padding-bottom: 10px;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
 }
 
 .summary-item-field-first {
