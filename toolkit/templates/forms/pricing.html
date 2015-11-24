@@ -43,6 +43,9 @@
           <span class="visually-hidden">in</span>
           <span class="pricing-unit">£</span>
         </label>
+        {% if 'minimum_price' in optional_fields %}
+        <p class="question-hint">Optional</p>
+        {% endif %}
         <input type="text" class="text-box pricing-input-with-unit" name="{{ fields.minimum_price }}" id="input-minimum-price" value="{{ minimum_price or "" }}"/>
       </div>
       {% endif %}
@@ -56,7 +59,9 @@
           <span class="visually-hidden">in</span>
           <span class="pricing-unit">£</span>
         </label>
+        {% if 'maximum_price' in optional_fields %}
         <p class="question-hint">Optional</p>
+        {% endif %}
         <input type="text" class="text-box pricing-input-with-unit" name="{{ fields.maximum_price }}" id="input-maximum-price" value="{{ maximum_price or "" }}"/>
       </div>
       {% endif %}
@@ -68,6 +73,9 @@
         <label for="input-price-unit">
           Unit
         </label>
+        {% if 'price_unit' in optional_fields %}
+        <p class="question-hint">Optional</p>
+        {% endif %}
         <select class="pricing-input-select" name="{{ fields.price_unit }}" id="input-price-unit">
           {{ _option("", price_unit) }}
           {{ _option("Unit", price_unit) }}
@@ -93,9 +101,9 @@
         <label for="input-pricing-interval">
           Interval
         </label>
-        <p class="question-hint">
-          Optional
-        </p>
+        {% if 'price_interval' in optional_fields %}
+        <p class="question-hint">Optional</p>
+        {% endif %}
         <select class="pricing-input-select" name="{{ fields.price_interval }}" id="input-pricing-interval">
           {{ _option("", price_interval) }}
           {{ _option("Second", price_interval) }}

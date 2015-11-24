@@ -11,6 +11,8 @@ examples:
       maximum_price: priceMax
       price_unit: priceUnit
       price_interval: priceInterval
+    optional_fields:
+      - maximum_price
 
   - question: Price with default values
     hint: Hint comprising further information about the price
@@ -20,6 +22,9 @@ examples:
       maximum_price: priceMax
       price_unit: priceUnit
       price_interval: priceInterval
+    optional_fields:
+      - maximum_price
+      - price_interval
     minimum_price: 12.12
     maximum_price: 15.15
     price_unit: Person
