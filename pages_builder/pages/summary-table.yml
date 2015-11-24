@@ -71,8 +71,8 @@ examples:
         {{ summary.text(item.framework) }}
         {{ summary.text(item.lot) }}
         {{ summary.text(item.date) }}
-        {{ summary.remove_link("Remove", '#') }}
-        {{ summary.edit_link("Edit", '#') }}
+        {{ summary.remove_link("Remove", '#', item.name) }}
+        {{ summary.edit_link("Edit", '#', item.name) }}
       {% endcall %}
     {% endcall %}
 
