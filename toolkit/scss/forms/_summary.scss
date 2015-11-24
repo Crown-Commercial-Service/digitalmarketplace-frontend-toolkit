@@ -143,6 +143,16 @@ table.summary-item-body {
   padding-left: 0;
 }
 
+a.summary-item-remove-link {
+
+  color: $red;
+
+  &:hover {
+    color: $mellow-red;
+  }
+
+}
+
 .summary-item-row-incomplete {
 
   @extend %summary-item-row;

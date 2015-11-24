@@ -60,6 +60,7 @@ examples:
         "Framework",
         "Lot",
         "Last edited",
+        summary.hidden_field_heading(""),
         summary.hidden_field_heading("")
       ],
       field_headings_visible=True
@@ -70,7 +71,8 @@ examples:
         {{ summary.text(item.framework) }}
         {{ summary.text(item.lot) }}
         {{ summary.text(item.date) }}
-        {{ summary.edit_link("Edit", '#') }}
+        {{ summary.remove_link("Remove", '#', item.name) }}
+        {{ summary.edit_link("Edit", '#', item.name) }}
       {% endcall %}
     {% endcall %}
 
