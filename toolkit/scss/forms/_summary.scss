@@ -144,7 +144,13 @@ table.summary-item-body {
 }
 
 a.summary-item-remove-link {
-  color: $red
+
+  color: $red;
+
+  &:hover {
+    color: $mellow-red;
+  }
+
 }
 
 .summary-item-row-incomplete {
