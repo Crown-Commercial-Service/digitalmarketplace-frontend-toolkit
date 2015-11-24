@@ -23,9 +23,9 @@
 
 {% macro list_content(items, assurance=None) -%}
   {% if items | length == 0 %}
-    {{ text('') }}
+    {{ text_content('') }}
   {% elif items | length == 1 %}
-    {{ text(items[0], assurance) }}
+    {{ text_content(items[0], assurance) }}
   {% elif items | length > 1 %}
     {{ list_items_content(items, assurance) }}
   {% endif %}
