@@ -107,9 +107,8 @@ a.browse-list-item-link {
 
   .browse-list-item-status-list {
     @include core-19;
-    color: $secondary-text-colour;
     list-style: disc;
-    padding: 5px 0 0 20px;
+    padding: 0 0 0 20px;
   }
 
 }
