@@ -98,9 +98,9 @@
   {% endcall %}
 {%- endmacro %}
 
-{% macro ordinary_link(service_name, link) -%}
+{% macro external_link(link_title, link) -%}
   {% call field() %}
-    <a href="{{ link }}">{{ service_name }}</a>
+    <a href="{{ link }}" class="summary-item-external-link">{{ link_title }}</a>
   {% endcall %}
 {%- endmacro %}
 
@@ -145,6 +145,11 @@
   {% endcall %}
 {%- endmacro %}
 
+{% macro link(link_title, link) -%}
+  {% call field() %}
+    <a href="{{ link }}">{{ link_title }}</a>
+  {% endcall %}
+{%- endmacro %}
 
 {% macro list(items, assurance=None) -%}
   {% if items | length == 0 %}

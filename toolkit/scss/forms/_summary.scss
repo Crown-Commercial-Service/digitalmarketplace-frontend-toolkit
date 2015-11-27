@@ -181,3 +181,8 @@ a.summary-item-remove-link {
   }
 
 }
+
+a.summary-item-external-link {
+  @include external-link-default;
+  @include external-link-16;
+}
