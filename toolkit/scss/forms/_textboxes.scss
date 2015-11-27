@@ -12,7 +12,7 @@
   height: 50px;
   margin: 0 0 15px 0;
   padding: 5px;
-  border: 1px solid $border-colour;
+  border: 2px solid $secondary-text-colour;
   width: 100%;
 
   /* IE<8 cannot include borders and padding as part of width */
@@ -68,7 +68,7 @@
 
 .text-box-unit {
   @include inline-block;
-  color: $grey-2;
+  color: $secondary-text-colour;
   @include core-19;
   font-weight: bold;
   width: 40px;
