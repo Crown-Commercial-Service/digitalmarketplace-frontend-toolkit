@@ -68,7 +68,7 @@
 
 .text-box-unit {
   @include inline-block;
-  color: $grey-2;
+  color: $secondary-text-colour;
   @include core-19;
   font-weight: bold;
   width: 40px;
