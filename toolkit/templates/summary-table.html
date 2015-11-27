@@ -98,6 +98,12 @@
   {% endcall %}
 {%- endmacro %}
 
+{% macro ordinary_link(service_name, link) -%}
+  {% call field() %}
+    <a href="{{ link }}">{{ service_name }}</a>
+  {% endcall %}
+{%- endmacro %}
+
 
 {% macro edit_link(label, link, hidden_text='') -%}
   {% call field(action=True) %}
