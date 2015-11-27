@@ -41,12 +41,12 @@
           {% elif type == "checkbox" %}
             <input type="{{ type }}" name="{{ name }}" id="input-{{ name }}-{{ loop.index }}" value="{{ input_value }}" {% if value and input_value in value %}checked="checked"{% endif %} />
           {% endif %}
+          {% if option.description %}
+            <p class="question-description">
+              {{ option.description }}
+            </p>
+          {% endif %}
         </label>
-        {% if option.description is defined %}
-          <p class="question-description">
-            {{ option.description }}
-          </p>
-        {% endif %}
       {% endfor %}
     {% endif %}
     {% if hint and hint_underneath %}
