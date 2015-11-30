@@ -26,6 +26,27 @@
       {% endif %}
     </legend>
     <div class="pricing">
+      {% if 'hours_for_price' in fields %}
+      <div class="pricing-column">
+        <label for="input-pricing-hours">
+          Hours
+        </label>
+        <select class="pricing-input-select" name="{{ fields.hours_for_price }}" id="input-pricing-hours">
+          {{ _option("", hours_for_price) }}
+          {{ _option("1 hour", hours_for_price) }}
+          {{ _option("2 hours", hours_for_price) }}
+          {{ _option("3 hours", hours_for_price) }}
+          {{ _option("4 hours", hours_for_price) }}
+          {{ _option("5 hours", hours_for_price) }}
+          {{ _option("6 hours", hours_for_price) }}
+          {{ _option("7 hours", hours_for_price) }}
+          {{ _option("8 hours", hours_for_price) }}
+        </select>
+      </div>
+      <div class="pricing-column">
+        <div class="pricing-preposition">for</div>
+      </div>
+      {% endif %}
       {% if 'price' in fields %}
       <div class="pricing-column">
         <label for="input-price">
@@ -115,27 +136,6 @@
           {{ _option("Quarter", price_interval) }}
           {{ _option("6 months", price_interval) }}
           {{ _option("Year", price_interval) }}
-        </select>
-      </div>
-      {% endif %}
-      {% if 'hours_for_price' in fields %}
-      <div class="pricing-column">
-        <span class="pricing-preposition">for</span>
-      </div>
-      <div class="pricing-column">
-        <label for="input-pricing-hours">
-          Hours
-        </label>
-        <select class="pricing-input-select" name="{{ fields.hours_for_price }}" id="input-pricing-hours">
-          {{ _option("", hours_for_price) }}
-          {{ _option("1 hour", hours_for_price) }}
-          {{ _option("2 hours", hours_for_price) }}
-          {{ _option("3 hours", hours_for_price) }}
-          {{ _option("4 hours", hours_for_price) }}
-          {{ _option("5 hours", hours_for_price) }}
-          {{ _option("6 hours", hours_for_price) }}
-          {{ _option("7 hours", hours_for_price) }}
-          {{ _option("8 hours", hours_for_price) }}
         </select>
       </div>
       {% endif %}

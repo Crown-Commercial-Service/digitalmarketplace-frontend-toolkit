@@ -52,8 +52,8 @@ examples:
   - question: Single price with hours units prefilled
     name: price
     fields:
+      hours_for_price: priceHours
       price: price
-      hours_for_price: priceHours 
-    price: 200
     hours_for_price: "1 hour"
+    price: 200
 
