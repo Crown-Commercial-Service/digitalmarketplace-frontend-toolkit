@@ -4,19 +4,19 @@
   {% import 'toolkit/summary-content.html' as content %}
 {% endif %}
 
-{% macro heading(heading, index=None) -%}
-<h2 class="summary-item-heading">
-    {% if index %}
-      <span class="summary-item-heading-number">{{ index }}.</span>
-    {% endif %}
-    {{ heading }}
-</h2>
+{% macro heading(heading, index=None, id=None) -%}
+  <h2 class="summary-item-heading"{% if id %} id="{{ id }}"{% endif %}>
+      {% if index %}
+        <span class="summary-item-heading-number">{{ index }}.</span>
+      {% endif %}
+      {{ heading }}
+  </h2>
 {%- endmacro %}
 
 {% macro top_link(label, top_link) -%}
-<p class="summary-item-top-level-action">
-  <a href="{{ top_link }}" class="summary-change-link">{{ label }}</a>
-</p>
+  <p class="summary-item-top-level-action">
+    <a href="{{ top_link }}" class="summary-change-link">{{ label }}</a>
+  </p>
 {%- endmacro %}
 
 {% macro mapping_table(caption='', field_headings='', field_headings_visible=True) -%}
@@ -44,18 +44,18 @@
 {%- endmacro %}
 
 {% macro list_table(items, caption='', empty_message='', field_headings='', field_headings_visible=True) -%}
-{% if items %}
-  {% set parent_caller = caller %}
-  {% call mapping_table(caption, field_headings, field_headings_visible) %}
-    {% for item in items %}
-      {{ parent_caller(item) }}
-    {% endfor %}
-  {% endcall %}
-{% else %}
-  <p class="summary-item-no-content">
-    {{ empty_message }}
-  </p>
-{% endif %}
+  {% if items %}
+    {% set parent_caller = caller %}
+    {% call mapping_table(caption, field_headings, field_headings_visible) %}
+      {% for item in items %}
+        {{ parent_caller(item) }}
+      {% endfor %}
+    {% endcall %}
+  {% else %}
+    <p class="summary-item-no-content">
+      {{ empty_message }}
+    </p>
+  {% endif %}
 {%- endmacro %}
 
 {% set table = list_table %}
