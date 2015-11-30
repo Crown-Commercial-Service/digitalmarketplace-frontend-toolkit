@@ -6,7 +6,7 @@
 
 .summary-item-heading,
 %summary-item-heading {
-  @include bold-24;
+  @include bold-27;
   position: relative;
   padding: 35px 25% 0 0;
   margin: 0 0 10px 0;
@@ -25,10 +25,15 @@
   text-align: right;
 }
 
+.summary-item-description {
+  @include copy-19;
+  margin: 0 0 4px 0;
+}
+
 .summary-item-top-level-action {
   @include copy-19;
   text-align: right;
-  margin: -36px 0 0 0;
+  margin: -33px 0 0 0;
   padding-left: 75%;
   position: relative;
   z-index: 10;
@@ -43,8 +48,8 @@
   color: $secondary-text-colour;
   @include core-16;
   margin: 0 0 15px 0;
-  border-top: 1px solid $grey-3;
-  border-bottom: 1px solid $grey-3;
+  border-top: 1px solid $border-colour;
+  border-bottom: 1px solid $border-colour;
   padding-top: 10px;
   padding-bottom: 10px;
   max-width: 100%;
@@ -53,14 +58,14 @@
 %summary-item-body {
   width: 100%;
   margin: 0 0 15px 0;
-  border-bottom: 1px solid $grey-3;
+  border-bottom: 1px solid $border-colour;
 }
 
 %summary-item-row,
 .summary-item-row {
   @include core-19;
   text-align: right;
-  border-top: 1px solid $grey-3;
+  border-top: 1px solid $border-colour;
 }
 
 table.summary-item-body {
@@ -72,8 +77,8 @@ table.summary-item-body {
   tbody {
 
     td {
-      padding-top: 10px;
-      padding-bottom: 10px;
+      padding-top: 12px;
+      padding-bottom: 9px;
       vertical-align: top;
     }
 
@@ -130,7 +135,7 @@ table.summary-item-body {
 .summary-item-field-headings-visible {
   @include bold-16;
   text-align: left;
-  border-top: 1px solid $grey-3;
+  border-top: 1px solid $border-colour;
 }
 
 %summary-item-field-heading,
