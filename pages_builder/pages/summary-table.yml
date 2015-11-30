@@ -5,7 +5,7 @@ assetPath: ../govuk_template/assets/
 examples:
   - |
     {% import "summary-table.html" as summary %}
-    {{ summary.heading("Summary table") }}
+    {{ summary.heading("Summary table", id="summary_table") }}
     {% call(item) summary.list_table(
       [
         {"name": "Service 1", "lot": "SCS"},

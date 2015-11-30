@@ -4,8 +4,8 @@
   {% import 'toolkit/summary-content.html' as content %}
 {% endif %}
 
-{% macro heading(heading, index=None) -%}
-<h2 class="summary-item-heading">
+{% macro heading(heading, index=None, id=None) -%}
+<h2 class="summary-item-heading"{% if id %} id="{{ id }}"{% endif %}>
     {% if index %}
       <span class="summary-item-heading-number">{{ index }}.</span>
     {% endif %}
