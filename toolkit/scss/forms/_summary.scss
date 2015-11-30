@@ -6,7 +6,7 @@
 
 .summary-item-heading,
 %summary-item-heading {
-  @include bold-24;
+  @include bold-27;
   position: relative;
   padding: 35px 25% 0 0;
   margin: 0 0 10px 0;
@@ -25,10 +25,15 @@
   text-align: right;
 }
 
+.summary-item-description {
+  @include copy-19;
+  margin: 0 0 4px 0;
+}
+
 .summary-item-top-level-action {
   @include copy-19;
   text-align: right;
-  margin: -36px 0 0 0;
+  margin: -33px 0 0 0;
   padding-left: 75%;
   position: relative;
   z-index: 10;

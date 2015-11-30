@@ -19,6 +19,12 @@
   </p>
 {%- endmacro %}
 
+{% macro description(text) -%}
+  <p class="summary-item-description">
+    {{ text }}
+  </p>
+{%- endmacro %}
+
 {% macro mapping_table(caption='', field_headings='', field_headings_visible=True) -%}
   <table class="summary-item-body">
     <caption class="visuallyhidden">
