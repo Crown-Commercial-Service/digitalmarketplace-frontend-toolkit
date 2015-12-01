@@ -1,0 +1,6 @@
+pageTitle: Back Link
+assetPath: ../govuk_template/assets/
+examples:
+  -
+    url: http://example.com
+    text: Back to catagories
