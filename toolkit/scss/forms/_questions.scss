@@ -35,8 +35,10 @@
 .question-number {
 
   @include bold-24;
-  display: block;
-  margin-bottom: -20px;
+  display: inline;
+  word-spacing: -0.1em;
+  margin-right: 0.2em;
+  float: left;
 
   &:after {
     content: ".";
@@ -44,13 +46,20 @@
 
   @include media(1080px) {
 
+    $left: -100px;
+
+    float: none;
     position: relative;
     height: 50px;
     display: block;
     margin: 20px 0 -50px 0;
-    left: -100px;
+    left: $left;
     width: 80px;
     text-align: right;
+
+    .validation-wrapper & {
+      left: $left - 20px;
+    }
 
     &:after {
       content: "";
