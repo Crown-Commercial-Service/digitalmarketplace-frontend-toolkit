@@ -49,6 +49,7 @@ examples:
     question: Offline working supported
     name: offlineWorking
     value: True
+    question_number: '19'
   -
     type: radio
     question: Checkbox with hint and description
@@ -78,6 +79,7 @@ examples:
     type: checkbox
     name: vegetables
     question: Checkboxes with an error
+    question_number: 77
     error: Answer required
     options:
       -
