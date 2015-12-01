@@ -100,7 +100,7 @@
 
 {% macro external_link(link_title, link) -%}
   {% call field() %}
-    <a href="{{ link }}" class="summary-item-external-link">{{ link_title }}</a>
+    <a href="{{ link }}" rel="external">{{ link_title }}</a>
   {% endcall %}
 {%- endmacro %}
 

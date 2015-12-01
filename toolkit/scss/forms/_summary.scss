@@ -107,6 +107,11 @@ table.summary-item-body {
       padding-bottom: 0;
     }
   }
+
+  a[rel="external"] {
+    @include external-link-default;
+    @include external-link-16;
+  }
 }
 
 .summary-item-field-first {
@@ -182,7 +187,3 @@ a.summary-item-remove-link {
 
 }
 
-a.summary-item-external-link {
-  @include external-link-default;
-  @include external-link-16;
-}
