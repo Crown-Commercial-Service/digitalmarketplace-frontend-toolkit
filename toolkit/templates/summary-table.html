@@ -98,6 +98,12 @@
   {% endcall %}
 {%- endmacro %}
 
+{% macro external_link(link_title, link) -%}
+  {% call field() %}
+    <a href="{{ link }}" rel="external nofollow">{{ link_title }}</a>
+  {% endcall %}
+{%- endmacro %}
+
 
 {% macro edit_link(label, link, hidden_text='') -%}
   {% call field(action=True) %}
@@ -139,6 +145,11 @@
   {% endcall %}
 {%- endmacro %}
 
+{% macro link(link_title, link) -%}
+  {% call field() %}
+    <a href="{{ link }}">{{ link_title }}</a>
+  {% endcall %}
+{%- endmacro %}
 
 {% macro list(items, assurance=None) -%}
   {% if items | length == 0 %}
