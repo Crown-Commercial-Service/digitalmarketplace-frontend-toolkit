@@ -108,7 +108,7 @@ table.summary-item-body {
     }
   }
 
-  a[rel="external"] {
+  a[rel~="external"] {
     @include external-link-default;
     @include external-link-16;
   }
