@@ -95,7 +95,7 @@
 {# =================== #}
 
 {% macro service_link(service_name=None, link=None, wide=True) -%}
-  {% call field(first=True, wide=wide) %}
+  {% call field(first=True, wide=wide) -%}
     {% if service_name and link -%}
       <a href="{{ link }}">{{ service_name }}</a>
     {%- endif %}
@@ -112,7 +112,7 @@
 
 
 {% macro edit_link(label=None, link=None, hidden_text='') -%}
-  {% call field(action=True) %}
+  {% call field(action=True) -%}
     {% if label and link -%}
       <a href="{{ link }}">{{ label }}{% if hidden_text %}<span class="visuallyhidden"> {{ hidden_text }}</span>{% endif %}</a>
     {%- endif %}
@@ -121,7 +121,7 @@
 
 
 {% macro remove_link(label=None, link=None, hidden_text='') -%}
-  {% call field(action=True) %}
+  {% call field(action=True) -%}
     {% if label and link -%}
       <a href="{{ link }}" class="summary-item-remove-link">{{ label }}{% if hidden_text %}<span class="visuallyhidden"> {{ hidden_text }}</span>{% endif %}</a>
     {%- endif %}
@@ -130,7 +130,7 @@
 
 
 {% macro field_name(text=None, wide=False) -%}
-  {% call field(first=True, wide=wide) %}
+  {% call field(first=True, wide=wide) -%}
     {% if text -%}
       {{ text }}
     {%- endif %}
@@ -139,7 +139,7 @@
 
 
 {% macro button(text=None, action=None, csrf_token_value='') -%}
-  {% call field(action=True) %}
+  {% call field(action=True) -%}
     {% if text and action -%}
       <form method="post" action="{{ action }}">
         <input type="hidden" name="csrf_token" value="{{ csrf_token_value or csrf_token() }}" />
