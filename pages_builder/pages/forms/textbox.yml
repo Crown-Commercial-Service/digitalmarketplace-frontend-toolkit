@@ -9,8 +9,9 @@ examples:
     question: Text box
     name: question-1
   -
-    question: Text box with hint
+    question: Text box with hint and question number
     hint: Hint comprising further information about the question
+    question_number: "22"
     name: question-2
     value: Now I know what to type here
   -
@@ -30,7 +31,8 @@ examples:
     name: question-5
     value: hello2example.com
   -
-    question: Text box with hint and error
+    question: Text box with hint, question number and error
+    question_number: "13"
     hint: eg hello@example.com
     error: Must be a valid email address
     name: question-6

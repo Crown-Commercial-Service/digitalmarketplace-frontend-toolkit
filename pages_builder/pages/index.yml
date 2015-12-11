@@ -10,6 +10,7 @@ content: >
         <h1>Digital Marketplace frontend toolkit</h1>
       </header>
       <ul class="index-list">
+        <li><a href="back-link.html">Back link</a></li>
         <li><a href="beta-banner.html">Beta banner</a></li>
         <li><a href="breadcrumb.html">Breadcrumb</a></li>
         <li><a href="browse-list.html">Browse list</a></li>

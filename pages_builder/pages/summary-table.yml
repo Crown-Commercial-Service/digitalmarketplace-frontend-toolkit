@@ -79,6 +79,7 @@ examples:
   - |
     {% import "summary-table.html" as summary %}
     {{ summary.heading("Summary table with manual rows") }}
+    {{ summary.description("This will be displayed on the Digital Marketplace.") }}
     {% call summary.mapping_table(
       caption="Summary table with manual rows",
       field_headings=[
@@ -108,6 +109,7 @@ examples:
   - |
     {% import "summary-table.html" as summary %}
     {{ summary.heading("Summary table with top-level action") }}
+    {{ summary.description("You must add at least one service to be eligable.") }}
     {{ summary.top_link("Add new service", '#') }}
     {% call(item) summary.list_table(
       [],
@@ -126,7 +128,7 @@ examples:
     {{ summary.heading("Summary table with number", index=12) }}
     {% call(item) summary.list_table(
       [],
-      caption="Summary table with top-level action",
+      caption="Summary table with number",
       empty_message="You haven't submited any services yet",
     ) %}
       {% call summary.row() %}
@@ -254,5 +256,22 @@ examples:
       {% call summary.row(complete=False) %}
         {{ summary.field_name(item[0]) }}
         {{ summary.text(item[1]) }}
+      {% endcall %}
+    {% endcall %}
+  - |
+    {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table with external link") }}
+    {{ summary.top_link("Edit", '#') }}
+    {% call summary.mapping_table(
+      caption="Summary table with external link",
+      field_headings=[
+        "Label",
+        "Value",
+      ],
+      field_headings_visible=False
+    ) %}
+      {% call summary.row() %}
+        {{ summary.field_name("Website") }}
+        {{ summary.external_link("https://gov.uk/", "https://gov.uk/") }}
       {% endcall %}
     {% endcall %}
