@@ -239,6 +239,54 @@ examples:
 
   - |
     {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table with various types of service content, some blank") }}
+    {% call summary.mapping_table(
+      caption="Summary table with content field as list",
+      field_headings=[
+        "Field name",
+        "Field value",
+      ],
+      field_headings_visible=False
+    ) %}
+      {% call summary.row() %}
+        {{ summary.field_name("Features") }}
+        {{ summary.list() }}
+      {% endcall %}
+      {% call summary.row() %}
+        {{ summary.field_name("Data centre tier") }}
+        {{ summary.text("Uptime institute Tier 1",
+          assurance="Independent validation of assertion") }}
+      {% endcall %}
+      {% call summary.row() %}
+        {{ summary.field_name("Uptime") }}
+        {{ summary.percentage() }}
+      {% endcall %}
+      {% call summary.row() %}
+        {{ summary.field_name("Pricing document") }}
+        {{ summary.upload("http://example.com/pricingDocument.pdf") }}
+      {% endcall %}
+      {% call summary.row() %}
+        {{ summary.field_name("Website") }}
+        {{ summary.external_link() }}
+      {% endcall %}
+      {% call summary.row() %}
+        {{ summary.field_name("Description") }}
+        {{ summary.textbox_large(
+          "An advanced, web-based content management system that helps users create, manage and publish content quickly and easily."
+        ) }}
+      {% endcall %}
+      {% call summary.row() %}
+        {{ summary.field_name("Support available") }}
+        {{ summary.boolean() }}
+      {% endcall %}
+      {% call summary.row() %}
+        {{ summary.field_name("Developer") }}
+        {{ summary.multiquestion() }}
+      {% endcall %}
+    {% endcall %}
+
+  - |
+    {% import "summary-table.html" as summary %}
     {{ summary.heading("Summary table with incomplete entry") }}
     {{ summary.top_link("Edit", '#') }}
     {% call(item) summary.list_table(
