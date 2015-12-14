@@ -1,0 +1,6 @@
+pageTitle: External Link
+assetPath: govuk_template/assets/
+examples:
+  -
+    link: https://www.example.com'
+    text: Example
