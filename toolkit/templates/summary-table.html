@@ -161,7 +161,7 @@
   {%- endcall %}
 {%- endmacro %}
 
-{% macro link(link_title=None, link) -%}
+{% macro link(link_title=None, link=None) -%}
   {% call field() -%}
     {% if link_title -%}
       <a href="{{ link }}">{{ link_title }}</a>
