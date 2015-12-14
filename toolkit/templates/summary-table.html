@@ -56,7 +56,7 @@
       {% for item in items %}
         {{ parent_caller(item) }}
       {% endfor %}
-    {% endcall %}
+    {%- endcall %}
   {% else %}
     <p class="summary-item-no-content">
       {{ empty_message }}
@@ -83,83 +83,101 @@
 {# ============= #}
 
 {% macro field(first=False, wide=False, action=False) -%}
+  {% set data = caller() %}
   <td class="summary-item-field{% if first %}-first{% endif %}{% if first and wide %}-wider{% endif %}{% if action %}-with-action{% endif %}">
-    <span>{{ caller() }}</span>
+    {% if data %}
+    <span>{{ data }}</span>
+    {% endif %}
   </td>
 {%- endmacro %}
-
 
 {# SPECIAL FIELD TYPES #}
 {# =================== #}
 
-{% macro service_link(service_name, link, wide=True) -%}
-  {% call field(first=True, wide=wide) %}
-    <a href="{{ link }}">{{ service_name }}</a>
-  {% endcall %}
+{% macro service_link(service_name=None, link=None, wide=True) -%}
+  {% call field(first=True, wide=wide) -%}
+    {% if service_name and link -%}
+      <a href="{{ link }}">{{ service_name }}</a>
+    {%- endif %}
+  {%- endcall %}
 {%- endmacro %}
 
-{% macro external_link(link_title, link) -%}
-  {% call field() %}
-    <a href="{{ link }}" rel="external nofollow">{{ link_title }}</a>
-  {% endcall %}
-{%- endmacro %}
-
-
-{% macro edit_link(label, link, hidden_text='') -%}
-  {% call field(action=True) %}
-    <a href="{{ link }}">{{ label }}{% if hidden_text %}<span class="visuallyhidden"> {{ hidden_text }}</span>{% endif %}</a>
-  {% endcall %}
+{% macro external_link(link_title=None, link=None) -%}
+  {% call field() -%}
+    {% if link_title and link -%}
+      <a href="{{ link }}" rel="external nofollow">{{ link_title }}</a>
+    {%- endif %}
+  {%- endcall %}
 {%- endmacro %}
 
 
-{% macro remove_link(label, link, hidden_text='') -%}
-  {% call field(action=True) %}
-    <a href="{{ link }}" class="summary-item-remove-link">{{ label }}{% if hidden_text %}<span class="visuallyhidden"> {{ hidden_text }}</span>{% endif %}</a>
-  {% endcall %}
+{% macro edit_link(label=None, link=None, hidden_text='') -%}
+  {% call field(action=True) -%}
+    {% if label and link -%}
+      <a href="{{ link }}">{{ label }}{% if hidden_text %}<span class="visuallyhidden"> {{ hidden_text }}</span>{% endif %}</a>
+    {%- endif %}
+  {%- endcall %}
 {%- endmacro %}
 
 
-{% macro field_name(text, wide=False) -%}
-  {% call field(first=True, wide=wide) %}
-    {{ text }}
-  {% endcall %}
+{% macro remove_link(label=None, link=None, hidden_text='') -%}
+  {% call field(action=True) -%}
+    {% if label and link -%}
+      <a href="{{ link }}" class="summary-item-remove-link">{{ label }}{% if hidden_text %}<span class="visuallyhidden"> {{ hidden_text }}</span>{% endif %}</a>
+    {%- endif %}
+  {%- endcall %}
 {%- endmacro %}
 
 
-{% macro button(text, action, csrf_token_value='') -%}
-  {% call field(action=True) %}
-    <form method="post" action="{{ action }}">
-      <input type="hidden" name="csrf_token" value="{{ csrf_token_value or csrf_token() }}" />
-      <button type="submit" class="button-secondary">{{ text }}</button>
-    </form>
-  {% endcall %}
+{% macro field_name(text=None, wide=False) -%}
+  {% call field(first=True, wide=wide) -%}
+    {% if text -%}
+      {{ text }}
+    {%- endif %}
+  {%- endcall %}
+{%- endmacro %}
+
+
+{% macro button(text=None, action=None, csrf_token_value='') -%}
+  {% call field(action=True) -%}
+    {% if text and action -%}
+      <form method="post" action="{{ action }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token_value or csrf_token() }}" />
+        <button type="submit" class="button-secondary">{{ text }}</button>
+      </form>
+    {%- endif %}
+  {%- endcall %}
 {%- endmacro %}
 
 
 {# FIELDS for PRESENTING SERVICE DATA #}
 {# ================================== #}
 
-{% macro text(text, assurance=None) -%}
-  {% call field() %}
-    {{ content.text_content(text, assurance) }}
-  {% endcall %}
+{% macro text(text='', assurance=None) -%}
+  {% call field() -%}
+    {% if text -%}
+      {{ content.text_content(text, assurance) }}
+    {%- endif %}
+  {%- endcall %}
 {%- endmacro %}
 
-{% macro link(link_title, link) -%}
-  {% call field() %}
-    <a href="{{ link }}">{{ link_title }}</a>
-  {% endcall %}
+{% macro link(link_title=None, link=None) -%}
+  {% call field() -%}
+    {% if link_title -%}
+      <a href="{{ link }}">{{ link_title }}</a>
+    {%- endif %}
+  {%- endcall %}
 {%- endmacro %}
 
-{% macro list(items, assurance=None) -%}
+{% macro list(items=[], assurance=None) -%}
   {% if items | length == 0 %}
     {{ text('') }}
   {% elif items | length == 1 %}
     {{ text(items[0], assurance) }}
   {% elif items | length > 1 %}
-    {% call field() %}
+    {% call field() -%}
       {{ content.list_items_content(items, assurance) }}
-    {% endcall %}
+    {%- endcall %}
   {% endif %}
 {%- endmacro %}
 
@@ -169,17 +187,21 @@
 {%- endmacro %}
 
 
-{% macro upload(value, assurance=None) -%}
-  {% call field() %}
-    {{ content.upload_content(value, assurance) }}
-  {% endcall %}
+{% macro upload(value=None, assurance=None) -%}
+  {% call field() -%}
+    {% if value -%}
+      {{ content.upload_content(value, assurance) }}
+    {%- endif %}
+  {%- endcall %}
 {%- endmacro %}
 
 
 {% macro service_id(value='', assurance=None) -%}
-  {% call field() %}
-    {{ content.service_id_content(value, assurance) }}
-  {% endcall %}
+  {% call field() -%}
+    {% if value -%}
+      {{ content.service_id_content(value, assurance) }}
+    {%- endif %}
+  {%- endcall %}
 {%- endmacro %}
 
 
@@ -219,15 +241,21 @@
 
 
 {% macro percentage(value='', assurance=None) -%}
-  {{ text(value|string + '%', assurance) }}
+  {% if value -%}
+    {{ text(value|string + '%', assurance) }}
+  {% else %}
+    {{ text('') }}
+  {%- endif %}
 {%- endmacro %}
 
 
 {% macro multiquestion(value, assurance) -%}
-  {% call field() %}
-    {% for question in value %}
-      {% set macro = '{}_content'.format(question.type) %}
-      <div class="multiquestion-answer">{{ content[macro](question.value, question.assurance) }}</div>
-    {% endfor %}
-  {% endcall %}
+  {% call field() -%}
+    {% if value -%}
+      {% for question in value %}
+        {% set macro = '{}_content'.format(question.type) %}
+        <div class="multiquestion-answer">{{ content[macro](question.value, question.assurance) }}</div>
+      {% endfor %}
+    {%- endif %}
+  {%- endcall %}
 {%- endmacro %}
