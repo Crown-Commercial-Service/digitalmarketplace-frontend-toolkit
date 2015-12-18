@@ -7,6 +7,7 @@ examples:
   -
     title: With overflowing options
     label: Market sector
+    options_container_id: market-sector
     options:
       -
         name: market-sector
@@ -61,6 +62,7 @@ examples:
   -
     title: With a prechecked option, without overflow
     label: Vegetables
+    options_container_id: vegetables
     options:
       -
         name: vegetables
@@ -81,6 +83,7 @@ examples:
   -
     title: With multiple POST parameters
     label: Pricing options
+    options_container_id: pricing-options
     options:
       -
         name: free-option
@@ -95,6 +98,7 @@ examples:
   -
     title: Closed on load
     label: Famous women in tech
+    options_container_id: famous-women-in-tech
     closed_on_load: true
     options:
       -
