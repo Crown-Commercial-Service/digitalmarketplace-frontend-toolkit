@@ -92,3 +92,24 @@ examples:
         id: trial-option
         label: Trial option offereded
         value: true
+  -
+    title: Closed on load
+    label: Famous women in tech
+    closed_on_load: true
+    options:
+      -
+        name: fran-allen
+        id: famous-women-in-tech-fran-allen
+        label: Fran Allen
+        checked: true
+        value: fran-allen
+      -
+        name: grace-hopper
+        id: famous-women-in-tech-grace-hopper
+        label: Grace Hopper
+        value: grace-hopper
+      -
+        name: dame-steve-shirley
+        id: famous-women-in-tech-dame-steve-shirley
+        label: Dame Steve Shirley
+        value: dame-steve-shirley
