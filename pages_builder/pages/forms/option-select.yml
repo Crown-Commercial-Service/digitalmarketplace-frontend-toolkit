@@ -7,6 +7,7 @@ examples:
   -
     title: With overflowing options
     label: Market sector
+    options_container_id: market-sector
     options:
       -
         name: market-sector
@@ -61,6 +62,7 @@ examples:
   -
     title: With a prechecked option, without overflow
     label: Vegetables
+    options_container_id: vegetables
     options:
       -
         name: vegetables
@@ -81,6 +83,7 @@ examples:
   -
     title: With multiple POST parameters
     label: Pricing options
+    options_container_id: pricing-options
     options:
       -
         name: free-option
@@ -92,3 +95,25 @@ examples:
         id: trial-option
         label: Trial option offereded
         value: true
+  -
+    title: Closed on load
+    label: Famous women in tech
+    options_container_id: famous-women-in-tech
+    closed_on_load: true
+    options:
+      -
+        name: fran-allen
+        id: famous-women-in-tech-fran-allen
+        label: Fran Allen
+        checked: true
+        value: fran-allen
+      -
+        name: grace-hopper
+        id: famous-women-in-tech-grace-hopper
+        label: Grace Hopper
+        value: grace-hopper
+      -
+        name: dame-steve-shirley
+        id: famous-women-in-tech-dame-steve-shirley
+        label: Dame Steve Shirley
+        value: dame-steve-shirley
