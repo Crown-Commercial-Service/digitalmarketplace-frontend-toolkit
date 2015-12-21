@@ -2,6 +2,7 @@
 @import "_typography.scss";
 @import "_not-ie-conditional.scss";
 @import "_shims.scss";
+@import "_css3.scss";
 
 .document-list {
   margin: 0;
@@ -15,6 +16,7 @@
 %document-link,
 .document-link {
   @include core-19;
+  @include box-sizing(border-box);
   margin: 5px 0;
   padding: 10px 0 10px 0;
   position: relative;
