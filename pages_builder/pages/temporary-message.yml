@@ -5,13 +5,23 @@ grid: column-one-half
 examples:
   -
     heading: G‑Cloud 7 is closed for applications
+    headingId: closed-notice
     messages:
       - Applications are being reviewed.
       - G‑Cloud 7 services will be available from 23 November 2015.
   -
     heading: The G-Cloud 7 application deadline has passed
+    headingId: closed-notice
     messages:
       - No services were submitted because you didn’t mark any as complete.
       - <a href="#">View your application</a>
   -
     heading: Example without any body copy that is quite long and may wrap onto multiple lines
+    headingId: closed-notice
+  -
+    heading: Cloudtech Limited stopped providing this service on <span class="history-status-date">Thursday 31 December 2015.
+    headingId: unavailable-notice
+    messages:
+      - Any exisiting contracts for this service remain valid.
+    fullWidth: true
+    grid: column-one-whole
