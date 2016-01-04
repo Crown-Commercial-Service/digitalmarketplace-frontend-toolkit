@@ -1,7 +1,7 @@
 /*
 * Taken from the component in https://github.com/alphagov/static
 *
-* Version: https://github.com/alphagov/static/commit/ad42bac20c60362822c7f49df0b994ba4a87e56d
+* Version: https://github.com/alphagov/static/commit/01e924fb32acbcbe75dce3205a09c17bac5eb4d8
 */
 (function ($) {
   "use strict";
@@ -9,7 +9,7 @@
 
   function OptionSelect(options){
     /* This JavaScript provides two functional enhancements to option-select components:
-      1) A link that clears all of the checkboxes (referred to here as the "clearing link")
+      1) A count that shows how many results have been checked in the option-container
       2) Open/closing of the list of checkboxes - this is not provided for ie6 and 7 as the performance is too janky.
     */
 
@@ -19,24 +19,21 @@
     this.$optionsContainer = this.$optionSelect.find('.options-container');
     this.$optionList = this.$optionsContainer.children('.js-auto-height-inner');
 
-    // Build clearing link
-    this.$clearingLink = this.attachClearingLink();
-    this.updateClearingLink();
-
-    // Attach event listeners for clearing
-    this.$clearingLink.on('click', this.resetOptions.bind(this));
-    this.$options.on('click', this.updateClearingLink.bind(this));
+    this.attachCheckedCounter();
 
     // Performance in ie 6/7 is not good enough to support animating the opening/closing
     // so do not allow option-selects to be collapsible in this case
     var allowCollapsible = (typeof ieVersion == "undefined" || ieVersion > 7) ? true : false;
     if(allowCollapsible){
 
+      // Attach listener to update checked count
+      this.$options.on('click', this.updateCheckedCount.bind(this));
+
+      // Replace div.container-head with a button
+      this.replaceHeadWithButton();
+
       // Add js-collapsible class to parent for CSS
       this.$optionSelect.addClass('js-collapsible');
-
-      // Add the little arrow toggle image
-      this.attachOpenCloseToggleIndicator();
 
       // Add open/close listeners
       this.$optionSelect.find('.js-container-head').on('click', this.toggleOptionSelect.bind(this));
@@ -48,52 +45,62 @@
       // Add a listener to the checkboxes so if you navigate to them with the keyboard you can definitely see them
       this.$options.on('focus', this.open.bind(this));
 
-      this.close();
+      if (this.$optionSelect.data('closed-on-load') == true) {
+        this.close();
+      }
     }
   }
 
-  OptionSelect.prototype.attachClearingLink = function attachClearingLink(){
-    this.$optionSelect.find('.js-container-head').append('<a class="js-clear-selected">clear</a>');
-    return this.$optionSelect.find('.js-clear-selected');
+  OptionSelect.prototype.replaceHeadWithButton = function replaceHeadWithButton(){
+    /* Replace the div at the head with a button element. This is based on feedback from Léonie Watson.
+     * The button has all of the accessibility hooks that are used by screen readers and etc.
+     * We do this in the JavaScript because if the JavaScript is not active then the button shouldn't
+     * be there as there is no JS to handle the click event.
+    */
+    var $containerHead = this.$optionSelect.find('.js-container-head');
+    var jsContainerHeadHTML = $containerHead.html();
+
+    // Create button and replace the preexisting html with the button.
+    var $button = $('<button>');
+    $button.addClass('js-container-head');
+    $button.attr('aria-expanded', this.isClosed());
+    $button.attr('aria-controls', this.$optionSelect.find('.options-container').attr('id'));
+    $button.html(jsContainerHeadHTML);
+    $containerHead.replaceWith($button);
+
   };
 
-  OptionSelect.prototype.resetOptions = function resetOptions(){
-    this.$options.prop({
-      indeterminate: false,
-      checked: false
-    }).trigger("change");
-    this.$clearingLink.addClass('js-hidden');
-
-    // Prevent the event from bubbling as there is a click handler on the parent
-    // to open/close the option-select.
-    return false;
+  OptionSelect.prototype.attachCheckedCounter = function attachCheckedCounter(){
+    this.$optionSelect.find('.js-container-head').append('<div class="js-selected-counter">'+this.checkedString()+'</div>');
   };
 
-  OptionSelect.prototype.updateClearingLink = function updateClearingLink(){
-    var anyOptions = this.$options.is(":checked"),
-        clearingLinkHidden = this.$clearingLink.hasClass('js-hidden');
+  OptionSelect.prototype.updateCheckedCount = function updateCheckedCount(){
+    this.$optionSelect.find('.js-selected-counter').text(this.checkedString());
+  };
 
-    if (anyOptions && clearingLinkHidden) {
-      this.$clearingLink.removeClass('js-hidden');
-    } else if (!anyOptions && !clearingLinkHidden) {
-      this.$clearingLink.addClass('js-hidden');
+  OptionSelect.prototype.checkedString = function checkedString(){
+    var count = this.$options.filter(":checked").size();
+    var checkedString = "";
+    if (count > 0){
+      checkedString = count+" selected";
     }
+
+    return checkedString;
   };
 
-  OptionSelect.prototype.attachOpenCloseToggleIndicator = function attachOpenCloseToggleIndicator(){
-    this.$optionSelect.find('.js-container-head').append('<div class="js-toggle-indicator"></div>');
-  };
 
-  OptionSelect.prototype.toggleOptionSelect = function toggleOptionSelect(){
+  OptionSelect.prototype.toggleOptionSelect = function toggleOptionSelect(e){
     if (this.isClosed()) {
       this.open();
     } else {
       this.close();
     }
+    e.preventDefault();
   };
 
   OptionSelect.prototype.open = function open(){
     if (this.isClosed()) {
+      this.$optionSelect.find('.js-container-head').attr('aria-expanded', true);
       this.$optionSelect.removeClass('js-closed');
       if (!this.$optionsContainer.prop('style').height) {
         this.setupHeight();
@@ -103,6 +110,7 @@
 
   OptionSelect.prototype.close = function close(){
     this.$optionSelect.addClass('js-closed');
+    this.$optionSelect.find('.js-container-head').attr('aria-expanded', false);
   };
 
   OptionSelect.prototype.isClosed = function isClosed(){
