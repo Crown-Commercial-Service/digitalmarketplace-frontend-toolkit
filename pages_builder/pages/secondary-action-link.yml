@@ -1,0 +1,10 @@
+pageTitle: Secondary action link
+assetPath: ../govuk_template/assets/
+examples:
+  -
+    url: http://example.com
+    text: Back to categories
+  -
+    url: http://example.com/reset-password
+    text: Reset password
+    bigger: true
