@@ -1,0 +1,36 @@
+// SCSS taken from the following in the Whitehall app:
+// https://github.com/alphagov/whitehall/blob/5631a1722e186b194f4f7bb1f53cd2eb56e48034/app/assets/stylesheets/frontend/helpers/_status-block.scss#L26
+//
+// Example of usage: https://www.gov.uk/government/news/turning-the-games-into-gold-economic-boost-from-london-2012
+@import "_measurements.scss";
+@import "_colours.scss";
+@import "_conditionals.scss";
+@import "_typography.scss";
+
+.history-status-block {
+ clear: both;
+ margin: 0;
+ padding: $gutter-half;
+ margin: 0 0 10px;
+
+ color: $white;
+ background: $govuk-blue;
+
+ @include media(desktop) {
+   padding: $gutter-two-thirds $gutter;
+   margin: 0 0 $gutter-half 0
+ }
+
+ h2 {
+   @include heading-36;
+   font-weight: bold;
+ }
+
+ p {
+   @include core-19;
+ }
+
+ .history-status-date {
+   display: block;
+ }
+}
