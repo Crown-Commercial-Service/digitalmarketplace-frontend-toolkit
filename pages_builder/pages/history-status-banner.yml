@@ -1,0 +1,8 @@
+pageTitle: History status banners
+assetPath: govuk_template/assets/
+examples:
+  -
+    title: History status banner
+    description: Supplier stopped providing this service on
+    date: 1 January 2016
+    additional: Any exisiting contracts for this service remain valid.
