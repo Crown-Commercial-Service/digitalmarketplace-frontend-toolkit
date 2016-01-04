@@ -1,5 +1,5 @@
-<aside role="complementary" class="temporary-message{% if not messages %}-without-messages{% endif %}{%if fullWidth %} temporary-message-full-width{% endif %}">
-  <h2 class="temporary-message-heading">
+<aside role="complementary" class="temporary-message{% if not messages %}-without-messages{% endif %}{%if fullWidth %} temporary-message-full-width{% endif %}"{% if headingId %} aria-labelledby="{{ headingId }}"{% endif %}>
+  <h2 class="temporary-message-heading"{% if headingId %} id="{{ headingId }}"{% endif %}>
     {{ heading }}
   </h2>
   {%- for message in messages %}
