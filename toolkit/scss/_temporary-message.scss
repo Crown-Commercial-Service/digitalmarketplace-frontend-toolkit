@@ -33,3 +33,13 @@
   }
 
 }
+
+.temporary-message-full-width {
+  .temporary-message-heading {
+    @include bold-36;
+  }
+
+  .temporary-message-message {
+    @include core-19;
+  }
+}
