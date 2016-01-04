@@ -44,6 +44,16 @@ Usage examples for each pattern are defined in the `./pages_builder/pages`
 folder. They are YAML files which show what parameters you can pass to a
 template. The examples in the documentation are generated from these files.
 
+#### Grids in example pages
+
+Examples can use the grids (see [grids example](http://alphagov.github.io/digitalmarketplace-frontend-toolkit/grids.html)) by setting a `grid` property in this file.
+
+If all the examples in your page sit in the same column, set the grid class you need with the page-level properties (ie on the [textbox example page](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/blob/master/pages_builder/pages/forms/textbox.yml#L3)).
+
+If any of your examples need their own column, set the grid class you need with the example-level properties (ie on the [temporary message example page](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/blob/master/pages_builder/pages/temporary-message.yml#L12)).
+
+If you don't need a grid column, don't set any `grid` properties in your file.
+
 ### Template
 
 Templates are found in the `./toolkit/templates` folder. They are Jinja
