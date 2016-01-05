@@ -1,6 +1,9 @@
 $path : '../images/';
 @import "colours";
 
+/* Multi-selector blocks */
+@import "placeholders/_temporary-messages.scss";
+
 // Toolkit components
 @import "_grids";
 @import "_phase-banner.scss";
