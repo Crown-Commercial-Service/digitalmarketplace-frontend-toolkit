@@ -27,3 +27,10 @@ examples:
     title: Destructive banner
     type: destructive
     message: <a href="#">With a link</a> and some plain text but without an action
+  -
+    title: Temporary message banner
+    type: temporary-message
+    heading: >
+            Cloud Supplier Limited stopped providing this service on
+            Thursday 31 December 2015.
+    message: Any exisiting contracts for this service remain valid.
