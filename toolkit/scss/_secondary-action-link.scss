@@ -1,0 +1,11 @@
+@import "_typography.scss";
+
+.secondary-action-link {
+  @include copy-19;
+  margin-top: 30px;
+}
+
+.secondary-action-link-bigger {
+  @include heading-24;
+  margin-top: 45px;
+}

@@ -10,7 +10,6 @@ content: >
         <h1>Digital Marketplace frontend toolkit</h1>
       </header>
       <ul class="index-list">
-        <li><a href="back-link.html">Back link</a></li>
         <li><a href="beta-banner.html">Beta banner</a></li>
         <li><a href="breadcrumb.html">Breadcrumb</a></li>
         <li><a href="browse-list.html">Browse list</a></li>
@@ -55,6 +54,7 @@ content: >
         <li><a href="previous-next-navigation.html">Previous/next navigation</a></li>
         <li><a href="search-results.html">Search result</a></li>
         <li><a href="search-summary.html">Search summary</a></li>
+        <li><a href="secondary-action-link.html">Secondary action link</a></li>
         <li><a href="service-id.html">Service ID</a></li>
         <li><a href="summary-table.html">Summary tables</a></li>
         <li><a href="temporary-message.html">Temporary message</a></li>
