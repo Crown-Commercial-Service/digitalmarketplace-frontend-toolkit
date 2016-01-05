@@ -18,10 +18,3 @@ examples:
   -
     heading: Example without any body copy that is quite long and may wrap onto multiple lines
     headingId: closed-notice
-  -
-    heading: Cloudtech Limited stopped providing this service on <span class="history-status-date">Thursday 31 December 2015.
-    headingId: unavailable-notice
-    messages:
-      - Any exisiting contracts for this service remain valid.
-    fullWidth: true
-    grid: column-one-whole
