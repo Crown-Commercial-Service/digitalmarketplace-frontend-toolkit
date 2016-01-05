@@ -32,8 +32,6 @@ examples:
     title: Temporary message banner
     type: temporary-message
     heading: >
-            <h2> 
-              Cloud Supplier Limited stopped providing this service on
-              <span class="history-status-date">Thursday 31 December 2015.</span>
-            </h2>
+            Cloud Supplier Limited stopped providing this service on
+            Thursday 31 December 2015.
     message: Any exisiting contracts for this service remain valid.
