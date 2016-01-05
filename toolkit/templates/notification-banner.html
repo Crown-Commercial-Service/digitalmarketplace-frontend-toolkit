@@ -1,4 +1,7 @@
 <div class="banner-{{ type }}{% if action is defined %}-with-action{% else %}-without-action{% endif %}">
+  {% if heading %}
+  {{ heading|safe }}
+  {% endif %}
   <p class="banner-message">
     {{ message|safe }}
   </p>
