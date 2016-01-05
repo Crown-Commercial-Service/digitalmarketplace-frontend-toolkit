@@ -4,16 +4,21 @@
 @import "_shims.scss";
 @import "_conditionals.scss";
 
-%temporary-message,
+// Required placeholders:
+// @import "placeholders/_temporary-messages.scss";
+
+%temporary-message-section {
+  @extend %temporary-message;
+  margin-bottom: $gutter;
+}
+
 .temporary-message {
-  background: $govuk-blue;
-  color: $white;
-  padding: 15px 15px 18px 15px;
+  @extend %temporary-message-section;
   margin-bottom: $gutter;
 }
 
 .temporary-message-without-messages {
-  @extend %temporary-message;
+  @extend %temporary-message-section;
   padding-bottom: 5px;
 }
 
@@ -32,14 +37,4 @@
     text-decoration: underline;
   }
 
-}
-
-.temporary-message-full-width {
-  .temporary-message-heading {
-    @include bold-36;
-  }
-
-  .temporary-message-message {
-    @include core-19;
-  }
 }
