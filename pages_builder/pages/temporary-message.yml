@@ -1,13 +1,14 @@
 pageTitle: Temporary message
 pageDescription: Used to describe the status of a page at a point in a process
 assetPath: govuk_template/assets/
-grid: column-one-half
+grid: column-one-whole
 examples:
   -
     heading: G‑Cloud 7 is closed for applications
     messages:
       - Applications are being reviewed.
       - G‑Cloud 7 services will be available from 23 November 2015.
+    grid: column-one-third
   -
     heading: The G-Cloud 7 application deadline has passed
     messages:
@@ -15,3 +16,4 @@ examples:
       - <a href="#">View your application</a>
   -
     heading: Example without any body copy that is quite long and may wrap onto multiple lines
+    grid: column-two-thirds
