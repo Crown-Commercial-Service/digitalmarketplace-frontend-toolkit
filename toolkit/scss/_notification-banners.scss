@@ -3,8 +3,8 @@
 @import "_typography.scss";
 @import "_measurements.scss";
 
-// Required placeholders:
-// @import "placeholders/_temporary-messages.scss";
+// The following placeholders must be present in your main stylesheet:
+// - shared_placeholders/_temporary-messages.scss
 
 %banner {
   @include core-24;

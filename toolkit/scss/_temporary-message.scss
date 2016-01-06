@@ -4,8 +4,8 @@
 @import "_shims.scss";
 @import "_conditionals.scss";
 
-// Required placeholders:
-// @import "placeholders/_temporary-messages.scss";
+// The following placeholders must be present in your main stylesheet:
+// - shared_placeholders/_temporary-messages.scss
 
 %temporary-message-section {
   @extend %temporary-message;
