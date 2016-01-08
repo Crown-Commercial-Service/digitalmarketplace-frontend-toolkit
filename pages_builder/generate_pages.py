@@ -168,11 +168,7 @@ class Styleguide_publisher(object):
                         example_markup = env.from_string(example_template).render({})
 
                     # set a grid if specified. Example-level grids will overwrite the one for the page
-                    grid = None
-                    if 'grid' in example:
-                        grid = example['grid']
-                    elif 'grid' in partial:
-                        grid = partial['grid']
+                    grid = example.get('grid', partial.get('grid'))
               
                     examples.append({
                         "parameters": highlight(example_template, DjangoLexer(), HtmlFormatter(noclasses=True)),
