@@ -34,4 +34,4 @@ examples:
     heading: >
             Cloud Supplier Limited stopped providing this service on
             Thursday 31 December 2015.
-    message: Any exisiting contracts for this service remain valid.
+    message: Any existing contracts for this service remain valid. <a href="#">Here's a blog post about it</a>.

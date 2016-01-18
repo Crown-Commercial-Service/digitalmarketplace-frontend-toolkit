@@ -6,4 +6,12 @@
   background: $govuk-blue;
   color: $white;
   padding: $gutter-half $gutter-half 18px $gutter-half;
+
+  a, a:visited {
+    color: $white;
+  }
+
+  a:hover, a:active {
+    color: $light-blue-50;
+  }
 }
