@@ -63,6 +63,7 @@
     // Create button and replace the preexisting html with the button.
     var $button = $('<button>');
     $button.addClass('js-container-head');
+    $button.attr('type', 'button');
     $button.attr('aria-expanded', this.isClosed());
     $button.attr('aria-controls', this.$optionSelect.find('.options-container').attr('id'));
     $button.html(jsContainerHeadHTML);
