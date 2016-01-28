@@ -59,7 +59,7 @@ For example `.button-save`.
 
 #### Usage
 
-All types should be built using @extend to extend a base abstract block. This block appears in the
+All types should be built using @extend to extend a placeholder tied to the block for the base 'Thing'. This block appears in the
 final CSS but with a selector built from those of all types.
 
 For example:
@@ -77,6 +77,8 @@ For example:
   padding-right: 25px;
 }
 ```
+
+In cases where the placeholder block is used in more than one file it should be kept in the `shared_placeholders` folder.
 
 ### Thing + what marks it out as a variation
 

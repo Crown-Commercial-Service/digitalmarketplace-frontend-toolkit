@@ -1,6 +1,9 @@
 $path : '../images/';
 @import "colours";
 
+/* Blocks shared between multiple selectors */
+@import "shared_placeholders/_temporary-messages.scss";
+
 // Toolkit components
 @import "_grids";
 @import "_phase-banner.scss";

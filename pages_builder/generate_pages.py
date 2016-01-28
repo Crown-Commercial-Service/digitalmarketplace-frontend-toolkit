@@ -160,18 +160,21 @@ class Styleguide_publisher(object):
                 template = env.get_template(template_file)
                 examples = []
                 for index, example in enumerate(partial["examples"]):
+                    grid = partial.get('grid')
                     if isinstance(example, dict):
                         example_template = self.parameters_example(template_subfolder, template_name, example)
                         example_markup = template.render(example)
+                        # set a grid if specified. Example-level grids will overwrite the one for the page
+                        grid = example.get('grid', partial.get('grid'))
                     else:
                         example_template = example
                         example_markup = env.from_string(example_template).render({})
-
+              
                     examples.append({
                         "parameters": highlight(example_template, DjangoLexer(), HtmlFormatter(noclasses=True)),
                         "markup": example_markup,
-                        "highlighted_markup": highlight(example_markup, HtmlLexer(), HtmlFormatter(noclasses=True))
-
+                        "highlighted_markup": highlight(example_markup, HtmlLexer(), HtmlFormatter(noclasses=True)),
+                        "grid": grid
                     })
                 partial_data = {
                     "examples": examples,

@@ -1,6 +1,11 @@
 @import "_colours.scss";
 @import "_digital-marketplace-colours.scss";
+@import "_grid_layout.scss";
 @import "_typography.scss";
+@import "_measurements.scss";
+
+// The following placeholders must be present in your main stylesheet:
+// - shared_placeholders/_temporary-messages.scss
 
 %banner {
   @include core-24;
@@ -58,4 +63,34 @@
   @include core-24;
   font-weight: bold;
   margin: 0;
+}
+
+.banner-temporary-message-without-action {
+  @extend %banner;
+  @extend %temporary-message;
+  border: none;
+  margin-bottom: $gutter;
+
+  @include media(tablet) {
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    @include bold-36;
+    margin-bottom: $gutter-half;
+
+    @include media(tablet) {
+      margin-bottom: $gutter-two-thirds;
+    }
+  }
+
+  .banner-message {
+    @include core-19;
+    @include grid-column( 2/3 );
+    padding: 0;
+
+    @include media(tablet) {
+      float: none;
+    }
+  }
 }
