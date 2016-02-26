@@ -1,0 +1,88 @@
+ <ol class="instruction-list" {% if start %}start="{{start}}"{% endif %}>
+    {% for item in items %}
+      <li class="instruction-list-item
+        {% if verbose %}
+          {% if (loop.index <2 and not start) %}
+            divider-first
+          {% else %}
+          divider {% endif %}
+        {% endif %}">
+          {% if item.body %}
+            <p class="instruction-list-item-body">
+              {% if verbose %}<h2>{{ item.body }}</h2>
+              {% else %}{{ item.body }}
+              {% endif %}
+            </p>
+          {% endif %}
+        {% if item.sublist_collection %}
+          {% for collection in item.sublist_collection %}
+            <p class="lead-in">{{ collection.lead_in }}</p>
+            <ol class="sublist" {% if collection.start %}start="{{collection.start}}" {% endif %}>
+            {% for sublist in collection.sublists %}
+              {% if sublist.text %}
+                <li>{{ sublist.text | safe }}</li>
+              {% endif %}
+            {% endfor %}
+            </ol>
+          {% endfor %}
+        {% endif %}
+        {% if item.extra %}
+            <p class="instruction-list-item-extra-information">
+              {{ item.extra | safe }}
+            </p>
+        {% endif %}
+        {% if item.documents %}
+          {% for field in item.documents %}
+            {%
+              with
+              items = [
+                {
+                    "title": field.title,
+                    "link": field.link,
+                    "file_type": field.file_type,
+                    "download": field.download
+                }
+            ]
+            %}
+            {% if PAGES_BUILDER %}
+              {% include 'documents.html' %}
+            {% else %}
+              {% include 'toolkit/documents.html' %}
+            {% endif %}
+            {% endwith %}
+          {% endfor %}
+        {% endif %}
+        {% if item.uploads %}
+          {% for upload in item.uploads %}
+            {%
+              with
+              items = [
+                {
+                  "name": upload.name,
+                  "error": upload.error,
+                  "value": upload.value,
+                  "file_type": upload.file_type
+                }
+              ]
+            %}
+            {% if PAGES_BUILDER %}
+              {% include 'forms/upload.html' %}
+            {% else %}
+              {% include 'toolkit/forms/upload.html' %}
+            {% endif %}
+            {% endwith %}
+          {% endfor %}
+        {% endif %}
+        {% if item.important %}
+        <div class="notice">
+          <i class="icon icon-important">
+            <span class="visuallyhidden">Warning</span>
+          </i>
+          <strong class="bold-small">
+            {{ item.important }}
+          </strong>
+        </div>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ol>

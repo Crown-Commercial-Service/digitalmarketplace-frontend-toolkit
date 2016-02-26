@@ -2,7 +2,7 @@
   {% for item in items %}
     <li class='document-list-item'>
       {% if item.file_type %}
-        <a href="{{ item.link }}" class='document-link-with-icon'>
+        <a href="{{ item.link }}" class='document-link-with-icon' {% if item.download %}download {% endif %}>
           <span class='document-icon'>{{ item.file_type }}<span> document:</span></span>
           {{ item.title }}
         </a>

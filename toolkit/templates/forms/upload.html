@@ -3,14 +3,16 @@
 {% endif %}
   <div class="question" id="{{ name }}">
     <label for="input-{{ name }}">
-      <span class="question-heading{% if hint is defined %}-with-hint{% endif %}">
-        {% if question_number %}
-          <span class="question-number">
-            {{ question_number }}
-          </span>
-        {% endif %}
-        {{ question }}
-      </span>
+      {% if question %}
+        <span class="question-heading{% if hint is defined %}-with-hint{% endif %}">
+          {% if question_number %}
+            <span class="question-number">
+              {{ question_number }}
+            </span>
+          {% endif %}
+          {{ question }}
+        </span>
+      {% endif %}
       {% if hint %}
         <span class="hint">
           {{ hint }}

@@ -1,0 +1,63 @@
+pageTitle: Instruction list
+assetPath: govuk_template/assets/
+examples:
+  -
+    items:
+      -
+        body: Eligible specialist in unspecified locations will be notified immediately.
+      -
+        body: The requirements will be live for 7 days.
+      -
+        body: Specialists will be able to ask you questions for the next 4 days.
+        extra: Questions will be sent to CCS
+        important: You must answer all questions before the requirements closes or you may be subject to legal challenge.
+      -
+        body: You must then invite the top qualifiying specialists for DOS
+  -
+    start: 4
+    verbose: True
+    items:
+      -
+        body: Download your framework agreement
+        documents:
+          -
+            title: 'Document definition'
+            link: '#'
+            file_type: 'PDF'
+            download: 'True'
+      -
+        body: Read your framework agreement
+        extra: If you have a question about your framework agreement, contact CCS.
+      -
+        body: Sign your framework agreement
+        sublist_collection:
+          -
+            lead_in: 'To digitally sign your framework agreement, you need to:'
+            sublists:
+            -
+              text: Use <strong>Adobe Reader</strong> to open your Digital Outcomes and Specialists framework agreement.
+            -
+              text: Go to page 5 and click the first signature box.
+            -
+              text: Use an existing digital ID or create a new one.
+            -
+              text: 'Enter your name, email and organisation details.'
+          -
+            lead_in: 'If you can’t digitally sign your framework agreement:'
+            start: '10'
+            sublists:
+            -
+              text: Go to page 5 and click the first signature box.
+            -
+              text: Use an existing digital ID or create a new one.
+            -
+              text: 'Enter your name, email and organisation details.'
+        extra: Please don't send paper copies to CCS.
+      -
+        body: Upload your signed framework agreement
+        uploads:
+        -
+          file_type: 'PDF'
+          name: 'test'
+          error: 'upload_error'
+          value: 'something'
