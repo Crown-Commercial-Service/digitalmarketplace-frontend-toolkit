@@ -60,3 +60,14 @@ examples:
     unit: "$"
     unit_in_full: dollars
     unit_position: before
+  -
+    question: Smaller textbox
+    name: question-9
+    smaller: true
+    value: Smaller box
+  -
+    question: Smaller textbox with error
+    name: question-9
+    smaller: true
+    value: Blue
+    error: Answer must not be a colour
