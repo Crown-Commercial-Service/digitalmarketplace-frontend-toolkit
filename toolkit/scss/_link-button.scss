@@ -13,7 +13,7 @@ a.link-button {
   margin: $gutter 0 0 0;
 
   @include media(tablet){
-    margin: 75px 0 0 $gutter;
+    margin: 75px 0 0;
   }
 
   @include core-24;
