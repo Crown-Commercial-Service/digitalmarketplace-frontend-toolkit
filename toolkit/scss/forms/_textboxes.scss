@@ -45,10 +45,14 @@
   @extend %text-box-error;
 }
 
+.text-box-smaller {
+   @extend %text-box;
+   width: 7em;
+}
+
 %text-box-with-unit {
-  @extend %text-box;
+  @extend .text-box-smaller;
   @include inline-block;
-  width: 7em;
 }
 
 %text-box-with-unit-before,

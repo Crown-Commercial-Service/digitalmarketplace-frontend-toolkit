@@ -53,7 +53,7 @@
           {{ unit }}
         </label>
       {% endif %}
-      <input type="text" name="{{ name }}" id="input-{{ name }}" class="text-box{% if unit %}-with-unit-{{ unit_position }}{% endif %}{% if error %}-with-error{% endif %}" value="{% if value !=  None %}{{ value }}{% endif %}" />
+    <input type="text" name="{{ name }}" id="input-{{ name }}" class="text-box{% if unit %}-with-unit-{{ unit_position }}{% endif %}{% if error %}-with-error{% endif %}{% if smaller %} text-box-smaller{% endif %}" value="{% if value !=  None %}{{ value }}{% endif %}" />
       {% if unit_position == "after" %}
         <label for="input-{{ name }}" class="text-box-unit">
           {{ unit }}
