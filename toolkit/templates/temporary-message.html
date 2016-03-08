@@ -1,10 +1,10 @@
-<aside role="complementary" class="temporary-message{% if not messages %}-without-messages{% endif %}"{% if headingId %} aria-labelledby="{{ headingId }}"{% endif %}>
-  <h2 class="temporary-message-heading"{% if headingId %} id="{{ headingId }}"{% endif %}>
+<div class="temporary-message{% if not messages %}-without-messages{% endif %}">
+  <h3 class="temporary-message-heading">
     {{ heading }}
-  </h2>
+  </h3>
   {%- for message in messages %}
   <p class="temporary-message-message">
     {{ message|safe }}
   </p>
   {%- endfor %}
-</aside>
+</div>

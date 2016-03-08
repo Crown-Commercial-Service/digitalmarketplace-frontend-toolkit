@@ -1,7 +1,7 @@
-<aside role="complementary" aria-labelledby="framework-notice-heading" class="framework-notice">
-  <h2 class="framework-notice-heading">
+<div class="framework-notice">
+  <h3 class="framework-notice-heading">
     {{ heading }}
-  </h2>
+  </h3>
   {% if subheading %}
     <p class="framework-notice-subheading">
       {{ subheading }}
@@ -10,4 +10,4 @@
   {% if message %}
     {{ message|markdown }}
   {% endif %}
-</aside>
+</div>
