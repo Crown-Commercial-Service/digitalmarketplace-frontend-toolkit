@@ -56,14 +56,10 @@
           {% for upload in item.uploads %}
             {%
               with
-              items = [
-                {
-                  "name": upload.name,
-                  "error": upload.error,
-                  "value": upload.value,
-                  "file_type": upload.file_type
-                }
-              ]
+              name =  upload.name,
+              error = upload.error,
+              value = upload.value,
+              file_type = upload.file_type
             %}
             {% if PAGES_BUILDER %}
               {% include 'forms/upload.html' %}
