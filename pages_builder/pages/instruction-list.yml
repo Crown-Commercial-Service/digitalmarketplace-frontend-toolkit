@@ -56,8 +56,6 @@ examples:
       -
         body: Upload your signed framework agreement
         uploads:
-        -
-          file_type: 'PDF'
-          name: 'test'
-          error: 'upload_error'
-          value: 'something'
+          -
+            file_type: 'PDF'
+            name: 'test'
