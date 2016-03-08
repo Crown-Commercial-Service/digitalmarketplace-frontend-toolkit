@@ -1,0 +1,100 @@
+@import "_colours.scss";
+@import "_typography.scss";
+@import "_measurements.scss";
+@import "_shims.scss";
+@import "_conditionals.scss";
+
+// Bulleted lists
+.list-bullet {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+// Numbered lists
+.list-number {
+  list-style-type: decimal;
+  padding-left: 20px;
+  margin-bottom: 20px;
+
+  @include ie-lte(7) {
+    padding-left: 28px;
+  }
+}
+
+.list-bullet,
+.list-number {
+  margin-top: 5px;
+}
+
+.list-bullet li,
+.list-number li {
+  margin-bottom: 5px;
+}
+
+.instruction-list {
+  @include core-19;
+  @extend .list-number;
+  font-weight: bold;
+}
+
+.instruction-list h2 {
+  @include core-19;
+  font-weight: bold;
+}
+
+.instruction-list .divider p {
+  margin: 0;
+}
+
+.divider {
+  padding: 20px 0 15px 0;
+  border-top: 1px solid #dee0e2;
+}
+
+.divider-first {
+  @extend .divider;
+  border-top: none;
+}
+
+.sublist {
+  @extend .list-number;
+  font-weight: normal;
+  margin-top: 10px;
+}
+
+.instruction-list-item-body,
+.instruction-list-item-extra-information,
+.lead-in {
+  font-weight: normal;
+}
+
+.instruction-list .document-list {
+  padding: 0;
+}
+
+.notice {
+  @extend %contain-floats;
+  position: relative;
+
+  .icon {
+    width: 34px;
+    height: 34px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -17px; // Half the height of the important icon
+    background: file-url('icon-important.png') no-repeat 0;
+    background-size: 34px 34px;
+
+    @include device-pixel-ratio() {
+      background: file-url('icon-important-2x.png') no-repeat 0;
+      background-size: 34px 34px;
+    }
+  }
+
+  strong {
+    display: block;
+    padding-left: (35 + 30)+px;
+    margin-left: -$gutter-half;
+  }
+}

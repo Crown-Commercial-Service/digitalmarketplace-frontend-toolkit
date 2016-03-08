@@ -155,6 +155,7 @@ class Styleguide_publisher(object):
                 })
                 # used in `toolkit/templates/summary-table.html` for a conditional import statement
                 env.globals['PAGES_BUILDER'] = True
+                env.add_extension('jinja2.ext.with_')
 
                 template_file = os.path.join(template_subfolder, template_name + ".html")
                 template = env.get_template(template_file)
