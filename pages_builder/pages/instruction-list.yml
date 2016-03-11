@@ -35,23 +35,23 @@ examples:
             lead_in: 'To digitally sign your framework agreement, you need to:'
             sublists:
             -
-              text: Use <strong>Adobe Reader</strong> to open your Digital Outcomes and Specialists framework agreement.
+              body: Use <strong>Adobe Reader</strong> to open your Digital Outcomes and Specialists framework agreement.
             -
-              text: Go to page 5 and click the first signature box.
+              body: Go to page 5 and click the first signature box.
             -
-              text: Use an existing digital ID or create a new one.
+              body: Use an existing digital ID or create a new one.
             -
-              text: 'Enter your name, email and organisation details.'
+              body: 'Enter your name, email and organisation details.'
           -
             lead_in: 'If you can’t digitally sign your framework agreement:'
             start: '10'
             sublists:
             -
-              text: Go to page 5 and click the first signature box.
+              body: Go to page 5 and click the first signature box.
             -
-              text: Use an existing digital ID or create a new one.
+              body: Use an existing digital ID or create a new one.
             -
-              text: 'Enter your name, email and organisation details.'
+              body: 'Enter your name, email and organisation details.'
         extra: Please don't send paper copies to CCS.
       -
         body: Upload your signed framework agreement

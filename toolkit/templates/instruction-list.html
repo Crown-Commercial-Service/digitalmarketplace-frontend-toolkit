@@ -2,10 +2,7 @@
     {% for item in items %}
       <li class="instruction-list-item
         {% if verbose %}
-          {% if (loop.index <2 and not start) %}
-            divider-first
-          {% else %}
-          divider {% endif %}
+          divider
         {% endif %}">
           {% if item.body %}
             <p class="instruction-list-item-body">
@@ -19,8 +16,8 @@
             <p class="lead-in">{{ collection.lead_in }}</p>
             <ol class="sublist" {% if collection.start %}start="{{collection.start}}" {% endif %}>
             {% for sublist in collection.sublists %}
-              {% if sublist.text %}
-                <li>{{ sublist.text | safe }}</li>
+              {% if sublist.body %}
+                <li>{{ sublist.body | safe }}</li>
               {% endif %}
             {% endfor %}
             </ol>
