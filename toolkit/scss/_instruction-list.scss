@@ -51,9 +51,16 @@
   border-top: 1px solid #dee0e2;
 }
 
-.divider-first {
-  @extend .divider;
+.instruction-list .divider:first-child {
   border-top: none;
+}
+
+.instruction-list[start] .divider {
+  border-top: 1px solid #dee0e2;
+}
+
+.instruction-list .divider:last-child .question:last-child {
+  margin: 15px 0 0 0;
 }
 
 .sublist {
