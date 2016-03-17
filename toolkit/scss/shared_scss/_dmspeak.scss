@@ -1,0 +1,9 @@
+@import "_typography.scss";
+
+.dmspeak {
+   @include core-19;
+
+  p {
+    padding-bottom: 10px;
+  }
+}
