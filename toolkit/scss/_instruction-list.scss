@@ -24,7 +24,7 @@
 
 .divider {
   padding: 20px 0 15px 0;
-  border-top: 1px solid #dee0e2;
+  border-top: 1px solid $grey-3;
 }
 
 .instruction-list .divider:first-child {
@@ -32,7 +32,7 @@
 }
 
 .instruction-list[start] .divider {
-  border-top: 1px solid #dee0e2;
+  border-top: 1px solid $grey-3;
 }
 
 .instruction-list .divider:last-child .question:last-child {
