@@ -1,62 +1,50 @@
 @import "_measurements.scss";
 @import "_conditionals.scss";
+@import "_typography.scss";
 
-// Bulleted lists
+@mixin list-spacing($list-margin-top: 5px, $list-item-margin-bottom: 5px) {
+  margin-top: #{$list-margin-top};
+
+  li {
+    margin-bottom: #{$list-item-margin-bottom};
+  }
+}
+
 .list-bullet {
   list-style-type: disc;
   padding-left: 20px;
+  @include list-spacing($list-margin-top: 5px, $list-item-margin-bottom: 5px);
 }
 
-// Numbered lists
 .list-number {
   list-style-type: decimal;
   padding-left: 20px;
   margin-bottom: 20px;
+  @include list-spacing($list-margin-top: 5px, $list-item-margin-bottom: 5px);
 
   @include ie-lte(7) {
     padding-left: 28px;
   }
 }
 
-.list-bullet,
-.list-number {
-  margin-top: 5px;
-}
-
-.list-bullet li,
-.list-number li {
-  margin-bottom: 5px;
-}
-
-.unbulleted-item {
-  list-style-type: none;
-  margin-bottom: 10px;
-}
-
 .check-list {
 
-  .lead {
-    margin-bottom: $gutter-half;
-  }
-
-  ul {
+  > .list-bullet,
+  > .list-number {
     padding-bottom: 0;
     margin-bottom: 20px;
+    @include list-spacing($list-margin-top: $gutter-half, $list-item-margin-bottom: $gutter-half);
 
     @include media(tablet) {
       padding-bottom: $gutter-half;
     }
 
-    li {
-      margin-bottom: $gutter-half;
+    p {
+      margin: 0;
+    }
 
-      p {
-        margin: 0;
-      }
-
-      a {
-        word-wrap: break-word;
-      }
+    a {
+      word-wrap: break-word;
     }
   }
 }
@@ -65,14 +53,11 @@
 
   .lead {
     padding-bottom: 0;
+    margin: 0;
   }
 
-  ul {
-    @extend .list-bullet;
-    margin: 0;
-
-    li {
-      margin: 0;
-    }
+  > .list-bullet,
+  > .list-number {
+    @include list-spacing($list-margin-top: 0, $list-item-margin-bottom: 0);
   }
 }
