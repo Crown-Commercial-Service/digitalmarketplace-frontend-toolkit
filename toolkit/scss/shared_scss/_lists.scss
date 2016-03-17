@@ -1,0 +1,78 @@
+@import "_measurements.scss";
+@import "_conditionals.scss";
+
+// Bulleted lists
+.list-bullet {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+// Numbered lists
+.list-number {
+  list-style-type: decimal;
+  padding-left: 20px;
+  margin-bottom: 20px;
+
+  @include ie-lte(7) {
+    padding-left: 28px;
+  }
+}
+
+.list-bullet,
+.list-number {
+  margin-top: 5px;
+}
+
+.list-bullet li,
+.list-number li {
+  margin-bottom: 5px;
+}
+
+.unbulleted-item {
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+
+.check-list {
+
+  .lead {
+    margin-bottom: $gutter-half;
+  }
+
+  ul {
+    padding-bottom: 0;
+    margin-bottom: 20px;
+
+    @include media(tablet) {
+      padding-bottom: $gutter-half;
+    }
+
+    li {
+      margin-bottom: $gutter-half;
+
+      p {
+        margin: 0;
+      }
+
+      a {
+        word-wrap: break-word;
+      }
+    }
+  }
+}
+
+.explanation-list {
+
+  .lead {
+    padding-bottom: 0;
+  }
+
+  ul {
+    @extend .list-bullet;
+    margin: 0;
+
+    li {
+      margin: 0;
+    }
+  }
+}
