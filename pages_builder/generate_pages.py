@@ -158,7 +158,10 @@ class Styleguide_publisher(object):
                 env.add_extension('jinja2.ext.with_')
 
                 template_file = os.path.join(template_subfolder, template_name + ".html")
-                template = env.get_template(template_file)
+                template = None
+                # not all of our examples have template files (`_lists.scss`, for example)
+                if os.path.isfile(os.path.join(self.repo_root, "toolkit/templates", template_file)):
+                    template = env.get_template(template_file)
                 examples = []
                 for index, example in enumerate(partial["examples"]):
                     grid = partial.get('grid')
@@ -172,11 +175,14 @@ class Styleguide_publisher(object):
                         example_markup = env.from_string(example_template).render({})
               
                     examples.append({
-                        "parameters": highlight(example_template, DjangoLexer(), HtmlFormatter(noclasses=True)),
                         "markup": example_markup,
                         "highlighted_markup": highlight(example_markup, HtmlLexer(), HtmlFormatter(noclasses=True)),
                         "grid": grid
                     })
+                    if template:
+                        examples[-1].update(
+                            {"parameters": highlight(example_template, DjangoLexer(), HtmlFormatter(noclasses=True))}
+                        )
                 partial_data = {
                     "examples": examples,
                     "pageTitle": partial['pageTitle'],
