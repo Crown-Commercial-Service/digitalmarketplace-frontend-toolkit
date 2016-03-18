@@ -61,7 +61,7 @@ content: >
           <a href="shared_scss/">Shared SCSS</a>
           <ul class="index-list">
             <li>
-              <a href="shared_scss/_lists.html">Lists</a>
+              <a href="shared_scss/lists.html">Lists</a>
             </li>
           </ul>
         </li>
