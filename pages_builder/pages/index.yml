@@ -57,6 +57,14 @@ content: >
         <li><a href="search-summary.html">Search summary</a></li>
         <li><a href="secondary-action-link.html">Secondary action link</a></li>
         <li><a href="service-id.html">Service ID</a></li>
+        <li>
+          <a href="shared_scss/">Shared SCSS</a>
+          <ul class="index-list">
+            <li>
+              <a href="shared_scss/_lists.html">Lists</a>
+            </li>
+          </ul>
+        </li>
         <li><a href="summary-table.html">Summary tables</a></li>
         <li><a href="temporary-message.html">Temporary message</a></li>
       </ul>

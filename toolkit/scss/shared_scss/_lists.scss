@@ -1,0 +1,79 @@
+@import "_measurements.scss";
+@import "_conditionals.scss";
+@import "_typography.scss";
+
+@mixin list-spacing($list-margin-top: 5px, $list-item-margin-bottom: 5px) {
+  margin-top: #{$list-margin-top};
+
+  li {
+    margin-bottom: #{$list-item-margin-bottom};
+  }
+}
+
+/* TODO: Remove once _reset.scss is migrated */
+body {
+  @include core-19;
+}
+
+ul,
+ol {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list-bullet {
+  list-style-type: disc;
+  padding-left: 20px;
+  @include list-spacing($list-margin-top: 5px, $list-item-margin-bottom: 5px);
+}
+
+.list-number {
+  list-style-type: decimal;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  @include list-spacing($list-margin-top: 5px, $list-item-margin-bottom: 5px);
+
+  @include ie-lte(7) {
+    padding-left: 28px;
+  }
+}
+
+.list-no-bullet {
+  list-style-type: none;
+  @include list-spacing($list-margin-top: 5px, $list-item-margin-bottom: 10px);
+}
+
+.check-list {
+
+  > .list-bullet,
+  > .list-number {
+    padding-bottom: 0;
+    margin-bottom: 20px;
+    @include list-spacing($list-margin-top: $gutter-half, $list-item-margin-bottom: $gutter-half);
+
+    @include media(tablet) {
+      padding-bottom: $gutter-half;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    a {
+      word-wrap: break-word;
+    }
+  }
+}
+
+.explanation-list {
+
+  .lead {
+    padding-bottom: 0;
+    margin: 0;
+  }
+
+  > .list-bullet,
+  > .list-number {
+    @include list-spacing($list-margin-top: 0, $list-item-margin-bottom: 0);
+  }
+}

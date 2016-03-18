@@ -1,0 +1,15 @@
+pageTitle: Shared SCSS
+assetPath: ../govuk_template/assets/
+content: >
+  <main role="main" id="content" class="wrapper">
+    <div id="wrapper">
+      <header class="page-heading">
+        <h1>Shared SCSS</h1>
+      </header>
+      <ul class="index-list">
+        <li>
+          <a href="_lists.html">Lists</a>
+        </li>
+      </ul>
+    </div>
+  </main>
