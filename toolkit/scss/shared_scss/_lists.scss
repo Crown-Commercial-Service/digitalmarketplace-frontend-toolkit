@@ -27,6 +27,11 @@
   }
 }
 
+.list-no-bullet {
+  list-style-type: none;
+  @include list-spacing($list-margin-top: 5px, $list-item-margin-bottom: 10px);
+}
+
 .check-list {
 
   > .list-bullet,
