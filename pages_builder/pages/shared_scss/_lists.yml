@@ -1,0 +1,88 @@
+pageTitle: Lists
+assetPath: ../govuk_template/assets/
+grid: column-two-thirds
+examples:
+  - |
+    <h2><code>.list-bullet</code></h2>
+    <br />
+    <ul class="list-bullet">
+      <li>
+        1 crisp celery stalk
+      </li>
+      <li>
+        lime wedge
+      </li>
+      <li>
+        ground pepper
+      </li>
+      <li>
+        celery salt
+      </li>
+      <li>
+        4 dashes worcestershire sauce
+      </li>
+      <li>
+        2 dashes tabasco sauce
+      </li>
+      <li>
+        1–1½ oz. vodka
+      </li>
+      <li>
+        6 oz. clamato juice
+      </li>
+    </ul>
+  - |
+    <h2><code>.list-number</code></h2>
+    <br />
+    <ol class="list-number">
+      <li>
+        Pizza Pilgrims
+      </li>
+      <li>
+        Homeslice
+      </li>
+      <li>
+        Pizza you find on the sidewalk
+      </li>
+      <li>
+        Ecco Pizza
+      </li>
+    </ol>
+  - |
+    <h2><code>.explanation-list</code></h2>
+    <br />
+    <div class="explanation-list">
+      <p class="lead">Find published requirements for:</p>
+      <ul class="list-bullet">
+        <li>
+          digital specialists
+        </li>
+        <li>
+          digital outcomes
+        </li>
+        <li>
+          user research participant recruitment
+        </li>
+      </ul>
+    </div>
+  - |
+    <h2><code>.check-list</code></h2>
+    <br />
+    <div class="check-list">
+      <p class="lead">To create a supplier account, you will need your company’s:</p>
+      <ul class="list-bullet">
+        <li>
+          <p>head office <strong>DUNS number</strong></p>
+          <p>This can be found at <a href="#">www.dnb.co.uk/dandb-duns-number</a></p>
+        </li>
+        <li>
+          <p><strong>Companies House number</strong> (if you have one)</p>
+          <p>
+          This can be found at <a href="#">beta.companieshouse.gov.uk/help/welcome</a>
+          </p>
+        </li>
+        <li>
+          contact details
+        </li>
+      </ul>
+    </div>
