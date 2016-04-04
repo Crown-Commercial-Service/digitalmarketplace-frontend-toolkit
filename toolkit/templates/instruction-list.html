@@ -5,11 +5,13 @@
           divider
         {% endif %}">
           {% if item.body %}
-            <p class="instruction-list-item-body">
-              {% if verbose %}<h2>{{ item.body }}</h2>
-              {% else %}{{ item.body }}
-              {% endif %}
-            </p>
+            {% if verbose %}
+              <h2 class="instruction-list-item-body">{{ item.body }}</h2>
+            {% else %}
+              <p class="instruction-list-item-body">
+              {{ item.body }}
+              </p>
+            {% endif %}
           {% endif %}
         {% if item.sublist_collection %}
           {% for collection in item.sublist_collection %}
