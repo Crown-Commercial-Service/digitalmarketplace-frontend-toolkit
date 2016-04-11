@@ -20,6 +20,8 @@
     this.$wrapper = $elm;
     this.minEntries = 2;
     this.listItemName = this.$wrapper.data('listItemName');
+    this.optionalAttributeNames = ['aria-describedby'];
+    this.setOptionalAttributes();
 
     this.getValues();
     this.maxEntries = this.entries.length;
@@ -32,7 +34,14 @@
       '<label for="{{{id}}}" class="text-box-number-label">' +
         '<span class="visuallyhidden">{{listItemName}} number </span>{{number}}.' +
       '</label>' +
-      '<input type="text" name="{{{name}}}" id="{{{id}}}" class="text-box" value="{{value}}">' +
+      '<input' +
+      ' type="text"' +
+      ' name="{{{name}}}"' +
+      ' id="{{{id}}}"' +
+      ' class="text-box"' +
+      ' value="{{value}}"' +
+      '{{{optionalGlobalAttributes}}}' + 
+      '/>' +
       '{{#button}}' +
         '<button type="button" class="button-secondary list-entry-remove">' +
           'Remove<span class="visuallyhidden"> {{listItemName}} number {{number}}</span>' +
@@ -43,6 +52,33 @@
   ListEntry.prototype.addButtonTemplate = Hogan.compile(
     '<button type="button" class="button-secondary list-entry-add">Add another {{listItemName}} ({{entriesLeft}} remaining)</button>'
   );
+  ListEntry.prototype.setOptionalAttributes = function () {
+    var attrIdx = this.optionalAttributeNames.length,
+        outputHTML = [],
+        attrName,
+        attrValue;
+
+    this.optionalGlobalAttributes = [];
+    while (attrIdx--) {
+      attrName = this.optionalAttributeNames[attrIdx];
+      attrValue = this.$wrapper.find('input').eq(0).attr(attrName);
+      if (attrValue !== undefined) {
+        outputHTML.push(' ' + attrName + '="' + attrValue + '"');
+      }
+    }
+
+    if (!outputHTML.length) {
+      this.optionalGlobalAttributes = '';
+    }
+    return this.optionalGlobalAttributes = outputHTML.join(' ');
+  };
+  ListEntry.prototype.getOptionalAttributesHTML = function () {
+    var attrIdx = this.optionalGlobalAttributes.length;
+        outputHTML = [];
+
+    while (attrIdx--) {
+    }
+  };
   ListEntry.prototype.getValues = function () {
     this.entries = [];
     this.$wrapper.find('input').each(function (idx, elm) {
@@ -129,7 +165,8 @@
             'number' : entryNumber,
             'name' : this.getId(),
             'value' : entry,
-            'listItemName' : this.listItemName
+            'listItemName' : this.listItemName,
+            'optionalGlobalAttributes': this.optionalGlobalAttributes
           };
 
       if (entryNumber > 1) {
