@@ -10,7 +10,14 @@ examples:
     name: question-1
   -
     question: Text box with hint and question number
-    hint: Hint comprising further information about the question
+    hint: Advice about how to answer
+    question_number: "22"
+    name: question-2
+    value: Now I know what to type here
+  -
+    question: Text box with hint, question_advice and question number
+    question_advice: Advice about the question
+    hint: Advice about how to answer
     question_number: "22"
     name: question-2
     value: Now I know what to type here

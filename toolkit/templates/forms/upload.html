@@ -1,10 +1,17 @@
+{% if hint %}
+  {% set answer_advice_id="input-{}-answer-advice".format(name) %}
+{% endif %}
+{% if question_advice %}
+  {% set question_advice_id="input-{}-question-advice".format(name) %}
+{% endif %}
+
 {% if error %}
 <div class="validation-wrapper">
 {% endif %}
   <div class="question" id="{{ name }}">
     <label for="input-{{ name }}">
       {% if question %}
-        <span class="question-heading{% if hint is defined %}-with-hint{% endif %}">
+        <span class="question-heading{% if hint or question_advice %}-with-hint{% endif %}">
           {% if question_number %}
             <span class="question-number">
               {{ question_number }}
@@ -13,17 +20,22 @@
           {{ question }}
         </span>
       {% endif %}
-      {% if hint %}
-        <span class="hint">
-          {{ hint }}
-        </span>
-      {% endif %}
       {% if error %}
-        <span class="validation-message" id="error-{{ name }}">
+        <span class="validation-message">
           {{ error }}
         </span>
       {% endif %}
     </label>
+    {% if question_advice %}
+      <span class="question_advice" id="{{ question_advice_id }}">
+        {{ question_advice }}
+      </span>
+    {% endif %}
+    {% if hint %}
+      <span class="hint" id="{{ answer_advice_id }}">
+        {{ hint }}
+      </span>
+    {% endif %}
     {% if value %}
       <p class="file-upload-existing-value">
         {% if link %}
@@ -40,7 +52,13 @@
         {% endif %}
       </p>
     {% endif %}
-    <input type="file" name="{{ name }}" id="input-{{ name }}" class="file-upload-input" {% if error %}aria-describedby="error-{{ name }}"{% endif %} />
+    <input
+      type="file"
+      name="{{ name }}"
+      id="input-{{ name }}"
+      class="file-upload-input"
+      {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+    />
   </div>
 {% if error %}
 </div>

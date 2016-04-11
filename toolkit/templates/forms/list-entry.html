@@ -1,3 +1,10 @@
+{% if hint %}
+  {% set answer_advice_id="input-{}-answer-advice".format(id) %}
+{% endif %}
+{% if question_advice %}
+  {% set question_advice_id="input-{}-question-advice".format(id) %}
+{% endif %}
+
 {% if values is not defined %}
   {% set values = [] %}
 {% endif %}
@@ -6,7 +13,7 @@
 {% endif %}
   <fieldset class="question {% if first_question %}first-question{% endif %}" id="{{ id }}">
     <legend>
-      <span class="question-heading {% if hint is defined %}question-heading-with-hint{% endif %}">
+      <span class="question-heading {% if hint or question_advice %}question-heading-with-hint{% endif %}">
         {% if question_number %}
           <span class="question-number">
             {{ question_number }}
@@ -14,24 +21,36 @@
         {% endif %}
         {{ question }}
       </span>
-      {% if hint %}
-        <span class="hint">
-          {{ hint }}
-        </span>
-      {% endif %}
       {% if error %}
-        <span class="validation-message" id="error-{{ id }}">
+        <span class="validation-message"> 
           {{ error }}
         </span>
       {% endif %}
     </legend>
+    {% if question_advice %}
+      <span class="question_advice" id="{{ question_advice_id }}">
+        {{ question_advice }}
+      </span>
+    {% endif %}
+    {% if hint %}
+      <span class="hint" id="{{ answer_advice_id }}">
+        {{ hint }}
+      </span>
+    {% endif %}
     <div class="input-list" data-list-item-name="{{ item_name }}" id="list-entry-{{id}}">
       {% for index in range(0, number_of_items) %}
         <div class="list-entry">
           <label for="input-{{ id }}-{{ index }}" class="text-box-number-label">
             <span class="visuallyhidden">{{item_name}} number </span>{{ index + 1 }}.
           </label>
-          <input type="text" name="{{ id }}" id="input-{{ id }}-{{ index }}" class="text-box" value="{{ values[index] }}" />
+          <input
+            type="text"
+            name="{{ id }}"
+            id="input-{{ id }}-{{ index }}"
+            class="text-box"
+            value="{{ values[index] }}"
+            {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+          />
         </div>
       {% endfor %}
     </div>
