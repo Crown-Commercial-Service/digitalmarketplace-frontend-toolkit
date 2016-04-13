@@ -1,5 +1,6 @@
 @import "_colours.scss";
 @import "_typography.scss";
+@import "shared_scss/_lists.scss";
 
 %hint,
 .hint {
@@ -13,4 +14,8 @@
 .hint-underneath {
   @extend %hint;
   padding-top: 10px;
+}
+
+.hint ul {
+  @include list-bullet;
 }
