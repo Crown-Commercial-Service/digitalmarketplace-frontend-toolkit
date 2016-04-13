@@ -10,6 +10,12 @@
   }
 }
 
+@mixin list-bullet {
+  list-style-type: disc;
+  padding-left: 20px;
+  @include list-spacing($list-margin-top: 5px, $list-item-margin-bottom: 5px);
+}
+
 /* TODO: Remove once _reset.scss is migrated */
 body {
   @include core-19;
@@ -22,9 +28,7 @@ ol {
 }
 
 .list-bullet {
-  list-style-type: disc;
-  padding-left: 20px;
-  @include list-spacing($list-margin-top: 5px, $list-item-margin-bottom: 5px);
+  @include list-bullet;
 }
 
 .list-number {

@@ -1,5 +1,6 @@
 @import "_colours.scss";
 @import "_typography.scss";
+@import "shared_scss/_lists.scss";
 
 %hint,
 .hint {
@@ -16,7 +17,5 @@
 }
 
 .hint ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  @include list-spacing($list-margin-top: 5px, $list-item-margin-bottom: 5px);
+  @include list-bullet;
 }
