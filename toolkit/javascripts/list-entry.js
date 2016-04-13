@@ -11,7 +11,7 @@
 
   ListEntry = function (elm) {
     var $elm = $(elm),
-        idPattern = $elm.prop('id');
+        idPattern = $elm.prop('id'); 
 
     if (!idPattern) { return false; }
     this.idPattern = idPattern;
@@ -20,8 +20,7 @@
     this.$wrapper = $elm;
     this.minEntries = 2;
     this.listItemName = this.$wrapper.data('listItemName');
-    this.optionalAttributeNames = ['aria-describedby'];
-    this.setOptionalAttributes();
+    this.getSharedAttributes();
 
     this.getValues();
     this.maxEntries = this.entries.length;
@@ -29,18 +28,17 @@
     this.render();
     this.bindEvents();
   };
+  ListEntry.optionalAttributes = ['aria-describedby'];
   ListEntry.prototype.entryTemplate = Hogan.compile(
     '<div class="list-entry">' +
       '<label for="{{{id}}}" class="text-box-number-label">' +
         '<span class="visuallyhidden">{{listItemName}} number </span>{{number}}.' +
       '</label>' +
       '<input' +
-      ' type="text"' +
-      ' name="{{{name}}}"' +
-      ' id="{{{id}}}"' +
-      ' class="text-box"' +
-      ' value="{{value}}"' +
-      '{{{optionalGlobalAttributes}}}' + 
+        ' name="{{name}}"' +
+        ' id="{{id}}"' +
+        ' value="{{value}}"' +
+        ' {{{sharedAttributes}}}' +
       '/>' +
       '{{#button}}' +
         '<button type="button" class="button-secondary list-entry-remove">' +
@@ -52,32 +50,48 @@
   ListEntry.prototype.addButtonTemplate = Hogan.compile(
     '<button type="button" class="button-secondary list-entry-add">Add another {{listItemName}} ({{entriesLeft}} remaining)</button>'
   );
-  ListEntry.prototype.setOptionalAttributes = function () {
-    var attrIdx = this.optionalAttributeNames.length,
-        outputHTML = [],
-        attrName,
-        attrValue;
+  ListEntry.prototype.getSharedAttributes = function () {
+    var $inputs = this.$wrapper.find('input'),
+        attributeTemplate = Hogan.compile(' {{name}}="{{value}}"'),
+        generatedAttributes = ['id', 'name', 'value'],
+        attributes = [],
+        attrIdx,
+        elmAttributes,
+        getAttributesHTML;
 
-    this.optionalGlobalAttributes = [];
-    while (attrIdx--) {
-      attrName = this.optionalAttributeNames[attrIdx];
-      attrValue = this.$wrapper.find('input').eq(0).attr(attrName);
-      if (attrValue !== undefined) {
-        outputHTML.push(' ' + attrName + '="' + attrValue + '"');
+    getAttributesHTML = function (attrsByElm) {
+      var attrStr = '',
+          elmIdx = attrsByElm.length,
+          elmAttrs,
+          attrIdx;
+
+      while (elmIdx--) {
+        elmAttrs = attrsByElm[elmIdx];
+        attrIdx = elmAttrs.length;
+        while (attrIdx--) {
+          attrStr += attributeTemplate.render({ 'name': elmAttrs[attrIdx].name, 'value': elmAttrs[attrIdx].value });
+        }
       }
-    }
+      return attrStr;
+    };
 
-    if (!outputHTML.length) {
-      this.optionalGlobalAttributes = '';
-    }
-    return this.optionalGlobalAttributes = outputHTML.join(' ');
-  };
-  ListEntry.prototype.getOptionalAttributesHTML = function () {
-    var attrIdx = this.optionalGlobalAttributes.length;
-        outputHTML = [];
+    $inputs.each(function (idx, elm) {
+      attrIdx = elm.attributes.length;
+      elmAttributes = [];
+      while(attrIdx--) {
+        if ($.inArray(elm.attributes[attrIdx].name, generatedAttributes) === -1) {
+          elmAttributes.push({
+            'name': elm.attributes[attrIdx].name,
+            'value': elm.attributes[attrIdx].value
+          });
+        }
+      }
+      if (elmAttributes.length) {
+        attributes.push(elmAttributes);
+      }
+    });
 
-    while (attrIdx--) {
-    }
+    this.sharedAttributes = (attributes.length) ? getAttributesHTML(attributes) : '';
   };
   ListEntry.prototype.getValues = function () {
     this.entries = [];
@@ -166,7 +180,7 @@
             'name' : this.getId(),
             'value' : entry,
             'listItemName' : this.listItemName,
-            'optionalGlobalAttributes': this.optionalGlobalAttributes
+            'sharedAttributes': this.sharedAttributes
           };
 
       if (entryNumber > 1) {
