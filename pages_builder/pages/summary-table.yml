@@ -323,3 +323,47 @@ examples:
         {{ summary.external_link("https://gov.uk/", "https://gov.uk/") }}
       {% endcall %}
     {% endcall %}
+  - |
+    {% import "summary-table.html" as summary %}
+      {% call summary.mapping_table(
+      row_bold_borders=True,
+      text_large = True,
+      no_bottom_border=True,
+      caption="If you publish today, you must be aware of the following dates:",
+      caption_visible=True,
+      field_headings=[
+        "Date",
+        "Notice",
+      ],
+      field_headings_visible=False
+    ) %}
+      {% call summary.row(no_border=True) %}
+        {{ summary.field_heading_date("Today", scope='row') }}
+        {{ summary.text("Suppliers can apply and ask questions about your requirements.") }}
+      {% endcall %}
+      {% call summary.row(bold_border=True) %}
+        {{ summary.field_heading_date("Before 14 April", rowspan='3', scope='row') }}
+        {{ summary.text_bold("Details of your question and answer session") }}
+      {% endcall %}
+      {% call summary.row(no_border=True) %}
+        {{ summary.text("Question and answer session information.") }}
+      {% endcall %}
+      {% call summary.row(no_border=True) %}
+        {{ summary.text_bold("You must hold your question and answer session before 11 April.", border=True) }}
+      {% endcall %}
+      {% call summary.row(bold_border=True) %}
+        {{ summary.field_heading_date("14 April", scope='row') }}
+        {{ summary.text("Suppliers can no longer ask questions.") }}
+      {% endcall %}
+      {% call summary.row(bold_border=True) %}
+        {{ summary.field_heading_date("16 April", rowspan='2', scope='row') }}
+        {{ summary.text("You must have published answers to all suppliers’ questions.") }}
+      {% endcall %}
+      {% call summary.row(no_border=True) %}
+        {{ summary.text("If 16 April is a Saturday or Sunday, you need to have published all questions and answers by the Friday before.", border=True) }}
+      {% endcall %}
+      {% call summary.row(bold_border=True) %}
+        {{ summary.field_heading_date("18 April", scope='row') }}
+        {{ summary.text("Suppliers can no longer apply.") }}
+      {% endcall %}
+    {% endcall %}

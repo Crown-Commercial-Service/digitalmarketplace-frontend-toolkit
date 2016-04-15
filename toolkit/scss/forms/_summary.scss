@@ -10,6 +10,7 @@
   position: relative;
   padding: 35px 25% 0 0;
   margin: 0 0 10px 0;
+  text-align: left;
   @include box-sizing(border-box);
 }
 
@@ -25,8 +26,28 @@
   text-align: right;
 }
 
+%summary-item-field-heading-custom,
+.summary-item-field-heading-custom {
+  font-weight: normal;
+  text-align: left;
+  vertical-align: text-top;
+  padding-top: 12px;
+}
+
+.summary-item-field-heading-custom-first-narrow {
+  @extend %summary-item-field-heading-custom;
+  font-weight: normal;
+  text-align: left;
+  width: 25%;
+}
+
+caption {
+  text-align: left;
+  margin-bottom: 12px;
+  padding-top: 35px;
+}
+
 .summary-item-description {
-  @include copy-19;
   margin: 0 0 4px 0;
 }
 
@@ -61,27 +82,86 @@
   border-bottom: 1px solid $border-colour;
 }
 
-%summary-item-row,
-.summary-item-row {
-  @include core-19;
-  text-align: right;
-  border-top: 1px solid $border-colour;
-}
-
+%summary-table,
 table.summary-item-body {
-
   @extend %summary-item-body;
+  @include core-16;
   border-collapse: collapse;
   border-spacing: 0;
 
   tbody {
+    tr {
+      text-align: right;
+      border-top: 1px solid $border-colour;
+    }
 
     td {
       padding-top: 12px;
       padding-bottom: 9px;
       vertical-align: top;
     }
+  }
 
+}
+
+%summary-table-borderless,
+table.summary-item-body-no-bottom-border {
+  @extend %summary-table;
+  border-bottom: 0;
+}
+
+table.summary-item-body-no-bottom-border-text-large {
+  @extend %summary-table-borderless;
+  @include copy-19;
+}
+
+%summary-table-borderless-row-bold-borders,
+table.summary-item-body-no-bottom-border-row-bold-borders {
+  @extend %summary-table-borderless;
+  tbody {
+    tr {
+      border-top: 1px solid $black;
+    }
+  }
+}
+
+%summary-table-row-bold-borders,
+table.summary-item-body-row-bold-borders {
+  @extend %summary-table;
+  tbody {
+    tr {
+      border-top: 1px solid $black;
+    }
+  }
+}
+
+%summary-table-row-bold-borders-text-large,
+table.summary-item-body-row-bold-borders-text-large {
+  @extend %summary-table-row-bold-borders;
+  tbody {
+    tr {
+      border-top: 1px solid $black;
+    }
+  }
+}
+
+%summary-table-borderless-row-bold-borders-text-large,
+table.summary-item-body-no-bottom-border-row-bold-borders-text-large {
+  @include copy-19;
+  @extend %summary-table-borderless-row-bold-borders;
+
+   tbody {
+    tr.summary-item-row-no-border {
+      border-top: 0;
+
+      td {
+        padding-top: 0;
+      }
+
+      .summary-item-field-border{
+        padding-top: 12px;
+      }
+    }
   }
 
 }
@@ -91,8 +171,6 @@ table.summary-item-body {
 
   vertical-align: middle;
   text-align: left;
-  @include core-16;
-  padding-left: 25px;
 
   ul {
     margin: 0;
@@ -119,16 +197,38 @@ table.summary-item-body {
   }
 }
 
+%summary-item-field-no-padding,
+table.summary-item-body tbody .summary-item-field-no-padding {
+  @extend %summary-item-field;
+  padding-bottom: 0;
+}
+
+table.summary-item-body tbody .summary-item-field-first-narrow-no-padding {
+  @extend %summary-item-field-no-padding;
+}
+
+.summary-item-field-border {
+  @extend %summary-item-field;
+  border-top: 1px solid $border-colour;
+}
+
+.summary-item-text-large{
+  text-align: left;
+}
+
 .summary-item-field-first {
   @extend %summary-item-field;
   width: 33.333%;
-  padding-left: 0;
+}
+
+.summary-item-field-first-narrow {
+  @extend %summary-item-field;
+  width: 20%;
 }
 
 .summary-item-field-first-wider {
   @extend %summary-item-field;
   width: 50%;
-  padding-left: 0;
 }
 
 .summary-item-field-with-action {
@@ -150,12 +250,11 @@ table.summary-item-body {
 
 %summary-item-field-heading,
 .summary-item-field-heading {
-  padding: 10px 0 10px 25px;
+  padding: 10px 0 10px 0;
 }
 
 .summary-item-field-heading-first {
   @extend %summary-item-field-heading;
-  padding-left: 0;
 }
 
 a.summary-item-remove-link {
