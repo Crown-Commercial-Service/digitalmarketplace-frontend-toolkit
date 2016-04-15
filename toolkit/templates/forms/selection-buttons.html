@@ -1,9 +1,16 @@
+{% if hint %}
+  {% set answer_advice_id="input-{}-answer-advice".format(name) %}
+{% endif %}
+{% if question_advice %}
+  {% set question_advice_id="input-{}-question-advice".format(name) %}
+{% endif %}
+
 {% if error %}
   <div class="validation-wrapper">
 {% endif %}
   <fieldset class="question first-question" id="{{ name }}">
     <legend>
-      <span class="question-heading {% if hint %}question-heading-with-hint{% endif %}" {%- if hint and hint_underneath %} aria-describedby="hint-{{ name }}"{% endif %}>
+      <span class="question-heading {% if hint or question_advice %}question-heading-with-hint{% endif %}">
         {% if question_number %}
           <span class="question-number">
             {{ question_number }}
@@ -11,25 +18,44 @@
         {% endif %}
         {{ question }}
       </span>
-      {% if hint and not hint_underneath %}
-        <span class="hint">
-          {{ hint }}
-        </span>
-      {% endif %}
       {% if error %}
         <span class="validation-message" id="error-{{ name }}">
           {{ error }}
         </span>
       {% endif %}
     </legend>
+    {% if question_advice %}
+      <span class="question-advice" id="{{ question_advice_id }}">
+        {{ question_advice }}
+      </span>
+    {% endif %}
+    {% if hint and not hint_underneath %}
+      <span class="hint" id="{{ answer_advice_id }}">
+        {{ hint }}
+      </span>
+    {% endif %}
     {% if type == "boolean" %}
       <label class="selection-button selection-button-boolean" for="input-{{ name }}-yes">
         Yes
-        <input type="radio" name="{{ name }}" id="input-{{ name }}-yes" value="true" {% if value is sameas true %} checked{% endif %} />
+        <input
+          type="radio"
+          name="{{ name }}"
+          id="input-{{ name }}-yes"
+          value="true"
+          {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+          {% if value is sameas true %} checked{% endif %}
+        />
       </label>
       <label class="selection-button selection-button-boolean" for="input-{{ name }}-no">
         No
-        <input type="radio" name="{{ name }}" id="input-{{ name }}-no" value="false" {% if value is sameas false %} checked{% endif %} />
+        <input
+          type="radio"
+          name="{{ name }}"
+          id="input-{{ name }}-no"
+          value="false"
+          {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+          {% if value is sameas false %} checked{% endif %}
+        />
       </label>
     {% else %}
       {% for option in options %}
@@ -37,9 +63,23 @@
         <label class="selection-button{% if inline %} selection-button-inline{% endif %}" for="input-{{ name }}-{{ loop.index }}">
           {{ option.label }}
           {% if type == "radio" %}
-            <input type="{{ type }}" name="{{ name }}" id="input-{{ name }}-{{ loop.index }}" value="{{ input_value }}" {% if input_value == value %}checked="checked"{% endif %} />
+            <input
+              type="{{ type }}"
+              name="{{ name }}"
+              id="input-{{ name }}-{{ loop.index }}"
+              value="{{ input_value }}"
+              {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+              {% if input_value == value %}checked="checked"{% endif %}
+            />
           {% elif type == "checkbox" %}
-            <input type="{{ type }}" name="{{ name }}" id="input-{{ name }}-{{ loop.index }}" value="{{ input_value }}" {% if value and input_value in value %}checked="checked"{% endif %} />
+            <input
+              type="{{ type }}"
+              name="{{ name }}"
+              id="input-{{ name }}-{{ loop.index }}"
+              value="{{ input_value }}"
+              {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+              {% if value and input_value in value %}checked="checked"{% endif %}
+            />
           {% endif %}
           {% if option.description %}
             <p class="question-description">
@@ -50,7 +90,7 @@
       {% endfor %}
     {% endif %}
     {% if hint and hint_underneath %}
-      <div class="hint-underneath" id="hint-{{ name }}">
+      <div class="hint-underneath" id="{{ answer_advice_id }}">
         {{ hint }}
       </div>
     {% endif %}

@@ -94,6 +94,14 @@ describe("ListEntryField", function () {
       GOVUK.GDM.listEntry();
       expect($wrapper.find('button.list-entry-add').length).toEqual(1);
     });
+
+    it("Should copy all shared attributes into the new entries", function () {
+      $wrapper.find('input').attr('aria-describedby', 'hint1');
+      $wrapper.find('input').addClass('requirements-list-item');
+      GOVUK.GDM.listEntry();
+      expect($wrapper.find('input').attr('aria-describedby')).toEqual('hint1');
+      expect($wrapper.find('input').hasClass('requirements-list-item')).toBe(true);
+    });
   });
 
   describe("When the 'remove' button is clicked", function () {

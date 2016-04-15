@@ -52,8 +52,34 @@ examples:
     question_number: '19'
   -
     type: radio
-    question: Checkbox with hint and description
-    hint: Hint giving some information about how to answer the question.
+    question: Checkbox with hint and option description
+    hint: Advice about how to answer the question
+    name: lot
+    options:
+      -
+        label: Infrastructure as a Service
+        description: >
+          Infrastructure is the hardware that makes software work. It's the networks, hosting facilities
+          and servers that platforms and software depend on. IaaS is infrastructure you can order and run
+          entirely over the internet, without having to pay for your own hardware.
+  -
+    type: radio
+    question: Checkbox with question advice, hint and option description
+    question_advice: Advice about the question
+    hint: Advice about how to answer the question
+    name: lot
+    options:
+      -
+        label: Infrastructure as a Service
+        description: >
+          Infrastructure is the hardware that makes software work. It's the networks, hosting facilities
+          and servers that platforms and software depend on. IaaS is infrastructure you can order and run
+          entirely over the internet, without having to pay for your own hardware.
+  -
+    type: radio
+    question: Checkbox with hint, question description and option description
+    description: Description of the question
+    hint: Advice about how to answer the question
     name: lot
     options:
       -

@@ -6,32 +6,49 @@
   {% endif %}
 {%- endmacro %}
 
+{% if hint %}
+  {% set answer_advice_id="input-{}-answer-advice".format(name) %}
+{% endif %}
+{% if question_advice %}
+  {% set question_advice_id="input-{}-question-advice".format(name) %}
+{% endif %}
+
 {% if error %}
   <div class="validation-wrapper validation-wrapper-pricing">
 {% endif %}
   <fieldset class="question first-question" id="{{ name }}">
     <legend>
-      <span class="question-heading {% if hint %}question-heading-with-hint{% endif %}">
+      <span class="question-heading {% if hint or question_advice %}question-heading-with-hint{% endif %}">
         {{ question }}
       </span>
-      {% if hint %}
-        <span class="hint">
-          {{ hint }}
-        </span>
-      {% endif %}
       {% if error %}
-        <span class="validation-message" id="error-{{ name }}">
+        <span class="validation-message">
           {{ error }}
         </span>
       {% endif %}
     </legend>
+    {% if question_advice %}
+    <span class="question-advice" id="input-{{ name }}-question-advice">
+      {{ question_advice }}
+    </span>
+    {% endif %}
+    {% if hint %}
+    <span class="hint" id="input-{{ name }}-answer-advice">
+      {{ hint }}
+    </span>
+    {% endif %}
     <div class="pricing">
       {% if 'hours_for_price' in fields %}
       <div class="pricing-column">
         <label for="input-pricing-hours">
           Hours
         </label>
-        <select class="pricing-input-select" name="{{ fields.hours_for_price }}" id="input-pricing-hours">
+        <select
+          class="pricing-input-select"
+          name="{{ fields.hours_for_price }}"
+          id="input-pricing-hours"
+          {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+        >
           {{ _option("", hours_for_price) }}
           {{ _option("1 hour", hours_for_price) }}
           {{ _option("2 hours", hours_for_price) }}
@@ -54,7 +71,14 @@
           <span class="visually-hidden">in</span>
           <span class="pricing-unit">£</span>
         </label>
-        <input type="text" class="text-box pricing-input-with-unit" name="{{ fields.price }}" id="input-price" value="{{ price or "" }}"/>
+        <input
+          type="text"
+          class="text-box pricing-input-with-unit"
+          name="{{ fields.price }}"
+          id="input-price"
+          value="{{ price or "" }}"
+          {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+        />
       </div>
       {% endif %}
       {% if 'minimum_price' in fields %}
@@ -67,7 +91,14 @@
         {% if 'minimum_price' in optional_fields %}
         <p class="question-hint">Optional</p>
         {% endif %}
-        <input type="text" class="text-box pricing-input-with-unit" name="{{ fields.minimum_price }}" id="input-minimum-price" value="{{ minimum_price or "" }}"/>
+        <input
+          type="text"
+          class="text-box pricing-input-with-unit"
+          name="{{ fields.minimum_price }}"
+          id="input-minimum-price"
+          value="{{ minimum_price or "" }}"
+          {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+        />
       </div>
       {% endif %}
       {% if 'maximum_price' in fields %}
@@ -83,7 +114,14 @@
         {% if 'maximum_price' in optional_fields %}
         <p class="question-hint">Optional</p>
         {% endif %}
-        <input type="text" class="text-box pricing-input-with-unit" name="{{ fields.maximum_price }}" id="input-maximum-price" value="{{ maximum_price or "" }}"/>
+        <input
+          type="text"
+          class="text-box pricing-input-with-unit"
+          name="{{ fields.maximum_price }}"
+          id="input-maximum-price"
+          value="{{ maximum_price or "" }}"
+          {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+        />
       </div>
       {% endif %}
       {% if 'price_unit' in fields %}
@@ -97,7 +135,12 @@
         {% if 'price_unit' in optional_fields %}
         <p class="question-hint">Optional</p>
         {% endif %}
-        <select class="pricing-input-select" name="{{ fields.price_unit }}" id="input-price-unit">
+        <select
+          class="pricing-input-select"
+          name="{{ fields.price_unit }}"
+          id="input-price-unit"
+          {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+        >
           {{ _option("", price_unit) }}
           {{ _option("Unit", price_unit) }}
           {{ _option("Person", price_unit) }}
@@ -125,7 +168,12 @@
         {% if 'price_interval' in optional_fields %}
         <p class="question-hint">Optional</p>
         {% endif %}
-        <select class="pricing-input-select" name="{{ fields.price_interval }}" id="input-pricing-interval">
+        <select
+          class="pricing-input-select"
+          name="{{ fields.price_interval }}"
+          id="input-pricing-interval"
+          {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+        >
           {{ _option("", price_interval) }}
           {{ _option("Second", price_interval) }}
           {{ _option("Minute", price_interval) }}

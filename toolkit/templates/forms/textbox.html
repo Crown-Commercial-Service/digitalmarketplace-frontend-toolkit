@@ -1,9 +1,16 @@
+{% if hint %}
+  {% set answer_advice_id="input-{}-answer-advice".format(name) %}
+{% endif %}
+{% if question_advice %}
+  {% set question_advice_id="input-{}-question-advice".format(name) %}
+{% endif %}
+
 {% if error %}
   <div class="validation-wrapper">
 {% endif %}
   <div class="question" id="{{ name }}">
     <label for="input-{{ name }}">
-      <span class="question-heading{% if hint is defined %}-with-hint{% endif %}">
+      <span class="question-heading{% if hint or question_advice %}-with-hint{% endif %}">
         {% if question_number %}
           <span class="question-number">
             {{ question_number }}
@@ -14,26 +21,31 @@
           <span class="text-box-unit-qualifier">(in {{ unit_in_full }})</span>
         {% endif %}
       </span>
-      {% if hint %}
-        <span class="hint">
-          {{ hint }}
-        </span>
-      {% endif %}
       {% if error %}
-        <span class="validation-message" id="error-{{ name }}">
+        <span class="validation-message">
           {{ error }}
         </span>
       {% endif %}
     </label>
+    {% if question_advice %}
+    <span class="question-advice" id="{{ question_advice_id }}">
+      {{ question_advice }}
+    </span>
+    {% endif %}
+    {% if hint %}
+    <span class="hint" id="{{ answer_advice_id }}">
+      {{ hint }}
+    </span>
+    {% endif %}
     {% if large %}
-      {% if max_length_in_words is defined %}
+      {% if max_length_in_words %}
         <div class="word-count">
           <textarea
             class="text-box text-box-large{% if error %}-with-error{% endif %}"
             name="{{ name }}"
             id="input-{{ name }}"
             data-max-length-in-words="{{ max_length_in_words }}"
-            {% if error %}aria-describedby="error-{{ name }}"{% endif %}
+            {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
           >
           {%- if value != None -%}
             {{ value }}
@@ -53,7 +65,14 @@
           {{ unit }}
         </label>
       {% endif %}
-      <input type="text" name="{{ name }}" id="input-{{ name }}" class="text-box{% if unit %}-with-unit-{{ unit_position }}{% endif %}{% if error %}-with-error{% endif %}{% if smaller %} text-box-smaller{% endif %}" value="{% if value !=  None %}{{ value }}{% endif %}" />
+      <input
+        type="text"
+        name="{{ name }}"
+        id="input-{{ name }}"
+        class="text-box{% if unit %}-with-unit-{{ unit_position }}{% endif %}{% if error %}-with-error{% endif %}{% if smaller %} text-box-smaller{% endif %}"
+        value="{% if value !=  None %}{{ value }}{% endif %}"
+        {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+      />
       {% if unit_position == "after" %}
         <label for="input-{{ name }}" class="text-box-unit">
           {{ unit }}

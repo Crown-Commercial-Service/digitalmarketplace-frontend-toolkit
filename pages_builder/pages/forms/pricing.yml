@@ -4,7 +4,20 @@ grid: column-two-thirds
 examples:
   -
     question: Price
-    hint: Hint comprising further information about the price
+    hint: Hint giving advice about how to answer
+    name: price
+    fields:
+      minimum_price: priceMin
+      maximum_price: priceMax
+      price_unit: priceUnit
+      price_interval: priceInterval
+    optional_fields:
+      - maximum_price
+
+  -
+    question: Price
+    question_advice: Advice about the question
+    hint: Hint giving advice about how to answer
     name: price
     fields:
       minimum_price: priceMin
@@ -15,7 +28,7 @@ examples:
       - maximum_price
 
   - question: Price with default values
-    hint: Hint comprising further information about the price
+    hint: Hint giving advice about how to answer
     name: price
     fields:
       minimum_price: priceMin

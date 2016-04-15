@@ -7,7 +7,13 @@ examples:
     name: question-1
   -
     question: Please replace the file you previously uploaded
-    hint: Hint comprising further information about the question
+    hint: Advice about the answer
+    name: question-2
+    value: 1234123412341234-pricing-document.pdf
+  -
+    question: Please replace the file you previously uploaded
+    question_advice: Advice about the question
+    hint: Advice about the answer
     name: question-2
     value: 1234123412341234-pricing-document.pdf
   -
