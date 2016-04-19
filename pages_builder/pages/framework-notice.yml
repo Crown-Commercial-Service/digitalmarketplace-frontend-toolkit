@@ -5,10 +5,12 @@ grid: column-one-third
 examples:
   -
     heading: 'Become a Digital Outcomes and Specialists supplier'
-    subheading: 'Deadline: 14 February 2016 ❤'
-    message: >
-      **Digital Outcomes and Specialists will be open for applications soon.**
+    subheading: |
+      5pm BST, 14 February 2016 ❤
 
+      *[BST]: British Summer Time
+    message: |
+      **Digital Outcomes and Specialists will be open for applications soon.**
 
       You can apply to provide:
 
@@ -20,6 +22,5 @@ examples:
         - user research participants
 
       [Create an account](https://www.digitalmarketplace.service.gov.uk/) to receive an email when Digital Outcomes and Specialists opens.
-
 
       [Find out how to apply](https://www.digitalmarketplace.service.gov.uk/)
