@@ -10,4 +10,4 @@ watchdog==0.8.3
 termcolor==1.1.0
 
 git+https://github.com/madzak/python-json-logger.git@v0.1.3#egg=python-json-logger==v0.1.3
-git+https://github.com/alphagov/digitalmarketplace-utils.git@10.6.0#egg=digitalmarketplace-utils==10.6.0
+git+https://github.com/alphagov/digitalmarketplace-utils.git@19.7.0#egg=digitalmarketplace-utils==19.7.0
