@@ -4,7 +4,7 @@
   </h3>
   {% if subheading %}
     <p class="framework-notice-subheading">
-      {{ subheading }}
+      {{ subheading|markdown }}
     </p>
   {% endif %}
   {% if message %}
