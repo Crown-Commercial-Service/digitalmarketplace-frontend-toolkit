@@ -6,6 +6,10 @@ examples:
     question: Please upload a file
     name: question-1
   -
+    question: Optionally upload a file
+    name: question-1
+    optional: true
+  -
     question: Please replace the file you previously uploaded
     hint: Advice about the answer
     name: question-2
@@ -24,4 +28,9 @@ examples:
   -
     question: With a bad upload
     name: question-4
+    error: The file you uploaded was too big &ndash; maximum file size is 5Mb
+  -
+    question: Optional with a bad upload
+    name: question-4
+    optional: true
     error: The file you uploaded was too big &ndash; maximum file size is 5Mb

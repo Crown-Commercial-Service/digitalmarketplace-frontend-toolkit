@@ -18,6 +18,7 @@ examples:
     question: Price
     question_advice: Advice about the question
     hint: Hint giving advice about how to answer
+    optional: true
     name: price
     fields:
       minimum_price: priceMin
