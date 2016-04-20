@@ -117,16 +117,45 @@ examples:
         label: Collaboration
   -
     type: checkbox
-    name: fruits
-    question: Optional checkboxes with an error and question advice
+    name: dont
+    question: Optional checkboxes with an error despite loads of guidance
     question_number: 77
-    error: Answer required
-    question_advice: 5 to 10 a day
+    error: From 12th January 1973 it will no longer be legal
+    question_advice: |
+      To find the best specialist to meet your needs, you should:
+
+      - list as many types of skills and experience as you can
+      - be specific about the skills and experience you're looking for
+
+      If too many suppliers have all the essential skills and experience, you’ll use the nice-to-have skills and
+      experience to exclude suppliers.
+
+      You must tell suppliers if you want to score individual criteria.
+
+      [Read more about how to set evaluation criteria](https://www.gov.uk/guidance/how-to-set-your-evaluation-criteria-when-buying-digital-outcomes-and-specialists-services#giving-points-to-individual-criteria)
+
+      List the skills and experience you’d like the specialist to have,
+      eg experience working on government digital projects
+    hint: |
+      To find the best specialist to meet your needs, you should:
+
+      - list as many types of skills and experience as you can
+      - be specific about the skills and experience you're looking for
+
+      If too many suppliers have all the essential skills and experience, you’ll use the nice-to-have skills and
+      experience to exclude suppliers.
+
+      You must tell suppliers if you want to score individual criteria.
+
+      [Read more about how to set evaluation criteria](https://www.gov.uk/guidance/how-to-set-your-evaluation-criteria-when-buying-digital-outcomes-and-specialists-services#giving-points-to-individual-criteria)
+
+      List the skills and experience you’d like the specialist to have,
+      eg experience working on government digital projects
     optional: true
     options:
       -
-        label: Banana
+        label: Don’t
       -
-        label: Banananana
+        label: Don’t
       -
-        label: Bananana
+        label: Don’t
