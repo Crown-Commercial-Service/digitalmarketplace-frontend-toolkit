@@ -4,7 +4,7 @@
   {% import 'toolkit/summary-content.html' as content %}
 {% endif %}
 
-{% macro heading(heading, index=None, id=None) -%}
+{% macro heading(heading, index=None, id=None, hidden=False) -%}
   <h2 class="summary-item-heading"{% if id %} id="{{ id }}"{% endif %}>
       {% if index %}
         <span class="summary-item-heading-number">{{ index }}.</span>
@@ -25,10 +25,10 @@
   </p>
 {%- endmacro %}
 
-{% macro mapping_table(caption='', field_headings='', field_headings_visible=True) -%}
-  <table class="summary-item-body">
-    <caption class="visuallyhidden">
-      {{ caption }}
+{% macro mapping_table(caption='', field_headings='', field_headings_visible=True, caption_visible=False, no_bottom_border=False, row_bold_borders=False, text_large=False) -%}
+  <table class="summary-item-body{% if no_bottom_border %}-no-bottom-border{% endif %}{% if row_bold_borders %}-row-bold-borders{% endif %}{% if text_large %}-text-large{% endif %}">
+    <caption {% if not caption_visible %}class="visuallyhidden"{% endif %}>
+      {% if caption_visible %}<strong>{% endif %}{{ caption }}{% if caption_visible %}</strong>{% endif %}
     </caption>
     <thead class="summary-item-field-headings{% if field_headings_visible %}-visible{% endif %}">
       <tr>
@@ -72,8 +72,8 @@
 {%- endmacro %}
 
 
-{% macro row(complete=True) -%}
-  <tr class="summary-item-row{% if not complete %}-incomplete{% endif %}">
+{% macro row(complete=True, no_border=False, bold_border=False) -%}
+  <tr class="summary-item-row{% if not complete %}-incomplete{% endif %}{% if no_border %}-no-border{% elif bold_border %}-bold-border{% endif %}">
     {{ caller() }}
   </tr>
 {%- endmacro %}
@@ -82,17 +82,26 @@
 {# GENERIC FIELD #}
 {# ============= #}
 
-{% macro field(first=False, wide=False, action=False) -%}
+{% macro field(first=False, wide=False, action=False, large=False, narrow=False, border=False, bold=False,  rowspan='') -%}
   {% set data = caller() %}
-  <td class="summary-item-field{% if first %}-first{% endif %}{% if first and wide %}-wider{% endif %}{% if action %}-with-action{% endif %}">
+  <td {% if rowspan %}rowspan={{ rowspan }}{% endif %} class="summary-item-field{% if first %}-first{% endif %}{% if first and wide %}-wider{% endif %}{% if action %}-with-action{% endif %}{% if narrow %}-narrow{% endif %}{% if border %}-border{% endif %}">
     {% if data %}
-    <span>{{ data }}</span>
+      {% if bold %}<strong>{% endif %}<span>{{ data }}</span>{% if bold %}</strong>{% endif %}
     {% endif %}
   </td>
 {%- endmacro %}
 
 {# SPECIAL FIELD TYPES #}
 {# =================== #}
+
+{% macro field_heading_custom(first=False, wide=False, action=False, large=False, narrow=False, border=False, bold=False,  rowspan='', scope='') -%}
+  {% set data = caller() %}
+  <th {% if rowspan %}rowspan={{ rowspan }}{% endif %}{% if scope%} scope={{ scope }} {% endif %} class="summary-item-field-heading-custom{% if first %}-first{% endif %}{% if first and wide %}-wider{% endif %}{% if action %}-with-action{% endif %}{% if narrow %}-narrow{% endif %}{% if border %}-border{% endif %}">
+    {% if data %}
+      {% if bold %}<strong>{% endif %}<span>{{ data }}</span>{% if bold %}</strong>{% endif %}
+    {% endif %}
+  </th>
+{%- endmacro %}
 
 {% macro service_link(service_name=None, link=None, wide=True) -%}
   {% call field(first=True, wide=wide) -%}
@@ -137,6 +146,13 @@
   {%- endcall %}
 {%- endmacro %}
 
+{% macro field_heading_date(text=None,  rowspan='', scope='') -%}
+  {% call field_heading_custom(first=True, narrow=True, rowspan=rowspan, scope=scope) -%}
+    {% if text -%}
+      {{ text }}
+    {%- endif %}
+  {%- endcall %}
+{%- endmacro %}
 
 {% macro button(text=None, action=None, csrf_token_value='') -%}
   {% call field(action=True) -%}
@@ -153,8 +169,8 @@
 {# FIELDS for PRESENTING SERVICE DATA #}
 {# ================================== #}
 
-{% macro text(text='', assurance=None) -%}
-  {% call field() -%}
+{% macro text(text='', assurance=None, border=False, bold=False,  rowspan='', id='') -%}
+  {% call field(border=border, bold=bold, rowspan=rowspan) -%}
     {% if text -%}
       {{ content.text_content(text, assurance) }}
     {%- endif %}
@@ -186,6 +202,9 @@
   {{ text(value, assurance) }}
 {%- endmacro %}
 
+{% macro text_bold(value='', assurance=None, bold=True, border=False,  rowspan='', id='') -%}
+  {{ text(value, assurance, border=border, bold=bold, id=id) }}
+{%- endmacro %}
 
 {% macro upload(value=None, assurance=None) -%}
   {% call field() -%}
