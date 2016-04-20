@@ -27,14 +27,19 @@
         </span>
       {% endif %}
     </legend>
+    {% if optional %}
+      <span class="question-optional">
+        <strong>Optional</strong>
+      </span>
+    {% endif %}
     {% if question_advice %}
     <span class="question-advice" id="input-{{ name }}-question-advice">
-      {{ question_advice }}
+      {{ question_advice|markdown }}
     </span>
     {% endif %}
     {% if hint %}
     <span class="hint" id="input-{{ name }}-answer-advice">
-      {{ hint }}
+      {{ hint|markdown }}
     </span>
     {% endif %}
     <div class="pricing">

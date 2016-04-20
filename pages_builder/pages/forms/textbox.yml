@@ -15,9 +15,10 @@ examples:
     name: question-2
     value: Now I know what to type here
   -
-    question: Text box with hint, question_advice and question number
+    question: Optional text box with hint, question_advice and question number
     question_advice: Advice about the question
     hint: Advice about how to answer
+    optional: true
     question_number: "22"
     name: question-2
     value: Now I know what to type here
@@ -38,12 +39,51 @@ examples:
     name: question-5
     value: hello2example.com
   -
-    question: Text box with hint, question number and error
+    question: Optional text box with hint, question number and error
     question_number: "13"
     hint: eg hello@example.com
+    optional: true
     error: Must be a valid email address
     name: question-6
     value: hello2example.com
+  -
+    question: Optional text box with error despite loads of guidance
+    question_number: "13"
+
+    question_advice: |
+      To find the best specialist to meet your needs, you should:
+
+      - list as many types of skills and experience as you can
+      - be specific about the skills and experience you're looking for
+
+      If too many suppliers have all the essential skills and experience, you’ll use the nice-to-have skills and
+      experience to exclude suppliers.
+
+      You must tell suppliers if you want to score individual criteria.
+
+      [Read more about how to set evaluation criteria](https://www.gov.uk/guidance/how-to-set-your-evaluation-criteria-when-buying-digital-outcomes-and-specialists-services#giving-points-to-individual-criteria)
+
+      List the skills and experience you’d like the specialist to have,
+      eg experience working on government digital projects
+    hint: |
+      To find the best specialist to meet your needs, you should:
+
+      - list as many types of skills and experience as you can
+      - be specific about the skills and experience you're looking for
+
+      If too many suppliers have all the essential skills and experience, you’ll use the nice-to-have skills and
+      experience to exclude suppliers.
+
+      You must tell suppliers if you want to score individual criteria.
+
+      [Read more about how to set evaluation criteria](https://www.gov.uk/guidance/how-to-set-your-evaluation-criteria-when-buying-digital-outcomes-and-specialists-services#giving-points-to-individual-criteria)
+
+      List the skills and experience you’d like the specialist to have,
+      eg experience working on government digital projects
+    optional: true
+    error: From 12th January 1973 it will no longer be legal
+    name: question-6
+    value: Whatever you do
   -
     title: Numeric textbox with unit before
     question: Price

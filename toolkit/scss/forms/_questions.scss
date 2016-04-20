@@ -1,5 +1,6 @@
 @import "_colours";
 @import "_typography.scss";
+@import "shared_scss/_dmspeak.scss";
 
 .question,
 %question {
@@ -65,5 +66,21 @@
     }
 
   }
+}
 
+.question-optional {
+  @include core-19;
+  display: block;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+.question-advice {
+  @extend %markdown-description;
+  margin-top: 10px;
+  display: block;
+}
+
+.question-optional + .question-advice {
+  margin-top: 0;
 }

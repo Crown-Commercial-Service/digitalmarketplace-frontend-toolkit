@@ -1,11 +1,11 @@
 @import "_colours.scss";
 @import "_typography.scss";
-@import "shared_scss/_lists.scss";
+@import "shared_scss/_dmspeak.scss";
 
 %hint,
 .hint {
+  @extend %markdown-description;
   display: block;
-  @include core-19;
   margin: 0 0 5px 0;
   color: $secondary-text-colour;
   clear: both;
@@ -14,8 +14,4 @@
 .hint-underneath {
   @extend %hint;
   padding-top: 10px;
-}
-
-.hint ul {
-  @include list-bullet;
 }
