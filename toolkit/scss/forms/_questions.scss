@@ -1,5 +1,6 @@
 @import "_colours";
 @import "_typography.scss";
+@import "shared_scss/_dmspeak.scss";
 
 .question,
 %question {
@@ -74,6 +75,12 @@
   padding-bottom: 10px;
 }
 
-.validation-wrapper .question-optional {
-  margin-top: 7px;
+.question-advice {
+  @extend %markdown-description;
+  margin-top: 10px;
+  display: block;
+}
+
+.question-optional + .question-advice {
+  margin-top: 0;
 }
