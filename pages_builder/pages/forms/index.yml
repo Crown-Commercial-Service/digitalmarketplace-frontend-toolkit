@@ -8,28 +8,28 @@ content: >
       </header>
       <ul class="index-list">
         <li>
-          <a href="forms/upload.html">File upload</a>
+          <a href="/forms/upload.html">File upload</a>
         </li>
         <li>
-          <a href="forms/keyword-search.html">Keyword search</a>
+          <a href="/forms/keyword-search.html">Keyword search</a>
         </li>
         <li>
-          <a href="forms/list-entry.html">List entry textbox</a>
+          <a href="/forms/list-entry.html">List entry textbox</a>
         </li>
         <li>
-          <a href="forms/option-select.html">Option select</a>
+          <a href="/forms/option-select.html">Option select</a>
         </li>
         <li>
-          <a href="forms/pricing.html">Pricing</a>
+          <a href="/forms/pricing.html">Pricing</a>
         </li>
         <li>
-          <a href="forms/selection-buttons.html">Selection buttons</a>
+          <a href="/forms/selection-buttons.html">Selection buttons</a>
         </li>
         <li>
-          <a href="forms/textbox.html">Textboxes</a>
+          <a href="/forms/textbox.html">Textboxes</a>
         </li>
         <li>
-          <a href="forms/validation.html">Validation</a>
+          <a href="/forms/validation.html">Validation</a>
         </li>
       </ul>
     </div>
