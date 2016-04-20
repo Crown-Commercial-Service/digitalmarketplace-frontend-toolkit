@@ -65,5 +65,15 @@
     }
 
   }
+}
 
+.question-optional {
+  @include core-19;
+  display: block;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+.validation-wrapper .question-optional {
+  margin-top: 7px;
 }

@@ -27,6 +27,11 @@
         </span>
       {% endif %}
     </legend>
+    {% if optional %}
+      <span class="question-optional">
+        <strong>Optional</strong>
+      </span>
+    {% endif %}
     {% if question_advice %}
     <span class="question-advice" id="input-{{ name }}-question-advice">
       {{ question_advice }}
