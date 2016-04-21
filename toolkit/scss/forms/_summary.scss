@@ -82,6 +82,13 @@ caption {
   border-bottom: 1px solid $border-colour;
 }
 
+%summary-item-row,
+.summary-item-row {
+  @include core-19;
+  text-align: right;
+  border-top: 1px solid $border-colour;
+}
+
 %summary-table,
 table.summary-item-body {
   @extend %summary-item-body;
