@@ -219,6 +219,7 @@ table.summary-item-body tbody .summary-item-field-first-narrow-no-padding {
 .summary-item-field-first {
   @extend %summary-item-field;
   width: 33.333%;
+  padding-right: 12px;
 }
 
 .summary-item-field-first-narrow {
