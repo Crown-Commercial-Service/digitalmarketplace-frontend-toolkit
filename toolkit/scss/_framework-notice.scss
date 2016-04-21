@@ -1,6 +1,7 @@
 @import "_typography.scss";
 @import "_measurements.scss";
 @import "_colours.scss";
+@import "shared_scss/_lists.scss";
 
 
 %framework-notice,
@@ -14,6 +15,7 @@
 
   .framework-notice-subheading {
     color: $secondary-text-colour;
+    display: block;
     margin: 0 0 5px 0;
   }
 
@@ -27,11 +29,9 @@
   }
 
   ul {
+    @include list-spacing($list-margin-top: 0px);
     margin: 0;
     padding: 0 0 10px 20px;
-
-     li {
-       padding-bottom: 5px;
-     }
+    list-style-type: disc;
   }
 }
