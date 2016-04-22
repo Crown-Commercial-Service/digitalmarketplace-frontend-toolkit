@@ -3,6 +3,11 @@
 @import "_conditionals.scss";
 @import "_shims.scss";
 
+.lead-in {
+  margin: 10px 0;
+  @include core-24;
+}
+
 .input-list {
 
   .list-entry {
