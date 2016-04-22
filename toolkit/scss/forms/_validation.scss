@@ -53,7 +53,7 @@
 }
 
 .validation-message {
-  display: block;
+  @include inline-block();
   @include core-19;
   font-weight: bold;
   color: $red;
