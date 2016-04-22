@@ -42,6 +42,11 @@
         {{ hint|markdown }}
       </span>
     {% endif %}
+    {% if lead_in %}
+      <p class="lead-in">
+        <strong>{{ lead_in }}</strong>
+      </p>
+    {% endif %}
     <div class="input-list" data-list-item-name="{{ item_name }}" id="list-entry-{{id}}">
       {% for index in range(0, number_of_items) %}
         <div class="list-entry">
