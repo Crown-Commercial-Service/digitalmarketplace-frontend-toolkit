@@ -17,6 +17,13 @@
   margin-bottom: $gutter;
 }
 
+.temporary-message-main {
+  @extend %temporary-message;
+  background: $light-blue-25;
+  @include core-19;
+  color: $black;
+}
+
 .temporary-message-without-messages {
   @extend %temporary-message-section;
   padding-bottom: 5px;
@@ -27,6 +34,11 @@
   margin: 0 0 10px 0;
 }
 
+.temporary-message-heading-main {
+  @include bold-19;
+  margin: 0 0 10px 0;
+}
+
 .temporary-message-message {
 
   @include core-16;
@@ -34,6 +46,18 @@
 
   a {
     color: $white;
+    text-decoration: underline;
+  }
+
+}
+
+.temporary-message-message-main {
+
+  @include core-19;
+  margin: 0 0 5px 0;
+
+  a {
+    color: $black;
     text-decoration: underline;
   }
 

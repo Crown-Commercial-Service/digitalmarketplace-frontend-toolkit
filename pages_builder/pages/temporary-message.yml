@@ -20,3 +20,11 @@ examples:
     heading: Example without any body copy that is quite long and may wrap onto multiple lines
     headingId: closed-notice
     grid: column-two-thirds
+  -
+    heading: G‑Cloud  is open for applications
+    main: True
+    headingId: closed-notice
+    messages:
+      - Example of variant used for main page already containing dark blue banner.
+      - G‑Cloud 8 services will be available from 23 November 2015.
+    grid: column-one-third
