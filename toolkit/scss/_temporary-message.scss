@@ -7,18 +7,14 @@
 // The following placeholders must be present in your main stylesheet:
 // - shared_placeholders/_temporary-messages.scss
 
-%temporary-message-section {
-  @extend %temporary-message;
-  margin-bottom: $gutter;
-}
-
+%temporary-message-section,
 .temporary-message {
-  @extend %temporary-message-section;
+  @extend %temporary-message;
   margin-bottom: $gutter;
 }
 
 .temporary-message-main {
-  @extend %temporary-message;
+  @extend %temporary-message-section;
   background: $light-blue-25;
   @include core-19;
   color: $black;
