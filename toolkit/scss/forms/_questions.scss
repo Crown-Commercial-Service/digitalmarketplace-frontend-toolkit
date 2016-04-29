@@ -19,6 +19,14 @@
   display: block;
   @include heading-24;
   margin: 0 0 10px 0;
+
+  p {
+  margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .question-heading-with-hint {
