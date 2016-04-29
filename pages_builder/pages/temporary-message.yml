@@ -28,3 +28,9 @@ examples:
       - Example of variant used for main page already containing dark blue banner.
       - G‑Cloud 8 services will be available from 23 November 2015.
     grid: column-one-third
+  -
+    heading: G‑Cloud  is open for applications
+    main: True
+    headingId: closed-notice
+    message: Example of variant used for main page already containing dark blue banner.
+    grid: column-one-third

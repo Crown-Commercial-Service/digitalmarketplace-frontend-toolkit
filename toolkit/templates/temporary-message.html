@@ -1,10 +1,15 @@
-<div class="temporary-message{% if not messages %}-without-messages{% endif %}{% if main %}-main{% endif %}">
+<div class="temporary-message{% if not (messages or message) %}-without-messages{% endif %}{% if main %}-main{% endif %}">
   <h3 class="temporary-message-heading{% if main %}-main{% endif %}">
     {{ heading }}
   </h3>
+  {% if message %}
+    <p class="temporary-message-message{% if main %}-main{% endif %}">
+        {{ message|safe }}
+    </p>
+  {% endif %}
   {%- for message in messages %}
-  <p class="temporary-message-message{% if main %}-main{% endif %}">
+    <p class="temporary-message-message{% if main %}-main{% endif %}">
     {{ message|safe }}
-  </p>
+    </p>
   {%- endfor %}
 </div>
