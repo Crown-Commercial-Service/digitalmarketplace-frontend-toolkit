@@ -18,6 +18,7 @@
   background: $light-blue-25;
   @include core-19;
   color: $black;
+  margin-top: ($gutter - 10);
 }
 
 .temporary-message-without-messages {
