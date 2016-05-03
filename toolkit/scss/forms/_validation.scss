@@ -53,9 +53,9 @@
 }
 
 .validation-message {
-  @include inline-block();
   @include core-19;
+  display: block;
   font-weight: bold;
   color: $red;
-  margin: 5px 0 7px 0;
+  padding: 5px 0 7px 0;
 }
