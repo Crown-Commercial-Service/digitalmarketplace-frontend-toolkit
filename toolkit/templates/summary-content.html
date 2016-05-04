@@ -87,6 +87,6 @@
 {%- endmacro %}
 
 
-{% macro percentage_content(value='', assurance=None) -%}
-  {{ text_content(value|string + '%', assurance) }}
+{% macro number_content(value='', assurance=None) -%}
+  {{ text_content(value, assurance) }}
 {%- endmacro %}

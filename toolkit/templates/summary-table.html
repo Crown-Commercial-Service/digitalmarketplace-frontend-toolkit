@@ -259,9 +259,9 @@
 {%- endmacro %}
 
 
-{% macro percentage(value='', assurance=None) -%}
+{% macro number(value='', assurance=None) -%}
   {% if value -%}
-    {{ text(value|string + '%', assurance) }}
+    {{ text(value, assurance) }}
   {% else %}
     {{ text('') }}
   {%- endif %}
