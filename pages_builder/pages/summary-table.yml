@@ -211,7 +211,7 @@ examples:
       {% endcall %}
       {% call summary.row() %}
         {{ summary.field_name("Uptime") }}
-        {{ summary.percentage(99.999,
+        {{ summary.number(99.999,
           assurance="Independent validation of assertion") }}
       {% endcall %}
       {% call summary.row() %}
@@ -259,7 +259,7 @@ examples:
       {% endcall %}
       {% call summary.row() %}
         {{ summary.field_name("Uptime") }}
-        {{ summary.percentage() }}
+        {{ summary.number() }}
       {% endcall %}
       {% call summary.row() %}
         {{ summary.field_name("Pricing document") }}
