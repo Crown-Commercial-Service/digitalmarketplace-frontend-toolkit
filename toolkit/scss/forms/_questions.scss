@@ -1,6 +1,7 @@
 @import "_colours";
 @import "_typography.scss";
 @import "shared_scss/_dmspeak.scss";
+@import "shared_placeholders/_visuallyhidden.scss";
 
 .question,
 %question {
@@ -91,4 +92,25 @@
 
 .question-optional + .question-advice {
   margin-top: 0;
+}
+
+.single-question-page {
+  .question {
+    margin-top: 0;
+
+    .question-advice,
+    .hint {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .question-advice + .hint {
+      margin-top: -10px;
+    }
+  }
+
+  /* Visual users have the h1 as the label */
+  form [class^="question-heading"] {
+    @extend %visuallyhidden;
+  }
 }
