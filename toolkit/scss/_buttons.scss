@@ -7,14 +7,16 @@
   @include core-24;
   display: block;
   margin: 0 0 25px 0;
-
-  @include media(tablet) {
-    margin-top: 55px;
-  }
 }
 
 a.button-save {
   @include inline-block;
+}
+
+input.button-save {
+  @include media(tablet) {
+    margin-top: 55px;
+  }
 }
 
 .button-secondary {
