@@ -8,6 +8,10 @@
   @extend %contain-floats;
   margin: 15px 0 30px 0;
   clear: both;
+
+  .hint {
+    margin-bottom: 0;
+  }
 }
 
 .question-first {
@@ -87,6 +91,7 @@
 .question-advice {
   @extend %markdown-description;
   margin-top: 10px;
+  margin-bottom: 10px;
   display: block;
 }
 
@@ -98,14 +103,8 @@
   .question {
     margin-top: 0;
 
-    .question-advice,
-    .hint {
+    .question-advice {
       margin-top: 0;
-      margin-bottom: 10px;
-    }
-
-    .question-advice + .hint {
-      margin-top: -10px;
     }
   }
 
