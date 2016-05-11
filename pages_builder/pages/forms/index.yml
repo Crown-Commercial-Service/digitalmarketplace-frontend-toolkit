@@ -38,6 +38,9 @@ content: >
           <a href="/forms/textbox.html">Textboxes</a>
         </li>
         <li>
+          <a href="/forms/single-question-page.html">Single question page</a>
+        </li>
+        <li>
           <a href="/forms/validation.html">Validation</a>
         </li>
       </ul>

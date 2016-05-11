@@ -108,7 +108,7 @@
     }
   }
 
-  /* Visual users have the h1 as the label */
+  /* Visual users have the h1 as the label, so hide it for them */
   form [class^="question-heading"] {
     @extend %visuallyhidden;
   }
