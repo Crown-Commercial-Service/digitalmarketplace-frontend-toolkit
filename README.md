@@ -21,11 +21,26 @@ Marketplace frontend apps.
 
 The documentation is generated from the contents of this repository.
 
-### Requirements
+### Setup
 
-- Python
-- [PIP](https://pip.pypa.io/en/latest/)
-- [virtualenv](https://virtualenv.pypa.io/en/latest/)
+Install [Virtualenv](https://virtualenv.pypa.io/en/latest/)
+
+```
+sudo easy_install virtualenv
+```
+
+Create a virtual environment in the checked-out repository folder
+
+```
+cd digitalmarketplace-frontend-toolkit
+virtualenv ./venv
+```
+
+### Activate the virtual environment
+
+```
+source ./venv/bin/activate
+```
 
 ### Build
 
