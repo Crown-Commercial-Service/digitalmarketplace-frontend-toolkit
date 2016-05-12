@@ -1,12 +1,17 @@
 @import "_colours";
 @import "_typography.scss";
 @import "shared_scss/_dmspeak.scss";
+@import "shared_placeholders/_visuallyhidden.scss";
 
 .question,
 %question {
   @extend %contain-floats;
   margin: 15px 0 30px 0;
   clear: both;
+
+  .hint {
+    margin-bottom: 0;
+  }
 }
 
 .question-first {
@@ -86,9 +91,25 @@
 .question-advice {
   @extend %markdown-description;
   margin-top: 10px;
+  margin-bottom: 10px;
   display: block;
 }
 
 .question-optional + .question-advice {
   margin-top: 0;
+}
+
+.single-question-page {
+  .question {
+    margin-top: 0;
+
+    .question-advice {
+      margin-top: 0;
+    }
+  }
+
+  /* Visual users have the h1 as the label, so hide it for them */
+  form [class^="question-heading"] {
+    @extend %visuallyhidden;
+  }
 }

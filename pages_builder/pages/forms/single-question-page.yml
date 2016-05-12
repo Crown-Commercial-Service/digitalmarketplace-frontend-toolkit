@@ -1,0 +1,26 @@
+pageTitle: ''
+assetPath: ../govuk_template/assets/
+examples:
+  - |
+    <div class="single-question-page">
+      <header class="page-heading page-heading-without-breadcrumb">
+        <h1>DUNS number</h1>
+      </header>
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <form method="POST" action="/suppliers/duns-number">
+          <input type="hidden" name="csrf_token" value="##fa3c0dda184bfbb021bac53fd569ca3d077997b8">
+          <div class="question" id="duns_number">
+            <label for="input-duns_number">
+              <span class="question-heading-with-hint">DUNS number</span>
+            </label>
+            <span class="question-advice" id="input-duns_number-question-advice">
+              <p>The Digital Marketplace uses your head office’s 9‑digit DUNS number to see if you’re already a supplier on the G‑Cloud framework.</p>
+              <p><a href="http://www.dnb.co.uk/dandb-duns-number" rel="external">Find out how to get a DUNS number</a></p>
+            </span>
+            <input type="text" name="duns_number" id="input-duns_number" class="text-box" value="" aria-describedby="input-duns_number-question-advice ">
+          </div>
+          <input type="submit" class="button-save" value="Continue">
+        </form>
+      </div>
+    </div>
