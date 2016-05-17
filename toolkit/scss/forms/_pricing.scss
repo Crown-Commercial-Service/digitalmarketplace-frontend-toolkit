@@ -4,9 +4,8 @@
 @import "_typography.scss";
 
 @include media($min-width: 900px) {
-  .column-two-thirds .pricing,
-  .column-two-thirds .validation-wrapper-pricing {
-    margin-right: -100%;
+  .column-two-thirds .pricing {
+    margin-right: -50%;
   }
 }
 
