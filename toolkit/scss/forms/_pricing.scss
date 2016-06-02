@@ -3,7 +3,7 @@
 @import "_shims.scss";
 @import "_typography.scss";
 
-@include media($min-width: 900px) {
+@include media($min-width: 950px) {
   .column-two-thirds .pricing {
     margin-right: -50%;
   }
@@ -27,7 +27,7 @@
       margin-left: 0;
       margin-top: $gutter-half;
 
-      @include media($min-width: 900px) {
+      @include media($min-width: 950px) {
         min-height: 105px;
         width: auto;
         margin-left: 10px;
@@ -75,7 +75,7 @@
     margin: 0;
     z-index: 10;
 
-    @include media($min-width: 900px) {
+    @include media($min-width: 950px) {
       position: absolute;
     }
 
@@ -95,7 +95,7 @@
     width: 98%; // Chrome tries to chop the sides off when you make the font bigger
     font-size: 19px;
 
-    @include media($min-width: 900px) {
+    @include media($min-width: 950px) {
       margin-left: 0;
     }
 
@@ -123,7 +123,7 @@
     padding-bottom: 12px;
     display: none;
 
-    @include media($min-width: 900px) {
+    @include media($min-width: 950px) {
       display: block;
     }
   }
