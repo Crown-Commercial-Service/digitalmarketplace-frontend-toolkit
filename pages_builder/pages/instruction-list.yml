@@ -9,7 +9,7 @@ examples:
         body: The requirements will be live for 7 days.
       -
         body: Specialists will be able to ask you questions for the next 4 days.
-        extra: Questions will be sent to CCS
+        bottom: Questions will be sent to CCS
         important: You must answer all questions before the requirements closes or you may be subject to legal challenge.
       -
         body: You must then invite the top qualifiying specialists for DOS
@@ -27,7 +27,7 @@ examples:
             download: True
       -
         body: Read your framework agreement
-        extra: If you have a question about your framework agreement, contact CCS.
+        top: If you have a question about your framework agreement, contact CCS.
       -
         body: Sign your framework agreement
         sublist_collection:
@@ -52,10 +52,30 @@ examples:
               body: Use an existing digital ID or create a new one.
             -
               body: 'Enter your name, email and organisation details.'
-        extra: Please don't send paper copies to CCS.
+        bottom: |
+          Please don't send paper copies to CCS.
       -
         body: Upload your signed framework agreement
         uploads:
           -
             file_type: 'PDF'
             name: 'test'
+  -
+    verbose: True
+    items:
+      -
+        body: Arrange for the framework agreement signature page to be signed.
+        top: You must return the signature page as a PDF, JPG or PNG file.
+        documents:
+          -
+            title: 'Signature page'
+            link: '#'
+            file_type: 'HTML'
+            download: False
+        bottom: |
+          You can review the <a href="https://www.gov.uk/government/publications/digital-outcomes-and-specialists-framework-agreement">framework agreement terms</a> on GOV.UK.
+      -
+        body: Read your signed signature page and details of the person who signed it.
+        bottom: |
+          <a href="http://example.com"><strong>Return your signed signature page</strong></a>
+
