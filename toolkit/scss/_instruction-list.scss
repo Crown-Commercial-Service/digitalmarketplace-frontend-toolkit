@@ -19,7 +19,7 @@
 }
 
 .instruction-list .divider p {
-  margin: 0;
+  margin-bottom: 0;
 }
 
 .divider {
@@ -46,9 +46,14 @@
 }
 
 .instruction-list-item-body,
-.instruction-list-item-extra-information,
+.instruction-list-item-top,
+.instruction-list-item-bottom,
 .lead-in {
   font-weight: normal;
+}
+
+.instruction-list-item-bottom {
+  margin-top: 10px;
 }
 
 .instruction-list .document-list {
