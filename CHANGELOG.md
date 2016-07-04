@@ -2,6 +2,22 @@
 
 Records breaking changes from major version bumps
 
+## 16.0.0
+
+PR: [#268](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/268)
+
+### What changed
+
+- Removed `extra` key from instruction list; using `top` and `bottom` keys instead [in
+  #268](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/268)
+
+#### Breaking changes
+
+In order to have more flexibility when building our instruction list items, we removed the `extra` key in favour of `top` and `bottom` keys.
+
+Adding a `top` will create an unstyled paragraph as the first thing in an instruction list section.  Adding a `bottom` will create a paragraph with `top-margin` of `10px` as the almost last thing in an instruction list section (if you include an `important` key, that one will be the final thing in a section).
+
+
 ## 15.0.0
 
 PR: [#213](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/213)

@@ -4,15 +4,20 @@
         {% if verbose %}
           divider
         {% endif %}">
-          {% if item.body %}
-            {% if verbose %}
-              <h2 class="instruction-list-item-body">{{ item.body }}</h2>
-            {% else %}
-              <p class="instruction-list-item-body">
-              {{ item.body }}
-              </p>
-            {% endif %}
+        {% if item.body %}
+          {% if verbose %}
+            <h2 class="instruction-list-item-body">{{ item.body }}</h2>
+          {% else %}
+            <p class="instruction-list-item-body">
+            {{ item.body }}
+            </p>
           {% endif %}
+        {% endif %}
+        {% if item.top %}
+          <p class="instruction-list-item-top">
+            {{ item.top | safe }}
+          </p>
+        {% endif %}
         {% if item.sublist_collection %}
           {% for collection in item.sublist_collection %}
             <p class="lead-in">{{ collection.lead_in }}</p>
@@ -24,11 +29,6 @@
             {% endfor %}
             </ol>
           {% endfor %}
-        {% endif %}
-        {% if item.extra %}
-            <p class="instruction-list-item-extra-information">
-              {{ item.extra | safe }}
-            </p>
         {% endif %}
         {% if item.documents %}
           {% for field in item.documents %}
@@ -67,6 +67,11 @@
             {% endif %}
             {% endwith %}
           {% endfor %}
+        {% endif %}
+        {% if item.bottom %}
+            <p class="instruction-list-item-bottom">
+              {{ item.bottom | safe }}
+            </p>
         {% endif %}
         {% if item.important %}
         <div class="notice">
