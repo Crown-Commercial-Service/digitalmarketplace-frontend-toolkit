@@ -227,9 +227,16 @@ table.summary-item-body tbody .summary-item-field-first-narrow-no-padding {
   width: 20%;
 }
 
-.summary-item-field-first-wider {
+.summary-item-field-first-half {
   @extend %summary-item-field;
   width: 50%;
+  padding-right: 12px;
+}
+
+.summary-item-field-first-two-thirds {
+  @extend %summary-item-field;
+  width: 67%;
+  padding-right: 12px;
 }
 
 .summary-item-field-with-action {

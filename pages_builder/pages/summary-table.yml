@@ -325,6 +325,7 @@ examples:
     {% endcall %}
   - |
     {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table with bold text and borders") }}
       {% call summary.mapping_table(
       row_bold_borders=True,
       text_large = True,
@@ -365,5 +366,25 @@ examples:
       {% call summary.row(bold_border=True) %}
         {{ summary.field_heading_date("18 April", scope='row') }}
         {{ summary.text("Suppliers can no longer apply.") }}
+      {% endcall %}
+    {% endcall %}
+  - |
+    {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table with two-thirds with first column") }}
+    {% call summary.mapping_table(
+      caption="Summary table with two-thirds width first column",
+      field_headings=[
+        "Label",
+        "Value",
+      ],
+      field_headings_visible=False
+    ) %}
+      {% call summary.row() %}
+        {{ summary.field_name("Have demonstrable experience of working in a culture of continuous delivery and improvement. Can show evidence of creating a culture of innovation for delivery teams. (Scores 10%)", two_thirds=True) }}
+        {{ summary.boolean(True) }}
+      {% endcall %}
+      {% call summary.row() %}
+        {{ summary.field_name("Demonstrate enthusiasm (e.g. bring whole self to work, celebrate success, share energy and passion with others, optimistic) (Scores 20%)", two_thirds=True) }}
+        {{ summary.boolean(False) }}
       {% endcall %}
     {% endcall %}

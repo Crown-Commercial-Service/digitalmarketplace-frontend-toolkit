@@ -2,6 +2,21 @@
 
 Records breaking changes from major version bumps
 
+## 17.0.0
+
+PR: [#270](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/270)
+
+### What changed
+
+- Added the option for first field of summary tables to be two-thirds width.
+
+#### Breaking changes
+
+Changed `.summary-item-field-first-wider` style to `.summary-item-field-first-half` for summary tables.
+
+Any fontend apps that explicitly call `.summary-item-field-first-wider` will need to change to use 
+`.summary-item-field-first-half` instead.
+
 ## 16.0.0
 
 PR: [#268](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/268)
