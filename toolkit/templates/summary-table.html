@@ -82,9 +82,9 @@
 {# GENERIC FIELD #}
 {# ============= #}
 
-{% macro field(first=False, wide=False, action=False, large=False, narrow=False, border=False, bold=False,  rowspan='') -%}
+{% macro field(first=False, wide=False, action=False, large=False, narrow=False, border=False, bold=False, rowspan='', two_thirds=False) -%}
   {% set data = caller() %}
-  <td {% if rowspan %}rowspan={{ rowspan }}{% endif %} class="summary-item-field{% if first %}-first{% endif %}{% if first and wide %}-wider{% endif %}{% if action %}-with-action{% endif %}{% if narrow %}-narrow{% endif %}{% if border %}-border{% endif %}">
+  <td {% if rowspan %}rowspan={{ rowspan }}{% endif %} class="summary-item-field{% if first %}-first{% endif %}{% if first and wide %}-half{% elif first and two_thirds %}-two-thirds{% endif %}{% if action %}-with-action{% endif %}{% if narrow %}-narrow{% endif %}{% if border %}-border{% endif %}">
     {% if data %}
       {% if bold %}<strong>{% endif %}<span>{{ data }}</span>{% if bold %}</strong>{% endif %}
     {% endif %}
@@ -94,9 +94,9 @@
 {# SPECIAL FIELD TYPES #}
 {# =================== #}
 
-{% macro field_heading_custom(first=False, wide=False, action=False, large=False, narrow=False, border=False, bold=False,  rowspan='', scope='') -%}
+{% macro field_heading_custom(first=False, wide=False, action=False, large=False, narrow=False, border=False, bold=False, rowspan='', scope='', two_thirds=False) -%}
   {% set data = caller() %}
-  <th {% if rowspan %}rowspan={{ rowspan }}{% endif %}{% if scope%} scope={{ scope }} {% endif %} class="summary-item-field-heading-custom{% if first %}-first{% endif %}{% if first and wide %}-wider{% endif %}{% if action %}-with-action{% endif %}{% if narrow %}-narrow{% endif %}{% if border %}-border{% endif %}">
+  <th {% if rowspan %}rowspan={{ rowspan }}{% endif %}{% if scope%} scope={{ scope }} {% endif %} class="summary-item-field-heading-custom{% if first %}-first{% endif %}{% if first and wide %}-half{% elif first and two_thirds %}-two-thirds{% endif %}{% if action %}-with-action{% endif %}{% if narrow %}-narrow{% endif %}{% if border %}-border{% endif %}">
     {% if data %}
       {% if bold %}<strong>{% endif %}<span>{{ data }}</span>{% if bold %}</strong>{% endif %}
     {% endif %}
@@ -138,8 +138,8 @@
 {%- endmacro %}
 
 
-{% macro field_name(text=None, wide=False) -%}
-  {% call field(first=True, wide=wide) -%}
+{% macro field_name(text=None, wide=False, two_thirds=False) -%}
+  {% call field(first=True, wide=wide, two_thirds=two_thirds) -%}
     {% if text -%}
       {{ text }}
     {%- endif %}
