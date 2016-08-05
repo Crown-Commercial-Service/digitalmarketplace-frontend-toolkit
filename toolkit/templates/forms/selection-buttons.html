@@ -60,32 +60,32 @@
           {% if value is sameas false %} checked{% endif %}
         />
       <label class="selection-button selection-button-boolean" for="input-{{ name }}-no">
-        No          
+        No
       </label>
     {% else %}
       {% for option in options %}
         {% set input_value = option.value or option.label %}
+        {% if type == "radio" %}
+          <input
+            type="{{ type }}"
+            name="{{ name }}"
+            id="input-{{ name }}-{{ loop.index }}"
+            value="{{ input_value }}"
+            {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+            {% if input_value == value %}checked="checked"{% endif %}
+          />
+        {% elif type == "checkbox" %}
+          <input
+            type="{{ type }}"
+            name="{{ name }}"
+            id="input-{{ name }}-{{ loop.index }}"
+            value="{{ input_value }}"
+            {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+            {% if value and input_value in value %}checked="checked"{% endif %}
+          />
+        {% endif %}
         <label class="selection-button{% if inline %} selection-button-inline{% endif %}" for="input-{{ name }}-{{ loop.index }}">
           {{ option.label }}
-          {% if type == "radio" %}
-            <input
-              type="{{ type }}"
-              name="{{ name }}"
-              id="input-{{ name }}-{{ loop.index }}"
-              value="{{ input_value }}"
-              {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
-              {% if input_value == value %}checked="checked"{% endif %}
-            />
-          {% elif type == "checkbox" %}
-            <input
-              type="{{ type }}"
-              name="{{ name }}"
-              id="input-{{ name }}-{{ loop.index }}"
-              value="{{ input_value }}"
-              {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
-              {% if value and input_value in value %}checked="checked"{% endif %}
-            />
-          {% endif %}
           {% if option.description %}
             <p class="question-description">
               {{ option.description }}
