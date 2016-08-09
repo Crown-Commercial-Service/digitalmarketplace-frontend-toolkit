@@ -5,7 +5,7 @@
         {% if item.label %}
         <li>
           {%- if item.link -%}
-            <span><a href="{{ item.link }}">{{ item.label }}</a></span>
+            <a href="{{ item.link }}">{{ item.label }}</a>
           {%- else -%}
             {{ item.label }}
           {%- endif -%}
