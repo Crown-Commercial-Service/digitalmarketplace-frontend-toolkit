@@ -37,11 +37,6 @@
       {{ question_advice|markdown }}
     </span>
     {% endif %}
-    {% if hint %}
-    <span class="hint" id="{{ answer_advice_id }}">
-      {{ hint|markdown }}
-    </span>
-    {% endif %}
     {% if large %}
       {% if max_length_in_words %}
         <div class="word-count">
@@ -62,7 +57,7 @@
         {%- if value != None -%}
         	{{ value }}
         {%- endif -%}
-	</textarea>
+        </textarea>
       {% endif %}
     {% else %}
       {% if unit_position == "before" %}
@@ -83,6 +78,11 @@
           {{ unit }}
         </label>
       {% endif %}
+    {% endif %}
+    {% if hint %}
+    <span class="hint word-count-counter" id="{{ answer_advice_id }}">
+      {{ hint|markdown }}
+    </span>
     {% endif %}
   </div>
 {% if error %}
