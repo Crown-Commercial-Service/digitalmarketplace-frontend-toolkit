@@ -9,6 +9,11 @@
   <div class="validation-wrapper">
 {% endif %}
   <div class="question" id="{{ name }}">
+    {% if question_advice %}
+    <span class="question-advice" id="{{ question_advice_id }}">
+      {{ question_advice|markdown }}
+    </span>
+    {% endif %}
     <label for="input-{{ name }}">
       <span class="question-heading{% if hint or question_advice %}-with-hint{% endif %}">
         {% if question_number %}
@@ -20,6 +25,11 @@
         {% if unit_in_full %}
           <span class="text-box-unit-qualifier">(in {{ unit_in_full }})</span>
         {% endif %}
+        {% if optional %}
+          <span class="question-optional">
+            (Optional)
+          </span>
+        {% endif %}
       </span>
       {% if error %}
         <span class="validation-message">
@@ -27,16 +37,6 @@
         </span>
       {% endif %}
     </label>
-    {% if optional %}
-      <span class="question-optional" style="margin-top: 10px;">
-        <strong>Optional</strong>
-      </span>
-    {% endif %}
-    {% if question_advice %}
-    <span class="question-advice" id="{{ question_advice_id }}">
-      {{ question_advice|markdown }}
-    </span>
-    {% endif %}
     {% if large %}
       {% if max_length_in_words %}
         <div class="word-count">
