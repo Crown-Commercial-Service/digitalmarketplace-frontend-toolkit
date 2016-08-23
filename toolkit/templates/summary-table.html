@@ -274,8 +274,10 @@
       {% for question in value %}
         {% set macro = '{}_content'.format(question.type) %}
         <div class="multiquestion">
-          <p>{{ question.name if question.name else question.question }}</p>
-          <div>{{ content[macro](question.value, question.assurance) }}</div>
+          <p>
+            {{ question.name if question.name else question.question }}<br>
+            {{ content[macro](question.value, question.assurance) }}
+          </p>
         </div>
       {% endfor %}
     {%- endif %}
