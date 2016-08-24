@@ -21,7 +21,7 @@
             {{ question_number }}
           </span>
         {% endif %}
-        {{ question }}
+        {{ question|striptags if question }}
         {% if unit_in_full %}
           <span class="text-box-unit-qualifier">(in {{ unit_in_full }})</span>
         {% endif %}

@@ -16,7 +16,7 @@
             {{ question_number }}
           </span>
         {% endif %}
-        {{ question }}
+        {{ question|striptags if question }}
       </span>
       {% if error %}
         <span class="validation-message" id="error-{{ name }}">

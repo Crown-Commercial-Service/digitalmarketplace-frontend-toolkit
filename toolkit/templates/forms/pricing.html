@@ -19,7 +19,7 @@
   <fieldset class="question first-question" id="{{ name }}">
     <legend>
       <span class="question-heading {% if hint or question_advice %}question-heading-with-hint{% endif %}">
-        {{ question }}
+        {{ question|striptags if question }}
       </span>
       {% if error %}
         <span class="validation-message">
