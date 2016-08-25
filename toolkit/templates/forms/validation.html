@@ -8,6 +8,10 @@
     </p>
   {% endif %}
   {% for error in errors %}
+    {% if question %}
     <a href="#{{ error.input_name }}" class="validation-masthead-link">{{ question.question }}</a>
+    {% else %}
+    <a href="#{{ error.input_name }}" class="validation-masthead-link">{{ error.question }}</a>
+    {% endif %}
   {% endfor %}
 </div>
