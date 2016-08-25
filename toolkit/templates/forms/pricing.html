@@ -78,7 +78,7 @@
         </label>
         <input
           type="text"
-          class="text-box pricing-input-with-unit"
+          class="text-box pricing-input-with-unit{% if error %} invalid{% endif %}"
           name="{{ fields.price }}"
           id="input-price"
           value="{{ price or "" }}"
@@ -98,7 +98,7 @@
         {% endif %}
         <input
           type="text"
-          class="text-box pricing-input-with-unit"
+          class="text-box pricing-input-with-unit{% if error %} invalid{% endif %}"
           name="{{ fields.minimum_price }}"
           id="input-minimum-price"
           value="{{ minimum_price or "" }}"
@@ -121,7 +121,7 @@
         {% endif %}
         <input
           type="text"
-          class="text-box pricing-input-with-unit"
+          class="text-box pricing-input-with-unit{% if error %} invalid{% endif %}"
           name="{{ fields.maximum_price }}"
           id="input-maximum-price"
           value="{{ maximum_price or "" }}"
