@@ -37,17 +37,17 @@
       {{ question_advice|markdown }}
     </span>
     {% endif %}
-    {% if hint %}
-    <span class="hint" id="input-{{ name }}-answer-advice">
-      {{ hint|markdown }}
-    </span>
-    {% endif %}
     <div class="pricing">
       {% if 'hours_for_price' in fields %}
       <div class="pricing-column">
         <label for="input-pricing-hours">
           Hours
         </label>
+        {% if hint %}
+        <span class="hint" id="input-{{ name }}-answer-advice">
+          {{ hint|markdown }}
+        </span>
+        {% endif %}
         <select
           class="pricing-input-select"
           name="{{ fields.hours_for_price }}"

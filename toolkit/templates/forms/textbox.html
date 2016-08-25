@@ -41,7 +41,7 @@
       {% if max_length_in_words %}
         <div class="word-count">
           <textarea
-            class="text-box text-box-large{% if error %}-with-error{% endif %}"
+            class="text-box text-box-large{% if error %}-with-error invalid{% endif %}"
             name="{{ name }}"
             id="input-{{ name }}"
             data-max-length-in-words="{{ max_length_in_words }}"
@@ -69,7 +69,7 @@
         type="text"
         name="{{ name }}"
         id="input-{{ name }}"
-        class="text-box{% if unit %}-with-unit-{{ unit_position }}{% endif %}{% if error %}-with-error{% endif %}{% if smaller %} text-box-smaller{% endif %}"
+        class="text-box{% if unit %}-with-unit-{{ unit_position }}{% endif %}{% if error %}-with-error invalid{% endif %}{% if smaller %} text-box-smaller{% endif %}"
         value="{% if value !=  None %}{{ value }}{% endif %}"
         {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
       />
