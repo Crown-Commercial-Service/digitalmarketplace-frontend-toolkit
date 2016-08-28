@@ -19,7 +19,7 @@
   <fieldset class="question first-question" id="{{ name }}">
     <legend>
       <span class="question-heading {% if hint or question_advice %}question-heading-with-hint{% endif %}">
-        {{ question }}
+        {{ question|striptags if question }}
       </span>
       {% if error %}
         <span class="validation-message">
@@ -37,17 +37,17 @@
       {{ question_advice|markdown }}
     </span>
     {% endif %}
-    {% if hint %}
-    <span class="hint" id="input-{{ name }}-answer-advice">
-      {{ hint|markdown }}
-    </span>
-    {% endif %}
     <div class="pricing">
       {% if 'hours_for_price' in fields %}
       <div class="pricing-column">
         <label for="input-pricing-hours">
           Hours
         </label>
+        {% if hint %}
+        <span class="hint" id="input-{{ name }}-answer-advice">
+          {{ hint|markdown }}
+        </span>
+        {% endif %}
         <select
           class="pricing-input-select"
           name="{{ fields.hours_for_price }}"
@@ -74,11 +74,11 @@
         <label for="input-price">
           Price
           <span class="visually-hidden">in</span>
-          <span class="pricing-unit">£</span>
+          <span class="pricing-unit">$</span>
         </label>
         <input
           type="text"
-          class="text-box pricing-input-with-unit"
+          class="text-box pricing-input-with-unit{% if error %} invalid{% endif %}"
           name="{{ fields.price }}"
           id="input-price"
           value="{{ price or "" }}"
@@ -91,14 +91,14 @@
         <label for="input-minimum-price">
           Minimum price
           <span class="visually-hidden">in</span>
-          <span class="pricing-unit">£</span>
+          <span class="pricing-unit">$</span>
         </label>
         {% if 'minimum_price' in optional_fields %}
         <p class="question-hint">Optional</p>
         {% endif %}
         <input
           type="text"
-          class="text-box pricing-input-with-unit"
+          class="text-box pricing-input-with-unit{% if error %} invalid{% endif %}"
           name="{{ fields.minimum_price }}"
           id="input-minimum-price"
           value="{{ minimum_price or "" }}"
@@ -114,14 +114,14 @@
         <label for="input-minimum-price">
           Maximum price
           <span class="visually-hidden">in</span>
-          <span class="pricing-unit">£</span>
+          <span class="pricing-unit">$</span>
         </label>
         {% if 'maximum_price' in optional_fields %}
         <p class="question-hint">Optional</p>
         {% endif %}
         <input
           type="text"
-          class="text-box pricing-input-with-unit"
+          class="text-box pricing-input-with-unit{% if error %} invalid{% endif %}"
           name="{{ fields.maximum_price }}"
           id="input-maximum-price"
           value="{{ maximum_price or "" }}"

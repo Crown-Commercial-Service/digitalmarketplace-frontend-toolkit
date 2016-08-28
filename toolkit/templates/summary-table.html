@@ -26,7 +26,7 @@
 {%- endmacro %}
 
 {% macro mapping_table(caption='', field_headings='', field_headings_visible=True, caption_visible=False, no_bottom_border=False, row_bold_borders=False, text_large=False) -%}
-  <table class="summary-item-body{% if no_bottom_border %}-no-bottom-border{% endif %}{% if row_bold_borders %}-row-bold-borders{% endif %}{% if text_large %}-text-large{% endif %}">
+  <table class="content-table summary-item-body{% if no_bottom_border %}-no-bottom-border{% endif %}{% if row_bold_borders %}-row-bold-borders{% endif %}{% if text_large %}-text-large{% endif %}">
     <caption {% if not caption_visible %}class="visuallyhidden"{% endif %}>
       {% if caption_visible %}<strong>{% endif %}{{ caption }}{% if caption_visible %}</strong>{% endif %}
     </caption>
@@ -274,8 +274,10 @@
       {% for question in value %}
         {% set macro = '{}_content'.format(question.type) %}
         <div class="multiquestion">
-          <p>{{ question.name if question.name else question.question }}</p>
-          <div>{{ content[macro](question.value, question.assurance) }}</div>
+          <p>
+            {{ question.name if question.name else question.question }}<br>
+            {{ content[macro](question.value, question.assurance) }}
+          </p>
         </div>
       {% endfor %}
     {%- endif %}
