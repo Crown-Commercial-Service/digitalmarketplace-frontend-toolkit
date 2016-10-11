@@ -1,6 +1,12 @@
 pageTitle: External Link
 assetPath: govuk_template/assets/
+pageDescription: |
+  For further details of the different types of target please see <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target">these docs on the Mozilla Developer Network.</a>
 examples:
   -
     link: https://www.example.com'
     text: Example
+  -
+    link: https://www.example.com
+    text: Example in new window
+    target: _blank
