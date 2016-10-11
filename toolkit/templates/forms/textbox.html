@@ -8,7 +8,7 @@
 {% if error %}
   <div class="validation-wrapper">
 {% endif %}
-  <div class="question" id="{{ name }}">
+  <div class="question {% if hidden %}js-hidden{% endif %}" id="{{ name }}">
     <label for="input-{{ name }}">
       <span class="question-heading{% if hint or question_advice %}-with-hint{% endif %}">
         {% if question_number %}

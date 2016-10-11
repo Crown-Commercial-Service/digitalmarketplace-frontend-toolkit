@@ -40,7 +40,7 @@
       </span>
     {% endif %}
     {% if type == "boolean" %}
-      <label class="selection-button selection-button-boolean" for="input-{{ name }}-yes">
+      <label class="selection-button selection-button-boolean {% if followup %}block-label{% endif %}" for="input-{{ name }}-yes" {% if followup %}data-target="{{ followup }}"{% endif %}>
         Yes
         <input
           type="radio"
