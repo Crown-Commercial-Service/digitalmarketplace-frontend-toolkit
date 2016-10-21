@@ -6,3 +6,7 @@ examples:
   -
     label: View service
     url: '#'
+  -
+    label: View service with advice
+    url: '#'
+    advice: true

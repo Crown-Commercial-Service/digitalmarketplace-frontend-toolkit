@@ -3,24 +3,32 @@
 @import "conditionals";
 @import "typography";
 
-.link-button,
-a.link-button {
-
+%link-button {
   background: $link-hover-colour;
   display: block;
   padding: 6px 0;
   color: $white;
-  margin: $gutter 0 0 0;
-
-  @include media(tablet){
-    margin: 75px 0 0;
-  }
-
   @include core-24;
   text-align: center;
-
   &:hover {
     background: $link-colour;
   }
+}
 
+.link-button,
+a.link-button {
+  @extend %link-button;
+  margin: $gutter 0 0 0;
+  @include media(tablet){
+    margin: 75px 0 0;
+  }
+}
+
+.link-button-with-advice,
+a.link-button-with-advice {
+  @extend %link-button;
+  margin: 15px 0 0 0;
+  @include media(tablet){
+    margin: 15px 0 0;
+  }
 }
