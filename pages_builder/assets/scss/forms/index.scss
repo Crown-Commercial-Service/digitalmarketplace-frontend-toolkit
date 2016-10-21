@@ -1,5 +1,8 @@
 $path : '../../images/';
 
+/* Blocks shared between multiple selectors */
+@import "shared_placeholders/_dm-typography.scss";
+
 @import "forms/_textboxes.scss";
 @import "forms/_selection-buttons.scss";
 @import "forms/_questions.scss";
