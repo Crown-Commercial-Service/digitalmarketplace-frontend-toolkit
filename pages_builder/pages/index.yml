@@ -66,6 +66,9 @@ content: >
             <li>
               <a href="shared_scss/lists.html">Lists</a>
             </li>
+            <li>
+              <a href="shared_scss/dmspeak.html">DMSpeak</a>
+            </li>
           </ul>
         </li>
         <li><a href="summary-table.html">Summary tables</a></li>
