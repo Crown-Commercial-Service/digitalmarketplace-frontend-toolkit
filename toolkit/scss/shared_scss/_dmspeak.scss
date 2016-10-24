@@ -1,12 +1,20 @@
 @import "_typography.scss";
 @import "lists.scss";
 
+// The following placeholders must be present in your main stylesheet:
+// - shared_placeholders/_dm-typography.scss
+
 .dmspeak {
    @include core-19;
 
   p {
     padding-bottom: 10px;
   }
+
+  .heading-xmedium {
+    @extend %heading-xmedium;
+  }
+
 }
 
 %markdown-description {

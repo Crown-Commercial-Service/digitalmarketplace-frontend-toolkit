@@ -3,6 +3,7 @@
 import os
 import sass
 import shutil
+import codecs
 
 
 class AssetCompiler(object):
@@ -29,7 +30,8 @@ class AssetCompiler(object):
         print "    " + sass_options["filename"]
         print "▸ " + dest_path_abs
         print ""
-        open(dest_path_abs, "w+").write(result)
+        with codecs.open(dest_path_abs, "w+", "utf-8") as file:
+            file.write(result)
 
     def compile(self, folder):
         for root, dirs, files in os.walk(folder):

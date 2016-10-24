@@ -1,0 +1,10 @@
+@import "_typography.scss";
+
+%heading-xmedium {
+
+  @include bold-27();
+
+  margin-top: 35;
+  margin-bottom: 10;
+
+}

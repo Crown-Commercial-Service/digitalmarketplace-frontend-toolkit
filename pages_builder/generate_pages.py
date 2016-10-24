@@ -51,7 +51,6 @@ class Styleguide_publisher(object):
         self.compile_assets(os.path.join(
             self.repo_root, "pages_builder/assets/scss"
         ))
-        self.compile_assets(os.path.join(self.repo_root, "toolkit/scss"))
         self.copy_javascripts()
         self.copy_images()
 
