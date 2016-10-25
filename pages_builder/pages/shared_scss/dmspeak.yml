@@ -1,0 +1,16 @@
+pageTitle: DMSpeak 
+assetPath: ../govuk_template/assets/
+grid: column-two-thirds
+examples:
+  - |
+    <h2><code>.dmspeak .heading-xmedium</code></h2>
+    <br />
+    <div class="dmspeak">
+      <h2 class="heading-xmedium">Apply for this opportunity</h2>
+    </div>
+  - |
+    <h2><code>.dmspeak p</code></h2>
+    <br />
+    <div class="dmspeak">
+      <p>To apply, you must give evidence for all the essential and nice-to-have skills and experience you have.</p>
+    </div>
