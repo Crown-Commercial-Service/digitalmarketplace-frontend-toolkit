@@ -1,1 +1,1 @@
-<input type="submit" class="button-{{ type }}" {% if name %}name="{{ name }}"{% endif %} value="{{ label }}" />
+<input type="submit" class="button-{{ type }}{% if advice is defined %}-with-advice{% endif %}" {% if name %}name="{{ name }}"{% endif %} value="{{ label }}" />

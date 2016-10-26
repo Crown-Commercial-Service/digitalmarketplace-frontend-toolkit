@@ -2,11 +2,15 @@
 @import "design-patterns/_buttons.scss";
 @import "_typography.scss";
 
-.button-save {
+%button-save {
   @include button;
   @include core-24;
   display: block;
   margin: 0 0 25px 0;
+}
+
+.button-save {
+    @extend %button-save;
 }
 
 a.button-save {
@@ -19,10 +23,19 @@ input.button-save {
   }
 }
 
-.button-secondary {
+input.button-save-with-advice {
+  @extend %button-save;
+  @include media(tablet) {
+    margin-top: 20px;
+  }
+}
+
+.button-secondary,
+.button-secondary-with-advice {
   @include button($grey-3);
 }
 
-.button-destructive {
+.button-destructive,
+.button-destructive-with-advice {
   @include button($red);
 }
