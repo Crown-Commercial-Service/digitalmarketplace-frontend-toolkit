@@ -19,3 +19,8 @@ examples:
     type: secondary
     label: Save and continue
     name: continue_to_next_section
+  -
+    title: Save button with advice
+    type: save
+    advice: true
+    label: This has a smaller top margin
