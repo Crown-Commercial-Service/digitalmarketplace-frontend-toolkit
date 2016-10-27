@@ -2,15 +2,12 @@
 @import "design-patterns/_buttons.scss";
 @import "_typography.scss";
 
+.button-save,
 %button-save {
   @include button;
   @include core-24;
   display: block;
   margin: 0 0 25px 0;
-}
-
-.button-save {
-    @extend %button-save;
 }
 
 a.button-save {
