@@ -1,5 +1,5 @@
-<header class="page-heading{%- if smaller %}-smaller{% endif %}{%- if context is defined %} page-heading-with-context{% endif %}{%- if not with_breadcrumb %} page-heading-without-breadcrumb{% endif %}">
-  {%- if context is defined -%}
+<header class="page-heading{%- if smaller %}-smaller{% endif %}{%- if context %} page-heading-with-context{% endif %}{%- if not with_breadcrumb %} page-heading-without-breadcrumb{% endif %}">
+  {%- if context -%}
     <p class="context">
       {{ context }}
     </p>

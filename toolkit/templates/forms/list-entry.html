@@ -5,7 +5,7 @@
   {% set question_advice_id="input-{}-question-advice".format(id) %}
 {% endif %}
 
-{% if values is not defined %}
+{% if not values %}
   {% set values = [] %}
 {% endif %}
 {% if error %}
