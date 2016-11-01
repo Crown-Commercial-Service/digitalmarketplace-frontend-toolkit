@@ -20,6 +20,12 @@
     @extend %heading-small;
   }
 
+  /* The first heading in a .dmspeak section has nothing above it to be separated from */
+  > h2:first-child,
+  > h3:first-child {
+    margin-top: 0;
+  }
+
 }
 
 %markdown-description {
