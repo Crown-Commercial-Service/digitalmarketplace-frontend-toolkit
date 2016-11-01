@@ -9,6 +9,12 @@ examples:
       <h2 class="heading-xmedium">Apply for this opportunity</h2>
     </div>
   - |
+    <h3><code>.dmspeak .heading-small</code></h3>
+    <br />
+    <div class="dmspeak">
+      <h3 class="heading-small">Before you start</h3>
+    </div>
+  - |
     <h2><code>.dmspeak p</code></h2>
     <br />
     <div class="dmspeak">
