@@ -14,7 +14,6 @@ from jinja2 import Environment, FileSystemLoader, Template
 from pygments import highlight
 from pygments.lexers import HtmlLexer, DjangoLexer
 from pygments.formatters import HtmlFormatter
-from dmutils.filters import markdown_filter
 
 
 # preserve key order when parsing YAML – http://stackoverflow.com/a/21048064/147318
@@ -149,9 +148,6 @@ class Styleguide_publisher(object):
                 env = Environment(
                     loader=FileSystemLoader(os.path.join(self.repo_root, "toolkit/templates"))
                 )
-                env.filters.update({
-                    'markdown': markdown_filter,
-                })
                 # used in `toolkit/templates/summary-table.html` for a conditional import statement
                 env.globals['PAGES_BUILDER'] = True
                 env.add_extension('jinja2.ext.with_')
@@ -172,7 +168,7 @@ class Styleguide_publisher(object):
                     else:
                         example_template = example
                         example_markup = env.from_string(example_template).render({})
-              
+
                     examples.append({
                         "markup": example_markup,
                         "highlighted_markup": highlight(example_markup, HtmlLexer(), HtmlFormatter(noclasses=True)),
@@ -190,6 +186,7 @@ class Styleguide_publisher(object):
                     "templateFile": template_file,
                     "urlRoot": url_root
                 }
+
                 if "grid" in partial:
                     partial_data['grid'] = partial['grid']
 
