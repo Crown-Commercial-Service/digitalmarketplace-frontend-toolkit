@@ -8,3 +8,7 @@
 .phase-banner-beta {
   @include phase-banner(beta);
 }
+
+.phase-banner-alpha {
+  @include phase-banner(alpha);
+}
