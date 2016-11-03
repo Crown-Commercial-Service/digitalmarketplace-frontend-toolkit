@@ -2,6 +2,59 @@
 
 Records breaking changes from major version bumps
 
+## 19.0.0
+
+PR: [#285](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/285)
+
+## What changed
+
+- The `beta-banner` pattern has been renamed to `phase-banner`.  This will affect exactly nothing because nobody has ever used the `beta-banner` pattern, but I guess technically this is a breaking change.
+
+#### Breaking changes
+
+Old:
+```jinja
+{% import toolkit/beta-banner.html %}
+```
+
+New:
+```jinja
+{% import toolkit/phase-banner.html %}
+```
+
+
+## 18.0.0
+
+PR: [#286](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/286)
+
+### What changed
+
+- Removed the `|markdown` and `|safe` filters from being used by templates.
+Going forward, none of the templates will allow literal HTML or markdown in passed-in strings; instead, our apps will be responsible for processing values before they get to the templates.
+- Removed two outdated patterns that we've stopped using.
+
+#### Templates where `|safe` has been removed
+
+- `beta-banner`
+- `browse-list`
+- `notification-banner`
+- `search-summary`
+- `temporary-message`
+
+#### Templates where `|markdown` has been removed
+
+- `list-entry`
+- `pricing`
+- `selection-buttons`
+- `textbox`
+- `upload`
+
+#### Templates which have been removed altogether
+
+- `framework-notice`
+- `search-results`
+
+
 ## 17.0.0
 
 PR: [#270](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/270)
@@ -14,7 +67,7 @@ PR: [#270](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/
 
 Changed `.summary-item-field-first-wider` style to `.summary-item-field-first-half` for summary tables.
 
-Any fontend apps that explicitly call `.summary-item-field-first-wider` will need to change to use 
+Any fontend apps that explicitly call `.summary-item-field-first-wider` will need to change to use
 `.summary-item-field-first-half` instead.
 
 ## 16.0.0
