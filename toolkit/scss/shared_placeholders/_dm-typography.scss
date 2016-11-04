@@ -1,14 +1,6 @@
 @import "_typography.scss";
 @import "_measurements.scss";
 
-// All heading styles, except heading-xmedium, are copied from GOVUK Elements as of this commit:
-// https://github.com/alphagov/govuk_elements/commit/7aaa646a59019b6a90e8a88ddc81ac61950b9efe
-//
-// Changes to make them fit Digital Marketplace styles include
-// 1. move from classes to placeholders to allow the styles to be shared between selectors
-// 2. only include the heading sizes below 36px as this is only used for page headings
-// 3. use pixels instead of ems to match existing styles
-
 %heading-xmedium {
   @include bold-27();
 
@@ -16,6 +8,10 @@
   margin-bottom: $gutter-one-third;
 
 }
+
+// Cut and pasted from the `.heading-small` styles in the `_elements-typography.scss` file in GOVUK Elements:
+// https://github.com/alphagov/govuk_elements/blob/7aaa646a59019b6a90e8a88ddc81ac61950b9efe/public/sass/elements/_elements-typography.scss#L125
+// Note: the units have been changed from ems to px to match DM conventions.
 
 %heading-small {
   @include bold-19();
