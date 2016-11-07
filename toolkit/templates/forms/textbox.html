@@ -34,12 +34,12 @@
     {% endif %}
     {% if question_advice %}
     <span class="question-advice" id="{{ question_advice_id }}">
-      {{ question_advice|markdown }}
+      {{ question_advice }}
     </span>
     {% endif %}
     {% if hint %}
     <span class="hint" id="{{ answer_advice_id }}">
-      {{ hint|markdown }}
+      {{ hint }}
     </span>
     {% endif %}
     {% if large %}

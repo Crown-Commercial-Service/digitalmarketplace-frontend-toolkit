@@ -15,7 +15,7 @@
         {% endif %}
         {% if item.top %}
           <p class="instruction-list-item-top">
-            {{ item.top | safe }}
+            {{ item.top }}
           </p>
         {% endif %}
         {% if item.sublist_collection %}
@@ -24,7 +24,7 @@
             <ol class="sublist" {% if collection.start %}start="{{collection.start}}" {% endif %}>
             {% for sublist in collection.sublists %}
               {% if sublist.body %}
-                <li>{{ sublist.body | safe }}</li>
+                <li>{{ sublist.body }}</li>
               {% endif %}
             {% endfor %}
             </ol>
@@ -70,7 +70,7 @@
         {% endif %}
         {% if item.bottom %}
             <p class="instruction-list-item-bottom">
-              {{ item.bottom | safe }}
+              {{ item.bottom }}
             </p>
         {% endif %}
         {% if item.important %}
