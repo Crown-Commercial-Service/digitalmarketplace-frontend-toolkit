@@ -1,6 +1,11 @@
 @import "_typography.scss";
 @import "_measurements.scss";
 
+// Abstract heading styles for Digital Marketplace (can be used by tags other than headings)
+//
+// Note: We use the 48px (heading-xlarge) and 36px sizes (heading-large) from govuk elements as page headings only so do not include them here.
+//       Their CSS can be seen in `toolkit/scss/_page-headings.scss`.
+
 %heading-xmedium {
   @include bold-27();
 
