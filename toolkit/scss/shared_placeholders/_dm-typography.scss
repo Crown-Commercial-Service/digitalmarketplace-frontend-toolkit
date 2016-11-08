@@ -1,10 +1,31 @@
 @import "_typography.scss";
+@import "_measurements.scss";
+
+// Abstract heading styles for Digital Marketplace (can be used by tags other than headings)
+//
+// Note: We use the 48px (heading-xlarge) and 36px sizes (heading-large) from govuk elements as page headings only so do not include them here.
+//       Their CSS can be seen in `toolkit/scss/_page-headings.scss`.
 
 %heading-xmedium {
-
   @include bold-27();
 
-  margin-top: 35px;
-  margin-bottom: 10px;
+  margin-top: $gutter + ($gutter / 6);
+  margin-bottom: $gutter-one-third;
+
+}
+
+// Cut and pasted from the `.heading-small` styles in the `_elements-typography.scss` file in GOVUK Elements:
+// https://github.com/alphagov/govuk_elements/blob/7aaa646a59019b6a90e8a88ddc81ac61950b9efe/public/sass/elements/_elements-typography.scss#L125
+// Note: the units have been changed from ems to px to match DM conventions.
+
+%heading-small {
+  @include bold-19();
+
+  margin-top: $gutter-one-third;
+  margin-bottom: ($gutter / 6);
+
+  @include media(tablet) {
+    margin-top: $gutter-two-thirds;
+  }
 
 }
