@@ -272,7 +272,7 @@
   {% call field() -%}
     {% if value -%}
       {% for question in value %}
-        {% set macro = '{}_content'.format(question.type) %}
+        {% set macro = question.type + '_content' %}
         <div class="multiquestion">
           <p>{{ question.name if question.name else question.question }}</p>
           <div>{{ content[macro](question.value, question.assurance) }}</div>

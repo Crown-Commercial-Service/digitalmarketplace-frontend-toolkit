@@ -7,10 +7,10 @@
 {%- endmacro %}
 
 {% if hint %}
-  {% set answer_advice_id="input-{}-answer-advice".format(name) %}
+  {% set answer_advice_id="input-" + name + "-answer-advice" %}
 {% endif %}
 {% if question_advice %}
-  {% set question_advice_id="input-{}-question-advice".format(name) %}
+  {% set question_advice_id="input-" + name + "-question-advice" %}
 {% endif %}
 
 {% if error %}
