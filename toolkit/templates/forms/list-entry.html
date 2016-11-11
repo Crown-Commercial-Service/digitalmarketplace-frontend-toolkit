@@ -1,8 +1,8 @@
 {% if hint %}
-  {% set answer_advice_id="input-{}-answer-advice".format(id) %}
+  {% set answer_advice_id="input-" + id + "-answer-advice" %}
 {% endif %}
 {% if question_advice %}
-  {% set question_advice_id="input-{}-question-advice".format(id) %}
+  {% set question_advice_id="input-" + id + "-question-advice" %}
 {% endif %}
 
 {% if not values %}
