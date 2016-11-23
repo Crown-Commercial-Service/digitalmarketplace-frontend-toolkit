@@ -16,6 +16,50 @@
 {% if error %}
   <div class="validation-wrapper validation-wrapper-pricing">
 {% endif %}
+
+{% if fields|length == 1 %}
+<div class="question">
+  <label for="input-price">
+    <span class="question-heading">
+      {{ question }}
+    </span>
+    <span class="text-box-unit-qualifier">
+      (in pounds)
+    </span>
+    {% if error %}
+    <span class="validation-message">
+      {{ error }}
+    </span>
+    {% endif %}
+  </label>
+  {% if optional %}
+  <span class="question-optional">
+    <strong>Optional</strong>
+  </span>
+  {% endif %}
+  {% if question_advice %}
+  <span class="question-advice" id="input-{{ name }}-question-advice">
+    {{ question_advice|markdown }}
+  </span>
+  {% endif %}
+  {% if hint %}
+  <span class="hint" id="input-{{ name }}-answer-advice">
+    {{ hint|markdown }}
+  </span>
+  {% endif %}
+  <label for="input-price" class="text-box-unit">
+    £
+  </label>
+  <input
+    type="text"
+    class="text-box-with-unit-before"
+    name="{{ fields.price }}"
+    id="input-price"
+    value="{{ price or "" }}"
+    {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+  />
+</div>
+{% else %}
   <fieldset class="question first-question" id="{{ name }}">
     <legend>
       <span class="question-heading {% if hint or question_advice %}question-heading-with-hint{% endif %}">
@@ -194,6 +238,7 @@
       {% endif %}
     </div>
   </fieldset>
+{% endif %}
 {% if error %}
   </div>
 {% endif %}
