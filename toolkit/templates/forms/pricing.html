@@ -18,8 +18,8 @@
 {% endif %}
 
 {% if fields|length == 1 %}
-<div class="question">
-  <label for="input-price">
+<div class="question" id="{{ name }}">
+  <label for="input-{{ name }}">
     <span class="question-heading">
       {{ question }}
     </span>
@@ -47,14 +47,14 @@
     {{ hint }}
   </span>
   {% endif %}
-  <label for="input-price" class="text-box-unit">
+  <label for="input-{{ name }}" class="text-box-unit">
     £
   </label>
   <input
     type="text"
     class="text-box-with-unit-before"
     name="{{ fields.price }}"
-    id="input-price"
+    id="input-{{ name }}"
     value="{{ price or "" }}"
     {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
   />
