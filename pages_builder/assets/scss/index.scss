@@ -43,6 +43,10 @@ $path : '../images/';
   @extend %site-width-container;
 }
 
+.js-hidden {
+  display: none;
+}
+
 .code {
 
   $code-background: rgb(250, 250, 250);

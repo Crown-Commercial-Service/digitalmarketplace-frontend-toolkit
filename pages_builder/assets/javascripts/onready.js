@@ -35,4 +35,9 @@
     GOVUK.GDM.validation();
   }
 
+  if (GOVUK.ShowHideContent) {
+    var showHideContent = new GOVUK.ShowHideContent()
+    showHideContent.init()
+  }
+
 })(window);

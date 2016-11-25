@@ -4,6 +4,7 @@ grid: column-two-thirds
 bodyEnd: >
   <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/vendor/polyfills/bind.js"></script>
   <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/govuk/selection-buttons.js"></script>
+  <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/govuk/show-hide-content.js"></script>
 examples:
   -
     type: radio
@@ -163,3 +164,18 @@ examples:
         label: Don’t
       -
         label: Don’t
+  -
+    type: boolean
+    name: contact
+    question: Can you do this essential requirement
+    question_number: 93
+    value: true
+    followup: evidence-wrapper
+    surrounding_html: |
+      <form>
+        {{ example | safe }}
+        <!-- div below is not included in the macro output, you'll need to add it yourself -->
+        <div id="evidence-wrapper">
+          <textarea id="evidence" name="evidence" class="text-box text-box-large"></textarea>
+        </div>
+      </form>
