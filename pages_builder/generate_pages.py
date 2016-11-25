@@ -217,15 +217,18 @@ class Styleguide_publisher(object):
         self.asset_compiler.compile(folder)
 
     def copy_javascripts(self):
-        print "\nCOPYING JAVASCRIPTS\n"
-        dir_util.copy_tree("toolkit/javascripts", "pages/public/javascripts")
-        dir_util.copy_tree(
+        print "\nCOPYING JAVASCRIPTSn"
+        print "Created files:\n\n"
+        copied_scripts = []
+        copied_scripts += dir_util.copy_tree("toolkit/javascripts", "pages/public/javascripts")
+        copied_scripts += dir_util.copy_tree(
             "pages_builder/assets/javascripts", "pages/public/javascripts/"
         )
-        dir_util.copy_tree(
-            "pages_builder/govuk_frontend_toolkit/javascripts",
+        copied_scripts += dir_util.copy_tree(
+            "node_modules/govuk_frontend_toolkit/javascripts",
             "pages/public/javascripts/govuk_frontend_toolkit/"
         )
+        print "\n".join(copied_scripts)
         print "★ Done"
 
     def copy_images(self):
