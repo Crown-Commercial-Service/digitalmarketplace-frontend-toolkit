@@ -161,8 +161,15 @@ class Styleguide_publisher(object):
                 for index, example in enumerate(partial["examples"]):
                     grid = partial.get('grid')
                     if isinstance(example, dict):
+                        # if the example has some html it needs to be displayed, cache it and remove from the parameters example
+                        surrounding_html = example.get('surrounding_html', None)
+                        if surrounding_html:
+                            del example['surrounding_html']
+
                         example_template = self.parameters_example(template_subfolder, template_name, example)
                         example_markup = template.render(example)
+                        if surrounding_html:
+                            example_markup = env.from_string(surrounding_html).render({ 'example': example_markup })
                         # set a grid if specified. Example-level grids will overwrite the one for the page
                         grid = example.get('grid', partial.get('grid'))
                     else:
