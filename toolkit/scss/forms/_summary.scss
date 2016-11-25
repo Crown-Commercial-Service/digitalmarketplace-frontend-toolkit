@@ -242,6 +242,7 @@ table.summary-item-body tbody .summary-item-field-first-narrow-no-padding {
 .summary-item-field-with-action {
   @extend %summary-item-field;
   text-align: right;
+  padding-left: 12px
 }
 
 .summary-item-field-headings th {
