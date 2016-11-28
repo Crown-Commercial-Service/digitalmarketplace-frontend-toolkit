@@ -41,7 +41,7 @@ echo "Generating pages"
 echo "--------------------------------------------------------------------------------"
 rm -rf ./*
 cd ..
-python ./pages_builder/generate_pages.py
+make generate_pages
 echo "--------------------------------------------------------------------------------"
 echo "Commiting changes to generated pages"
 echo "--------------------------------------------------------------------------------"
