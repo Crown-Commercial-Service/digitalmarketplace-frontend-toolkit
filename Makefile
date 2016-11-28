@@ -7,7 +7,10 @@ virtualenv:
 requirements: virtualenv
 	${VIRTUALENV_ROOT}/bin/pip install -r pages_builder/requirements.txt
 
-generate_pages: requirements
+npm_install:
+	npm install
+
+generate_pages: requirements npm_install
 	${VIRTUALENV_ROOT}/bin/python pages_builder/generate_pages.py
 
 serve_pages: generate_pages
