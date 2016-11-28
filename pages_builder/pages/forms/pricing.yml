@@ -63,6 +63,11 @@ examples:
       minimum_price: priceMin
       maximum_price: priceMax
 
+  - question: Price question with only the price field
+    name: price
+    fields:
+      price: price
+
   - question: Single price with hours units prefilled
     name: price
     fields:
