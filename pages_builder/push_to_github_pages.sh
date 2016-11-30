@@ -13,11 +13,15 @@ usage () {
 EOF
 }
 
-if [ $# -eq 0 ]
-then
-  usage
-  exit 0
-fi
+while getopts ":h" OPTION; do
+  case $OPTION in
+    h )
+      usage
+      exit 1
+      ;;
+  esac
+done
+shift $(($OPTIND-1))
 
 latest_tag=$(git describe --abbrev)
 latest_commit=$(git rev-parse --short --verify HEAD)
