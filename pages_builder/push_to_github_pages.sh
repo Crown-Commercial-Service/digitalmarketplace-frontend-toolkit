@@ -3,10 +3,12 @@ set -e
 usage () {
   cat << EOF
 
-  Usage: $0 <tag>
+  Usage: $0
 
-  Build and push the documentation to Github pages based on the specified
-  version of the toolkit (typically a release tag, eg v0.0.1).
+  Build and push the documentation to Github pages based on the latest 
+  version of the toolkit. This is typically a release tag, eg v0.0.1, but
+  it's no longer mandatory as changes to the documentation do not always
+  need a version bump.
 
 EOF
 }
@@ -17,7 +19,8 @@ then
   exit 0
 fi
 
-build_from=$1
+latest_tag=$(git describe --abbrev)
+latest_commit=$(git rev-parse --short --verify HEAD)
 destination_repo=git@github.com:alphagov/digitalmarketplace-frontend-toolkit.git
 destination_branch=gh-pages
 echo "================================================================================"
@@ -26,7 +29,6 @@ echo "--------------------------------------------------------------------------
 if [ $(git status --porcelain | wc -l) -gt 0 ]; then
   echo "ERROR: You have uncommitted changes which would be lost by running this script"; exit
 fi
-git checkout $build_from
 git reset --hard HEAD
 echo "================================================================================"
 echo "Putting branch $destination_branch from $destination_repo into ./pages"
@@ -47,5 +49,5 @@ echo "Commiting changes to generated pages"
 echo "--------------------------------------------------------------------------------"
 cd pages
 git add .
-git commit --allow-empty -m "Publish documentation from $build_from"
+git commit --allow-empty -m "Publish documentation from $latest_commit, at $latest_tag"
 git push origin $destination_branch
