@@ -4,12 +4,15 @@ var manifest = {
     'vendor/jquery.js',
     'vendor/hogan.js',
     '../../../node_modules/govuk_frontend_toolkit/javascripts/vendor/polyfills/bind.js',
+    '../unit/ModuleLoaderSetup.js',
     '../../../toolkit/javascripts/list-entry.js',
-    '../../../toolkit/javascripts/word-counter.js'
+    '../../../toolkit/javascripts/word-counter.js',
+    '../../../toolkit/javascripts/module-loader.js'
   ],
   test : [
     '../unit/WordCountSpec.js',
-    '../unit/ListEntrySpec.js'
+    '../unit/ListEntrySpec.js',
+    '../unit/ModuleLoaderSpec.js'
   ]
 };
 
