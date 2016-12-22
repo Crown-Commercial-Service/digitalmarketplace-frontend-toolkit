@@ -6,21 +6,24 @@ var environment;
 var repoRoot = __dirname + '/';
 
 gulp.task('test', function () {
-  var manifest = require(repoRoot + 'spec/javascripts/manifest.js').manifest;
+  var manifest = require(repoRoot + 'spec/javascripts/manifest.js').manifest,
+      fixPaths;
 
-  manifest.support = manifest.support.map(function (val) {
-    return val.replace(/^(\.\.\/)*/, function (match) {
-      if (match === '../../../') {
-        return '';
-      }
-      else {
-        return 'spec/javascripts/support/'
-      }
+  fixPaths = function (val) {
+    val = val.replace(/^(\.\.\/)*/, function (match) {
+      var steps = match.split('/'),
+          root = ['spec', 'javascripts', 'support'];
+
+      // remove the end match which is always blank
+      steps.pop();
+      replacement = root.slice(0, root.length - steps.length);
+      return (replacement.length) ?  replacement.join('/') + '/' : '';
     });
-  });
-  manifest.test = manifest.test.map(function (val) {
-    return val.replace(/^\.\.\//, 'spec/javascripts/');
-  });
+    return val;
+  };
+
+  manifest.support = manifest.support.map(fixPaths);
+  manifest.test = manifest.test.map(fixPaths);
 
   return gulp.src(manifest.test)
     .pipe(jasmine({
