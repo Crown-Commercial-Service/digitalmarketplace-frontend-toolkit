@@ -1,25 +1,24 @@
-(function () {
+(function (global) {
   "use strict";
-  var root = this,
-      $ = root.jQuery;
 
-  if (typeof GOVUK === 'undefined') { root.GOVUK = {}; }
+  var $ = global.jQuery;
+  var GOVUK = global.GOVUK || {};
 
   var SelectionButtons = function (elmsOrSelector, opts) {
-    var $elms;
 
     this.selectedClass = 'selected';
     this.focusedClass = 'focused';
+    this.radioClass = 'selection-button-radio';
+    this.checkboxClass = 'selection-button-checkbox';
     if (opts !== undefined) {
       $.each(opts, function (optionName, optionObj) {
         this[optionName] = optionObj;
       }.bind(this));
     }
     if (typeof elmsOrSelector === 'string') {
-      $elms = $(elmsOrSelector);
       this.selector = elmsOrSelector;
       this.setInitialState($(this.selector));
-    } else {
+    } else if (elmsOrSelector !== undefined) {
       this.$elms = elmsOrSelector;
       this.setInitialState(this.$elms);
     }
@@ -36,6 +35,8 @@
     $elms.each(function (idx, elm) {
       var $elm = $(elm);
 
+      var labelClass = $elm.attr('type') === 'radio' ? this.radioClass : this.checkboxClass;
+      $elm.parent('label').addClass(labelClass);
       if ($elm.is(':checked')) {
         this.markSelected($elm);
       }
@@ -107,5 +108,6 @@
     }
   };
 
-  root.GOVUK.SelectionButtons = SelectionButtons;
-}).call(this);
+  GOVUK.SelectionButtons = SelectionButtons;
+  global.GOVUK = GOVUK;
+})(window);
