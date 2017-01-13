@@ -1,0 +1,60 @@
+pageTitle: Combinations 
+assetPath: ../govuk_template/assets/
+grid: column-two-thirds
+bodyEnd: >
+  <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/vendor/polyfills/bind.js"></script>
+  <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/govuk/selection-buttons.js"></script>
+  <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/govuk/show-hide-content.js"></script>
+examples:
+  - |
+    <form>
+      
+    <!-- `followup` field must be set to the `name` of the evidence textbox -->
+    {%
+      with
+      followup = "requirement-evidence-1",
+      name = "requirement-1",
+      question = "Can you do this essential requirement",
+      value = true,
+      type = "boolean"
+    %}
+      {% include "forms/selection-buttons.html" %}
+    {% endwith %}
+    {%
+      with
+      large = true,
+      question = "Evidence for the requirement",
+      name = "requirement-evidence-1",
+      hidden = true,
+      value = ""
+    %}
+      {% include "forms/textbox.html" %}
+    {% endwith %}
+
+    </form>
+  - |
+    <form>
+      
+    <!-- `followup` field must be set to the `name` of the evidence textbox -->
+    {%
+      with
+      followup = "requirement-evidence-2",
+      name = "evidence-2",
+      question = "Can you do this essential requirement - with errors",
+      value = true,
+      type = "boolean"
+    %}
+      {% include "forms/selection-buttons.html" %}
+    {% endwith %}
+    {%
+      with
+      large = true,
+      question = "Evidence for the requirement",
+      name = "requirement-evidence-2",
+      hidden = true,
+      value = "",
+      error = "Answer can't be more than 50 words"
+    %}
+      {% include "forms/textbox.html" %}
+    {% endwith %}
+    </form>
