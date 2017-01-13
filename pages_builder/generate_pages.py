@@ -142,6 +142,7 @@ class Styleguide_publisher(object):
                 partial['pageTitle'] +
                 " - Digital Marketplace frontend toolkit"
             )
+            examples_html_only = 'examples_html_only' in partial
             if "examples" in partial:
                 template_name, template_extension = os.path.splitext(file)
                 template_subfolder = root.replace(self.pages_dirname, "").strip("/")
@@ -157,9 +158,15 @@ class Styleguide_publisher(object):
                 # not all of our examples have template files (`_lists.scss`, for example)
                 if os.path.isfile(os.path.join(self.repo_root, "toolkit/templates", template_file)):
                     template = env.get_template(template_file)
+                    has_template = True 
+                else:
+                    has_template = False
                 examples = []
                 for index, example in enumerate(partial["examples"]):
                     grid = partial.get('grid')
+                    # If a pattern doesn't have a template in the toolkit, use the jinja from the example
+                    if not has_template:
+                        template = env.from_string(example)
                     if isinstance(example, dict):
                         # if the example has some html it needs to be displayed, cache it and remove from the parameters example
                         surrounding_html = example.get('surrounding_html', None)
@@ -181,7 +188,7 @@ class Styleguide_publisher(object):
                         "highlighted_markup": highlight(example_markup, HtmlLexer(), HtmlFormatter(noclasses=True)),
                         "grid": grid
                     })
-                    if template:
+                    if template and not examples_html_only:
                         examples[-1].update(
                             {"parameters": highlight(example_template, DjangoLexer(), HtmlFormatter(noclasses=True))}
                         )

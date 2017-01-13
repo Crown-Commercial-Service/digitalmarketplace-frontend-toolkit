@@ -1,6 +1,7 @@
 pageTitle: Lists
 assetPath: ../govuk_template/assets/
 grid: column-two-thirds
+examples_html_only: true
 examples:
   - |
     <h2><code>.list-bullet</code></h2>
