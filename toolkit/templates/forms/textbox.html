@@ -58,7 +58,7 @@
           </textarea>
         </div>
       {% else %}
-        <textarea class="text-box text-box-large" name="{{ name }}" id="input-{{ name }}">
+        <textarea class="text-box text-box-large{% if error %}-with-error{% endif %}" name="{{ name }}" id="input-{{ name }}">
         {%- if value != None -%}
         	{{ value }}
         {%- endif -%}

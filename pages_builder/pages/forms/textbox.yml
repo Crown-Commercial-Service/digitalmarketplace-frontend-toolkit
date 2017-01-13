@@ -47,6 +47,12 @@ examples:
     name: question-6
     value: hello2example.com
   -
+    question: Large textbox with errors
+    name: question-3
+    large: true
+    value: Large textbox
+    error: Must have no more that 50 words
+  -
     question: Optional text box with error despite loads of guidance
     question_number: "13"
 
