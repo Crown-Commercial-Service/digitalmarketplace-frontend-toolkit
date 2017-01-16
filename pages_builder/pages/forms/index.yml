@@ -43,6 +43,9 @@ content: >
         <li>
           <a href="/forms/validation.html">Validation</a>
         </li>
+        <li>
+          <a href="/forms/combinations.html">Combinations</a>
+        </li>
       </ul>
     </div>
   </main>
