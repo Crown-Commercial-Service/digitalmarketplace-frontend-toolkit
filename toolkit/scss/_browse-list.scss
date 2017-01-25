@@ -2,7 +2,6 @@
 @import "_typography.scss";
 @import "_measurements.scss";
 @import "_shims.scss";
-@import "_conditionals.scss";
 
 .browse-list {
   padding: 0;
@@ -13,67 +12,14 @@
   margin-bottom: $gutter;
 }
 
-.browse-list-item-link,
-a.browse-list-item-link {
-
+.browse-list-item-link {
   @include heading-24;
   font-weight: bold;
   text-decoration: none;
-  position: relative;
-  top: -12px;
-
-  @include ie-lte(9) {
-    top: 0;
-  }
-
-  span {
-
-    position: relative;
-    top: 12px;
-
-    @include ie-lte(9) {
-      top: 0;
-    }
-
-  }
-
-  &:visited {
-    color: $link-visited-colour;
-  }
-
-  &:hover {
-    color: $link-hover-colour;
-  }
-
-  &:active,
-  &:focus {
-
-    outline: none;
-    background: none;
-
-    @include ie-lte(9) {
-      background: $yellow;
-      outline: 3px solid $yellow;
-    }
-
-    span {
-
-      background: $yellow;
-      outline: 3px solid $yellow;
-
-      @include ie-lte(9) {
-        background: none;
-        outline: none;
-      }
-
-    }
-
-  }
-
 }
 
 .browse-list-item-body {
-  margin: 5px 0 0 0;
+  margin: 0;
   @include core-19;
 }
 
