@@ -16,17 +16,13 @@
 .browse-list-item-link,
 a.browse-list-item-link {
 
-  display: inline;
   @include heading-24;
   font-weight: bold;
   text-decoration: none;
-  border-bottom: 1px solid; // No border colour, is inherited from text colour
   position: relative;
   top: -12px;
 
   @include ie-lte(9) {
-    text-decoration: underline;
-    border-bottom: none;
     top: 0;
   }
 
