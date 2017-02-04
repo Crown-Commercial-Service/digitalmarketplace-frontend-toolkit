@@ -147,3 +147,52 @@ To make a new version:
 When the pull request is merged
 [a Jenkins job](https://ci.beta.digitalmarketplace.service.gov.uk/view/Utils and toolkit/job/tag-toolkit/)
 is run which tags the new version.
+
+## Running Wraith to compare changes
+
+The frontend toolkit uses [Wraith](http://bbc-news.github.io/wraith/) so that visual changes can be easily spotted.
+
+This needs to be run from the top-level project directory and some dependencies need to be installed on the local machine first.
+Also, the frontend toolkit needs to be serving pages (`make serve_pages`).
+
+### Install Wraith and its dependencies
+
+```
+gem install wraith
+# `-g` will install the package globally, if you prefer to do this
+brew install (-g) phantomjs
+brew install (-g) imagemagick
+```
+
+[Wraith's installation documentation can be found here](http://bbc-news.github.io/wraith/os-install.html).
+
+### Usage
+
+Take a baseline of the current version.
+On master run:
+
+```
+wraith history wraith/config.yml
+```
+
+This will run Wraith against the pages that it knows about and generate screenshots in the `wraith/shots_history`
+directory.  Configuration options are specified in the `wraith/config.yml` file.
+[See here for a few example Wraith configurations](http://bbc-news.github.io/wraith/configs.html).
+
+
+Once you have generated the 'history' screenshots, switch to your feature branch where you have made your changes.
+On feature branch run:
+
+```
+wraith latest wraith/config.yml
+```
+
+Wraith will compare the latest screenshots to the historical ones and generate an HTML page for
+easy diff comparison, the name of which will be in the command line output after it finishes running.
+
+### Known issues
+
+Occasionally, Wraith will hang on a specific page and then continue, other times it will hang indefinitely.
+If you've been waiting over a minute for it to load a page, then kill the process and run it again.
+It looks like [Wraith stalling out is an issue others have run into](https://github.com/BBC-News/wraith/issues/461),
+although there's no suggested fix as of yet.
