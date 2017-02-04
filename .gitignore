@@ -8,3 +8,4 @@ govuk_template
 gh-pages
 node_modules
 pages_builder/govuk_frontend_toolkit
+wraith/shots*
