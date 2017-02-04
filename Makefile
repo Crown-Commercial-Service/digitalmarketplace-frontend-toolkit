@@ -17,7 +17,7 @@ generate_pages: requirements npm_install npm_copy
 	${VIRTUALENV_ROOT}/bin/python pages_builder/generate_pages.py
 
 serve_pages: generate_pages
-	cd pages && ${VIRTUALENV_ROOT}/bin/python -m SimpleHTTPServer
+	cd pages && ${VIRTUALENV_ROOT}/bin/python ../server.py
 
 watch_for_changes: generate_pages
 	${VIRTUALENV_ROOT}/bin/python pages_builder/watch_for_changes.py
