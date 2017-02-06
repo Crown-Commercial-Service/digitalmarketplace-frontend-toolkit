@@ -15,10 +15,7 @@
   }
 
   if (GOVUK.SelectionButtons) {
-    var selectionButtons = new GOVUK.SelectionButtons('label.selection-button', {
-      'focusedClass' : 'selection-button-focused',
-      'selectedClass' : 'selection-button-selected'
-    });
+    var selectionButtons = new GOVUK.SelectionButtons('.selection-button input');
   }
 
   if (GOVUK.CheckboxFilter) {
