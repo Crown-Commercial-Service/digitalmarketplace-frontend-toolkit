@@ -46,7 +46,8 @@
       </span>
     {% endif %}
     {% if type == "boolean" %}
-      <label class="selection-button selection-button-radio {% if followup %}block-label{% endif %}" for="input-{{ name }}-yes" {% if followup %}data-target="{{ followup }}"{% endif %}>
+      {% set default_yes = true if value is sameas true %}
+      <label class="selection-button selection-button-radio{% if followup %} block-label{% endif %}{% if default_yes %} selected{% endif %}" for="input-{{ name }}-yes" {% if followup %}data-target="{{ followup }}"{% endif %}>
         Yes
         <input
           type="radio"
@@ -54,10 +55,11 @@
           id="input-{{ name }}-yes"
           value="true"
           {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
-          {% if value is sameas true %} checked{% endif %}
+          {% if default_yes %}checked="checked"{% endif %}
         />
       </label>
-      <label class="selection-button selection-button-radio" for="input-{{ name }}-no">
+      {% set default_no = true if value is sameas false %}
+      <label class="selection-button selection-button-radio{% if default_no %} selected{% endif %}" for="input-{{ name }}-no">
         No
         <input
           type="radio"
@@ -65,7 +67,7 @@
           id="input-{{ name }}-no"
           value="false"
           {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
-          {% if value is sameas false %} checked{% endif %}
+          {% if default_no %}checked="checked"{% endif %}
         />
       </label>
     {% else %}
