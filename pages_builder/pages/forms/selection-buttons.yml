@@ -20,6 +20,10 @@ examples:
         label : Month
       -
         label : Year
+    surrounding_html:
+      <form>
+        {{ example | safe }}
+      </form>
   -
     type: radio
     name: serviceStatus
@@ -31,6 +35,10 @@ examples:
         label: Public
       -
         label: Private
+    surrounding_html:
+      <form>
+        {{ example | safe }}
+      </form>
   -
     type: checkbox
     name: categories
@@ -45,12 +53,20 @@ examples:
         label: Business intelligence and analytics
       -
         label: Collaboration
+    surrounding_html:
+      <form>
+        {{ example | safe }}
+      </form>
   -
     type: boolean
     question: Offline working supported
     name: offlineWorking
     value: True
     question_number: '19'
+    surrounding_html:
+      <form>
+        {{ example | safe }}
+      </form>
   -
     type: radio
     question: Checkbox with hint and option description
@@ -63,6 +79,10 @@ examples:
           Infrastructure is the hardware that makes software work. It's the networks, hosting facilities
           and servers that platforms and software depend on. IaaS is infrastructure you can order and run
           entirely over the internet, without having to pay for your own hardware.
+    surrounding_html:
+      <form>
+        {{ example | safe }}
+      </form>
   -
     type: radio
     question: Optional radios with question advice, hint and option description
@@ -77,6 +97,10 @@ examples:
           Infrastructure is the hardware that makes software work. It's the networks, hosting facilities
           and servers that platforms and software depend on. IaaS is infrastructure you can order and run
           entirely over the internet, without having to pay for your own hardware.
+    surrounding_html:
+      <form>
+        {{ example | safe }}
+      </form>
   -
     type: radio
     question: Checkbox with hint, question description and option description
@@ -90,6 +114,10 @@ examples:
           Infrastructure is the hardware that makes software work. It's the networks, hosting facilities
           and servers that platforms and software depend on. IaaS is infrastructure you can order and run
           entirely over the internet, without having to pay for your own hardware.
+    surrounding_html:
+      <form>
+        {{ example | safe }}
+      </form>
   -
     type: checkbox
     question: Is your service assured by
@@ -103,6 +131,10 @@ examples:
         label: independent validation of assertion?
       -
         label: independent testing of implementation?
+    surrounding_html:
+      <form>
+        {{ example | safe }}
+      </form>
   -
     type: checkbox
     name: vegetables
@@ -116,6 +148,10 @@ examples:
         label: Onion
       -
         label: Collaboration
+    surrounding_html:
+      <form>
+        {{ example | safe }}
+      </form>
   -
     type: checkbox
     name: Trumpton
@@ -181,6 +217,10 @@ examples:
         label: Don’t
       -
         label: Don’t
+    surrounding_html:
+      <form>
+        {{ example | safe }}
+      </form>
   -
     type: boolean
     name: requirement
