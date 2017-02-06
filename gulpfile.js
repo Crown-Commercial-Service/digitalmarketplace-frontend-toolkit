@@ -4,6 +4,36 @@ var jasmine = require('gulp-jasmine-phantom');
 // Paths
 var environment;
 var repoRoot = __dirname + '/';
+var npmRoot = repoRoot + 'node_modules';
+var govukToolkitRoot = npmRoot + '/govuk_frontend_toolkit';
+var govukToolkitAppFolder = repoRoot + 'pages_builder/govuk_frontend_toolkit';
+
+
+function copyFactory(resourceName, sourceFolder, targetFolder) {
+
+  return function() {
+
+    return gulp
+      .src(sourceFolder + "/**/*", { base: sourceFolder })
+      .pipe(gulp.dest(targetFolder))
+      .on('end', function () {
+        console.log('📂  Copied ' + resourceName);
+      });
+  };
+}
+
+gulp.task(
+  'copy:govuk_frontend_toolkit',
+  copyFactory(
+    "GOV.UK frontend toolkit stuff",
+    govukToolkitRoot,
+    govukToolkitAppFolder
+  )
+);
+
+gulp.task('copy',
+  ['copy:govuk_frontend_toolkit']
+);
 
 gulp.task('test', function () {
   var manifest = require(repoRoot + 'spec/javascripts/manifest.js').manifest;
