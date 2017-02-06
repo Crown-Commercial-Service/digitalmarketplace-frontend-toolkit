@@ -19,6 +19,10 @@
 #Headless browser option
 browser:
   phantomjs: "phantomjs"
+  # slimerjs: "slimerjs"
+
+#If you want to have multiple snapping files, set the file name here
+# snap_file: "wraith/javascripts/snap.js"
 
 # Type the name of the directory that shots will be stored in
 directory: "wraith/shots"
@@ -36,13 +40,15 @@ screen_widths:
   - 1024
   - 1280
 
-#Type page URL paths below, here are a couple of examples
-paths:
-  home: "/"
-  forms: "/forms/"
-  textbox: "/forms/textbox.html"
-  browse-list: "/browse-list.html"
-  breadcrumb: "/breadcrumb.html"
+# 1. Type page URL paths below, here are a couple of examples
+#paths:
+#  home: "/"
+#  forms: "/forms/"
+#  textbox: "/forms/textbox.html"
+#  breadcrumb: "/breadcrumb.html"
+
+# 2. OR specify a yml file with all of the urls (wraith can generate this automatically)
+imports: "spider.yml"
 
 # (optional) JavaScript file to execute before taking screenshot of every path. Default: nil
 before_capture: "wraith/javascripts/wait--phantom.js"
