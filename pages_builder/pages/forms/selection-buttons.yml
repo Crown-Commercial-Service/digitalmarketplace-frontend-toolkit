@@ -126,11 +126,11 @@ examples:
     name: lot
     options:
       -
-        label: service provider assertion?
+        label: service provider assertion
       -
-        label: independent validation of assertion?
+        label: independent validation of assertion
       -
-        label: independent testing of implementation?
+        label: independent testing of implementation
     surrounding_html:
       <form>
         {{ example | safe }}
