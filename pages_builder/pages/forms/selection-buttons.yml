@@ -8,7 +8,7 @@ bodyEnd: >
 examples:
   -
     type: radio
-    name: minimumContractPeriod
+    name: minimumContractPeriod-10
     question: Radio buttons
     options:
       -
@@ -26,7 +26,7 @@ examples:
       </form>
   -
     type: radio
-    name: serviceStatus
+    name: serviceStatus-20
     question: Inline radio buttons
     inline: True
     value: 'Public'
@@ -41,7 +41,7 @@ examples:
       </form>
   -
     type: checkbox
-    name: categories
+    name: categories-30
     question: Choose a category
     value:
       - Accounting and finance
@@ -60,7 +60,7 @@ examples:
   -
     type: boolean
     question: Offline working supported
-    name: offlineWorking
+    name: offlineWorking-40
     value: False
     question_number: '19'
     surrounding_html:
@@ -71,7 +71,7 @@ examples:
     type: radio
     question: Checkbox with hint and option description
     hint: Advice about how to answer the question
-    name: lot
+    name: lot-50
     options:
       -
         label: Infrastructure as a Service
@@ -88,7 +88,7 @@ examples:
     question: Optional radios with question advice, hint and option description
     question_advice: Advice about the question
     hint: Advice about how to answer the question
-    name: lot
+    name: lot-60
     optional: true
     options:
       -
@@ -106,7 +106,7 @@ examples:
     question: Checkbox with hint, question description and option description
     description: Description of the question
     hint: Advice about how to answer the question
-    name: lot
+    name: lot-70
     options:
       -
         label: Infrastructure as a Service
@@ -123,7 +123,7 @@ examples:
     question: Is your service assured by
     hint: The hint for this question only makes sense when it's underneath the options.
     hint_underneath: True
-    name: lot
+    name: lot-80
     options:
       -
         label: service provider assertion
@@ -137,7 +137,7 @@ examples:
       </form>
   -
     type: checkbox
-    name: vegetables
+    name: vegetables-90
     question: Checkboxes with an error
     question_number: 77
     error: Answer required
@@ -154,7 +154,7 @@ examples:
       </form>
   -
     type: checkbox
-    name: Trumpton
+    name: trumpton-100
     question: Checkboxes with a message
     question_number: 23
     message: Grubb required
@@ -171,7 +171,7 @@ examples:
         label: Dibble
   -
     type: checkbox
-    name: dont
+    name: dont-110
     question: Optional checkboxes with an error despite loads of guidance
     question_number: 77
     error: From 12th January 1973 it will no longer be legal
@@ -223,7 +223,7 @@ examples:
       </form>
   -
     type: boolean
-    name: requirement
+    name: requirement-120
     question: Can you do this essential requirement
     question_number: 93
     value: True

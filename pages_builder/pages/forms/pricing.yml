@@ -5,7 +5,7 @@ examples:
   -
     question: Price
     hint: Hint giving advice about how to answer
-    name: price
+    name: price-10
     fields:
       minimum_price: priceMin
       maximum_price: priceMax
@@ -19,7 +19,7 @@ examples:
     question_advice: Advice about the question
     hint: Hint giving advice about how to answer
     optional: true
-    name: price
+    name: price-20
     fields:
       minimum_price: priceMin
       maximum_price: priceMax
@@ -30,7 +30,7 @@ examples:
 
   - question: Price with default values
     hint: Hint giving advice about how to answer
-    name: price
+    name: price-30
     fields:
       minimum_price: priceMin
       maximum_price: priceMax
@@ -45,7 +45,7 @@ examples:
     price_interval: Second
 
   - question: Price with an error
-    name: anotherPrice
+    name: anotherPrice-40
     error: This is not ok
     fields:
       minimum_price: priceMin
@@ -71,25 +71,25 @@ examples:
     price_interval: Year
 
   - question: Price with only min and max
-    name: price
+    name: price-50
     fields:
       minimum_price: priceMin
       maximum_price: priceMax
 
   - question: Price question with only the price field
-    name: price
+    name: price-60
     fields:
       price: price
 
   - question: Single price with hours units prefilled
-    name: price
+    name: price-70
     fields:
       hours_for_price: priceHours
       price: price
     hours_for_price: "1 hour"
     price: 200
   - question: Optional price with an error despite loads of guidance
-    name: anotherPrice
+    name: anotherPrice-80
     optional: true
     question_advice: |
       <p>To find the best specialist to meet your needs, you should:</p>

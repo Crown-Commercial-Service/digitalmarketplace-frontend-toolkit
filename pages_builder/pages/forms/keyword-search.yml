@@ -4,10 +4,10 @@ grid: column-one-third
 examples:
   -
     label: Keywords 
-    name: q
+    name: q-10
     id: keywords
   -
     label: Keywords (maximum 50 characters)
-    name: q
+    name: q-20
     id: keywords
     maxLength: 50

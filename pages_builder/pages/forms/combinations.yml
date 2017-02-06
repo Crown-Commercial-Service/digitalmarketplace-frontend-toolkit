@@ -1,4 +1,4 @@
-pageTitle: Combinations 
+pageTitle: Combinations
 assetPath: ../govuk_template/assets/
 grid: column-two-thirds
 bodyEnd: >
@@ -8,12 +8,12 @@ bodyEnd: >
 examples:
   - |
     <form>
-      
+
     <!-- `followup` field must be set to the `name` of the evidence textbox -->
     {%
       with
-      followup = "requirement-evidence-1",
-      name = "requirement-1",
+      followup = "requirement-evidence-10",
+      name = "requirement-10",
       question = "Can you do this essential requirement",
       value = true,
       type = "boolean"
@@ -24,7 +24,7 @@ examples:
       with
       large = true,
       question = "Evidence for the requirement",
-      name = "requirement-evidence-1",
+      name = "requirement-evidence-10",
       hidden = true,
       value = ""
     %}
@@ -34,12 +34,12 @@ examples:
     </form>
   - |
     <form>
-      
+
     <!-- `followup` field must be set to the `name` of the evidence textbox -->
     {%
       with
-      followup = "requirement-evidence-2",
-      name = "evidence-2",
+      followup = "requirement-evidence-20",
+      name = "evidence-20",
       question = "Can you do this essential requirement - with errors",
       value = true,
       type = "boolean"
@@ -50,7 +50,7 @@ examples:
       with
       large = true,
       question = "Evidence for the requirement",
-      name = "requirement-evidence-2",
+      name = "requirement-evidence-20",
       hidden = true,
       value = "",
       error = "Answer can't be more than 50 words"

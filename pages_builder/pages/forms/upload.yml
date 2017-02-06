@@ -4,34 +4,34 @@ grid: column-two-thirds
 examples:
   -
     question: Please upload a file
-    name: question-1
+    name: question-10
   -
     question: Optionally upload a file
-    name: question-1
+    name: question-20
     optional: true
   -
     question: Please replace the file you previously uploaded
     hint: Advice about the answer
-    name: question-2
+    name: question-30
     value: 1234123412341234-pricing-document.pdf
   -
     question: Please replace the file you previously uploaded
     question_advice: Advice about the question
     hint: Advice about the answer
-    name: question-2
+    name: question-40
     value: 1234123412341234-pricing-document.pdf
   -
     question: Example of a link to the uploaded file
-    name: question-3
+    name: question-50
     link: https://assets.digitalmarketplace.service.gov.uk/documents/654321/1234123412341234-pricing-document.pdf
     value: Excelsior_CMS-Pricing-2015.pdf
   -
     question: With a bad upload
-    name: question-4
+    name: question-60
     error: The file you uploaded was too big &ndash; maximum file size is 5Mb
   -
     question: Optional with a bad upload
-    name: question-4
+    name: question-70
     optional: true
     error: The file you uploaded was too big &ndash; maximum file size is 5Mb
   -
@@ -71,7 +71,7 @@ examples:
       <p>List the skills and experience you’d like the specialist to have,
       eg experience working on government digital projects</p>
     optional: true
-    name: question-2
+    name: question-80
     value: kak-dont-owl-poster-final-FINAL__V2.pdf
     error: From 12th January 1973 it will no longer be legal
   -
