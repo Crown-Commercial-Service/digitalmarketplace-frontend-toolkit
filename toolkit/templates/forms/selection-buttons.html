@@ -73,26 +73,30 @@
     {% else %}
       {% for option in options %}
         {% set input_value = option.value or option.label %}
-        <label class="selection-button selection-button-{{ type }}" for="input-{{ name }}-{{ loop.index }}">
-          {{ option.label }}
           {% if type == "radio" %}
-            <input
-              type="{{ type }}"
-              name="{{ name }}"
-              id="input-{{ name }}-{{ loop.index }}"
-              value="{{ input_value }}"
-              {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
-              {% if input_value == value %}checked="checked"{% endif %}
-            />
+            {% set default_selected = (input_value == value) %}
+            <label class="selection-button selection-button-radio{% if default_selected %} selected{% endif %}" for="input-{{ name }}-{{ loop.index }}">
+              {{ option.label }}
+              <input
+                type="{{ type }}"
+                name="{{ name }}"
+                id="input-{{ name }}-{{ loop.index }}"
+                value="{{ input_value }}"
+                {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+                {% if default_selected %}checked="checked"{% endif %}
+              />
           {% elif type == "checkbox" %}
-            <input
-              type="{{ type }}"
-              name="{{ name }}"
-              id="input-{{ name }}-{{ loop.index }}"
-              value="{{ input_value }}"
-              {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
-              {% if value and input_value in value %}checked="checked"{% endif %}
-            />
+            {% set default_selected = (value and (input_value in value)) %}
+            <label class="selection-button selection-button-checkbox{% if default_selected %} selected{% endif %}" for="input-{{ name }}-{{ loop.index }}">
+              {{ option.label }}
+              <input
+                type="{{ type }}"
+                name="{{ name }}"
+                id="input-{{ name }}-{{ loop.index }}"
+                value="{{ input_value }}"
+                {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+                {% if default_selected %}checked="checked"{% endif %}
+              />
           {% endif %}
           {% if option.description %}
             <p class="question-description">
