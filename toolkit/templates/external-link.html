@@ -1,3 +1,7 @@
 <div class="external-link-default">
-  <a href="{{ link }}" rel="external" {% if target %}target="{{ target }}"{% endif %}>{{ text }}</a>
+  <a
+    href="{{ link }}"
+    rel="external{% if target=='_blank' %} noopener noreferrer{% endif %}"
+    {% if target %}target="{{ target }}"{% endif %}
+  >{{ text }}</a>
 </div>
