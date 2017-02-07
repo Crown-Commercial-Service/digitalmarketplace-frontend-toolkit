@@ -190,11 +190,6 @@ table.summary-item-body-no-bottom-border-row-bold-borders-text-large {
       margin-bottom: 5px;
     }
   }
-
-  a[rel~="external"] {
-    @include external-link-default;
-    @include external-link-16;
-  }
 }
 
 %summary-item-field-no-padding,

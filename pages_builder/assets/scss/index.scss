@@ -138,11 +138,6 @@ a.version-link {
 
 }
 
- a[rel~="external"] {
-    @include external-link-default;
-    @include external-link-16;
-  }
-
 .index-list {
 
   @include core-19;
