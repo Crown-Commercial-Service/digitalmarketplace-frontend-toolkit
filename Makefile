@@ -10,7 +10,10 @@ requirements: virtualenv
 npm_install:
 	npm install
 
-generate_pages: requirements npm_install
+npm_copy:
+	npm run copy
+
+generate_pages: requirements npm_install npm_copy
 	${VIRTUALENV_ROOT}/bin/python pages_builder/generate_pages.py
 
 serve_pages: generate_pages
