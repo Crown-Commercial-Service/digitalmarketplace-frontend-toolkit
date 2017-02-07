@@ -19,10 +19,8 @@
 #Headless browser option
 browser:
   phantomjs: "phantomjs"
-  # slimerjs: "slimerjs"
 
 #If you want to have multiple snapping files, set the file name here
-# snap_file: "wraith/javascripts/snap.js"
 
 # Type the name of the directory that shots will be stored in
 directory: "wraith/shots"
@@ -73,13 +71,13 @@ mode: diffs_first
 threshold: 0
 
 # (optional) Choose to run Wraith in verbose mode, for easier debugging. Default: false
-verbose: false
+verbose: true
 
 # (optional) Color to highlight the image diff. Default: 'blue'
 highlight_color: red
 
 # (optional) Parameters to pass to Phantom/Casper command line. Default: '--ignore-ssl-errors=true --ssl-protocol=tlsv1'
-phantomjs_options: ""
+phantomjs_options: "--debug=true"
 
 # (optional) Specify the template (and generated thumbnail sizes) for the gallery output.
 gallery:
