@@ -3,12 +3,9 @@
 
 .phase-banner {
   @extend %site-width-container;
+  @include phase-banner()
 }
 
-.phase-banner-beta {
-  @include phase-banner(beta);
-}
-
-.phase-banner-alpha {
-  @include phase-banner(alpha);
+.phase-tag {
+  @include phase-tag()
 }
