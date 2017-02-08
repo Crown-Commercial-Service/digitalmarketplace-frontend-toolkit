@@ -1,4 +1,4 @@
-# Digital marketplace front-end toolkit changelog
+# Digital Marketplace front-end toolkit changelog
 
 Records breaking changes from major version bumps
 
