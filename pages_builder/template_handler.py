@@ -12,7 +12,7 @@ class TemplateHandler(object):
     self.template_dir = os.path.join(self.repo_root, 'pages/govuk_template')
 
     self.latest_release = self.get_latest_release()
-    self.latest_release_url = "https://github.com/alphagov/govuk_template/releases/download/v0.12.0/mustache_govuk_template-%s.tgz" % self.latest_release
+    self.latest_release_url = "https://github.com/alphagov/govuk_template/releases/download/v{0}/mustache_govuk_template-{0}.tgz".format(self.latest_release)
     self.latest_release_filename = self.latest_release_url.split("/")[-1]
     self.latest_release_dirname = self.latest_release_filename.replace(".tgz", "")
 
@@ -24,7 +24,7 @@ class TemplateHandler(object):
       return True
 
   def get_latest_release(self):
-    return "0.12.0"
+    return "0.19.2"
 
   def get_folder(self):
     return self.template_dir
