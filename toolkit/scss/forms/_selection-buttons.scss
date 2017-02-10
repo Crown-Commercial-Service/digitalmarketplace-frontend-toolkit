@@ -18,9 +18,8 @@
   clear: left;
   position: relative;
 
-  padding: 10px $gutter-half 10px ($gutter * 1.5); /* Specific to Digital Marketplace */
-  margin-top: 10px; /* Specific to Digital Marketplace */
-  margin-bottom: 10px; /* Specific to Digital Marketplace */
+  padding: (8px $gutter-one-third 9px 50px);
+  margin-bottom: $gutter-one-third;
 
   cursor: pointer; // Encourage clicking on block labels
 
@@ -30,8 +29,8 @@
 
   @include media(tablet) {
     float: left;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    padding-top: 7px;
+    padding-bottom: 7px;
     // width: 25%; - Test : check that text within labels will wrap
   }
 
