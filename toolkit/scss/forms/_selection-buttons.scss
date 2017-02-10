@@ -1,5 +1,5 @@
 // Copied from GOVUK Elements
-// Version: https://github.com/alphagov/govuk_elements/commit/537a4c14641377e7686ccc7586c2632c1008d7dc
+// Version: https://github.com/alphagov/govuk_elements/commit/cdeb958a0c3c0df5934497b74707322571ae6b21
 //
 // Large hit area
 // Radio buttons & checkboxes
@@ -108,20 +108,23 @@
     }
 
     // Focused state
-    &.selection-button-radio,
-    &.selection-button-checkbox {
-      &.focused::before {
-        @include box-shadow(0 0 0 5px $focus-colour);
-      }
-      // IE8 focus outline should stay as a border around the entire label
-      // Lack of padding doesn’t matter as IE8 won’t resize the inputs.
-      @include ie-lte(8) {
-        &.focused {
-          outline: 3px solid $focus-colour;
+    &.selection-button-checkbox.focused::before {
+      @include box-shadow(0 0 0 3px $focus-colour);
+    }
 
-          input:focus {
-            outline: none;
-          }
+    &.selection-button-radio.focused::before {
+      @include box-shadow(0 0 0 4px $focus-colour);
+    }
+
+    // IE8 focus outline should stay as a border around the entire label
+    // Lack of padding doesn’t matter as IE8 won’t resize the inputs.
+    @include ie-lte(8) {
+      &.selection-button-radio.focused,
+      &.selection-button-checkbox.focused {
+        outline: 3px solid $focus-colour;
+
+        input:focus {
+          outline: none;
         }
       }
     }
