@@ -12,6 +12,11 @@
   .hint {
     margin-bottom: 0;
   }
+
+  // This preserves the vertical margins set on the .question-headings
+  legend {
+    height: 100%;
+  }
 }
 
 .question-first {
