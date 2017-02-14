@@ -26,8 +26,9 @@
 
 .question-heading,
 %question-heading {
+  @include bold-24;
+
   display: block;
-  @include heading-24;
   margin: 0 0 10px 0;
 
   p {
