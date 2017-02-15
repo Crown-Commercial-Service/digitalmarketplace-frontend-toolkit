@@ -1,8 +1,9 @@
-@import "_colours.scss";
-@import "_typography.scss";
-@import "_not-ie-conditional.scss";
-@import "_shims.scss";
-@import "_css3.scss";
+@import "colours";
+@import "typography";
+@import "not-ie-conditional";
+@import "shims";
+@import "css3";
+@import "forms/questions";
 
 .document-list {
   margin: 0;
@@ -17,10 +18,10 @@
 .document-link {
   @include core-19;
   @include box-sizing(border-box);
-  margin: 5px 0;
-  padding: 10px 0 10px 0;
-  position: relative;
   @include inline-block;
+  @extend %question-meta-spacing;
+
+  position: relative;
   width: 100%; /* Trigger HasLayout on older IEs */
 }
 

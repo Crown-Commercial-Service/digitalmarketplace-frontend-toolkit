@@ -8,18 +8,19 @@
 @import "measurements";
 @import "conditionals";
 @import "typography";
+@import "questions";
 
 // By default, block labels stack vertically
 .selection-button {
 
   @include core-19; /* Specific to Digital Marketplace */
+  @extend %question-meta-spacing;
+
+  padding: (8px $gutter-one-third 9px 50px);
   display: block;
   float: none;
   clear: left;
   position: relative;
-
-  padding: (8px $gutter-one-third 9px 50px);
-  margin-bottom: $gutter-one-third;
 
   cursor: pointer; // Encourage clicking on block labels
 
@@ -29,8 +30,6 @@
 
   @include media(tablet) {
     float: left;
-    padding-top: 7px;
-    padding-bottom: 7px;
     // width: 25%; - Test : check that text within labels will wrap
   }
 

@@ -1,6 +1,7 @@
 @import "colours";
 @import "typography";
 @import "shims";
+@import "questions";
 
 .validation-masthead {
 
@@ -41,23 +42,23 @@
   margin: 15px 0 30px 0;
   @extend %contain-floats;
 
-  .question {
+  .question,
+  .question button {
     margin: 0;
   }
 
-  .question-heading,
-  .question-heading-with-hint {
+  .question-heading {
     padding-top: 0;
   }
-
 }
 
 .validation-message {
   @include core-19;
+  @extend %question-meta-spacing;
+
   display: block;
   font-weight: bold;
   color: $red;
-  padding: 5px 0 7px 0;
 }
 
 .message-wrapper {

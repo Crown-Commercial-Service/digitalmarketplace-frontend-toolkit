@@ -1,7 +1,7 @@
-@import "_colours.scss";
-@import "_measurements.scss";
-@import "_shims.scss";
-@import "_typography.scss";
+@import "colours";
+@import "measurements";
+@import "shims";
+@import "typography";
 
 @include media($min-width: 959px) {
   .column-two-thirds .pricing {
@@ -11,7 +11,9 @@
 
 .pricing {
 
-  margin-top: $gutter-half;
+  @include media(tablet) {
+    padding-top: 7px;
+  }
 
   .pricing-column {
     position: relative;

@@ -1,17 +1,25 @@
-@import "_colours";
-@import "_typography.scss";
+@import "colours";
+@import "typography";
 @import "shared_scss/_dmspeak.scss";
 @import "shared_placeholders/_visuallyhidden.scss";
+
+
+// Spacing rules based on those found in govuk elements selection buttons
+// Version: https://github.com/alphagov/govuk_elements/commit/537a4c14641377e7686ccc7586c2632c1008d7dc
+%question-meta-spacing {
+  margin-bottom: $gutter-one-third;
+
+  @include media(tablet) {
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+}
 
 .question,
 %question {
   @extend %contain-floats;
   margin: 15px 0 30px 0;
   clear: both;
-
-  .hint {
-    margin-bottom: 0;
-  }
 
   // This preserves the vertical margins set on the .question-headings
   legend {
@@ -27,22 +35,18 @@
 .question-heading,
 %question-heading {
   @include bold-24;
+  @extend %question-meta-spacing;
 
   display: block;
-  margin: 0 0 10px 0;
+  padding-top: 0;
 
   p {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 
     &:last-child {
       margin-bottom: 0;
     }
   }
-}
-
-.question-heading-with-hint {
-  @extend %question-heading;
-  margin-bottom: 0;
 }
 
 .question-description {
@@ -89,28 +93,25 @@
 
 .question-optional {
   @include core-19;
+  @extend %question-meta-spacing;
+
   display: block;
-  margin-top: 10px;
-  padding-bottom: 10px;
 }
 
 .question-advice {
   @extend %markdown-description;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  @extend %question-meta-spacing;
+
   display: block;
 }
 
-.question-optional + .question-advice {
-  margin-top: 0;
-}
-
 .single-question-page {
+
   .question {
     margin-top: 0;
 
     .question-advice {
-      margin-top: 0;
+      padding-top: 0;
     }
   }
 
