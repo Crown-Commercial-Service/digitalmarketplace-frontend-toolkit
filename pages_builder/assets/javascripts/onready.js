@@ -32,9 +32,15 @@
     GOVUK.GDM.validation();
   }
 
+  if (GOVUK.shimLinksWithButtonRole) {
+    GOVUK.shimLinksWithButtonRole.init({
+      selector: '[class^=link-button]'
+    });
+  }
+
   if (GOVUK.ShowHideContent) {
-    var showHideContent = new GOVUK.ShowHideContent()
-    showHideContent.init()
+    var showHideContent = new GOVUK.ShowHideContent();
+    showHideContent.init();
   }
 
 })(window);
