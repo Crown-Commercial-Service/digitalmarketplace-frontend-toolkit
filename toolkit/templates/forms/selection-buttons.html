@@ -12,7 +12,7 @@
 {% endif %}
   <fieldset class="question first-question{% if inline or type=='boolean' %} inline{% endif %}" id="{{ name }}">
     <legend>
-      <span class="question-heading{% if hint or question_advice %} question-heading-with-hint{% endif %}">
+      <span class="question-heading">
         {% if question_number %}
           <span class="question-number">
             {{ question_number }}
