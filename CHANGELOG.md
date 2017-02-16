@@ -2,6 +2,67 @@
 
 Records breaking changes from major version bumps
 
+## 21.0.0
+
+PR: [#304](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/304)
+
+### What changed
+
+- The format of the followup questions has changed, so toolkit form macros need to pass in
+  the `content_question.values_followup` instead of the `content_question.followup`
+- Since radio and checkbox questions can have followups too the related macros need to set
+  `followup=content_question.values_followup`
+- Radio, boolean and list-entry questions can be follow-up questions, so related macros
+  need to set `hidden=question_content.hidden`
+- We need to vendor a version of `show-hide-content.js` with added support for multiple
+  follow-up inputs, so it has to be used instead of the GOV.UK toolkit one
+
+### Example app change
+
+#### Loading the `show-hide-content.js` with support for multiple follow-up questions
+
+Old:
+```
+//= include ../../../node_modules/govuk_frontend_toolkit/javascripts/govuk/show-hide-content.js
+```
+
+New:
+```
+//= include ../../../bower_components/digitalmarketplace-frontend-toolkit/toolkit/javascripts/show-hide-content.js
+```
+
+#### Updating application `form_toolkit` macros
+
+Old:
+```jinja
+{% macro boolean(question_content, service_data, errors, question_number=None, get_question=None) -%}
+  {%
+     with
+     ...
+     followup=question_content.followup,
+     ...
+  %}
+    {% include "toolkit/forms/selection-buttons.html" %}
+  {% endwith %}
+{%- endmacro %}
+```
+
+New:
+```jinja
+{% macro boolean(question_content, service_data, errors, question_number=None, get_question=None) -%}
+  {%
+     with
+     ...
+     followup=question_content.values_followup,
+     hidden=question_content.hidden,
+     ...
+  %}
+    {% include "toolkit/forms/selection-buttons.html" %}
+  {% endwith %}
+{%- endmacro %}
+```
+
+
 ## 20.0.0
 
 PR: [#302](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/302)
