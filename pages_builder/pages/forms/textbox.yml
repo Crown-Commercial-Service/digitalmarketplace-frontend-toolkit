@@ -124,7 +124,11 @@ examples:
     value: Smaller box
   -
     question: Smaller textbox with error
-    name: question-9
+    name: question-10
     smaller: true
     value: Blue
     error: Answer must not be a colour
+  -
+    question: Textbox with message
+    name: question-11
+    message: You really need to know about this box
