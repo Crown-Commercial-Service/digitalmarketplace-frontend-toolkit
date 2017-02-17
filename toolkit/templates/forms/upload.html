@@ -6,7 +6,9 @@
 {% endif %}
 
 {% if error %}
-<div class="validation-wrapper">
+  <div class="validation-wrapper">
+{% elif message %}
+  <div class="message-wrapper">
 {% endif %}
   <div class="question" id="{{ name }}">
     <label for="input-{{ name }}">
@@ -23,6 +25,10 @@
       {% if error %}
         <span class="validation-message">
           {{ error }}
+        </span>
+      {% elif message %}
+        <span class="message-message">
+          {{ message }}
         </span>
       {% endif %}
     </label>
@@ -65,6 +71,6 @@
       {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
     />
   </div>
-{% if error %}
+{% if error or message %}
 </div>
 {% endif %}
