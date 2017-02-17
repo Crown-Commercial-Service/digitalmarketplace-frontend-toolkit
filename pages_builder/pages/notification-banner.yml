@@ -29,6 +29,10 @@ examples:
     type: destructive
     message: <a href="#">With a link</a> and some plain text but without an action.
   -
+    title: Informational banner
+    type: information
+    message: This text provides some information about what you can see on the page.
+  -
     title: Temporary message banner
     type: temporary-message
     heading: >
