@@ -65,7 +65,7 @@
     border-left: 5px solid $govuk-blue;
 }
 
-.message-message {
+.message-content {
     @extend .validation-message;
     color: $govuk-blue;
 }
