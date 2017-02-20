@@ -7,6 +7,8 @@
 
 {% if error %}
   <div class="validation-wrapper">
+{% elif message %}
+  <div class="message-wrapper">
 {% endif %}
   <div class="question{% if hidden %} js-hidden{% endif %}{% if hidden is defined %} related-information{% endif %}" id="{{ name }}">
     <label for="input-{{ name }}">
@@ -24,6 +26,10 @@
       {% if error %}
         <span class="validation-message">
           {{ error }}
+        </span>
+      {% elif message %}
+        <span class="message-content">
+          {{ message }}
         </span>
       {% endif %}
     </label>
@@ -85,6 +91,6 @@
       {% endif %}
     {% endif %}
   </div>
-{% if error %}
+{% if error or message %}
   </div>
 {% endif %}

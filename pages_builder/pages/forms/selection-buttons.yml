@@ -118,6 +118,23 @@ examples:
         label: Collaboration
   -
     type: checkbox
+    name: Trumpton
+    question: Checkboxes with a message
+    question_number: 23
+    message: Grubb required
+    options:
+      -
+        label: Pugh
+      -
+        label: Pugh
+      -
+        label: Barney McGrew
+      -
+        label: Cuthbert
+      -
+        label: Dibble
+  -
+    type: checkbox
     name: dont
     question: Optional checkboxes with an error despite loads of guidance
     question_number: 77

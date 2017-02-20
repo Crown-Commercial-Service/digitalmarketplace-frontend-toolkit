@@ -65,6 +65,19 @@
   margin: 0;
 }
 
+%banner-information {
+  @extend %banner;
+  color: $govuk-blue;
+}
+
+.banner-information-with-action {
+  @extend %banner-information;
+}
+
+.banner-information-without-action {
+  @extend %banner-information;
+}
+
 .banner-temporary-message-without-action {
   @extend %banner;
   @extend %temporary-message;

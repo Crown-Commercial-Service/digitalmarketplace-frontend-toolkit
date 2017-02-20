@@ -59,3 +59,13 @@
   color: $red;
   padding: 5px 0 7px 0;
 }
+
+.message-wrapper {
+    @extend .validation-wrapper;
+    border-left: 5px solid $govuk-blue;
+}
+
+.message-content {
+    @extend .validation-message;
+    color: $govuk-blue;
+}

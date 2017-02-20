@@ -10,6 +10,8 @@
 {% endif %}
 {% if error %}
   <div class="validation-wrapper">
+{% elif message %}
+  <div class="message-wrapper">
 {% endif %}
   <fieldset class="question {% if first_question %}first-question{% endif %}" id="{{ id }}">
     <legend>
@@ -24,6 +26,10 @@
       {% if error %}
         <span class="validation-message">
           {{ error }}
+        </span>
+      {% elif message %}
+        <span class="message-content">
+          {{ message }}
         </span>
       {% endif %}
     </legend>
@@ -60,6 +66,6 @@
       {% endfor %}
     </div>
   </fieldset>
-{% if error %}
+{% if error or message %}
   </div>
 {% endif %}

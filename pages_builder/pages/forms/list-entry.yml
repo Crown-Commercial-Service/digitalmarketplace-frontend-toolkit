@@ -24,6 +24,12 @@ examples:
     number_of_items: 3
     item_name: benefit
   -
+    question: With a message
+    id: serviceBenefits
+    message: This has been pre-filled from a previous declaration
+    number_of_items: 3
+    item_name: thing
+  -
     question: Optional service features with error despite lots of question advice and hints
     id: serviceFeatures
     optional: true

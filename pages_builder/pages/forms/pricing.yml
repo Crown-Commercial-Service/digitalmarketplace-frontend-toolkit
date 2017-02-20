@@ -57,6 +57,19 @@ examples:
     price_unit: Person
     price_interval: Second
 
+  - question: Price with a message
+    name: anotherPrice
+    message: This is a message about this price
+    fields:
+      minimum_price: priceMin
+      maximum_price: priceMax
+      price_unit: priceUnit
+      price_interval: priceInterval
+    minimum_price: 12.12
+    maximum_price: 15.15
+    price_unit: Transaction
+    price_interval: Year
+
   - question: Price with only min and max
     name: price
     fields:

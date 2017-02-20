@@ -74,3 +74,8 @@ examples:
     name: question-2
     value: kak-dont-owl-poster-final-FINAL__V2.pdf
     error: From 12th January 1973 it will no longer be legal
+  -
+    question: Optional with a message
+    name: question-23
+    optional: true
+    message: This is a great file, thanks
