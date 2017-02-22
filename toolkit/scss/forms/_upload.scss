@@ -1,4 +1,8 @@
-@import "_typography.scss";
+@import "typography";
+
+// The following placeholders must be present in your main stylesheet:
+// - shared_placeholders/_placeholders.scss
+
 
 .file-upload-existing-value {
   @include core-19;
@@ -7,5 +11,8 @@
 
 .file-upload-input {
   @include core-19;
-  margin-top: 5px;
+  @extend %question-meta-spacing;
+
+  padding-bottom: 0;
+  margin-bottom: 0;
 }

@@ -8,7 +8,7 @@ bodyEnd: >
 examples:
   -
     question: Service features
-    id: serviceFeatures
+    id: serviceFeatures-10
     hint: Include the technical features of your product, eg graphical workflow, remote access. (Maximum 10 words per feature. Maximum 10 features.)
     optional: true
     number_of_items: 10
@@ -19,7 +19,7 @@ examples:
       - Three
   -
     question: With an error
-    id: serviceBenefits
+    id: serviceBenefits-20
     error: Answer required
     number_of_items: 3
     item_name: benefit
@@ -31,7 +31,7 @@ examples:
     item_name: thing
   -
     question: Optional service features with error despite lots of question advice and hints
-    id: serviceFeatures
+    id: serviceFeatures-30
     optional: true
     question_advice: |
       <p>To find the best specialist to meet your needs, you should:</p>

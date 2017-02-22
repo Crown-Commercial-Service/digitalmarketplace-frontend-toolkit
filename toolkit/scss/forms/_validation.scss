@@ -2,6 +2,10 @@
 @import "typography";
 @import "shims";
 
+// The following placeholders must be present in your main stylesheet:
+// - shared_placeholders/_placeholders.scss
+
+
 .validation-masthead {
 
   border: 5px solid $red;
@@ -38,26 +42,26 @@
 
   border-left: 5px solid $red;
   padding: 0 0 0 15px;
-  margin: 15px 0 30px 0;
+  margin: 24px 0 48px 0;
   @extend %contain-floats;
 
-  .question {
+  .question,
+  .question button {
     margin: 0;
   }
 
-  .question-heading,
-  .question-heading-with-hint {
+  .question-heading {
     padding-top: 0;
   }
-
 }
 
 .validation-message {
   @include core-19;
+  @extend %question-meta-spacing;
+
   display: block;
   font-weight: bold;
   color: $red;
-  padding: 5px 0 7px 0;
 }
 
 .message-wrapper {

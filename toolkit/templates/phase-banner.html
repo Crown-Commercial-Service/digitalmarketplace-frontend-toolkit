@@ -1,5 +1,5 @@
 {% set phase = "alpha" if alpha else "beta" %}
-<div class="phase-banner phase-banner-{{ phase }}">
+<div class="phase-banner">
   <p>
     <strong class="phase-tag">{{ phase|upper }}</strong> This is a{% if phase[0] in "aeiouy" %}n{% endif %} {% if phase == "beta" %}<a href="https://www.gov.uk/help/beta">{{ phase }} service</a>{% else %}{{ phase }} service{% endif %}  – please send your feedback to  <a href="mailto:enquiries@digitalmarketplace.service.gov.uk?subject=Digital%20Marketplace%20feedback" title="Please send feedback to enquiries@digitalmarketplace.service.gov.uk">enquiries@digitalmarketplace.service.gov.uk</a>
   </p>

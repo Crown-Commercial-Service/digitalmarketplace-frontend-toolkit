@@ -1,17 +1,33 @@
-@import "_colours.scss";
-@import "_typography.scss";
+@import "colours";
+@import "typography";
 @import "shared_scss/_dmspeak.scss";
 
-%hint,
-.hint {
+// The following placeholders must be present in your main stylesheet:
+// - shared_placeholders/_placeholders.scss
+
+
+%hint {
   @extend %markdown-description;
   display: block;
-  margin: 0 0 5px 0;
   color: $secondary-text-colour;
   clear: both;
+
+  p:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.hint {
+  @extend %hint;
+  @extend %question-meta-spacing;
 }
 
 .hint-underneath {
   @extend %hint;
-  padding-top: 10px;
+
+  padding-top: 18px;
+
+  @include media(tablet) {
+    padding-top: 17px;
+  }
 }

@@ -1,6 +1,64 @@
-# Digital marketplace front-end toolkit changelog
+# Digital Marketplace front-end toolkit changelog
 
 Records breaking changes from major version bumps
+
+## 20.0.0
+
+PR: [#302](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/302)
+
+## What changed
+
+We've updated the govuk_frontend_toolkit, so most of these changes are driven from that.
+The good news is that the changes are very minor and mostly don't affect our frontend apps.
+
+- The selected and focused classes for our selection buttons are now just `.selected` and `.focused` instead of what they were before (`.selection-button-focused` and `.selection-button-selected`, respectively).
+
+#### Breaking change
+
+Old:
+```ruby
+find(
+    :xpath,
+    "//*[contains(text(), 'Service status')]/following-sibling::*[@class='selection-button selection-button-selected'][text()]"
+  ).text().should have_content("#{service_status}")
+
+```
+
+New:
+```ruby
+find(
+    :xpath,
+    "//*[contains(text(), 'Service status')]/following-sibling::*[@contains(@class, 'selection-button selected')][text()]"
+  ).text().should have_content("#{service_status}")
+```
+
+<br />
+<br />
+
+- The `.question-heading-with-hint` class has been deprecated because our vertical spacing for question meta elements doesn't care about this distinction anymore.
+
+#### Breaking change
+
+Old:
+```jinja
+{{ form.email_address.label(class="question-heading-with-hint") }}
+```
+
+New:
+```jinja
+{{ form.email_address.label(class="question-heading") }}
+```
+
+<br />
+<br />
+
+The following are also changes to classnames but they don't appear to be in the frontend apps.
+Means we don't have to worry about them, happily.
+
+- The `.selection-button-boolean` class has been removed in favour of `.selection-button-radio`, which is consistent with those in [govuk_elements](https://github.com/alphagov/govuk_elements/blob/677f7cfd009cd8035aa856ea0456c9fcf3c9e18e/app/views/snippets/form_radio_inline_yes_no.html#L11).
+
+- The `phase-banner` stuff no longer has phase-dependent colours.  Means we no longer have `.phase-banner-alpha` and `.phase-banner-beta` classes, but simply `.phase-banner`.
+
 
 ## 19.0.0
 

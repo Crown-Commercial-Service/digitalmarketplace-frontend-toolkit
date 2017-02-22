@@ -1,3 +1,9 @@
+// Copied from GOVUK Elements
+// Version: https://github.com/alphagov/govuk_elements/commit/735955e7ffb6198d2b5ad5348ed5eb941435646b
+//
+// Bringing in rules for input textboxes from govuk_elements' .form-control class
+// Digital Marketplace's spacing (margin and padding) rules are specific to us
+
 @import "_colours.scss";
 @import "_conditionals.scss";
 @import "_typography.scss";
@@ -6,14 +12,16 @@
 
 %text-box,
 .text-box {
-  @include core-19;
   @include box-sizing(border-box);
-  display: block;
-  height: 50px;
-  margin: 0 0 15px 0;
-  padding: 5px;
-  border: 2px solid $secondary-text-colour;
+  @include core-19;
   width: 100%;
+
+  padding: 9px 5px;
+  background-color: transparent;
+  border: 2px solid;
+
+  display: block;
+  margin: 0 0 15px 0;
 
   /* IE<8 cannot include borders and padding as part of width */
   @include ie-lte(7) {

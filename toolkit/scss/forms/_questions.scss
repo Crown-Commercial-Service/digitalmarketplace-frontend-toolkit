@@ -1,16 +1,21 @@
-@import "_colours";
-@import "_typography.scss";
+@import "colours";
+@import "typography";
 @import "shared_scss/_dmspeak.scss";
 @import "shared_placeholders/_visuallyhidden.scss";
+
+// The following placeholders must be present in your main stylesheet:
+// - shared_placeholders/_placeholders.scss
+
 
 .question,
 %question {
   @extend %contain-floats;
-  margin: 15px 0 30px 0;
+  margin: 24px 0 48px 0;
   clear: both;
 
-  .hint {
-    margin-bottom: 0;
+  // This preserves the vertical margins set on the .question-headings
+  legend {
+    height: 100%;
   }
 }
 
@@ -21,22 +26,19 @@
 
 .question-heading,
 %question-heading {
+  @include bold-24;
+  @extend %question-meta-spacing;
+
   display: block;
-  @include heading-24;
-  margin: 0 0 10px 0;
+  padding-top: 0;
 
   p {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 
     &:last-child {
       margin-bottom: 0;
     }
   }
-}
-
-.question-heading-with-hint {
-  @extend %question-heading;
-  margin-bottom: 0;
 }
 
 .question-description {
@@ -83,28 +85,25 @@
 
 .question-optional {
   @include core-19;
+  @extend %question-meta-spacing;
+
   display: block;
-  margin-top: 10px;
-  padding-bottom: 10px;
 }
 
 .question-advice {
   @extend %markdown-description;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  @extend %question-meta-spacing;
+
   display: block;
 }
 
-.question-optional + .question-advice {
-  margin-top: 0;
-}
-
 .single-question-page {
+
   .question {
     margin-top: 0;
 
     .question-advice {
-      margin-top: 0;
+      padding-top: 0;
     }
   }
 

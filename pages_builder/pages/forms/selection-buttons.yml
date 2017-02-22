@@ -8,7 +8,7 @@ bodyEnd: >
 examples:
   -
     type: radio
-    name: minimumContractPeriod
+    name: minimumContractPeriod-10
     question: Radio buttons
     options:
       -
@@ -20,20 +20,28 @@ examples:
         label : Month
       -
         label : Year
+    surrounding_html:
+      <form>
+        {{ example | safe }}
+      </form>
   -
     type: radio
-    name: serviceStatus
+    name: serviceStatus-20
     question: Inline radio buttons
-    inline: True
+    inline: true
     value: 'Public'
     options:
       -
         label: Public
       -
         label: Private
+    surrounding_html:
+      <form>
+        {{ example | safe }}
+      </form>
   -
     type: checkbox
-    name: categories
+    name: categories-30
     question: Choose a category
     value:
       - Accounting and finance
@@ -45,17 +53,26 @@ examples:
         label: Business intelligence and analytics
       -
         label: Collaboration
+    surrounding_html:
+      <form>
+        {{ example | safe }}
+      </form>
   -
     type: boolean
     question: Offline working supported
-    name: offlineWorking
-    value: True
+    question_advice: This is some more context to do with the question itself
+    name: offlineWorking-40
+    value: False
     question_number: '19'
+    surrounding_html:
+      <form>
+        {{ example | safe }}
+      </form>
   -
     type: radio
     question: Checkbox with hint and option description
     hint: Advice about how to answer the question
-    name: lot
+    name: lot-50
     options:
       -
         label: Infrastructure as a Service
@@ -63,49 +80,89 @@ examples:
           Infrastructure is the hardware that makes software work. It's the networks, hosting facilities
           and servers that platforms and software depend on. IaaS is infrastructure you can order and run
           entirely over the internet, without having to pay for your own hardware.
+    surrounding_html:
+      <form>
+        {{ example | safe }}
+      </form>
   -
     type: radio
     question: Optional radios with question advice, hint and option description
     question_advice: Advice about the question
     hint: Advice about how to answer the question
-    name: lot
+    name: lot-60
     optional: true
     options:
       -
-        label: Infrastructure as a Service
+        label: Infrastructure as a Service (IaaS)
+        value: iaas
         description: >
-          Infrastructure is the hardware that makes software work. It's the networks, hosting facilities
-          and servers that platforms and software depend on. IaaS is infrastructure you can order and run
-          entirely over the internet, without having to pay for your own hardware.
+          Infrastructure is the hardware that makes software work. It’s the
+          networks, hosting facilities and servers that platforms and software
+          depend on. IaaS is infrastructure you can order and run entirely over
+          the internet, without having to pay for your own hardware.
+      -
+        label: Software as a Service (SaaS)
+        value: saas
+        description: >
+          SaaS is an application or service that can be run over the internet or
+          in the cloud. Examples of SaaS include web-based email services,
+          customer relationship management (CRM) software and analytics tools.
+      -
+        label: Platform as a Service (PaaS)
+        value: paas
+        description: >
+          PaaS is a software platform that provides a basis for building other
+          services and applications. With PaaS, you can set up, order, pay for
+          and manage platforms in the cloud.
+      -
+        label: Specialist Cloud Services (SCS)
+        value: scs
+        description: >
+          Specialist Cloud Services support your transition to SaaS, PaaS and
+          IaaS. Examples of SCS include cloud strategy, data transfer between
+          providers, or day-to-day support of cloud-based services.
+    surrounding_html:
+      <form>
+        {{ example | safe }}
+      </form>
   -
-    type: radio
-    question: Checkbox with hint, question description and option description
+    type: checkbox
+    question: Checkboxes with hint and question description
     description: Description of the question
+    question_advice: Advice about the question
     hint: Advice about how to answer the question
-    name: lot
+    name: lot-70
     options:
       -
-        label: Infrastructure as a Service
-        description: >
-          Infrastructure is the hardware that makes software work. It's the networks, hosting facilities
-          and servers that platforms and software depend on. IaaS is infrastructure you can order and run
-          entirely over the internet, without having to pay for your own hardware.
+        label: Uber for supply teachers
+      -
+        label: Airbnb for potted plants
+      -
+        label: Tinder for expired cheeses and yoghurts
+    surrounding_html:
+      <form>
+        {{ example | safe }}
+      </form>
   -
     type: checkbox
     question: Is your service assured by
     hint: The hint for this question only makes sense when it's underneath the options.
-    hint_underneath: True
-    name: lot
+    hint_underneath: true
+    name: lot-80
     options:
       -
-        label: service provider assertion?
+        label: service provider assertion
       -
-        label: independent validation of assertion?
+        label: independent validation of assertion
       -
-        label: independent testing of implementation?
+        label: independent testing of implementation
+    surrounding_html:
+      <form>
+        {{ example | safe }}
+      </form>
   -
     type: checkbox
-    name: vegetables
+    name: vegetables-90
     question: Checkboxes with an error
     question_number: 77
     error: Answer required
@@ -116,9 +173,13 @@ examples:
         label: Onion
       -
         label: Collaboration
+    surrounding_html:
+      <form>
+        {{ example | safe }}
+      </form>
   -
     type: checkbox
-    name: Trumpton
+    name: trumpton-100
     question: Checkboxes with a message
     question_number: 23
     message: Grubb required
@@ -135,7 +196,7 @@ examples:
         label: Dibble
   -
     type: checkbox
-    name: dont
+    name: dont-110
     question: Optional checkboxes with an error despite loads of guidance
     question_number: 77
     error: From 12th January 1973 it will no longer be legal
@@ -181,26 +242,28 @@ examples:
         label: Don’t
       -
         label: Don’t
+    surrounding_html:
+      <form>
+        {{ example | safe }}
+      </form>
   -
     type: boolean
-    name: requirement
+    name: requirement-120
     question: Can you do this essential requirement
     question_number: 93
     value: true
-    followup: requirement-evidence
+    followup: requirement-evidence-110
     surrounding_html: |
       <form>
         {{ example | safe }}
-          <!-- The `followup` field should match the `name` given to the macro that renders the textbox below -->
-
-          <!-- The HTML below is generated by a textbox macro -->
-          <div class="question" id="requirement-evidence">
-            <label for="input-requirement-evidence">
-              <span class="question-heading">
-                Textbox for evidence of the requirement
-              </span>
-            </label>
-            <textarea class="text-box text-box-large" name="input-requirement-evidence" id="input-requirement-evidence"></textarea>
-          </div>
-          <!-- The HTML above is generated by a textbox macro -->
+        {%
+          with
+          large = true,
+          question = "Evidence for the requirement",
+          name = "requirement-evidence-110",
+          hidden = true,
+          value = ""
+        %}
+          {% include "forms/textbox.html" %}
+        {% endwith %}
       </form>

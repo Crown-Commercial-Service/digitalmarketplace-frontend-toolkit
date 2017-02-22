@@ -9,7 +9,7 @@ describe("ListEntryField", function () {
       ),
       wrapperHTML = (
           '<fieldset class="question" id="features">' +
-            '<legend class="question-heading question-heading-with-hint ">Service features</legend>' +
+            '<legend class="question-heading">Service features</legend>' +
             '<p class="question-hint">Include the technical features of your product, eg graphical workflow, remote access. (Maximum 10 words per feature. Maximum 10 features.)</p>' +
             '<div class="input-list" data-list-item-name="feature" id="list-entry-features">' +
             '</div>' +

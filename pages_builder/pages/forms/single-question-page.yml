@@ -12,7 +12,7 @@ examples:
           <input type="hidden" name="csrf_token" value="##fa3c0dda184bfbb021bac53fd569ca3d077997b8">
           <div class="question" id="duns_number">
             <label for="input-duns_number">
-              <span class="question-heading-with-hint">DUNS number</span>
+              <span class="question-heading">DUNS number</span>
             </label>
             <span class="question-advice" id="input-duns_number-question-advice">
               <p>The Digital Marketplace uses your head office’s 9‑digit DUNS number to see if you’re already a supplier on the G‑Cloud framework.</p>
