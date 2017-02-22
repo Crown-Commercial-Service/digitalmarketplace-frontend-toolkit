@@ -10,7 +10,7 @@
 {% elif message %}
   <div class="message-wrapper">
 {% endif %}
-  <div class="question{% if hidden %} js-hidden{% endif %}{% if hidden is defined %} related-information{% endif %}" id="{{ name }}">
+  <div class="question{% if hidden %} js-hidden related-information{% endif %}" id="{{ name }}">
     <label for="input-{{ name }}">
       <span class="question-heading">
         {% if question_number %}

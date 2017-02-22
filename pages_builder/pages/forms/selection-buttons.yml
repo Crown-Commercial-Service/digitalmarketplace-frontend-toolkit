@@ -252,7 +252,9 @@ examples:
     question: Can you do this essential requirement
     question_number: 93
     value: true
-    followup: requirement-evidence-110
+    followup:
+      true:
+        - requirement-evidence-110
     surrounding_html: |
       <form>
         {{ example | safe }}
