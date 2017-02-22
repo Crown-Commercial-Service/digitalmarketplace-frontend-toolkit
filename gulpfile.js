@@ -13,7 +13,7 @@ var govukToolkitAppFolder = repoRoot + 'pages_builder/govuk_frontend_toolkit';
 
 gulp.task('clean', function () {
   return del([
-    'pages',
+    'pages/*',
     'pages_builder/govuk_frontend_toolkit',
   ]);
 });
