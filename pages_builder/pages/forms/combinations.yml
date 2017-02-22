@@ -4,15 +4,16 @@ grid: column-two-thirds
 bodyEnd: >
   <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/vendor/polyfills/bind.js"></script>
   <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/govuk/selection-buttons.js"></script>
-  <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/govuk/show-hide-content.js"></script>
+  <script type="text/javascript" src="../public/javascripts/show-hide-content.js"></script>
+  <script type="text/javascript" src="../public/javascripts/vendor/hogan-3.0.2.min.js"></script>
+  <script type="text/javascript" src="../public/javascripts/list-entry.js"></script>
 examples:
   - |
     <form>
 
-    <!-- `followup` field must be set to the `name` of the evidence textbox -->
     {%
       with
-      followup = "requirement-evidence-10",
+      followup = {True: ["requirement-evidence-10"]},
       name = "requirement-10",
       question = "Can you do this essential requirement",
       value = true,
@@ -35,10 +36,9 @@ examples:
   - |
     <form>
 
-    <!-- `followup` field must be set to the `name` of the evidence textbox -->
     {%
       with
-      followup = "requirement-evidence-20",
+      followup = {True: ["requirement-evidence-20"]},
       name = "evidence-20",
       question = "Can you do this essential requirement - with errors",
       value = true,
@@ -56,5 +56,67 @@ examples:
       error = "Answer can't be more than 50 words"
     %}
       {% include "forms/textbox.html" %}
+    {% endwith %}
+    </form>
+  - |
+    <form>
+
+    {%
+      with
+      followup = {"Other": ["requirement-evidence-30"]},
+      name = "evidence-30",
+      question = "Checkboxes question with follow-up",
+      value = ["Option 1", "Other"],
+      type = "checkboxes",
+      options = [{"value": "Option 1", "label": "Option 1"},
+                 {"value": "Option 2", "label": "Option 2"},
+                 {"value": "Other", "label": "Other"}]
+    %}
+      {% include "forms/selection-buttons.html" %}
+    {% endwith %}
+    {%
+      with
+      large = true,
+      question = "Follow-up question for 'Other'",
+      name = "requirement-evidence-30",
+      hidden = true,
+      value = ""
+    %}
+      {% include "forms/textbox.html" %}
+    {% endwith %}
+    </form>
+  - |
+    <form>
+
+    {%
+      with
+      followup = {True: ["requirement-evidence-40", "requirement-boolean-followup-40"]},
+      name = "evidence-40",
+      question = "Question with multiple follow-ups",
+      value = true,
+      type = "boolean"
+    %}
+      {% include "forms/selection-buttons.html" %}
+    {% endwith %}
+    {%
+      with
+      name = "requirement-boolean-followup-40",
+      question = "Boolean follow-up",
+      hidden = true,
+      type = "boolean"
+    %}
+      {% include "forms/selection-buttons.html" %}
+    {% endwith %}
+    {%
+      with
+      large = true,
+      id = "requirement-evidence-40",
+      question = "List follow-up",
+      name = "requirement-evidence-40",
+      number_of_items=10,
+      hidden = true,
+      value = ""
+    %}
+      {% include "forms/list-entry.html" %}
     {% endwith %}
     </form>
