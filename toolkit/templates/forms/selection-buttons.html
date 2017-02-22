@@ -57,7 +57,7 @@
     {% endif %}
 
     {% for option in options %}
-      {% set input_value = option.value or option.label %}
+      {% set input_value = option.value if 'value' in option else option.label %}
       {% if type in ["boolean", "radio"] %}
         {% set is_selected = (input_value == value) %}
       {% else %}
