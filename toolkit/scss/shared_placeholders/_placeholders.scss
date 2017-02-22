@@ -1,0 +1,11 @@
+// Spacing rules based on those found in govuk elements selection buttons
+// Version: https://github.com/alphagov/govuk_elements/commit/537a4c14641377e7686ccc7586c2632c1008d7dc
+
+%question-meta-spacing {
+  margin-bottom: $gutter-one-third;
+
+  @include media(tablet) {
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+}

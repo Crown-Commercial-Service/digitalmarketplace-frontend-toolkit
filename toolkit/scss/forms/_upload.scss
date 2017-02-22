@@ -1,5 +1,8 @@
 @import "typography";
-@import "questions";
+
+// The following placeholders must be present in your main stylesheet:
+// - shared_placeholders/_placeholders.scss
+
 
 .file-upload-existing-value {
   @include core-19;

@@ -4,6 +4,7 @@ $path : '../images/';
 /* Blocks shared between multiple selectors */
 @import "shared_placeholders/_temporary-messages.scss";
 @import "shared_placeholders/_dm-typography.scss";
+@import "shared_placeholders/_placeholders.scss";
 
 // Toolkit components
 @import "_grids";

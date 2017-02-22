@@ -3,7 +3,10 @@
 @import "not-ie-conditional";
 @import "shims";
 @import "css3";
-@import "forms/questions";
+
+// The following placeholders must be present in your main stylesheet:
+// - shared_placeholders/_placeholders.scss
+
 
 .document-list {
   margin: 0;

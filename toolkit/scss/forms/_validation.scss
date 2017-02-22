@@ -1,7 +1,10 @@
 @import "colours";
 @import "typography";
 @import "shims";
-@import "questions";
+
+// The following placeholders must be present in your main stylesheet:
+// - shared_placeholders/_placeholders.scss
+
 
 .validation-masthead {
 
