@@ -10,7 +10,7 @@
 {% elif message %}
   <div class="message-wrapper">
 {% endif %}
-  <fieldset class="question first-question{% if inline or type=='boolean' %} inline{% endif %}{% if hidden %} js-hidden related-information{% endif %}" id="{{ name }}">
+  <fieldset class="question first-question{% if inline or type=='boolean' %} inline{% endif %}{% if hidden or related_information %} related-information{% endif %}{%if hidden %} js-hidden{% endif %}" id="{{ name }}">
     <legend>
       <span class="question-heading">
         {% if question_number %}
