@@ -16,6 +16,8 @@ PR: [#304](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/
   need to set `hidden=question_content.hidden`
 - We need to vendor a version of `show-hide-content.js` with added support for multiple
   follow-up inputs, so it has to be used instead of the GOV.UK toolkit one
+- The IDs for input elements (e.g. booleans) now has a numeric suffix rather than a string
+  (e.g. yes/no -> 1/2)
 
 ### Example app change
 
@@ -61,6 +63,14 @@ New:
   {% endwith %}
 {%- endmacro %}
 ```
+
+#### Updating tests
+
+Old:
+```assert len(doc.xpath("//*[@id='input-yesNo-" + str(i) + "-yes']")) == 1```
+
+New:
+```assert len(doc.xpath("//*[@id='input-yesNo-" + str(i) + "-1']")) == 1```
 
 
 ## 20.0.0
