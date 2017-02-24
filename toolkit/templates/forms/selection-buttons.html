@@ -63,12 +63,13 @@
       {% else %}
         {% set is_selected = (value and (input_value in value)) %}
       {% endif %}
-      <label class="selection-button selection-button-{{ input_type }}{% if input_value in followup %} block-label{% endif %}{% if is_selected %} selected{% endif %}" for="input-{{ name }}-{{ loop.index }}" {% if input_value in followup %}data-target="{{ followup[input_value] | join(' ') }}"{% endif %}>
+      {% set id = "{}-{}".format(id, loop.index) if id or "input-{}-{}".format(name, loop.index) %}
+      <label class="selection-button selection-button-{{ input_type }}{% if input_value in followup %} block-label{% endif %}{% if is_selected %} selected{% endif %}" for={{ id }} {% if input_value in followup %}data-target="{{ followup[input_value] | join(' ') }}"{% endif %}>
         {{ option.label }}
         <input
           type="{{ input_type }}"
           name="{{ name }}"
-          id="input-{{ name }}-{{ loop.index }}"
+          id="{{ id }}",
           value="{{ input_value }}"
           {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
           {% if is_selected %}checked="checked"{% endif %}
