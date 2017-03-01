@@ -1,0 +1,176 @@
+pageTitle: Checkbox tree
+assetPath: ../govuk_template/assets/
+grid: column-one-whole
+bodyEnd: >
+  <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/vendor/polyfills/bind.js"></script>
+  <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/govuk/selection-buttons.js"></script>
+examples:
+  - |
+    <form>
+
+    {%
+      with
+      name="serviceCategories-10",
+      question="Which categories does your service fit under?",
+      question_advice="",
+      hint="You can choose multiple categories.",
+      id="serviceCategories-10",
+      options=[
+        {"label": "Archiving, backup and disaster recovery"},
+        {"label": "Compute and application hosting"},
+        {"label": "Container service"},
+        {"label": "Content delivery network"},
+        {"label": "Data warehousing"},
+        {"label": "Database - noSQL"},
+        {"label": "Database - relational"},
+        {"label": "Database - other"},
+        {"label": "Distributed denial of service attack (DDOS) protection"},
+        {"label": "Firewall"},
+        {"label": "Infrastructure and platform security"},
+        {"label": "Intrusion detection"},
+        {"label": "Load balancing"},
+        {"label": "Logging and analysis"},
+        {"label": "Message queuing and processing"},
+        {"label": "Networking (including network as a service)"},
+        {"label": "Platform as a service (PaaS)"},
+        {"label": "Protective monitoring"},
+        {"label": "Search"},
+        {"label": "Storage - disk (block)"},
+        {"label": "Storage - object store"},
+        {"label": "Storage - other"}
+      ],
+      type="checkbox_tree",
+      number_of_items=10,
+      error=""
+    %}
+      {% include "forms/checkbox-tree.html" %}
+    {% endwith %}
+
+    </form>
+  - |
+    <form>
+
+    {%
+      with
+      name="serviceCategories-20",
+      question="Which categories does your service fit under?",
+      question_advice="",
+      hint="You can choose multiple categories.",
+      value=[],
+      id="serviceCategories-20",
+      options=[{
+        "label": "Project management and planning",
+        "options": [
+          {"label": "Agile project management and issue tracking"},
+          {"label": "Professional services automation (PSA)"},
+          {"label": "Project management"},
+          {"label": "Project portfolio management (PPM)"},
+          {"label": "Task management"},
+          {"label": "Time and expense tracking"}
+          ]
+        },{
+        "label": "Sales",
+        "options": [
+          {"label": "Configure, price and quote (CPQ)"},
+          {"label": "eCommerce and shopping cart"},
+          {"label": "Payment gateway"},
+          {"label": "Recurring billing and subscription management"},
+          {"label": "Sales"},
+          {"label": "Sales and operations planning"},
+          {"label": "Sales intelligence tracking"},
+          {"label": "Sales performance management"}
+          ]
+        },{
+        "label": "Schools and education",
+        "options":[
+          {"label": "Academic"},
+          {"label": "Alumni management"},
+          {"label": "Asynchronous learning"},
+          {"label": "Campus management"},
+          {"label": "Classroom management"},
+          {"label": "eLearning"},
+          {"label": "Examination or applicant testing"},
+          {"label": "Library automation"},
+          {"label": "Online courses"},
+          {"label": "Online grading"},
+          {"label": "School accounting"},
+          {"label": "School administration"},
+          {"label": "Student management"},
+          {"label": "Synchronous learning"}
+          ]
+      }],
+      type="checkbox_tree",
+      number_of_items=15,
+      error=""
+    %}
+      {% include "forms/checkbox-tree.html" %}
+    {% endwith %}
+
+    </form>
+  - |
+    <form>
+
+    {%
+      with
+      name="serviceCategories-30",
+      question="Which categories does your service fit under?",
+      question_advice="",
+      hint="You can choose multiple categories.",
+      id="serviceCategories-30",
+      options=[{
+        "label": "Project management and planning",
+        "options": [
+          {"label": "Agile project management and issue tracking"},
+          {"label": "Professional services automation (PSA)"},
+          {"label": "Project management"},
+          {"label": "Project portfolio management (PPM)"},
+          {"label": "Task management"},
+          {"label": "Time and expense tracking"}
+          ]
+        },{
+        "label": "Sales",
+        "options": [
+          {"label": "Configure, price and quote (CPQ)"},
+          {"label": "eCommerce and shopping cart"},
+          {"label": "Payment gateway"},
+          {"label": "Recurring billing and subscription management"},
+          {"label": "Sales"},
+          {"label": "Sales and operations planning"},
+          {"label": "Sales intelligence tracking"},
+          {"label": "Sales performance management"}
+          ]
+        },{
+        "label": "Schools and education",
+        "options":[
+          {"label": "Academic"},
+          {"label": "Alumni management"},
+          {"label": "Asynchronous learning"},
+          {"label": "Campus management"},
+          {"label": "Classroom management"},
+          {"label": "eLearning"},
+          {"label": "Examination or applicant testing"},
+          {"label": "Library automation"},
+          {"label": "Online courses"},
+          {"label": "Online grading"},
+          {"label": "School accounting"},
+          {"label": "School administration"},
+          {"label": "Student management"},
+          {"label": "Synchronous learning"}
+          ]
+      }],
+      type="checkbox_tree",
+      value=[
+        "Agile project management and issue tracking",
+        "Professional services automation (PSA)",
+        "Project management",
+        "Academic",
+        "Alumni management",
+        "Asynchronous learning"
+      ],
+      number_of_items=5,
+      error="No more than 5 categories can be selected."
+    %}
+      {% include "forms/checkbox-tree.html" %}
+    {% endwith %}
+
+    </form>

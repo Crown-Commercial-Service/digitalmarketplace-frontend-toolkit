@@ -1,0 +1,51 @@
+<fieldset class="checkbox-tree__selection-buttons">
+  <legend>
+    <h2>{{ name }}</h2>
+  </legend>
+  {% for supercategory in options %}
+    {% set id_prefix = 'input-{}-{}'.format(name, supercategory.label|replace(" ", "")) %}
+    {% if supercategory.options %}
+      <details>
+        <summary>
+          <h2 class="categories-heading">{{ supercategory.label }}</h2>
+          <span class="categories-summary">{{ supercategory.options|length }} categories</span>
+        </summary>
+        <div class="panel categories"> 
+          <fieldset class="question related-information" id="{{ '{}-{}'.format(name, supercategory.label|replace(' ', '')) }}">
+            <legend>
+              <span class="question-heading">
+                {{ question }}
+              </span>
+            </legend>
+
+            {% for option in supercategory.options %}
+              {%
+                with
+                input_value = option.value if 'value' in option else option.label,
+                id="{}-{}".format(id_prefix, loop.index),
+                input_type="checkbox",
+                question_advice=None,
+                hint=None
+              %}
+                {% include "forms/_selection-button.html" %}
+              {% endwith %}
+            {% endfor %}
+
+          </fieldset>
+        </div>
+      </details>
+    {% else %}
+      {% set option = supercategory %}
+      {%
+        with
+        input_value = option.value if 'value' in option else option.label,
+        id="{}-{}".format(id_prefix, loop.index),
+        input_type="checkbox",
+        question_advice=None,
+        hint=None
+      %}
+        {% include "forms/_selection-button.html" %}
+      {% endwith %}
+    {% endif %}
+  {% endfor %}
+</fieldset>

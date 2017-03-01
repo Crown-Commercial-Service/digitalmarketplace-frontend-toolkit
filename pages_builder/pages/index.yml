@@ -49,6 +49,9 @@ content: >
             <li>
               <a href="forms/combinations.html">Combinations</a>
             </li>
+            <li>
+              <a href="forms/checkbox-tree.html">Checkbox tree</a>
+            </li>
           </ul>
         </li>
         <li><a href="grids.html">Grids</a></li>

@@ -1,0 +1,48 @@
+{% if hint %}
+  {% set answer_advice_id="input-" + name + "-answer-advice" %}
+{% endif %}
+{% if question_advice %}
+  {% set question_advice_id="input-" + name + "-question-advice" %}
+{% endif %}
+
+{% if error %}
+<div class="validation-wrapper">
+{% endif %}
+  <div class="question" id="{{ name }}">
+    <label for="input-{{ name }}">
+      <span class="question-heading">
+        {{ question }}
+      </span>
+      {% if error %}
+        <span class="validation-message">
+          {{ error }}
+        </span>
+      {% endif %}
+    </label>
+    {% if question_advice %}
+    <span class="question-advice" id="{{ question_advice_id }}">
+      {{ question_advice }}
+    </span>
+    {% endif %}
+    {% if hint %}
+    <span class="hint" id="{{ answer_advice_id }}">
+      {{ hint }}
+    </span>
+    {% endif %}
+
+      <div class="grid-row">
+        <div class="column-one-third">
+          <div class="checkbox-tree__counter">
+            <div id="counter">
+              Select up to <strong>{{ number_of_items }}</strong> categories.
+            </div>
+          </div>
+        </div>
+        <div class="column-two-thirds">
+          {% include "forms/_checkbox-tree-selection-buttons.html" %}
+        </div>
+      </div>
+  </div>
+{% if error %}
+</div>
+{% endif %}
