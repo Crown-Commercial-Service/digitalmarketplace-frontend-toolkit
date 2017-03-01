@@ -10,7 +10,7 @@
     name="{{ name }}"
     id="{{ id }}",
     value="{{ input_value }}"
-    {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+    {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
     {% if is_selected %}checked="checked"{% endif %}
   />
   {% if option.description %}
