@@ -62,7 +62,14 @@
         input_value = option.value if 'value' in option else option.label,
         id="{}-{}".format(id, loop.index) if id or "input-{}-{}".format(name, loop.index)
       %}
-        {% include "forms/_selection-button.html" %}
+
+        {# TODO: PLS FIX #}
+        {% if PAGES_BUILDER %}
+          {% include 'forms/_selection-button.html' %}
+        {% else %}
+          {% include 'toolkit/forms/_selection-button.html' %}
+        {% endif %}
+
       {% endwith %}
     {% endfor %}
     {% if hint and hint_underneath %}

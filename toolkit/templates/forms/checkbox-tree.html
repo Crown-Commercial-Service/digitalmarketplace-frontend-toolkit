@@ -39,7 +39,14 @@
           </div>
         </div>
         <div class="column-two-thirds">
-          {% include "forms/_checkbox-tree-selection-buttons.html" %}
+
+          {# TODO: PLS FIX #}
+          {% if PAGES_BUILDER %}
+            {% include 'forms/_checkbox-tree-selection-buttons.html' %}
+          {% else %}
+            {% include 'toolkit/forms/_checkbox-tree-selection-buttons.html' %}
+          {% endif %}
+
         </div>
       </div>
   </div>

@@ -33,7 +33,14 @@
                 question_advice=None,
                 hint=None
               %}
-                {% include "forms/_selection-button.html" %}
+
+                {# TODO: PLS FIX #}
+                {% if PAGES_BUILDER %}
+                  {% include 'forms/_selection-button.html' %}
+                {% else %}
+                  {% include 'toolkit/forms/_selection-button.html' %}
+                {% endif %}
+
               {% endwith %}
             {% endfor %}
 
@@ -50,7 +57,14 @@
         question_advice=None,
         hint=None
       %}
-        {% include "forms/_selection-button.html" %}
+
+        {# TODO: PLS FIX #}
+        {% if PAGES_BUILDER %}
+          {% include 'forms/_selection-button.html' %}
+        {% else %}
+          {% include 'toolkit/forms/_selection-button.html' %}
+        {% endif %}
+
       {% endwith %}
     {% endif %}
   {% endfor %}
