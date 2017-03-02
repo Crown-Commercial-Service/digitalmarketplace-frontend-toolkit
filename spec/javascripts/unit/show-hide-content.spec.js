@@ -551,4 +551,75 @@ describe('show-hide-content', function () {
       })
     })
   })
+
+  describe('when the targets are controlling other targets', function () {
+    beforeEach(function () {
+      // Sample markup
+      this.$content = $(
+        // Radio buttons (yes/no)
+        '<label class="block-label" data-target="show-hide-radios-1">' +
+        '<input type="radio" name="single" value="yes" checked="checked">' +
+        'Yes' +
+        '</label>' +
+        '<label class="block-label">' +
+        '<input type="radio" name="single" value="no">' +
+        'No' +
+        '</label>' +
+        '<div id="show-hide-radios-1" class="panel">' +
+        '<label class="block-label" data-target="show-hide-radios-2">' +
+        '<input type="radio" name="double" value="yes" checked="checked">' +
+        'Yes' +
+        '</label>' +
+        '<label class="block-label">' +
+        '<input type="radio" name="double" value="no">' +
+        'No' +
+        '</label>' +
+        '</div>' +
+        '<div id="show-hide-radios-2" class="panel" />'
+      )
+
+      // Find radios/checkboxes
+      this.radios = this.$content.find('input[type=radio]')
+
+      // Add to page
+      $(document.body).append(this.$content)
+
+      // Show/Hide content
+      this.radiosShowHide = [$('#show-hide-radios-1'), $('#show-hide-radios-2')]
+
+      // Add show/hide content support
+      this.showHideContent = new GOVUK.ShowHideContent()
+      this.showHideContent.init()
+    })
+
+    it('should hide content controlled by the hidden inputs', function () {
+      this.radiosShowHide.forEach(function ($showHide) {
+        expect($showHide.attr('aria-hidden')).toBe('false')
+        expect($showHide.hasClass('js-hidden')).toEqual(false)
+      })
+
+      this.radios.eq(1).click()
+
+      this.radiosShowHide.forEach(function ($showHide) {
+        expect($showHide.attr('aria-hidden')).toBe('true')
+        expect($showHide.hasClass('js-hidden')).toEqual(true)
+      })
+    })
+
+    it('should show content controlled by the revealed inputs', function () {
+      this.radios.eq(1).click()
+
+      this.radiosShowHide.forEach(function ($showHide) {
+        expect($showHide.attr('aria-hidden')).toBe('true')
+        expect($showHide.hasClass('js-hidden')).toEqual(true)
+      })
+
+      this.radios.eq(0).click()
+
+      this.radiosShowHide.forEach(function ($showHide) {
+        expect($showHide.attr('aria-hidden')).toBe('false')
+        expect($showHide.hasClass('js-hidden')).toEqual(false)
+      })
+    })
+  })
 })
