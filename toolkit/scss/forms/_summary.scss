@@ -176,6 +176,15 @@ table.summary-item-body-no-bottom-border-row-bold-borders-text-large {
     margin: 0;
     list-style-type: disc;
     padding: 0 0 0 20px;
+
+    &.checkbox-tree {
+      list-style-type: none;
+      padding-left: 0;
+
+      > li:not(:last-child) ul {
+        margin-bottom: 10px;
+      }
+    }
   }
 
   .multiquestion {
