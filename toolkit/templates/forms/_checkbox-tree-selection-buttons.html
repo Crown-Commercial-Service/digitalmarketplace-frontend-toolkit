@@ -28,7 +28,7 @@
               {%
                 with
                 input_value = option.value if 'value' in option else option.label,
-                id="{}-{}".format(id_prefix, loop.index),
+                id="input-{}-{}".format(id_prefix, loop.index),
                 input_type="checkbox",
                 question_advice=None,
                 hint=None
@@ -52,7 +52,7 @@
       {%
         with
         input_value = option.value if 'value' in option else option.label,
-        id="{}-{}".format(id_prefix, loop.index),
+        id="input-{}-{}".format(id_prefix, loop.index),
         input_type="checkbox",
         question_advice=None,
         hint=None
