@@ -5,7 +5,13 @@
   {% for supercategory in options %}
     {% set id_prefix = 'input-{}-{}'.format(name, supercategory.label|replace(" ", "")) %}
     {% if supercategory.options %}
-      <details>
+      <details
+          {% for _o in supercategory.options %}
+            {% if not is_open %}
+              {% set is_open = _o.label in (value or []) %}
+              {{ 'open' if is_open }}
+            {% endif %}
+          {% endfor %}>
         <summary>
           <h2 class="categories-heading">{{ supercategory.label }}</h2>
           <span class="categories-summary">{{ supercategory.options|length }} categories</span>
