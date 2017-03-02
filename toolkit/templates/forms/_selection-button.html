@@ -1,3 +1,8 @@
+{% if type in ["boolean", "radio"] %}
+  {% set is_selected = (input_value == value) %}
+{% else %}
+  {% set is_selected = (value and (input_value in value)) %}
+{% endif %}
 <label class="selection-button selection-button-{{ input_type }}{% if input_value in followup %} block-label{% endif %}{% if is_selected %} selected{% endif %}" for={{ id }} {% if input_value in followup %}data-target="{{ followup[input_value] | join(' ') }}"{% endif %}>
   {{ option.label }}
   <input

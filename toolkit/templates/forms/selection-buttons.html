@@ -60,7 +60,6 @@
       {%
         with
         input_value = option.value if 'value' in option else option.label,
-        is_selected=(input_value == value) if type in ["boolean", "radio"] else (value and (input_value in value)),
         id="{}-{}".format(id, loop.index) if id or "input-{}-{}".format(name, loop.index)
       %}
         {% include "forms/_selection-button.html" %}
