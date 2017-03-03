@@ -33,6 +33,13 @@
         </span>
       {% endif %}
     </label>
+    {% if hidden and not error %}
+      <noscript>
+        <span class="hint">
+          You may not need to answer this question, depending on your answer to a previous question.
+        </span>
+      </noscript>
+    {% endif %}
     {% if optional %}
       <span class="question-optional">
         <strong>Optional</strong>
