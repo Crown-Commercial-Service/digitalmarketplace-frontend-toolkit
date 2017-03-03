@@ -3,6 +3,8 @@
 @import "_css3";
 @import "_typography";
 
+@include fake-full-width('.checkbox-tree');
+
 fieldset.checkbox-tree__selection-buttons > legend {
   @extend %visuallyhidden;
 }

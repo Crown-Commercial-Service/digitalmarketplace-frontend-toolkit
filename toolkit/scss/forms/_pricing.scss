@@ -3,11 +3,7 @@
 @import "shims";
 @import "typography";
 
-@include media($min-width: 959px) {
-  .column-two-thirds .pricing {
-    margin-right: -50%;
-  }
-}
+@include fake-full-width('.pricing', 959px);
 
 .pricing {
 

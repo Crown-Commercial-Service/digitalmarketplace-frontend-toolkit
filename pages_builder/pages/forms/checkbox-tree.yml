@@ -1,6 +1,6 @@
 pageTitle: Checkbox tree
 assetPath: ../govuk_template/assets/
-grid: column-one-whole
+grid: column-two-thirds
 bodyEnd: >
   <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/vendor/polyfills/bind.js"></script>
   <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/govuk/selection-buttons.js"></script>
