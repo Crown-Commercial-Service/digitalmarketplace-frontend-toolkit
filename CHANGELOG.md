@@ -2,6 +2,40 @@
 
 Records breaking changes from major version bumps
 
+## 22.0.0
+
+PR: [#313](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/313)
+
+## What changed
+
+- The `fake-full-width` [Sass mixin](http://sass-lang.com/guide#topic-6) is now required to compile the `_pricing.scss` file.
+  This means a new shared placeholder in the apps that use the frontend toolkit
+
+#### Breaking changes
+
+Old:
+```scss
+/* Blocks shared between multiple selectors */
+@import "toolkit/shared_placeholders/_temporary-messages.scss";
+@import "toolkit/shared_placeholders/_placeholders.scss";
+@import "toolkit/shared_placeholders/_dm-typography.scss";
+
+// Digital Marketplace Front-end toolkit styles
+@import "toolkit/forms/_pricing.scss";
+```
+
+New:
+```scss
+/* Blocks shared between multiple selectors */
+@import "toolkit/shared_placeholders/_temporary-messages.scss";
+@import "toolkit/shared_placeholders/_placeholders.scss";
+@import "toolkit/shared_placeholders/_dm-typography.scss";
+@import "toolkit/shared_placeholders/_mixins.scss";
+
+// Digital Marketplace Front-end toolkit styles
+@import "toolkit/forms/_pricing.scss";
+``````
+
 ## 21.0.0
 
 PR: [#304](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/304)
