@@ -62,6 +62,8 @@
 
     // Show toggled content for control
     function showToggledContent ($control, $content) {
+      $content = $content || getToggledContent($control)
+
       if (!$content.length) {
         return
       }
@@ -75,6 +77,11 @@
         if ($control.attr('aria-controls')) {
           $control.attr('aria-expanded', 'true')
         }
+
+        // Trigger show toggled content on revealed inputs
+        $content.find('input:checked').each(function () {
+          showToggledContent($(this))
+        })
       }
     }
 
@@ -95,6 +102,12 @@
         if ($control.attr('aria-controls')) {
           $control.attr('aria-expanded', 'false')
         }
+
+        // Trigger hide toggled content on hidden inputs
+        $content.find('input').each(function () {
+          hideToggledContent($(this))
+        })
+
       }
     }
 

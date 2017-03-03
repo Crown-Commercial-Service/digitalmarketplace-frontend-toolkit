@@ -4,12 +4,10 @@ var manifest = {
     'vendor/jquery.js',
     'vendor/hogan.js',
     '../../../node_modules/govuk_frontend_toolkit/javascripts/vendor/polyfills/bind.js',
-    '../../../toolkit/javascripts/list-entry.js',
-    '../../../toolkit/javascripts/word-counter.js'
+    '../../../toolkit/javascripts/*.js',
   ],
   test : [
-    '../unit/WordCountSpec.js',
-    '../unit/ListEntrySpec.js'
+    '../unit/*.js',
   ]
 };
 

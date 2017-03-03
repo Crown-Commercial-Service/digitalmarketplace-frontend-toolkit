@@ -90,7 +90,7 @@ examples:
 
     {%
       with
-      followup = {True: ["requirement-evidence-40", "requirement-boolean-followup-40"]},
+      followup = {True: ["requirement-boolean-followup-40"]},
       name = "evidence-40",
       question = "Question with multiple follow-ups",
       value = true,
@@ -101,6 +101,7 @@ examples:
     {%
       with
       name = "requirement-boolean-followup-40",
+      followup = {True: ["requirement-evidence-40"]},
       question = "Boolean follow-up",
       hidden = true,
       type = "boolean"
