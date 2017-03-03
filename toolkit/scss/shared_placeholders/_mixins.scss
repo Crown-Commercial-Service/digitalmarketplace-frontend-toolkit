@@ -1,0 +1,7 @@
+@mixin fake-full-width($container_class, $min-width: $tablet-breakpoint) {
+  @include media($min-width) {
+    .column-two-thirds #{$container_class} {
+      margin-right: -50%;
+    }
+  }
+}

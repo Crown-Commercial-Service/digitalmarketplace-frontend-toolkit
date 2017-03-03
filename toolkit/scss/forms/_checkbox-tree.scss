@@ -1,0 +1,91 @@
+@import "_conditionals";
+@import "_colours";
+@import "_css3";
+@import "_typography";
+
+@include fake-full-width('.checkbox-tree');
+
+fieldset.checkbox-tree__selection-buttons > legend {
+  @extend %visuallyhidden;
+}
+
+.checkbox-tree__counter {
+  @extend %question-meta-spacing;
+
+  strong {
+    @include bold-24;
+
+    /* overriding the line heights in the bold style is finicky */
+    line-height: 0 !important;
+  }
+}
+
+.checkbox-tree__selection-buttons {
+
+  .panel {
+
+    fieldset.related-information {
+
+      margin-top: $gutter-one-third;
+      margin-bottom: $gutter-two-thirds;
+      padding-left: $gutter-half;
+
+      @include media(tablet) {
+        margin-bottom: $gutter;
+      }
+
+      label:last-of-type {
+        /* when focused, it hits the bottom of the grey bar */
+        padding-bottom: 9px;
+        margin-bottom: 4px;
+
+        @include media(tablet) {
+          padding-bottom: 4px;
+        }
+      }
+
+      .validation-wrapper & {
+        border-left: solid $border-width $grey-2;
+      }
+    }
+  }
+
+  details {
+    position: relative;
+    display: block;
+    clear: both;
+    margin-top: $gutter-one-third;
+
+    summary {
+      display: inline-block;
+      color: $link-colour;
+      cursor: pointer;
+
+      &:hover {
+        color: $link-hover-colour;
+      }
+
+      &:focus {
+        outline: solid 3px $focus-colour;
+      }
+    }
+
+    legend {
+      @extend %visuallyhidden;
+    }
+
+    .categories-heading {
+      @include core-19();
+
+      display: inline-block;
+    }
+
+    .categories-summary {
+      @include core-19($tabular-numbers: true);
+
+      display: block;
+      margin-left: 25px;
+      color: $secondary-text-colour;
+    }
+  }
+}

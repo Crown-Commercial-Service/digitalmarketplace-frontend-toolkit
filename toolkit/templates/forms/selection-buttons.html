@@ -57,29 +57,20 @@
     {% endif %}
 
     {% for option in options %}
-      {% set input_value = option.value if 'value' in option else option.label %}
-      {% if type in ["boolean", "radio"] %}
-        {% set is_selected = (input_value == value) %}
-      {% else %}
-        {% set is_selected = (value and (input_value in value)) %}
-      {% endif %}
-      {% set id = "{}-{}".format(id, loop.index) if id or "input-{}-{}".format(name, loop.index) %}
-      <label class="selection-button selection-button-{{ input_type }}{% if input_value in followup %} block-label{% endif %}{% if is_selected %} selected{% endif %}" for={{ id }} {% if input_value in followup %}data-target="{{ followup[input_value] | join(' ') }}"{% endif %}>
-        {{ option.label }}
-        <input
-          type="{{ input_type }}"
-          name="{{ name }}"
-          id="{{ id }}",
-          value="{{ input_value }}"
-          {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
-          {% if is_selected %}checked="checked"{% endif %}
-        />
-        {% if option.description %}
-          <p class="question-description">
-            {{ option.description }}
-          </p>
+      {%
+        with
+        input_value = option.value if 'value' in option else option.label,
+        id="input-{}-{}".format(id, loop.index) if id else "input-{}-{}".format(name, loop.index)
+      %}
+
+        {# TODO: PLS FIX #}
+        {% if PAGES_BUILDER %}
+          {% include 'forms/_selection-button.html' %}
+        {% else %}
+          {% include 'toolkit/forms/_selection-button.html' %}
         {% endif %}
-      </label>
+
+      {% endwith %}
     {% endfor %}
     {% if hint and hint_underneath %}
       <div class="hint-underneath" id="{{ answer_advice_id }}">

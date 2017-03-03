@@ -231,9 +231,28 @@ examples:
       {% call summary.row() %}
         {{ summary.field_name("Developer") }}
         {{ summary.multiquestion([
-          {'name': "Where they'll work", 'type': "list", 'value': ["London", "Mississauga", "Rivière-du-Loup", "Singapore"]},
-          {'name': "Day rate", 'type': "text", 'value': "£100 to £1000000 per day"}
+          {"name": "Where they'll work", "type": "list", "value": ["London", "Mississauga", "Rivière-du-Loup", "Singapore"]},
+          {"name": "Day rate", "type": "text", "value": "£100 to £1000000 per day"}
          ]) }}
+      {% endcall %}
+      {% call summary.row() %}
+       {{ summary.field_name("Service categories") }}
+       {{ summary.checkbox_tree(
+         [{
+           "label": "Accounting and finance",
+           "options": [
+             {"label": "Accounting", "options": []},
+             {"label": "Accounts payable", "options": []},
+             {"label": "Accounts receivable", "options": []},
+             {"label": "Asset management", "options": []}]
+         },{
+           "label": "Operations management",
+           "options": [
+             {"label": "Contract management", "options": []},
+             {"label": "Enterprise resource planning (ERP)", "options": []},
+             {"label": "Operations management", "options": []}]
+         }])
+       }}
       {% endcall %}
     {% endcall %}
 

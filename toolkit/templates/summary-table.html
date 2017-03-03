@@ -1,3 +1,4 @@
+{# TODO: PLS FIX #}
 {% if PAGES_BUILDER %}
   {% import 'summary-content.html' as content %}
 {% else %}
@@ -235,6 +236,24 @@
   {% else %}
     {{ list(value, assurance) }}
   {% endif %}
+{%- endmacro %}
+
+
+{% macro checkbox_tree(value=[], assurance=None) -%}
+  {% call field() -%}
+    {% if value -%}
+      <ul class="checkbox-tree">
+      {% for supercategory in value %}
+        <li>
+          <p>{{ supercategory.label }}</p>
+          {% if supercategory.options %}
+            {{ content['list_items_content'](supercategory.options|map(attribute='label')|list, assurance) }}
+          {% endif %}
+        </li>
+      {% endfor %}
+      </ul>
+    {%- endif %}
+  {%- endcall %}
 {%- endmacro %}
 
 

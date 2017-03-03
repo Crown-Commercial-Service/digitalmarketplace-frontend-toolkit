@@ -5,6 +5,7 @@ $path : '../images/';
 @import "shared_placeholders/_temporary-messages.scss";
 @import "shared_placeholders/_dm-typography.scss";
 @import "shared_placeholders/_placeholders.scss";
+@import "shared_placeholders/_mixins.scss";
 
 // Toolkit components
 @import "_grids";
@@ -37,6 +38,7 @@ $path : '../images/';
 @import "forms/_word-counter.scss";
 @import "forms/_upload.scss";
 @import "forms/_combinations.scss";
+@import "forms/_checkbox-tree.scss";
 
 // Styles for example pages
 @import "grids/index.scss";
