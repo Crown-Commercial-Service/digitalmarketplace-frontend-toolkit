@@ -3,7 +3,7 @@
     <h2>{{ question }}</h2>
   </legend>
   {% for parent_category in options %}
-    {% set id_prefix = '{}-{}'.format(name, loop.index) %}
+    {% set id_prefix = '{}-{}'.format(id, loop.index) %}
     {% if parent_category.options %}
       <details
           {% for _o in parent_category.options %}

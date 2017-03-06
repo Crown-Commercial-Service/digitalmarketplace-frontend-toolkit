@@ -1,15 +1,15 @@
 {% if hint %}
-  {% set answer_advice_id="input-" + name + "-answer-advice" %}
+  {% set answer_advice_id="checkbox-tree__inputs-answer-advice" %}
 {% endif %}
 {% if question_advice %}
-  {% set question_advice_id="input-" + name + "-question-advice" %}
+  {% set question_advice_id="checkbox-tree__inputs-question-advice" %}
 {% endif %}
 
 {% if error %}
 <div class="validation-wrapper">
 {% endif %}
-  <div class="question" id="{{ name }}">
-    <label for="input-{{ name }}">
+  <div class="question" id="{{ id }}">
+    <label for="checkbox-tree__inputs">
       <span class="question-heading">
         {{ question }}
       </span>
