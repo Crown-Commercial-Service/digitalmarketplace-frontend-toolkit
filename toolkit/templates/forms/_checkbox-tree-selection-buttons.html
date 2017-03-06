@@ -1,6 +1,6 @@
 <fieldset class="checkbox-tree__inputs" id="checkbox-tree__inputs">
   <legend>
-    <h2>{{ name }}</h2>
+    <h2>{{ question }}</h2>
   </legend>
   {% for supercategory in options %}
     {% set id_prefix = 'input-{}-{}'.format(name, supercategory.label|replace(" ", "")) %}
