@@ -5,7 +5,7 @@
 
 @include fake-full-width('.checkbox-tree');
 
-fieldset.checkbox-tree__selection-buttons > legend {
+fieldset.checkbox-tree__inputs > legend {
   @extend %visuallyhidden;
 }
 
@@ -20,7 +20,7 @@ fieldset.checkbox-tree__selection-buttons > legend {
   }
 }
 
-.checkbox-tree__selection-buttons {
+.checkbox-tree__inputs {
 
   .panel {
 
