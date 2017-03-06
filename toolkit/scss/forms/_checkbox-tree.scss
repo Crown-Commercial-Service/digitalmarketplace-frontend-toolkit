@@ -10,7 +10,22 @@ fieldset.checkbox-tree__inputs > legend {
 }
 
 .checkbox-tree__counter {
-  @extend %question-meta-spacing;
+  margin-top: -13px;
+
+  .js-stick-at-top-when-scrolling {
+
+    /* give the floating element some top-padding */
+    padding-top: 14px;
+
+    p {
+      @extend %question-meta-spacing;
+
+      &:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
 
   strong {
     @include bold-24;
