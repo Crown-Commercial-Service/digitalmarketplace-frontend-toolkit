@@ -182,13 +182,13 @@ table.summary-item-body-no-bottom-border-row-bold-borders-text-large {
       padding-left: 0;
 
       > li:not(:last-child) ul {
-        margin-bottom: 10px;
+        margin-bottom: 15px;
       }
     }
   }
 
   .multiquestion {
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 
     &:last-child {
       padding-bottom: 0;
@@ -196,7 +196,7 @@ table.summary-item-body-no-bottom-border-row-bold-borders-text-large {
 
     > p:first-child {
       margin-top: 0;
-      margin-bottom: 5px;
+      margin-bottom: 3px;
     }
   }
 }
