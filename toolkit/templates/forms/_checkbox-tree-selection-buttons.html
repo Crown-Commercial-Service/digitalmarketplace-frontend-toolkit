@@ -12,8 +12,8 @@
               {{ 'open' if is_open }}
             {% endif %}
           {% endfor %}>
-        <summary>
-          <h2 class="categories-heading">{{ supercategory.label }}</h2>
+        <summary id="{{ '{}-summary'.format(id_prefix) }}">
+          <h3 class="categories-heading">{{ supercategory.label }}</h3>
           <span class="categories-summary">{{ supercategory.options|length }} categories</span>
         </summary>
         <div class="panel categories"> 
