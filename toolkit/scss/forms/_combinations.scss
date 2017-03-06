@@ -14,7 +14,7 @@ $border-width: $gutter / 6;
   margin-top: $gutter-two-thirds * -1;
 
   .question-heading {
-    @include core-19;
+    @include bold-19;
     padding-top: 0;
     margin-bottom: 0;
   }
