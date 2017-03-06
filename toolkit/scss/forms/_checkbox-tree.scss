@@ -37,31 +37,31 @@ fieldset.checkbox-tree__inputs > legend {
 
 .checkbox-tree__inputs {
 
-  .panel {
+  fieldset.related-information {
+    margin-top: $gutter-one-third;
+    margin-bottom: 0;
+    padding-left: $gutter-half;
 
-    fieldset.related-information {
-
-      margin-top: $gutter-one-third;
-      margin-bottom: $gutter-two-thirds;
-      padding-left: $gutter-half;
+    label:last-of-type {
+      /* when focused, it hits the bottom of the grey bar */
+      padding-bottom: 9px;
+      margin-bottom: 4px;
 
       @include media(tablet) {
-        margin-bottom: $gutter;
+        padding-bottom: 4px;
       }
+    }
 
-      label:last-of-type {
-        /* when focused, it hits the bottom of the grey bar */
-        padding-bottom: 9px;
-        margin-bottom: 4px;
+    .validation-wrapper & {
+      border-left: solid $border-width $grey-2;
+    }
+  }
 
-        @include media(tablet) {
-          padding-bottom: 4px;
-        }
-      }
+  details:not(:last-child) fieldset.related-information {
+    margin-bottom: $gutter-two-thirds;
 
-      .validation-wrapper & {
-        border-left: solid $border-width $grey-2;
-      }
+    @include media(tablet) {
+      margin-bottom: $gutter;
     }
   }
 
