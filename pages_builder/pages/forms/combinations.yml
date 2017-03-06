@@ -63,6 +63,50 @@ examples:
 
     {%
       with
+      followup = {True: ["requirement-evidence-21", "requirement-checkboxes-22"]},
+      name = "requirement-21",
+      question = "Can you do this essential requirement",
+      value = true,
+      type = "boolean"
+    %}
+      {% include "forms/selection-buttons.html" %}
+    {% endwith %}
+    {%
+      with
+      large = true,
+      question = "Evidence for the requirement",
+      question_advice = "Advice about the question",
+      hint = "Advice about how to answer",
+      optional = true,
+      name = "requirement-evidence-21",
+      hidden = true,
+      value = ""
+    %}
+      {% include "forms/textbox.html" %}
+    {% endwith %}
+    {%
+      with
+      name = "requirement-checkboxes-22",
+      question = "Choose another thing",
+      question_advice = "Advice about the question",
+      hint = "Advice about how to answer",
+      options = [
+        {"value": "accountingAndFinance", "label": "Accounting and finance"},
+        {"value": "businessIntelligenceAndAnalytics", "label": "Business intelligence and analytics"},
+        {"value": "collaboration", "label": "Collaboration"}
+      ],
+      hidden = true,
+      type = "checkboxes"
+    %}
+      {% include "forms/selection-buttons.html" %}
+    {% endwith %}
+
+    </form>
+  - |
+    <form>
+
+    {%
+      with
       followup = {"Other": ["requirement-evidence-30"]},
       name = "evidence-30",
       question = "Checkboxes question with follow-up",
