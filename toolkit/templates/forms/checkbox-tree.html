@@ -1,15 +1,15 @@
 {% if hint %}
-  {% set answer_advice_id="input-" + name + "-answer-advice" %}
+  {% set answer_advice_id="checkbox-tree__inputs-answer-advice" %}
 {% endif %}
 {% if question_advice %}
-  {% set question_advice_id="input-" + name + "-question-advice" %}
+  {% set question_advice_id="checkbox-tree__inputs-question-advice" %}
 {% endif %}
 
 {% if error %}
 <div class="validation-wrapper">
 {% endif %}
-  <div class="question" id="{{ name }}">
-    <label for="input-{{ name }}">
+  <div class="question" id="{{ id }}">
+    <label for="checkbox-tree__inputs">
       <span class="question-heading">
         {{ question }}
       </span>
@@ -41,8 +41,8 @@
       <div class="grid-row">
         <div class="column-one-third">
           <div class="checkbox-tree__counter">
-            <div id="counter">
-              Select up to <strong>{{ number_of_items }}</strong> categories.
+            <div class="js-stick-at-top-when-scrolling">
+              <p>You can choose up to {{ number_of_items }}&nbsp;categories.</p>
             </div>
           </div>
         </div>
@@ -58,6 +58,8 @@
         </div>
       </div>
     </div>{# end of .checkbox-tree #}
+    {# used to mark the lowest point the counter should reach #}
+    <div class="js-footer"></div>
   </div>
 {% if error %}
 </div>

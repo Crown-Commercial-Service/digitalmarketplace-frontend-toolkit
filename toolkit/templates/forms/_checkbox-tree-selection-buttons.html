@@ -1,30 +1,30 @@
-<fieldset class="checkbox-tree__selection-buttons">
+<fieldset class="checkbox-tree__inputs" id="checkbox-tree__inputs">
   <legend>
-    <h2>{{ name }}</h2>
+    <h2>{{ question }}</h2>
   </legend>
-  {% for supercategory in options %}
-    {% set id_prefix = 'input-{}-{}'.format(name, supercategory.label|replace(" ", "")) %}
-    {% if supercategory.options %}
+  {% for parent_category in options %}
+    {% set id_prefix = '{}-{}'.format(id, loop.index) %}
+    {% if parent_category.options %}
       <details
-          {% for _o in supercategory.options %}
+          {% for _o in parent_category.options %}
             {% if not is_open %}
               {% set is_open = _o.label in (value or []) %}
               {{ 'open' if is_open }}
             {% endif %}
           {% endfor %}>
-        <summary>
-          <h2 class="categories-heading">{{ supercategory.label }}</h2>
-          <span class="categories-summary">{{ supercategory.options|length }} categories</span>
+        <summary id="{{ '{}-summary'.format(id_prefix) }}">
+          <h3 class="categories-heading">{{ parent_category.label }}</h3>
+          <span class="categories-summary">{{ parent_category.options|length }} categories</span>
         </summary>
         <div class="panel categories"> 
-          <fieldset class="question related-information" id="{{ '{}-{}'.format(name, supercategory.label|replace(' ', '')) }}">
+          <fieldset class="question related-information" id="{{ id_prefix }}">
             <legend>
               <span class="question-heading">
                 {{ question }}
               </span>
             </legend>
 
-            {% for option in supercategory.options %}
+            {% for option in parent_category.options %}
               {%
                 with
                 input_value = option.value if 'value' in option else option.label,
@@ -48,7 +48,7 @@
         </div>
       </details>
     {% else %}
-      {% set option = supercategory %}
+      {% set option = parent_category %}
       {%
         with
         input_value = option.value if 'value' in option else option.label,

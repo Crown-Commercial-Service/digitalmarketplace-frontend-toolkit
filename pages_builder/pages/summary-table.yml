@@ -109,7 +109,7 @@ examples:
   - |
     {% import "summary-table.html" as summary %}
     {{ summary.heading("Summary table with top-level action") }}
-    {{ summary.description("You must add at least one service to be eligable.") }}
+    {{ summary.description("You must add at least one service to be eligible.") }}
     {{ summary.top_link("Add new service", '#') }}
     {% call(item) summary.list_table(
       [],
@@ -236,7 +236,7 @@ examples:
          ]) }}
       {% endcall %}
       {% call summary.row() %}
-       {{ summary.field_name("Service categories") }}
+       {{ summary.field_name("Service categories with children") }}
        {{ summary.checkbox_tree(
          [{
            "label": "Accounting and finance",
@@ -254,8 +254,19 @@ examples:
          }])
        }}
       {% endcall %}
+      {% call summary.row() %}
+       {{ summary.field_name("Flat list of service categories") }}
+       {{ summary.checkbox_tree(
+         [
+          {"label": "Firewall"},
+          {"label": "Infrastructure and platform security"},
+          {"label": "Intrusion detection"},
+          {"label": "Load balancing"},
+          {"label": "Logging and analysis"},
+         ])
+       }}
+      {% endcall %}
     {% endcall %}
-
   - |
     {% import "summary-table.html" as summary %}
     {{ summary.heading("Summary table with various types of service content, some blank") }}

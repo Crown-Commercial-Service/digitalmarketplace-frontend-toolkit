@@ -242,16 +242,21 @@
 {% macro checkbox_tree(value=[], assurance=None) -%}
   {% call field() -%}
     {% if value -%}
-      <ul class="checkbox-tree">
-      {% for supercategory in value %}
-        <li>
-          <p>{{ supercategory.label }}</p>
-          {% if supercategory.options %}
-            {{ content['list_items_content'](supercategory.options|map(attribute='label')|list, assurance) }}
-          {% endif %}
-        </li>
-      {% endfor %}
-      </ul>
+      {% set no_children = (value|selectattr("options")|list|length) == 0 %}
+      {% if no_children %}
+        {{ content['list_items_content'](value|map(attribute='label')|list, assurance) }}
+      {% else %}
+        <ul class="checkbox-tree--with-children">
+        {% for parent_category in value %}
+          <li>
+            <p>{{ parent_category.label }}</p>
+            {% if parent_category.options %}
+              {{ content['list_items_content'](parent_category.options|map(attribute='label')|list, assurance) }}
+            {% endif %}
+          </li>
+        {% endfor %}
+        </ul>
+      {% endif %}
     {%- endif %}
   {%- endcall %}
 {%- endmacro %}
