@@ -181,8 +181,15 @@ table.summary-item-body-no-bottom-border-row-bold-borders-text-large {
       list-style-type: none;
       padding-left: 0;
 
-      > li:not(:last-child) ul {
-        margin-bottom: 15px;
+      > li {
+
+        &:not(:last-child) ul {
+          margin-bottom: 15px;
+        }
+
+        p {
+          margin-bottom: 3px;
+        }
       }
     }
   }
