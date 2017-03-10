@@ -10,7 +10,7 @@
 .question,
 %question {
   @extend %contain-floats;
-  margin: 24px 0 48px 0;
+  padding: 24px 0 48px 0;
   clear: both;
 
   // This preserves the vertical margins set on the .question-headings

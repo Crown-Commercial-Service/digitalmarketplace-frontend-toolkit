@@ -10,81 +10,83 @@
 {% elif message %}
   <div class="message-wrapper">
 {% endif %}
-  <fieldset class="question first-question{% if inline or type=='boolean' %} inline{% endif %}{% if hidden %} js-hidden related-information{% endif %}" id="{{ name }}">
-    <legend>
-      <span class="question-heading">
-        {% if question_number %}
-          <span class="question-number">
-            {{ question_number }}
+    <div class="question first-question{% if inline or type=='boolean' %} inline{% endif %}{% if hidden %} js-hidden related-information{% endif %}" id="{{ name }}">
+      <fieldset>
+        <legend>
+          <span class="question-heading">
+            {% if question_number %}
+              <span class="question-number">
+                {{ question_number }}
+              </span>
+            {% endif %}
+            {{ question }}
+          </span>
+          {% if error %}
+            <span class="validation-message" id="error-{{ name }}">
+              {{ error }}
+            </span>
+          {% elif message %}
+            <span class="message-content">
+              {{ message }}
+            </span>
+          {% endif %}
+          {% if hidden and not error %}
+            <noscript>
+              <span class="hint">
+                You may not need to answer this question depending on how you answered an earlier question.
+              </span>
+            </noscript>
+          {% endif %}
+        </legend>
+        {% if optional %}
+          <span class="question-optional">
+            <strong>Optional</strong>
           </span>
         {% endif %}
-        {{ question }}
-      </span>
-      {% if error %}
-        <span class="validation-message" id="error-{{ name }}">
-          {{ error }}
-        </span>
-      {% elif message %}
-        <span class="message-content">
-          {{ message }}
-        </span>
-      {% endif %}
-      {% if hidden and not error %}
-        <noscript>
-          <span class="hint">
-            You may not need to answer this question depending on how you answered an earlier question.
+        {% if question_advice %}
+          <span class="question-advice" id="{{ question_advice_id }}">
+            {{ question_advice }}
           </span>
-        </noscript>
-      {% endif %}
-    </legend>
-    {% if optional %}
-      <span class="question-optional">
-        <strong>Optional</strong>
-      </span>
-    {% endif %}
-    {% if question_advice %}
-      <span class="question-advice" id="{{ question_advice_id }}">
-        {{ question_advice }}
-      </span>
-    {% endif %}
-    {% if hint and not hint_underneath %}
-      <span class="hint" id="{{ answer_advice_id }}">
-        {{ hint }}
-      </span>
-    {% endif %}
+        {% endif %}
+        {% if hint and not hint_underneath %}
+          <span class="hint" id="{{ answer_advice_id }}">
+            {{ hint }}
+          </span>
+        {% endif %}
 
-    {% if type == "boolean" %}
-      {% set options = [{"label": "Yes", "value": true}, {"label": "No", "value": false}] %}
-    {% endif %}
+        {% if type == "boolean" %}
+          {% set options = [{"label": "Yes", "value": true}, {"label": "No", "value": false}] %}
+        {% endif %}
 
-    {% if type in ["radio", "boolean"] %}
-      {% set input_type = "radio" %}
-    {% else %}
-      {% set input_type = "checkbox" %}
-    {% endif %}
-
-    {% for option in options %}
-      {%
-        with
-        input_value = option.value if 'value' in option else option.label,
-        id="input-{}-{}".format(id, loop.index) if id else "input-{}-{}".format(name, loop.index)
-      %}
-
-        {# TODO: PLS FIX #}
-        {% if PAGES_BUILDER %}
-          {% include 'forms/_selection-button.html' %}
+        {% if type in ["radio", "boolean"] %}
+          {% set input_type = "radio" %}
         {% else %}
-          {% include 'toolkit/forms/_selection-button.html' %}
+          {% set input_type = "checkbox" %}
         {% endif %}
 
-      {% endwith %}
-    {% endfor %}
-    {% if hint and hint_underneath %}
-      <div class="hint-underneath" id="{{ answer_advice_id }}">
-        {{ hint }}
-      </div>
-    {% endif %}
-  </fieldset>
+        {% for option in options %}
+          {%
+            with
+            input_value = option.value if 'value' in option else option.label,
+            id="input-{}-{}".format(id, loop.index) if id else "input-{}-{}".format(name, loop.index)
+          %}
+
+            {# TODO: PLS FIX #}
+            {% if PAGES_BUILDER %}
+              {% include 'forms/_selection-button.html' %}
+            {% else %}
+              {% include 'toolkit/forms/_selection-button.html' %}
+            {% endif %}
+
+          {% endwith %}
+        {% endfor %}
+        {% if hint and hint_underneath %}
+          <div class="hint-underneath" id="{{ answer_advice_id }}">
+            {{ hint }}
+          </div>
+        {% endif %}
+      </fieldset>
+    </div>
 {% if error or message %}
   </div>
 {% endif %}
