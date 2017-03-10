@@ -63,7 +63,7 @@ examples:
 
     {%
       with
-      followup = {True: ["requirement-evidence-21", "requirement-checkboxes-22"]},
+      followup = {True: ["requirement-evidence-21", "requirement-checkboxes-21"]},
       name = "requirement-21",
       question = "Can you do this essential requirement",
       value = true,
@@ -86,7 +86,7 @@ examples:
     {% endwith %}
     {%
       with
-      name = "requirement-checkboxes-22",
+      name = "requirement-checkboxes-21",
       question = "Choose another thing",
       question_advice = "Advice about the question",
       hint = "Advice about how to answer",
@@ -123,6 +123,36 @@ examples:
       large = true,
       question = "Follow-up question for 'Other'",
       name = "requirement-evidence-30",
+      hidden = true,
+      value = ""
+    %}
+      {% include "forms/textbox.html" %}
+    {% endwith %}
+    </form>
+  - |
+    <form>
+
+    {%
+      with
+      followup = {"option-3": ["requirement-evidence-31"], "option-4": ["requirement-evidence-31"]},
+      name = "evidence-31",
+      question = "Multiple checkboxes triggering a follow-up",
+      value = ["Option 1", "Other"],
+      type = "checkboxes",
+      options = [
+        {"value": "option-1", "label": "No follow-up"},
+        {"value": "option-2", "label": "Also no follow-up"},
+        {"value": "option-3", "label": "This checkbox triggers a follow-up"},
+        {"value": "option-4", "label": "This checkbox also triggers a follow-up"},
+      ]
+    %}
+      {% include "forms/selection-buttons.html" %}
+    {% endwith %}
+    {%
+      with
+      large = true,
+      question = "This question will be visible as long as one of the last two checkboxes are checked",
+      name = "requirement-evidence-31",
       hidden = true,
       value = ""
     %}
