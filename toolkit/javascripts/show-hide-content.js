@@ -85,11 +85,15 @@
       }
     }
 
+    function isAnotherControlStillShowingThisContent(id, $control) {
+        return $('[data-target="' + id + '"] input:checked').not($control).length > 0
+    }
+
     // Hide toggled content for control
     function hideToggledContent ($control, $content) {
       $content = $content || getToggledContent($control)
 
-      if (!$content.length) {
+      if (!$content.length || isAnotherControlStillShowingThisContent($content.attr('id'), $control)) {
         return
       }
 
@@ -107,7 +111,6 @@
         $content.find('input').each(function () {
           hideToggledContent($(this))
         })
-
       }
     }
 
