@@ -170,7 +170,8 @@ class Styleguide_publisher(object):
                     if not has_template:
                         template = env.from_string(example)
                     if isinstance(example, dict):
-                        # if the example has some html it needs to be displayed, cache it and remove from the parameters example
+                        # if the example has some html it needs to be displayed,
+                        # cache it and remove from the parameters example
                         surrounding_html = example.get('surrounding_html', None)
                         if surrounding_html:
                             del example['surrounding_html']
