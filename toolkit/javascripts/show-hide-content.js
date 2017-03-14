@@ -72,17 +72,17 @@
       if ($content.hasClass('js-hidden')) {
         $content.removeClass('js-hidden')
         $content.attr('aria-hidden', 'false')
-
-        // If the controlling input, update aria-expanded
-        if ($control.attr('aria-controls')) {
-          $control.attr('aria-expanded', 'true')
-        }
-
-        // Trigger show toggled content on revealed inputs
-        $content.find('input:checked').each(function () {
-          showToggledContent($(this))
-        })
       }
+
+      // If the controlling input, update aria-expanded
+      if ($control.attr('aria-controls')) {
+        $control.attr('aria-expanded', 'true')
+      }
+
+      // Trigger show toggled content on revealed inputs
+      $content.find('input:checked').each(function () {
+        showToggledContent($(this))
+      })
     }
 
     function isAnotherControlStillShowingThisContent(id, $control) {
@@ -101,17 +101,17 @@
       if (!$content.hasClass('js-hidden')) {
         $content.addClass('js-hidden')
         $content.attr('aria-hidden', 'true')
-
-        // If the controlling input, update aria-expanded
-        if ($control.attr('aria-controls')) {
-          $control.attr('aria-expanded', 'false')
-        }
-
-        // Trigger hide toggled content on hidden inputs
-        $content.find('input').each(function () {
-          hideToggledContent($(this))
-        })
       }
+
+      // If the controlling input, update aria-expanded
+      if ($control.attr('aria-controls')) {
+        $control.attr('aria-expanded', 'false')
+      }
+
+      // Trigger hide toggled content on hidden inputs
+      $content.find('input').each(function () {
+        hideToggledContent($(this))
+      })
     }
 
     // Handle radio show/hide
