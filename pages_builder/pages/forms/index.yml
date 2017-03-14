@@ -5,7 +5,7 @@ content: >
     <nav>
       <ol class="group" role="breadcrumbs">
         <li>
-          <a href="/">Home</a>
+          <a href="{{urlRoot}}/">Home</a>
         </li>
       </ol>
     </nav>
