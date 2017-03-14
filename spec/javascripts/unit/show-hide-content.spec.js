@@ -220,11 +220,11 @@ describe('show-hide-content', function () {
     describe('before this.showHideContent.destroy() is called', function () {
       it('document.body should have show/hide event handlers', function () {
         var events = $._data(document.body, 'events')
-        expect(events && events.click).toContain(jasmine.objectContaining({
+        expect(events && events.change).toContain(jasmine.objectContaining({
           namespace: 'ShowHideContent',
           selector: 'input[type="radio"][name="single"]'
         }))
-        expect(events && events.click).toContain(jasmine.objectContaining({
+        expect(events && events.change).toContain(jasmine.objectContaining({
           namespace: 'ShowHideContent',
           selector: '.block-label[data-target] input[type="checkbox"]'
         }))
@@ -238,11 +238,11 @@ describe('show-hide-content', function () {
 
       it('should have no show/hide event handlers', function () {
         var events = $._data(document.body, 'events')
-        expect(events && events.click).not.toContain(jasmine.objectContaining({
+        expect(events && events.change).not.toContain(jasmine.objectContaining({
           namespace: 'ShowHideContent',
           selector: 'input[type="radio"][name="single"]'
         }))
-        expect(events && events.click).not.toContain(jasmine.objectContaining({
+        expect(events && events.change).not.toContain(jasmine.objectContaining({
           namespace: 'ShowHideContent',
           selector: '.block-label[data-target] input[type="checkbox"]'
         }))

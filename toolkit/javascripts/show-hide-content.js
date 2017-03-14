@@ -158,7 +158,7 @@
 
       // Handle events
       $.each(eventSelectors, function (idx, eventSelector) {
-        $container.on('click.' + selectors.namespace, eventSelector, deferred)
+        $container.on('change.' + selectors.namespace, eventSelector, deferred)
       })
 
       // Any already :checked on init?
