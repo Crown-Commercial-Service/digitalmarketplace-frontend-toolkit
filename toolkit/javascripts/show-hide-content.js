@@ -69,48 +69,60 @@
       }
 
       // Show content
-      if ($content.hasClass('js-hidden')) {
-        $content.removeClass('js-hidden')
-        $content.attr('aria-hidden', 'false')
-      }
+      $content.each(function () {
+        var $contentElement = $(this)
 
-      // If the controlling input, update aria-expanded
-      if ($control.attr('aria-controls')) {
-        $control.attr('aria-expanded', 'true')
-      }
+        // always remove the class
+        $contentElement.removeClass('js-hidden')
+        $contentElement.attr('aria-hidden', 'false')
 
-      // Trigger show toggled content on revealed inputs
-      $content.find('input:checked').each(function () {
-        showToggledContent($(this))
+        // If the controlling input, update aria-expanded
+        if ($control.attr('aria-controls')) {
+          $control.attr('aria-expanded', 'true')
+        }
+
+        // Trigger show toggled content on revealed inputs
+        $contentElement.find('input:checked').each(function () {
+          showToggledContent($(this))
+        })
       })
     }
 
     function isAnotherControlStillShowingThisContent(id, $control) {
-        return $('[data-target="' + id + '"] input:checked').not($control).length > 0
+        return $('[data-target~="' + id + '"] input:checked').not($control).length > 0
     }
 
     // Hide toggled content for control
     function hideToggledContent ($control, $content) {
       $content = $content || getToggledContent($control)
 
-      if (!$content.length || isAnotherControlStillShowingThisContent($content.attr('id'), $control)) {
+      if (!$content.length) {
         return
       }
 
       // Hide content
-      if (!$content.hasClass('js-hidden')) {
-        $content.addClass('js-hidden')
-        $content.attr('aria-hidden', 'true')
-      }
+      $content.each(function () {
+        var $contentElement = $(this)
 
-      // If the controlling input, update aria-expanded
-      if ($control.attr('aria-controls')) {
-        $control.attr('aria-expanded', 'false')
-      }
+        if (
+            !$contentElement.hasClass('js-hidden')
+            && !isAnotherControlStillShowingThisContent($contentElement.attr('id'), $control)
+          )
+        {
+          $contentElement.addClass('js-hidden')
+          $contentElement.attr('aria-hidden', 'true')
 
-      // Trigger hide toggled content on hidden inputs
-      $content.find('input').each(function () {
-        hideToggledContent($(this))
+          // If the controlling input, update aria-expanded
+          // Caveat: only update this if at least one controlled is hidden
+          if ($control.attr('aria-controls')) {
+            $control.attr('aria-expanded', 'false')
+          }
+
+          // Trigger hide toggled content on hidden inputs
+          $contentElement.find('input').each(function () {
+            hideToggledContent($(this))
+          })
+        }
       })
     }
 
