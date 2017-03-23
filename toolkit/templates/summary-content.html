@@ -90,3 +90,7 @@
 {% macro number_content(value='', assurance=None) -%}
   {{ text_content(value, assurance) }}
 {%- endmacro %}
+
+{% macro date_content(value='', assurance=None) -%}
+  {{ text_content(value, assurance) }}
+{%- endmacro %}

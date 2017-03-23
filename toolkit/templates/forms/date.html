@@ -1,0 +1,112 @@
+{% if hint %}
+  {% set answer_advice_id="input-" + name + "-answer-advice" %}
+{% endif %}
+{% if question_advice %}
+  {% set question_advice_id="input-" + name + "-question-advice" %}
+{% endif %}
+
+{% if error %}
+  <div class="validation-wrapper">
+{% elif message %}
+  <div class="message-wrapper">
+{% endif %}
+
+<div class="question{% if hidden %} js-hidden related-information{% endif %}" id="{{ name }}">
+    <label for="input-{{ name }}">
+      <span class="question-heading">
+        {% if question_number %}
+          <span class="question-number">
+            {{ question_number }}
+          </span>
+        {% endif %}
+        {{ question }}
+      </span>
+      {% if error %}
+        <span class="validation-message">
+          {{ error }}
+        </span>
+      {% elif message %}
+        <span class="message-content">
+          {{ message }}
+        </span>
+      {% endif %}
+    </label>
+    {% if hidden and not error %}
+      <noscript>
+        <span class="hint">
+          You may not need to answer this question depending on how you answered an earlier question.
+        </span>
+      </noscript>
+    {% endif %}
+    {% if optional %}
+      <span class="question-optional">
+        <strong>Optional</strong>
+      </span>
+    {% endif %}
+    {% if question_advice %}
+    <span class="question-advice" id="{{ question_advice_id }}">
+      {{ question_advice }}
+    </span>
+    {% endif %}
+    {% if hint %}
+    <span class="hint" id="{{ answer_advice_id }}">
+      {{ hint }}
+    </span>
+    {% endif %}
+
+    {# The actual fields #}
+    <fieldset class="text-box-inline-container" id="{{ name }}" >
+
+      {# Day #}
+      {% with field_name = name+"-day" %}
+        <div class="text-box-inline-rp">
+          <label for="input-{{ field_name }}">Day</label>
+          <input
+            id="input-{{ field_name }}"
+            name="{{ field_name }}"
+            type="text"
+            maxlength=2
+            class="text-box text-box-tiny"
+            value="{% if name !=  None %}{{ service_data[field_name] }}{% endif %}"
+            {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+          />
+        </div>
+      {% endwith %}
+
+      {# Month #}
+      {% with field_name = name+"-month" %}
+        <div class="text-box-inline-rp">
+          <label for="input-{{ field_name }}">Month</label>
+          <input
+            id="input-{{ field_name }}"
+            name="{{ field_name }}"
+            type="text"
+            maxlength=2
+            class="text-box text-box-tiny"
+            value="{% if name !=  None %}{{ service_data[field_name] }}{% endif %}"
+            {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+          />
+        </div>
+      {% endwith %}
+
+      {# Year #}
+      {% with field_name = name+"-year" %}
+        <div class="text-box-inline-rp">
+          <label for="input-{{ field_name }}">Year</label>
+          <input
+            id="input-{{ field_name }}"
+            name="{{ field_name }}"
+            type="text"
+            maxlength=4
+            class="text-box text-box-small"
+            value="{% if name !=  None %}{{ service_data[field_name] }}{% endif %}"
+            {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+          />
+        </div>
+      {% endwith %}
+
+    </fieldset>
+  {% if error or message %}
+    </div>
+  {% endif %}
+</div>
