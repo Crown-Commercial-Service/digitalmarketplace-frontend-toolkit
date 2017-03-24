@@ -13,66 +13,68 @@
 {% elif message %}
   <div class="message-wrapper">
 {% endif %}
-  <fieldset class="question{% if first_question %} first-question{% endif %}{% if hidden %} js-hidden related-information{% endif %}" id="{{ id }}">
-    <legend>
-      <span class="question-heading">
-        {% if question_number %}
-          <span class="question-number">
-            {{ question_number }}
+  <div class="question first-question{% if inline or type=='boolean' %} inline{% endif %}{% if hidden %} js-hidden related-information{% endif %}" id="{{ id }}">
+    <fieldset>
+      <legend>
+        <span class="question-heading">
+          {% if question_number %}
+            <span class="question-number">
+              {{ question_number }}
+            </span>
+          {% endif %}
+          {{ question }}
+        </span>
+        {% if error %}
+          <span class="validation-message">
+            {{ error }}
+          </span>
+        {% elif message %}
+          <span class="message-content">
+            {{ message }}
           </span>
         {% endif %}
-        {{ question }}
-      </span>
-      {% if error %}
-        <span class="validation-message">
-          {{ error }}
-        </span>
-      {% elif message %}
-        <span class="message-content">
-          {{ message }}
+      </legend>
+      {% if hidden and not error %}
+        <noscript>
+          <span class="hint">
+            You may not need to answer this question depending on how you answered an earlier question.
+          </span>
+        </noscript>
+      {% endif %}
+      {% if optional %}
+        <span class="question-optional">
+          <strong>Optional</strong>
         </span>
       {% endif %}
-    </legend>
-    {% if hidden and not error %}
-      <noscript>
-        <span class="hint">
-          You may not need to answer this question depending on how you answered an earlier question.
+      {% if question_advice %}
+        <span class="question-advice" id="{{ question_advice_id }}">
+          {{ question_advice }}
         </span>
-      </noscript>
-    {% endif %}
-    {% if optional %}
-      <span class="question-optional">
-        <strong>Optional</strong>
-      </span>
-    {% endif %}
-    {% if question_advice %}
-      <span class="question-advice" id="{{ question_advice_id }}">
-        {{ question_advice }}
-      </span>
-    {% endif %}
-    {% if hint %}
-      <span class="hint" id="{{ answer_advice_id }}">
-        {{ hint }}
-      </span>
-    {% endif %}
-    <div class="input-list" data-list-item-name="{{ item_name }}" id="list-entry-{{id}}">
-      {% for index in range(0, number_of_items) %}
-        <div class="list-entry">
-          <label for="input-{{ id }}-{{ index }}" class="text-box-number-label">
-            <span class="visuallyhidden">{{item_name}} number </span>{{ index + 1 }}.
-          </label>
-          <input
-            type="text"
-            name="{{ id }}"
-            id="input-{{ id }}-{{ index }}"
-            class="text-box"
-            value="{{ values[index] }}"
-            {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
-          />
-        </div>
-      {% endfor %}
-    </div>
-  </fieldset>
+      {% endif %}
+      {% if hint %}
+        <span class="hint" id="{{ answer_advice_id }}">
+          {{ hint }}
+        </span>
+      {% endif %}
+      <div class="input-list" data-list-item-name="{{ item_name }}" id="list-entry-{{id}}">
+        {% for index in range(0, number_of_items) %}
+          <div class="list-entry">
+            <label for="input-{{ id }}-{{ index }}" class="text-box-number-label">
+              <span class="visuallyhidden">{{item_name}} number </span>{{ index + 1 }}.
+            </label>
+            <input
+              type="text"
+              name="{{ id }}"
+              id="input-{{ id }}-{{ index }}"
+              class="text-box"
+              value="{{ values[index] }}"
+              {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+            />
+          </div>
+        {% endfor %}
+      </div>
+    </fieldset>
+  </div>
 {% if error or message %}
   </div>
 {% endif %}
