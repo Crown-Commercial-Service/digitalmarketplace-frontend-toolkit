@@ -146,7 +146,7 @@
 }
 
 // To stack horizontally, use .inline on the wrapping fieldset and selection buttons will be side-by-side
-fieldset.inline .selection-button {
+.inline fieldset .selection-button {
   clear: none;
 
   @include media (tablet) {

@@ -10,8 +10,12 @@ $border-width: $gutter / 6;
 
 .related-information {
   padding-left: $gutter-half;
-  padding-top: $gutter-half;
-  margin-top: $gutter-two-thirds * -1;
+  padding-top: $gutter-two-thirds;
+  margin: -$gutter 0 0 0;
+
+  &:not(:last-of-type) {
+    padding-bottom: $gutter;
+  }
 
   .question-heading {
     @include bold-19;
@@ -24,6 +28,7 @@ $border-width: $gutter / 6;
   }
 }
 
-fieldset.related-information {
-  padding-top: 0;
+.related-information + .related-information {
+  padding-top: $gutter-one-third;
+  margin-top: 0;
 }

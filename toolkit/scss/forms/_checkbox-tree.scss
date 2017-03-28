@@ -41,6 +41,7 @@ fieldset.checkbox-tree__inputs > legend {
     margin-top: $gutter-one-third;
     margin-bottom: 0;
     padding-left: $gutter-half;
+    padding-top: 0;
 
     label:last-of-type {
       /* when focused, it hits the bottom of the grey bar */
