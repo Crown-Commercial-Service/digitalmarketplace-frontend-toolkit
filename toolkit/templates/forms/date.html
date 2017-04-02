@@ -57,54 +57,27 @@
     {# The actual fields #}
     <fieldset class="text-box-inline-container" id="{{ name }}" >
 
-      {# Day #}
-      {% with field_name = name+"-day" %}
+      {% for display_name, field_name, field_length, field_class in
+        [
+          ("Day", name + "-day", 2, "text-box-tiny"),
+          ("Month", name + "-month", 2, "text-box-tiny"),
+          ("Year", name + "-year", 4, "text-box-small")
+        ]
+      %}
         <div class="text-box-inline-rp">
-          <label for="input-{{ field_name }}">Day</label>
+          <label for="input-{{ field_name }}">{{ display_name }}</label>
           <input
             id="input-{{ field_name }}"
             name="{{ field_name }}"
             type="text"
-            maxlength=2
-            class="text-box text-box-tiny"
+            pattern="[0-9]*"
+            maxlength={{ field_length }}
+            class="text-box {{ field_class }}"
             value="{% if name !=  None %}{{ service_data[field_name] }}{% endif %}"
             {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
           />
         </div>
-      {% endwith %}
-
-      {# Month #}
-      {% with field_name = name+"-month" %}
-        <div class="text-box-inline-rp">
-          <label for="input-{{ field_name }}">Month</label>
-          <input
-            id="input-{{ field_name }}"
-            name="{{ field_name }}"
-            type="text"
-            maxlength=2
-            class="text-box text-box-tiny"
-            value="{% if name !=  None %}{{ service_data[field_name] }}{% endif %}"
-            {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
-          />
-        </div>
-      {% endwith %}
-
-      {# Year #}
-      {% with field_name = name+"-year" %}
-        <div class="text-box-inline-rp">
-          <label for="input-{{ field_name }}">Year</label>
-          <input
-            id="input-{{ field_name }}"
-            name="{{ field_name }}"
-            type="text"
-            maxlength=4
-            class="text-box text-box-small"
-            value="{% if name !=  None %}{{ service_data[field_name] }}{% endif %}"
-            {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
-          />
-        </div>
-      {% endwith %}
-
+      {% endfor %}
     </fieldset>
   {% if error or message %}
     </div>
