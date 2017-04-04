@@ -12,6 +12,7 @@
 {% endif %}
 
 <div class="question{% if hidden %} js-hidden related-information{% endif %}" id="{{ name }}">
+
     <label for="input-{{ name }}">
       <span class="question-heading">
         {% if question_number %}
@@ -73,7 +74,7 @@
             pattern="[0-9]*"
             maxlength={{ field_length }}
             class="text-box {{ field_class }}"
-            value="{% if name !=  None %}{{ service_data[field_name] }}{% endif %}"
+            value="{% if name !=  None %}{{ data[field_name] }}{% endif %}"
             {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
           />
         </div>
