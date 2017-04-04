@@ -95,6 +95,10 @@ table.summary-item-body {
       border-top: 1px solid $border-colour;
     }
 
+    .summary-item-row-no-border {
+      border-top: 0;
+    }
+
     td {
       padding-top: 12px;
       padding-bottom: 9px;
