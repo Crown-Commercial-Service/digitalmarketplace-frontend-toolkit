@@ -71,7 +71,6 @@
             id="input-{{ field_name }}"
             name="{{ field_name }}"
             type="text"
-            pattern="[0-9]*"
             maxlength={{ field_length }}
             class="text-box {{ field_class }}"
             value="{% if name !=  None %}{{ data[field_name] }}{% endif %}"
