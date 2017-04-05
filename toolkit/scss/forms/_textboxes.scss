@@ -78,9 +78,14 @@
   @include inline-block;
 }
 
-.text-box-inline-rp {
-  @extend %text-box-inline;
+%right-padding-tiny,
+.right-padding-tiny {
   padding-right: 1em;
+}
+
+.text-box-inline-right-padding-tiny {
+  @extend %text-box-inline;
+  @extend %right-padding-tiny;
 }
 
 %text-box-with-unit {
