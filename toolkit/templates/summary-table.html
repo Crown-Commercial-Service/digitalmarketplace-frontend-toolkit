@@ -139,8 +139,8 @@
 {%- endmacro %}
 
 
-{% macro field_name(text=None, wide=False, two_thirds=False) -%}
-  {% call field(first=True, wide=wide, two_thirds=two_thirds) -%}
+{% macro field_name(text=None, wide=False, rowspan='', two_thirds=False) -%}
+  {% call field(first=True, wide=wide, two_thirds=two_thirds, rowspan=rowspan) -%}
     {% if text -%}
       {{ text }}
     {%- endif %}
