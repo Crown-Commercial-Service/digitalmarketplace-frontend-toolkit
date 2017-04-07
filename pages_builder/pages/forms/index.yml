@@ -5,7 +5,7 @@ content: >
     <nav>
       <ol class="group" role="breadcrumbs">
         <li>
-          <a href="/">Home</a>
+          <a href="{{urlRoot}}/">Home</a>
         </li>
       </ol>
     </nav>
@@ -17,37 +17,37 @@ content: >
       </header>
       <ul class="index-list">
         <li>
-          <a href="/forms/upload.html">File upload</a>
+          <a href="upload.html">File upload</a>
         </li>
         <li>
-          <a href="/forms/keyword-search.html">Keyword search</a>
+          <a href="keyword-search.html">Keyword search</a>
         </li>
         <li>
-          <a href="/forms/list-entry.html">List entry textbox</a>
+          <a href="list-entry.html">List entry textbox</a>
         </li>
         <li>
-          <a href="/forms/option-select.html">Option select</a>
+          <a href="option-select.html">Option select</a>
         </li>
         <li>
-          <a href="/forms/pricing.html">Pricing</a>
+          <a href="pricing.html">Pricing</a>
         </li>
         <li>
-          <a href="/forms/selection-buttons.html">Selection buttons</a>
+          <a href="selection-buttons.html">Selection buttons</a>
         </li>
         <li>
-          <a href="/forms/textbox.html">Textboxes</a>
+          <a href="textbox.html">Textboxes</a>
         </li>
         <li>
-          <a href="/forms/single-question-page.html">Single question page</a>
+          <a href="single-question-page.html">Single question page</a>
         </li>
         <li>
-          <a href="/forms/validation.html">Validation</a>
+          <a href="validation.html">Validation</a>
         </li>
         <li>
-          <a href="/forms/combinations.html">Combinations</a>
+          <a href="combinations.html">Combinations</a>
         </li>
         <li>
-          <a href="forms/checkbox-tree.html">Checkbox tree</a>
+          <a href="checkbox-tree.html">Checkbox tree</a>
         </li>
       </ul>
     </div>

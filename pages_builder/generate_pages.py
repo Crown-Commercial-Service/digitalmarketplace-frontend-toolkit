@@ -131,8 +131,10 @@ class Styleguide_publisher(object):
         output_file = self.__get_page_filename(input_file)
         partial = yaml.load(open(input_file, "r").read())
         url_root = os.getenv("ROOT_DIRECTORY") or ""
-        # if main index page, add version number from VERSION.txt
-        if self.__is_main_index(output_file):
+        # for index pages, we want to render variables in the content
+        # - add version number from VERSION.txt to the main index page
+        # - add urlRoot to the nested 'index.html' pages
+        if 'index.html' in output_file:
             partial['content'] = pystache.render(
                 partial['content'], {"version": self.get_version()}
             )
@@ -168,7 +170,8 @@ class Styleguide_publisher(object):
                     if not has_template:
                         template = env.from_string(example)
                     if isinstance(example, dict):
-                        # if the example has some html it needs to be displayed, cache it and remove from the parameters example
+                        # if the example has some html it needs to be displayed,
+                        # cache it and remove from the parameters example
                         surrounding_html = example.get('surrounding_html', None)
                         if surrounding_html:
                             del example['surrounding_html']
@@ -262,9 +265,6 @@ class Styleguide_publisher(object):
     def __is_yaml(self, file):
         filename, extension = os.path.splitext(file)
         return extension == ".yml"
-
-    def __is_main_index(self, filename):
-        return filename == os.path.join(self.repo_root, "pages/index.html")
 
 if __name__ == "__main__":
     styleguide_publisher = Styleguide_publisher()
