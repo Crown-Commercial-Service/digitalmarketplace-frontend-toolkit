@@ -52,6 +52,9 @@ content: >
             <li>
               <a href="forms/checkbox-tree.html">Checkbox tree</a>
             </li>
+            <li>
+              <a href="forms/date.html">Date</a>
+            </li>
           </ul>
         </li>
         <li><a href="grids.html">Grids</a></li>
