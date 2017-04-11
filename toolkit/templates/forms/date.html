@@ -56,16 +56,16 @@
     {% endif %}
 
     {# The actual fields #}
-    <fieldset class="text-box-inline-container" id="{{ name }}" >
+    <fieldset class="inline-block" id="{{ name }}" >
 
       {% for display_name, field_name, field_length, field_class in
         [
-          ("Day", name + "-day", 2, "text-box-tiny"),
-          ("Month", name + "-month", 2, "text-box-tiny"),
-          ("Year", name + "-year", 4, "text-box-small")
+          ("Day", name + "-day", 2, "date-input-day-month"),
+          ("Month", name + "-month", 2, "date-input-day-month"),
+          ("Year", name + "-year", 4, "date-input-year")
         ]
       %}
-        <div class="text-box-inline-right-padding-tiny">
+        <div class="date-field-container">
           <label for="input-{{ field_name }}">{{ display_name }}</label>
           <input
             id="input-{{ field_name }}"

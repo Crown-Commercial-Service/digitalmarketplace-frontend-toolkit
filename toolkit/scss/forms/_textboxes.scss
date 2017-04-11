@@ -58,36 +58,6 @@
   width: 7em;
 }
 
-.text-box-small {
-  @extend %text-box;
-  width: 4.25em;
-}
-
-.text-box-tiny {
-  @extend %text-box;
-  width: 2.75em;
-}
-
-.text-box-inline-container {
-  @include inline-block;
-}
-
-%text-box-inline,
-.text-box-inline {
-  display: inline;
-  @include inline-block;
-}
-
-%right-padding-tiny,
-.right-padding-tiny {
-  padding-right: 1em;
-}
-
-.text-box-inline-right-padding-tiny {
-  @extend %text-box-inline;
-  @extend %right-padding-tiny;
-}
-
 %text-box-with-unit {
   @extend .text-box-smaller;
   @include inline-block;
