@@ -1,0 +1,12 @@
+.date-field-container {
+  @include inline-block;
+  padding-right: 1em;
+}
+
+.date-input-day-month {
+  width: 2.75em;
+}
+
+.date-input-year {
+  width: 4.25em;
+}

@@ -283,6 +283,11 @@
 {%- endmacro %}
 
 
+{% macro date(value='', assurance=None) -%}
+  {{ text(value, assurance) }}
+{%- endmacro %}
+
+
 {% macro number(value='', assurance=None) -%}
   {% if value -%}
     {{ text(value, assurance) }}

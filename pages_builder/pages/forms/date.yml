@@ -1,0 +1,111 @@
+pageTitle: Dates
+assetPath: ../govuk_template/assets/
+grid: column-two-thirds
+
+examples:
+  - question: Minimal date question
+    name: dateq1
+    data: {}
+    answer_advice_id: 1
+    error: false
+    hidden: false
+    hint: false
+    message: false
+    optional: false
+    question_advice: false
+    question_advice_id: 1
+    question_number: false
+
+  - question: A date question with hint and question number
+    name: dateq2
+    data: {}
+    answer_advice_id: 1
+    error: false
+    hidden: false
+    hint: eg 31 12 2017
+    message: false
+    optional: false
+    question_advice: false
+    question_advice_id: 1
+    question_number: 2
+
+  - question: A date question with a value
+    name: dateq3
+    data: {
+      dateq3-day: 31,
+      dateq3-month: 12,
+      dateq3-year: 2017
+    }
+    answer_advice_id: 1
+    error: false
+    hidden: false
+    hint: eg 31 12 2017
+    message: false
+    optional: false
+    question_advice: false
+    question_advice_id: 1
+    question_number: 3
+
+  - question: An optional date question
+    name: dateq4
+    data: {
+      dateq4-day: 31,
+      dateq4-month: 12,
+      dateq4-year: 2017
+    }
+    answer_advice_id: 1
+    error: false
+    hidden: false
+    hint: eg 31 12 2017
+    message: false
+    optional: true
+    question_advice: false
+    question_advice_id: 1
+    question_number: 4
+
+  - question: A hidden date question
+    name: dateq4.5
+    data: {
+      dateq4.5-day: 31,
+      dateq4.5-month: 12,
+      dateq4.5-year: 2017
+    }
+    answer_advice_id: 1
+    error: false
+    hidden: true
+    hint: eg 31 12 2017
+    message: false
+    optional: false
+    question_advice: false
+    question_advice_id: 1
+    question_number: 4.5
+
+  - question: An invalid date question
+    name: dateq5
+    data: {
+      dateq5-day: 30,
+      dateq5-month: 02,
+      dateq5-year: 2017
+    }
+    answer_advice_id: 1
+    error: Your answer must be a valid date.
+    hidden: false
+    hint: eg 31 12 2017
+    message: false
+    optional: false
+    question_advice: false
+    question_advice_id: 1
+    question_number: 5
+
+  - question: An unanswered date question
+    name: dateq6
+    data: {}
+    answer_advice_id: 1
+    error: You need to answer this question.
+    hidden: false
+    hint: eg 31 12 2017
+    message: false
+    optional: false
+    question_advice: false
+    question_advice_id: 1
+    question_number: 6
