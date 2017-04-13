@@ -14,10 +14,12 @@
 
       },
       sendFocusToError = function(event) {
-
-        event.preventDefault();
         var href = $(this).attr("href");
-        $(href).find("input, textarea").first().focus();
+
+        if(href.charAt(0) == "#"){
+          event.preventDefault();
+          $(href).find("input, textarea").first().focus();
+        }
 
       };
 
