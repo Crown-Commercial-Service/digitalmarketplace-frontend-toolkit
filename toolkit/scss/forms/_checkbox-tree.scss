@@ -43,19 +43,19 @@ fieldset.checkbox-tree__inputs > legend {
     padding-left: $gutter-half;
     padding-top: 0;
 
-    label:last-of-type {
-      /* when focused, it hits the bottom of the grey bar */
-      padding-bottom: 9px;
-      margin-bottom: 4px;
-
-      @include media(tablet) {
-        padding-bottom: 4px;
-      }
-    }
-
     .validation-wrapper & {
       border-left: solid $border-width $grey-2;
     }
+
+    .last-of-type {
+      padding-bottom: 0;
+      margin-bottom: 10px;
+
+       @include media(tablet) {
+         margin-bottom: 5px;
+       }
+    }
+
   }
 
   details:not(:last-child) fieldset.related-information {

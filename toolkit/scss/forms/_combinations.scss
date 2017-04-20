@@ -11,11 +11,7 @@ $border-width: $gutter / 6;
 .related-information {
   padding-left: $gutter-half;
   padding-top: $gutter-two-thirds;
-  margin: -$gutter 0 0 0;
-
-  &:not(:last-of-type) {
-    padding-bottom: $gutter;
-  }
+  margin: -$gutter-half 0 0 0;
 
   .question-heading {
     @include bold-19;
@@ -29,6 +25,5 @@ $border-width: $gutter / 6;
 }
 
 .related-information + .related-information {
-  padding-top: $gutter-one-third;
-  margin-top: 0;
+  padding-top: $gutter*2;
 }
