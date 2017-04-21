@@ -14,18 +14,23 @@
 
       },
       sendFocusToError = function(event) {
-
-        event.preventDefault();
         var href = $(this).attr("href");
-        $(href).find("input, textarea").first().focus();
+        if(href.charAt(0) == "#"){
+          event.preventDefault();
+          $(href).find("input, textarea").first().focus();
+        }
 
       };
 
-  $(".validation-masthead").on("click", "a", sendFocusToError);
+  var setClickHandlerOnValidationLinks = function() {
+    $(".validation-masthead").on("click", "a", sendFocusToError);
+  }
+  setClickHandlerOnValidationLinks();
 
   this.GOVUK = this.GOVUK || {};
   this.GOVUK.GDM = this.GOVUK.GDM || {};
 
   GOVUK.GDM.validation = sendFocusToMasthead;
+  GOVUK.GDM.validationLinks = setClickHandlerOnValidationLinks;
 
 }).call(this);

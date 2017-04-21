@@ -15,6 +15,7 @@ var manifest = {
     '../unit/ListEntrySpec.js',
     '../unit/WordCountSpec.js',
     '../unit/show-hide-content.spec.js',
+    '../unit/validation.spec.js',
   ]
 };
 
