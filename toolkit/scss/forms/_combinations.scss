@@ -13,10 +13,6 @@ $border-width: $gutter / 6;
   padding-top: $gutter-two-thirds;
   margin: -$gutter 0 0 0;
 
-  &:not(:last-of-type) {
-    padding-bottom: $gutter;
-  }
-
   .question-heading {
     @include bold-19;
   }
