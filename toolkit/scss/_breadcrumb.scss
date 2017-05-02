@@ -28,17 +28,16 @@
 
       li {
         @include core-16;
-        background: file-url('breadcrumb-separator.png') 100% 50% no-repeat;
+        background: file-url('breadcrumb-separator.png') 0% 50% no-repeat;
         float: left;
         list-style: none;
 
-        margin-left: 0;
         margin-right: 0.5em;
-        padding-right: $gutter-half;
+        padding-left: $gutter-half;
 
-        &:last-child {
+        &:first-child {
           background-image: none;
-          margin-right: 0;
+          padding-left: 0;
         }
 
         a {
