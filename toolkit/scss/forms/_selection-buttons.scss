@@ -138,11 +138,6 @@
       }
     }
   }
-
-  &:last-child,
-  &:last-of-type {
-    margin-bottom: 0;
-  }
 }
 
 // To stack horizontally, use .inline on the wrapping fieldset and selection buttons will be side-by-side
