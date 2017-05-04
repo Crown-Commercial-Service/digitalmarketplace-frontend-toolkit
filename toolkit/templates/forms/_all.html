@@ -1,0 +1,142 @@
+{% macro _text(_name, _error=None) %}
+  {%
+    with
+    question = "Text",
+    name = _name,
+    error = _error,
+    hidden = true
+  %}
+    {% include "forms/textbox.html" %}
+  {% endwith %}
+{% endmacro %}
+
+{% macro _textbox(_name, _error=None) %}
+  {%
+    with
+    large = true,
+    max_length_in_words = 10,
+    question = "Textbox wordcount",
+    name = _name,
+    error = _error,
+    hidden = true
+  %}
+    {% include "forms/textbox.html" %}
+  {% endwith %}
+{% endmacro %}
+
+{% macro _radio(_name, _error=None) %}
+  {%
+    with
+    question = "Radio",
+    type = "radio",
+    name = _name,
+    options = [{"label": "Snooper Force"}, {"label": "Sponge Avengers"}],
+    error = _error,
+    hidden = true
+  %}
+    {% include "forms/selection-buttons.html" %}
+  {% endwith %}
+{% endmacro %}
+
+{% macro _radio_description(_name, _error=None) %}
+  {%
+    with
+    question = "Radio description",
+    type = "radio",
+    name = _name,
+    options = [
+      {
+        "label": "Voices of the 1%",
+        "description": "The investment banker said £100m was a lot of money – but 'not a ridiculous amount of money'. He told the researcher he was 'fairly confident' that a driven and passionate individual could 'start from zero and get to £100m within 20 years'."
+      }
+    ],
+    error = _error,
+    hidden = true
+  %}
+    {% include "forms/selection-buttons.html" %}
+  {% endwith %}
+{% endmacro %}
+
+{% macro _boolean(_name, _error=None) %}
+  {%
+    with
+    name = _name,
+    question = "Boolean",
+    value = true,
+    type = "boolean",
+    error = _error,
+    hidden = true
+  %}
+    {% include "forms/selection-buttons.html" %}
+  {% endwith %}
+{% endmacro %}
+
+{% macro _checkbox(_name, _error=None) %}
+  {%
+    with
+    question = "Checkbox",
+    type = "checkbox",
+    name = _name,
+    options = [{"label": "Snooper Force"}, {"label": "Sponge Avengers"}],
+    error = _error,
+    hidden = true
+  %}
+    {% include "forms/selection-buttons.html" %}
+  {% endwith %}
+{% endmacro %}
+
+{% macro _checkbox_hint_underneath(_name, _error=None) %}
+  {%
+    with
+    name = _name,
+    hint = "He would really like a private jet but can’t afford one.",
+    hint_underneath = true,
+    question = "Checkbox hint underneath",
+    type = "checkbox",
+    options = [{"label": "Snooper Force"}, {"label": "Sponge Avengers"}],
+    error = _error,
+    hidden = true
+  %}
+    {% include "forms/selection-buttons.html" %}
+  {% endwith %}
+{% endmacro %}
+
+{% macro _list_entry(_name, _error=None) %}
+  {%
+    with
+    question = "List new entry",
+    id = _name,
+    number_of_items=10,
+    error = _error,
+    hidden = true
+  %}
+    {% include "forms/list-entry.html" %}
+  {% endwith %}
+{% endmacro %}
+
+{% macro _date_entry(_name, _error=None) %}
+  {%
+    with
+    question = "Date entry",
+    name = _name,
+    data={},
+    error = _error,
+    hidden = true
+  %}
+    {% include "forms/date.html" %}
+  {% endwith %}
+{% endmacro %}
+
+{%
+  set macros = {
+     'text': _text,
+     'textbox': _textbox,
+     'radio': _radio,
+     'checkbox': _checkbox,
+     'boolean': _boolean,
+     'radio_description': _radio_description,
+     'checkbox_hint_underneath': _checkbox_hint_underneath,
+     'list_entry': _list_entry,
+     'date_entry': _date_entry
+  }
+%}
