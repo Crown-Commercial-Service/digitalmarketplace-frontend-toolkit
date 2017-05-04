@@ -1,0 +1,98 @@
+pageTitle: All fields
+assetPath: ../govuk_template/assets/
+grid: column-two-thirds
+bodyEnd: >
+  <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/vendor/polyfills/bind.js"></script>
+  <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/govuk/selection-buttons.js"></script>
+  <script type="text/javascript" src="../public/javascripts/show-hide-content.js"></script>
+  <script type="text/javascript" src="../public/javascripts/vendor/hogan-3.0.2.min.js"></script>
+  <script type="text/javascript" src="../public/javascripts/list-entry.js"></script>
+  <script type="text/javascript" src="../public/javascripts/word-counter.js"></script>
+examples:
+  - |
+    <form>
+
+    {% import "forms/_all.html" as _ %}
+
+    {%
+      set _types = {
+        "001": "text",
+        "002": "textbox",
+        "003": "text",
+        "004": "radio",
+        "005": "text",
+        "006": "checkbox",
+        "007": "text",
+        "008": "boolean",
+        "009": "text",
+        "010": "radio_description",
+        "011": "text",
+        "012": "checkbox_hint_underneath",
+        "013": "text",
+        "014": "list_entry",
+        "015": "text",
+        "016": "date_entry",
+        "017": "text"
+      }
+    %}
+
+    {%
+      with
+      followup = {True: _types.keys()|sort},
+      name = "000",
+      question = "Can you do this thing?",
+      value = true,
+      type = "boolean"
+    %}
+      {% include "forms/selection-buttons.html" %}
+    {% endwith %}
+
+    {% for num, type in _types.items()|sort %}
+      {{ _.macros[type](num) }}
+    {% endfor %}
+
+    </form>
+
+  - |
+    <form>
+
+    {% import "forms/_all.html" as _ %}
+
+    {%
+      set _types = {
+        "101": "text",
+        "102": "textbox",
+        "103": "text",
+        "104": "radio",
+        "105": "text",
+        "106": "checkbox",
+        "107": "text",
+        "108": "boolean",
+        "109": "text",
+        "110": "radio_description",
+        "111": "text",
+        "112": "checkbox_hint_underneath",
+        "113": "text",
+        "114": "list_entry",
+        "115": "text",
+        "116": "date_entry",
+        "117": "text"
+      }
+    %}
+
+    {%
+      with
+      followup = {True: _types.keys()|sort},
+      name = "100",
+      question = "Uh oh, it looks like you can't do this thing.",
+      value = true,
+      type = "boolean"
+    %}
+      {% include "forms/selection-buttons.html" %}
+    {% endwith %}
+
+    {% for num, type in _types.items()|sort %}
+      {{ _.macros[type](num, "From 12th January 1973 it will no longer be legal") }}
+    {% endfor %}
+
+    </form>
