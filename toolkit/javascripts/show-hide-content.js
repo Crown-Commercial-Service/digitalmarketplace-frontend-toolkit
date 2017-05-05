@@ -33,7 +33,7 @@
           contentIds += ' ' + $(this).attr('id')
         })
 
-        $control.attr('aria-controls', contentIds.trim())
+        $control.attr('aria-controls', $.trim(contentIds))
         $control.attr('aria-expanded', 'false')
       }
     }
@@ -50,10 +50,11 @@
       // turn a space-separated list of ids into a comma-separated css id selector
       // ie, 'id-1 id-2 id-3' becomes '#id-1, #id-2, #id-3'
       if (targetIds) {
-        targetIds = targetIds
-                      .split(' ')
-                      .map(function (targetId) { return '#' + targetId })
-                      .join(', ')
+        targetIds = targetIds.split(' ')
+        targetIds = $.map(targetIds, function (targetId) {
+          return '#' + targetId
+        });
+        targetIds = targetIds.join(', ')
       }
 
       // Find show/hide content by id
