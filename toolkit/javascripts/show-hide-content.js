@@ -33,7 +33,7 @@
           contentIds += ' ' + $(this).attr('id')
         })
 
-        $control.attr('aria-controls', contentIds.trim())
+        $control.attr('aria-controls', $.trim(contentIds))
         $control.attr('aria-expanded', 'false')
       }
     }
