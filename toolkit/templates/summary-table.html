@@ -1,9 +1,4 @@
-{# TODO: PLS FIX #}
-{% if PAGES_BUILDER %}
-  {% import 'summary-content.html' as content %}
-{% else %}
-  {% import 'toolkit/summary-content.html' as content %}
-{% endif %}
+{% import 'toolkit/summary-content.html' as content %}
 
 {% macro heading(heading, index=None, id=None, hidden=False) -%}
   <h2 class="summary-item-heading"{% if id %} id="{{ id }}"{% endif %}>

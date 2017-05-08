@@ -34,14 +34,7 @@
                 last=loop.last,
                 hint=None
               %}
-
-                {# TODO: PLS FIX #}
-                {% if PAGES_BUILDER %}
-                  {% include 'forms/_selection-button.html' %}
-                {% else %}
-                  {% include 'toolkit/forms/_selection-button.html' %}
-                {% endif %}
-
+                {% include 'toolkit/forms/_selection-button.html' %}
               {% endwith %}
             {% endfor %}
 
@@ -58,14 +51,7 @@
         question_advice=None,
         hint=None
       %}
-
-        {# TODO: PLS FIX #}
-        {% if PAGES_BUILDER %}
-          {% include 'forms/_selection-button.html' %}
-        {% else %}
-          {% include 'toolkit/forms/_selection-button.html' %}
-        {% endif %}
-
+        {% include 'toolkit/forms/_selection-button.html' %}
       {% endwith %}
     {% endif %}
   {% endfor %}
