@@ -159,8 +159,6 @@ class Styleguide_publisher(object):
                 env = ToolkitEnvironment(
                     loader=FileSystemLoader(os.path.join(self.repo_root, "toolkit/templates"))
                 )
-                # used in `toolkit/templates/summary-table.html` for a conditional import statement
-                env.globals['PAGES_BUILDER'] = True
                 env.add_extension('jinja2.ext.with_')
 
                 template_file = os.path.join(template_subfolder, template_name + ".html")
@@ -168,7 +166,7 @@ class Styleguide_publisher(object):
                 # not all of our examples have template files (`_lists.scss`, for example)
                 if os.path.isfile(os.path.join(self.repo_root, "toolkit/templates", template_file)):
                     template = env.get_template(template_file)
-                    has_template = True 
+                    has_template = True
                 else:
                     has_template = False
                 examples = []
