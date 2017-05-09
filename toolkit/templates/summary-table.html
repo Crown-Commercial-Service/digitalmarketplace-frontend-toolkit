@@ -139,8 +139,8 @@
 {%- endmacro %}
 
 
-{% macro field_name(text=None, wide=False, rowspan='', two_thirds=False) -%}
-  {% call field(first=True, wide=wide, two_thirds=two_thirds, rowspan=rowspan) -%}
+{% macro field_name(text=None, wide=False, rowspan='', two_thirds=False, bold=False) -%}
+  {% call field(first=True, wide=wide, two_thirds=two_thirds, rowspan=rowspan, bold=bold) -%}
     {% if text -%}
       {{ text }}
     {%- endif %}
@@ -170,7 +170,7 @@
 {# FIELDS for PRESENTING SERVICE DATA #}
 {# ================================== #}
 
-{% macro text(text='', assurance=None, border=False, bold=False,  rowspan='', id='') -%}
+{% macro text(text='', assurance=None, border=False, bold=False, rowspan='', id='') -%}
   {% call field(border=border, bold=bold, rowspan=rowspan) -%}
     {% if text -%}
       {{ content.text_content(text, assurance) }}
@@ -186,13 +186,13 @@
   {%- endcall %}
 {%- endmacro %}
 
-{% macro list(items=[], assurance=None) -%}
+{% macro list(items=[], assurance=None, bold=False) -%}
   {% if items | length == 0 %}
     {{ text('') }}
   {% elif items | length == 1 %}
-    {{ text(items[0], assurance) }}
+    {{ text(items[0], assurance, bold=bold) }}
   {% elif items | length > 1 %}
-    {% call field() -%}
+    {% call field(bold=bold) -%}
       {{ content.list_items_content(items, assurance) }}
     {%- endcall %}
   {% endif %}
@@ -207,8 +207,8 @@
   {{ text(value, assurance, border=border, bold=bold, id=id) }}
 {%- endmacro %}
 
-{% macro upload(value=None, assurance=None) -%}
-  {% call field() -%}
+{% macro upload(value=None, assurance=None, bold=False) -%}
+  {% call field(bold=bold) -%}
     {% if value -%}
       {{ content.upload_content(value, assurance) }}
     {%- endif %}
@@ -225,16 +225,16 @@
 {%- endmacro %}
 
 
-{% macro checkboxes(value='', assurance=None) -%}
-  {{ list(value, assurance) }}
+{% macro checkboxes(value='', assurance=None, bold=False) -%}
+  {{ list(value, assurance, bold=bold) }}
 {%- endmacro %}
 
 
-{% macro radios(value='', assurance=None) -%}
+{% macro radios(value='', assurance=None, bold=False) -%}
   {% if value is string %}
-    {{ text(value, assurance) }}
+    {{ text(value, assurance, bold=bold) }}
   {% else %}
-    {{ list(value, assurance) }}
+    {{ list(value, assurance, bold=bold) }}
   {% endif %}
 {%- endmacro %}
 
@@ -262,35 +262,35 @@
 {%- endmacro %}
 
 
-{% macro boolean(value='', assurance=None) -%}
+{% macro boolean(value='', assurance=None, bold=False) -%}
   {% if value == True %}
-    {{ text("Yes", assurance) }}
+    {{ text("Yes", assurance, bold=bold) }}
   {% elif value == False %}
-    {{ text("No", assurance) }}
+    {{ text("No", assurance, bold=bold) }}
   {% else %}
-    {{ text(value, assurance) }}
+    {{ text(value, assurance, bold=bold) }}
   {% endif %}
 {%- endmacro %}
 
 
-{% macro textbox_large(value='', assurance=None) -%}
-  {{ text(value, assurance) }}
+{% macro textbox_large(value='', assurance=None, bold=False) -%}
+  {{ text(value, assurance, bold=bold) }}
 {%- endmacro %}
 
 
-{% macro pricing(value='', assurance=None) -%}
-  {{ text(value, assurance) }}
+{% macro pricing(value='', assurance=None, bold=False) -%}
+  {{ text(value, assurance, bold=bold) }}
 {%- endmacro %}
 
 
-{% macro date(value='', assurance=None) -%}
-  {{ text(value, assurance) }}
+{% macro date(value='', assurance=None, bold=False) -%}
+  {{ text(value, assurance, bold=bold) }}
 {%- endmacro %}
 
 
-{% macro number(value='', assurance=None) -%}
+{% macro number(value='', assurance=None, bold=False) -%}
   {% if value -%}
-    {{ text(value, assurance) }}
+    {{ text(value, assurance, bold=bold) }}
   {% else %}
     {{ text('') }}
   {%- endif %}
