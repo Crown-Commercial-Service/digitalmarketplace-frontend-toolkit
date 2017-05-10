@@ -35,8 +35,8 @@
   border-top: 1px solid $grey-3;
 }
 
-.instruction-list .divider:last-child .question:last-child {
-  margin: 15px 0 0 0;
+.instruction-list .question {
+  margin: $gutter-half 0 0 0;
 }
 
 .sublist {
