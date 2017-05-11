@@ -19,11 +19,6 @@ fieldset.checkbox-tree__inputs > legend {
 
     p {
       @extend %question-meta-spacing;
-
-      &:last-child {
-        margin-bottom: 0;
-        padding-bottom: 0;
-      }
     }
   }
 
@@ -58,11 +53,11 @@ fieldset.checkbox-tree__inputs > legend {
 
   }
 
-  details:not(:last-child) fieldset.related-information {
-    margin-bottom: $gutter-two-thirds;
+  details[open] + details {
+    margin-top: $gutter-two-thirds;
 
     @include media(tablet) {
-      margin-bottom: $gutter;
+      margin-top: $gutter;
     }
   }
 
