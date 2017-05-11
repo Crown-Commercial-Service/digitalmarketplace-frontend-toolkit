@@ -1,127 +1,98 @@
-{% macro _text(_name, _error=None) %}
+{% macro __textbox(_name, _question) %}
   {%
     with
-    question = "Text",
+    question = _question,
     name = _name,
-    error = _error,
-    hidden = true
+    error = kwargs.error,
+    hidden = kwargs.hidden,
+    large = kwargs.large,
+    max_length_in_words = kwargs.max_length_in_words
   %}
     {% include "forms/textbox.html" %}
   {% endwith %}
 {% endmacro %}
 
-{% macro _textbox(_name, _error=None) %}
+{% macro __selection_buttons(_name, _question, _type) %}
   {%
     with
-    large = true,
-    max_length_in_words = 10,
-    question = "Textbox wordcount",
+    question = _question,
+    type = _type,
     name = _name,
-    error = _error,
-    hidden = true
-  %}
-    {% include "forms/textbox.html" %}
-  {% endwith %}
-{% endmacro %}
-
-{% macro _radio(_name, _error=None) %}
-  {%
-    with
-    question = "Radio",
-    type = "radio",
-    name = _name,
-    options = [{"label": "Snooper Force"}, {"label": "Sponge Avengers"}],
-    error = _error,
-    hidden = true
+    hint = kwargs.hint,
+    options = kwargs.options,
+    error = kwargs.error,
+    hidden = kwargs.hidden,
+    hint_underneath = kwargs.hint_underneath
   %}
     {% include "forms/selection-buttons.html" %}
   {% endwith %}
 {% endmacro %}
 
-{% macro _radio_description(_name, _error=None) %}
-  {%
-    with
-    question = "Radio description",
-    type = "radio",
-    name = _name,
-    options = [
-      {
-        "label": "Voices of the 1%",
-        "description": "The investment banker said £100m was a lot of money – but 'not a ridiculous amount of money'. He told the researcher he was 'fairly confident' that a driven and passionate individual could 'start from zero and get to £100m within 20 years'."
-      }
-    ],
-    error = _error,
-    hidden = true
-  %}
-    {% include "forms/selection-buttons.html" %}
+{% macro _text(_name) %}
+  {{ __textbox(_name, "Text", **kwargs)}}
+{% endmacro %}
+
+{% macro _textbox(_name) %}
+  {{ __textbox(_name, "Textbox wordcount", max_length_in_words=10, large=True, **kwargs)}}
+{% endmacro %}
+
+{% macro _radio(_name) %}
+  {% with _options = [{"label": "Snooper Force"}, {"label": "Sponge Avengers"}] %}
+    {{ __selection_buttons(_name, "Radio", "radio", options=_options, **kwargs)}}
   {% endwith %}
 {% endmacro %}
 
-{% macro _boolean(_name, _error=None) %}
+{% macro _radio_description(_name) %}
   {%
-    with
-    name = _name,
-    question = "Boolean",
-    value = true,
-    type = "boolean",
-    error = _error,
-    hidden = true
+    with _options = [{
+      "label": "Voices of the 1%",
+      "description": "The investment banker said £100m was a lot of money – but 'not a ridiculous amount of money'. He told the researcher he was 'fairly confident' that a driven and passionate individual could 'start from zero and get to £100m within 20 years'."
+    }]
   %}
-    {% include "forms/selection-buttons.html" %}
+    {{ __selection_buttons(_name, "Radio description", "radio", options=_options, **kwargs)}}
   {% endwith %}
 {% endmacro %}
 
-{% macro _checkbox(_name, _error=None) %}
-  {%
-    with
-    question = "Checkbox",
-    type = "checkbox",
-    name = _name,
-    options = [{"label": "Snooper Force"}, {"label": "Sponge Avengers"}],
-    error = _error,
-    hidden = true
-  %}
-    {% include "forms/selection-buttons.html" %}
+{% macro _boolean(_name) %}
+  {{ __selection_buttons(_name, "Boolean", "boolean", **kwargs)}}
+{% endmacro %}
+
+{% macro _checkbox(_name) %}
+  {% with _options = [{"label": "Snooper Force"}, {"label": "Sponge Avengers"}] %}
+    {{ __selection_buttons(_name, "Checkbox", "checkbox", options=_options, **kwargs)}}
   {% endwith %}
 {% endmacro %}
 
-{% macro _checkbox_hint_underneath(_name, _error=None) %}
-  {%
-    with
-    name = _name,
-    hint = "He would really like a private jet but can’t afford one.",
-    hint_underneath = true,
-    question = "Checkbox hint underneath",
-    type = "checkbox",
-    options = [{"label": "Snooper Force"}, {"label": "Sponge Avengers"}],
-    error = _error,
-    hidden = true
+{% macro _checkbox_hint_underneath(_name) %}
+  {% with
+      _options = [{"label": "Snooper Force"}, {"label": "Sponge Avengers"}],
+      _hint = "He would really like a private jet but can’t afford one."
   %}
-    {% include "forms/selection-buttons.html" %}
+    {{ __selection_buttons(_name, "Checkbox", "checkbox", options=_options, hint=_hint, hint_underneath=True, **kwargs)}}
   {% endwith %}
 {% endmacro %}
 
-{% macro _list_entry(_name, _error=None) %}
+{% macro _list_entry(_name) %}
   {%
     with
     question = "List new entry",
     id = _name,
     number_of_items=10,
-    error = _error,
-    hidden = true
+    error = kwargs.error,
+    hidden = kwargs.hidden
   %}
     {% include "forms/list-entry.html" %}
   {% endwith %}
 {% endmacro %}
 
-{% macro _date_entry(_name, _error=None) %}
+{% macro _date_entry(_name) %}
   {%
     with
     question = "Date entry",
     name = _name,
     data={},
-    error = _error,
-    hidden = true
+    error = kwargs.error,
+    hidden = kwargs.hidden
   %}
     {% include "forms/date.html" %}
   {% endwith %}

@@ -48,7 +48,7 @@ examples:
     {% endwith %}
 
     {% for num, type in _types.items()|sort %}
-      {{ _.macros[type](num) }}
+      {{ _.macros[type](num, hidden=True) }}
     {% endfor %}
 
     </form>
@@ -92,7 +92,9 @@ examples:
     {% endwith %}
 
     {% for num, type in _types.items()|sort %}
-      {{ _.macros[type](num, "From 12th January 1973 it will no longer be legal") }}
+      {{ _.macros[type](num, error="From 12th January 1973 it will no longer be legal", hidden=True) }}
     {% endfor %}
 
     </form>
+
+
