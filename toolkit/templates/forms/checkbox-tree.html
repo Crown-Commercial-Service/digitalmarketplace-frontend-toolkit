@@ -19,13 +19,6 @@
         </span>
       {% endif %}
     </label>
-    {% if hidden and not error %}
-      <noscript>
-        <span class="hint">
-          You may not need to answer this question depending on how you answered an earlier question.
-        </span>
-      </noscript>
-    {% endif %}
     {% if question_advice %}
     <span class="question-advice" id="{{ question_advice_id }}">
       {{ question_advice }}
