@@ -8,6 +8,11 @@
   margin-bottom: $gutter;
   padding: 5px;
 
+  .js-enabled & {
+      /* This is required because we want padding around the search box but it gets overridden by a style from _option_select.scss */
+      padding: 5px;
+  }
+
   .container-head {
     padding-left: 0;
     padding-right: 0;
