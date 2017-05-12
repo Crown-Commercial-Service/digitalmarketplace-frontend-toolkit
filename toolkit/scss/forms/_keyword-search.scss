@@ -30,40 +30,29 @@
     @include box-sizing(border-box);
     position: relative;
     padding: 6px;
+    width: 86%;
     border: 1px solid $border-colour;
-
-    z-index: 3;
+    border-right: none;
     background: #fff;
-
-    @include ie-lte(7){
-      padding-left: 0;
-    }
 
     &.focus,
     &:focus {
-      outline-offset: -3px;
+      outline-offset: -2px;
     }
 
     .js-enabled & {
-      width: 86%;
       @include calc(width, "100% - 36px");
     }
   }
 
   input.submit {
     position: absolute;
-    z-index: 4;
     right: 0;
     top: 0;
     width: 36px;
-    height: 36px;
 
-    border: 1px solid $mainstream-brand;
-    border-width: 0 0 0 1px;
-    @include ie-lte(7){
-      border-width: 1px;
-    }
-    border-left-color: #222;
+    border: none;
+    border-left: 1px solid $border-colour;
     @include border-radius(0);
 
     overflow: hidden;
@@ -80,24 +69,9 @@
       background-position: 100% 50%;
     }
 
-    @include ie-lte(7) {
-      background-image: none;
-      width: auto;
-    }
-
     &:hover {
+      cursor: pointer;
       background-color: darken($mainstream-brand, 5%);
     }
   }
-
-  @media screen and (max-width: 379px) {
-    display: none;
-    width: 100%;
-
-    #site-search-text {
-      width: 80%;
-    }
-  }
-  &.js-visible { display: block; }
-
 }
