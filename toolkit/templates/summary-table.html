@@ -2,10 +2,10 @@
 
 {% macro heading(heading, index=None, id=None, hidden=False) -%}
   <h2 class="summary-item-heading"{% if id %} id="{{ id }}"{% endif %}>
-      {% if index %}
-        <span class="summary-item-heading-number">{{ index }}.</span>
-      {% endif %}
-      {{ heading }}
+    {% if index %}
+      <span class="summary-item-heading-number">{{ index }}.</span>
+    {% endif %}
+    {{ heading }}
   </h2>
 {%- endmacro %}
 
@@ -20,6 +20,48 @@
     {{ text }}
   </p>
 {%- endmacro %}
+
+{% macro open_table(caption='', field_headings='', field_headings_visible=True, caption_visible=False, no_bottom_border=False, row_bold_borders=False, text_large=False) -%}
+  <table class="summary-item-body{% if no_bottom_border %}-no-bottom-border{% endif %}{% if row_bold_borders %}-row-bold-borders{% endif %}{% if text_large %}-text-large{% endif %}">
+    <caption {% if not caption_visible %}class="visuallyhidden"{% endif %}>
+      {% if caption_visible %}<strong>{% endif %}{{ caption }}{% if caption_visible %}</strong>{% endif %}
+    </caption>
+    <thead class="summary-item-field-headings{% if field_headings_visible %}-visible{% endif %}">
+      <tr>
+        {% for field_heading in field_headings %}
+          <th scope="col" class="summary-item-field-heading{% if loop.first %}-first{% endif %}">
+            {% if field_headings_visible %}
+              {{ field_heading }}
+            {% else %}
+              <span class="visuallyhidden">{{ field_heading }}</span>
+            {% endif %}
+          </th>
+        {% endfor %}
+      </tr>
+    </thead>
+{%- endmacro %}
+
+{% macro close_table() %}
+    </table>
+  </tbody>
+{%- endmacro %}
+
+{% macro table_headings(field_headings='', field_headings_visible=True) %}
+  <thead class="summary-item-field-headings{% if field_headings_visible %}-visible{% endif %}">
+    <tr>
+       {% for field_heading in field_headings %}
+         <th scope="col" class="summary-item-field-heading{% if loop.first %}-first{% endif %}">
+           {% if field_headings_visible %}
+             {{ field_heading }}
+           {% else %}
+             <span class="visuallyhidden">{{ field_heading }}</span>
+           {% endif %}
+         </th>
+       {% endfor %}
+     </tr>
+  </thead>
+  <tbody>
+{% endmacro %}
 
 {% macro mapping_table(caption='', field_headings='', field_headings_visible=True, caption_visible=False, no_bottom_border=False, row_bold_borders=False, text_large=False) -%}
   <table class="summary-item-body{% if no_bottom_border %}-no-bottom-border{% endif %}{% if row_bold_borders %}-row-bold-borders{% endif %}{% if text_large %}-text-large{% endif %}">
@@ -71,6 +113,14 @@
 {% macro row(complete=True, no_border=False, bold_border=False) -%}
   <tr class="summary-item-row{% if not complete %}-incomplete{% endif %}{% if no_border %}-no-border{% elif bold_border %}-bold-border{% endif %}">
     {{ caller() }}
+  </tr>
+{%- endmacro %}
+
+{% macro row_open(complete=True, no_border=False, bold_border=False) -%}
+  <tr class="summary-item-row{% if not complete %}-incomplete{% endif %}{% if no_border %}-no-border{% elif bold_border %}-bold-border{% endif %}">
+{%- endmacro %}
+
+{% macro row_close(complete=True, no_border=False, bold_border=False) -%}
   </tr>
 {%- endmacro %}
 

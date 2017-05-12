@@ -418,3 +418,23 @@ examples:
         {{ summary.boolean(False) }}
       {% endcall %}
     {% endcall %}
+  - |
+    {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table with separated macros") }}
+    {{ summary.open_table(
+      caption="Summary table with two-thirds width first column",
+      field_headings=[
+        "Label",
+        "Value",
+      ],
+      field_headings_visible=False
+    ) }}
+      {{ summary.row_open() }}
+        {{ summary.field_name("Have demonstrable experience of working in a culture of continuous delivery and improvement. Can show evidence of creating a culture of innovation for delivery teams. (Scores 10%)", two_thirds=True) }}
+        {{ summary.boolean(True) }}
+      {{ summary.row_close() }}
+      {{ summary.row_open() }}
+        {{ summary.field_name("Demonstrate enthusiasm (e.g. bring whole self to work, celebrate success, share energy and passion with others, optimistic) (Scores 20%)", two_thirds=True) }}
+        {{ summary.boolean(False) }}
+      {{ summary.row_close() }}
+    {{ summary.close_table() }}
