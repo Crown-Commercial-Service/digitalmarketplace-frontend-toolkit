@@ -4,5 +4,8 @@
       {{ label }}
     </label>
   </div>
-  <input type="search" name="{{ name }}" id="{{ id }}" type="{{ label }}" value="{{ value }}" maxlength="{% if maxLength %}{{ maxLength }}{% else %}200{% endif %}">
+  <div class="container-search">
+    <input type="search" name="{{ name }}" id="{{ id }}" type="{{ label }}" value="{{ value }}" maxlength="{% if maxLength %}{{ maxLength }}{% else %}200{% endif %}">
+    <input class="submit" type="submit" value="Search">
+  </div>
 </div>
