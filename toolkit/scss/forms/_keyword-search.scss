@@ -38,6 +38,7 @@
     position: relative;
     padding: 6px;
     width: 86%;
+    @include calc(width, "100% - 36px");
     border: 1px solid $border-colour;
     border-right: none;
     background: #fff;
@@ -45,10 +46,6 @@
     &.focus,
     &:focus {
       outline-offset: -2px;
-    }
-
-    .js-enabled & {
-      @include calc(width, "100% - 36px");
     }
   }
 
