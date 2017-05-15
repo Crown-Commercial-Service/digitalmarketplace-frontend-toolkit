@@ -13,7 +13,7 @@
   }
 
   if (
-    (GDM.debug = !window.location.href.match(/gov.uk/) && !window.jasmine)
+    (GDM.debug = !window.location.href.match(/gov.au/) && !window.jasmine)
   ) {
     console.log(
       "%cDebug mode %cON",
