@@ -2,11 +2,20 @@
 
 Records breaking changes from major version bumps
 
+## 22.4.0
+
+PR [#344](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/344/files)
+
+### What changed
+
+Allow users of our summary table macros to control bold formatting (in fact, to control
+strong emphasis, as we do use semantic markup in the end).
+
 ## 22.0.0
 
 PR: [#313](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/313)
 
-## What changed
+### What changed
 
 - The `fake-full-width` [Sass mixin](http://sass-lang.com/guide#topic-6) is now required to compile the `_pricing.scss` file.
   This means a new shared placeholder in the apps that use the frontend toolkit
