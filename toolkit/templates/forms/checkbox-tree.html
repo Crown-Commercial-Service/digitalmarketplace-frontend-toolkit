@@ -47,14 +47,7 @@
           </div>
         </div>
         <div class="column-two-thirds">
-
-          {# TODO: PLS FIX #}
-          {% if PAGES_BUILDER %}
-            {% include 'forms/_checkbox-tree-selection-buttons.html' %}
-          {% else %}
-            {% include 'toolkit/forms/_checkbox-tree-selection-buttons.html' %}
-          {% endif %}
-
+          {% include 'toolkit/forms/_checkbox-tree-selection-buttons.html' %}
         </div>
       </div>
     </div>{# end of .checkbox-tree #}

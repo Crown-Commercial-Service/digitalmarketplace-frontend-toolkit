@@ -30,6 +30,14 @@ yaml.add_representer(OrderedDict, dict_representer)
 yaml.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, dict_constructor)
 
 
+class ToolkitEnvironment(Environment):
+    """Override join_path() to strip out 'toolkit/' string from template paths."""
+    def join_path(self, template, parent):
+        if template.startswith('toolkit/'):
+            template = template.replace('toolkit/', '')
+        return super(ToolkitEnvironment, self).join_path(template, parent)
+
+
 class Styleguide_publisher(object):
     "publish a styleguide for the toolkit"
 
@@ -148,11 +156,9 @@ class Styleguide_publisher(object):
             if "examples" in partial:
                 template_name, template_extension = os.path.splitext(file)
                 template_subfolder = root.replace(self.pages_dirname, "").strip("/")
-                env = Environment(
+                env = ToolkitEnvironment(
                     loader=FileSystemLoader(os.path.join(self.repo_root, "toolkit/templates"))
                 )
-                # used in `toolkit/templates/summary-table.html` for a conditional import statement
-                env.globals['PAGES_BUILDER'] = True
                 env.add_extension('jinja2.ext.with_')
 
                 template_file = os.path.join(template_subfolder, template_name + ".html")
@@ -160,7 +166,7 @@ class Styleguide_publisher(object):
                 # not all of our examples have template files (`_lists.scss`, for example)
                 if os.path.isfile(os.path.join(self.repo_root, "toolkit/templates", template_file)):
                     template = env.get_template(template_file)
-                    has_template = True 
+                    has_template = True
                 else:
                     has_template = False
                 examples = []

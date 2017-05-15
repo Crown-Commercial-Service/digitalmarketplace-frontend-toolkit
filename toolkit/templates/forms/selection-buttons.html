@@ -70,14 +70,7 @@
             input_value = option.value if 'value' in option else option.label,
             id="input-{}-{}".format(id, loop.index) if id else "input-{}-{}".format(name, loop.index)
           %}
-
-            {# TODO: PLS FIX #}
-            {% if PAGES_BUILDER %}
-              {% include 'forms/_selection-button.html' %}
-            {% else %}
-              {% include 'toolkit/forms/_selection-button.html' %}
-            {% endif %}
-
+            {% include 'toolkit/forms/_selection-button.html' %}
           {% endwith %}
         {% endfor %}
         {% if hint and hint_underneath %}

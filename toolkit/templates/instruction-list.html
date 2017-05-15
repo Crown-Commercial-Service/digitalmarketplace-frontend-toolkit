@@ -43,11 +43,7 @@
                 }
             ]
             %}
-            {% if PAGES_BUILDER %}
-              {% include 'documents.html' %}
-            {% else %}
               {% include 'toolkit/documents.html' %}
-            {% endif %}
             {% endwith %}
           {% endfor %}
         {% endif %}
