@@ -55,8 +55,8 @@
     top: 0;
     width: 36px;
 
-    border: none;
-    border-left: 1px solid $border-colour;
+    border: 1px solid $border-colour;
+    border-left: none;
     @include border-radius(0);
 
     overflow: hidden;
