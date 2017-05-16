@@ -2,10 +2,79 @@
 @import "_css3.scss";
 @import "_colours.scss";
 
-.govuk-option-select .filter-field-text {
-  @include core-16;
-  @include box-sizing(border-box);
-  width: 100%;
+
+.govuk-option-select.filter-field-text {
+
+  margin-bottom: $gutter;
   padding: 5px;
-  border: 1px solid $border-colour;
+
+  .js-enabled & {
+      /* This is required because we want padding around the search box but it gets overridden by a style from _option_select.scss */
+      padding: 5px;
+  }
+
+  .container-head {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .option-select-label {
+    display: block;
+  }
+
+  .container-search {
+    position: relative;
+  }
+
+  input {
+    height: 36px;
+  }
+
+  /* Mostly gotten from: https://github.com/alphagov/static/blob/bb2e0b052c15e5cfc58a0dca3a34bd4cc5caed46/app/assets/stylesheets/helpers/_header.scss#L102 */
+
+  input[type="search"] {
+    @include core-16;
+    @include box-sizing(border-box);
+    position: relative;
+    padding: 6px;
+    width: 86%;
+    @include calc(width, "100% - 36px");
+    border: 1px solid $border-colour;
+    border-right: none;
+
+    &.focus,
+    &:focus {
+      outline-offset: -2px;
+    }
+  }
+
+  input.submit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 36px;
+
+    border: 1px solid $border-colour;
+    border-left: none;
+    @include border-radius(0);
+
+    overflow: hidden;
+    text-indent: -5000px;
+
+    color: $white;
+    background-color: $mainstream-brand;
+    background-image: file-url("search-button.png");
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+
+    @include device-pixel-ratio() {
+      background-size: 52.5px 35px;
+      background-position: 100% 50%;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: darken($mainstream-brand, 5%);
+    }
+  }
 }
