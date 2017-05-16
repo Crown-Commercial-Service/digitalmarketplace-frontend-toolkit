@@ -41,7 +41,6 @@
     @include calc(width, "100% - 36px");
     border: 1px solid $border-colour;
     border-right: none;
-    background: #fff;
 
     &.focus,
     &:focus {
