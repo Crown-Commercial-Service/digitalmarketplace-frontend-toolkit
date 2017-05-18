@@ -23,7 +23,7 @@
 
 {% macro mapping_table(caption='', field_headings='', field_headings_visible=True, caption_visible=False, no_bottom_border=False, row_bold_borders=False, text_large=False) -%}
   <table class="summary-item-body{% if no_bottom_border %}-no-bottom-border{% endif %}{% if row_bold_borders %}-row-bold-borders{% endif %}{% if text_large %}-text-large{% endif %}">
-    <caption {% if not caption_visible %}class="visuallyhidden"{% endif %}>
+    <caption {% if not caption_visible %}class="visually-hidden"{% endif %}>
       {% if caption_visible %}<strong>{% endif %}{{ caption }}{% if caption_visible %}</strong>{% endif %}
     </caption>
     <thead class="summary-item-field-headings{% if field_headings_visible %}-visible{% endif %}">
@@ -33,7 +33,7 @@
             {% if field_headings_visible %}
               {{ field_heading }}
             {% else %}
-              <span class="visuallyhidden">{{ field_heading }}</span>
+              <span class="visually-hidden">{{ field_heading }}</span>
             {% endif %}
           </th>
         {% endfor %}
@@ -119,7 +119,7 @@
 {% macro edit_link(label=None, link=None, hidden_text='') -%}
   {% call field(action=True) -%}
     {% if label and link -%}
-      <a href="{{ link }}">{{ label }}{% if hidden_text %}<span class="visuallyhidden"> {{ hidden_text }}</span>{% endif %}</a>
+      <a href="{{ link }}">{{ label }}{% if hidden_text %}<span class="visually-hidden"> {{ hidden_text }}</span>{% endif %}</a>
     {%- endif %}
   {%- endcall %}
 {%- endmacro %}
@@ -128,7 +128,7 @@
 {% macro remove_link(label=None, link=None, hidden_text='') -%}
   {% call field(action=True) -%}
     {% if label and link -%}
-      <a href="{{ link }}" class="summary-item-remove-link">{{ label }}{% if hidden_text %}<span class="visuallyhidden"> {{ hidden_text }}</span>{% endif %}</a>
+      <a href="{{ link }}" class="summary-item-remove-link">{{ label }}{% if hidden_text %}<span class="visually-hidden"> {{ hidden_text }}</span>{% endif %}</a>
     {%- endif %}
   {%- endcall %}
 {%- endmacro %}
