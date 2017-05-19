@@ -168,7 +168,7 @@
 {% macro text(text='', assurance=None, border=False, bold=False,  rowspan='', id='') -%}
   {% call field(border=border, bold=bold, rowspan=rowspan) -%}
     {% if text -%}
-      {{ content.text_content(text[0].capitalize() + text[1:], assurance) }}
+      {{ content.text_content(text, assurance) }}
     {%- endif %}
   {%- endcall %}
 {%- endmacro %}
