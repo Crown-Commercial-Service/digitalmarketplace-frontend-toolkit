@@ -1,7 +1,7 @@
 @import "colours";
 @import "typography";
 @import "shared_scss/_dmspeak.scss";
-@import "shared_placeholders/_visuallyhidden.scss";
+@import "shared_placeholders/_visually-hidden.scss";
 
 // The following placeholders must be present in your main stylesheet:
 // - shared_placeholders/_placeholders.scss
@@ -109,6 +109,6 @@
 
   /* Visual users have the h1 as the label, so hide it for them */
   form [class^="question-heading"] {
-    @extend %visuallyhidden;
+    @extend %visually-hidden;
   }
 }

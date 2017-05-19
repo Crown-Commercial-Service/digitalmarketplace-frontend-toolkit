@@ -32,7 +32,7 @@
   ListEntry.prototype.entryTemplate = Hogan.compile(
     '<div class="list-entry">' +
       '<label for="{{{id}}}" class="text-box-number-label">' +
-        '<span class="visuallyhidden">{{listItemName}} number </span>{{number}}.' +
+        '<span class="visually-hidden">{{listItemName}} number </span>{{number}}.' +
       '</label>' +
       '<input' +
         ' name="{{name}}"' +
@@ -42,7 +42,7 @@
       '/>' +
       '{{#button}}' +
         '<button type="button" class="button-secondary list-entry-remove">' +
-          'Remove<span class="visuallyhidden"> {{listItemName}} number {{number}}</span>' +
+          'Remove<span class="visually-hidden"> {{listItemName}} number {{number}}</span>' +
         '</button>' +
       '{{/button}}' +
     '</div>'

@@ -6,7 +6,7 @@
 @include fake-full-width('.checkbox-tree');
 
 fieldset.checkbox-tree__inputs > legend {
-  @extend %visuallyhidden;
+  @extend %visually-hidden;
 }
 
 .checkbox-tree__counter {
@@ -82,7 +82,7 @@ fieldset.checkbox-tree__inputs > legend {
     }
 
     legend {
-      @extend %visuallyhidden;
+      @extend %visually-hidden;
     }
 
     .categories-heading {
