@@ -2,7 +2,6 @@
 @import "_css3.scss";
 @import "_colours.scss";
 
-
 .govuk-option-select.filter-field-text {
 
   margin-bottom: $gutter;
@@ -41,6 +40,8 @@
     @include calc(width, "100% - 36px");
     border: 1px solid $border-colour;
     border-right: none;
+    -webkit-appearance: none;
+    border-radius: 0;
 
     &.focus,
     &:focus {
