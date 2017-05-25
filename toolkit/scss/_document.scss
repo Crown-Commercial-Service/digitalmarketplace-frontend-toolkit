@@ -22,7 +22,11 @@
   @include core-19;
   @include box-sizing(border-box);
   @include inline-block;
-  @extend %question-meta-spacing;
+
+  /* Same as values as `question-meta-spacing` but preserved on mobile */
+  margin-bottom: $gutter-one-third;
+  padding-top: 7px;
+  padding-bottom: 7px;
 
   position: relative;
   width: 100%; /* Trigger HasLayout on older IEs */
