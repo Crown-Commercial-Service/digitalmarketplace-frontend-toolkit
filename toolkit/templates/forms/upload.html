@@ -68,7 +68,7 @@
       name="{{ name }}"
       id="input-{{ name }}"
       class="file-upload-input"
-      {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+      {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
     />
   </div>
 {% if error or message %}

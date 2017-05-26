@@ -68,7 +68,7 @@
               id="input-{{ id }}-{{ index }}"
               class="text-box"
               value="{{ values[index] }}"
-              {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+              {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
             />
           </div>
         {% endfor %}
