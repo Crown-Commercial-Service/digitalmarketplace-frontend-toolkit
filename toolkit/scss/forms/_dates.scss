@@ -3,10 +3,14 @@
   padding-right: 1em;
 }
 
-.date-input-day-month {
-  width: 2.75em;
+.text-box {
+
+  &.date-input-day-month {
+    width: 2.75em;
+  }
+
+  &.date-input-year {
+    width: 4.25em;
+  }
 }
 
-.date-input-year {
-  width: 4.25em;
-}
