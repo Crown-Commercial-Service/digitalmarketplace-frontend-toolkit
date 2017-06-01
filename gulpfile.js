@@ -8,6 +8,8 @@ var repoRoot = __dirname + '/';
 var npmRoot = repoRoot + 'node_modules';
 var govukToolkitRoot = npmRoot + '/govuk_frontend_toolkit';
 var govukToolkitAppFolder = repoRoot + 'pages_builder/govuk_frontend_toolkit';
+var govukElementsRoot = npmRoot + '/govuk-elements-sass';
+var govukElementsRootFolder = npmRoot = 'pages_builder/govuk-elements-sass'
 
 // Clean directories
 
@@ -15,6 +17,7 @@ gulp.task('clean', function () {
   return del([
     'pages/*',
     'pages_builder/govuk_frontend_toolkit',
+    'pages_builder/govuk-elements-sass',
   ]);
 });
 
@@ -42,8 +45,17 @@ gulp.task(
   )
 );
 
+gulp.task(
+  'copy:govuk-elements-sass',
+  copyFactory(
+    "GOV.UK Elements",
+    govukElementsRoot,
+    govukElementsRootFolder
+  )
+);
+
 gulp.task('copy',
-  ['copy:govuk_frontend_toolkit']
+  ['copy:govuk_frontend_toolkit', 'copy:govuk-elements-sass']
 );
 
 // Test
