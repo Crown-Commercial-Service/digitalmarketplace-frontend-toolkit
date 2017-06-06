@@ -4,14 +4,11 @@
 // Large hit area
 // Radio buttons & checkboxes
 
+@import "colours";
+@import "measurements";
+@import "conditionals";
+@import "typography";
 @import "elements/forms/_form-multiple-choice";
 
-// Styles specific to Digital Marketplace
-.selection-button {
-  @include core-19; /* Specific to Digital Marketplace */
-  @extend %question-meta-spacing;
-}
-
-.selection-button-with-description {
-  margin-top: 15px;
-}
+// The following placeholders must be present in your main stylesheet:
+// - shared_placeholders/_placeholders.scss
