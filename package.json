@@ -7,6 +7,7 @@
   "dependencies": {
     "del": "^2.2.2",
     "govuk_frontend_toolkit": "5.2.0",
+    "govuk-elements-sass": "3.10.8",
     "gulp": "3.8.7",
     "gulp-jasmine-phantom": "2.0.1",
     "jasmine-core": "2.6.4"

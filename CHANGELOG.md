@@ -1,6 +1,14 @@
 # Digital Marketplace front-end toolkit changelog
 
 Records breaking changes from major version bumps
+## 23.0.0
+
+PR
+
+## What changed
+
+- GOV.UK Elements is now a dependency and will need to be added to package.json for frontend apps.
+
 
 ## 22.0.0
 
