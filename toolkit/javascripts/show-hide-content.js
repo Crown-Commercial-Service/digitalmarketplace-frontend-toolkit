@@ -10,8 +10,8 @@
     // Radio and Checkbox selectors
     var selectors = {
       namespace: 'ShowHideContent',
-      radio: '.block-label[data-target] input[type="radio"]',
-      checkbox: '.block-label[data-target] input[type="checkbox"]'
+      radio: '[data-target] > input[type="radio"]',
+      checkbox: '[data-target] > input[type="checkbox"]'
     }
 
     // Escape name attribute for use in DOM selector
@@ -24,107 +24,56 @@
     function initToggledContent () {
       var $control = $(this)
       var $content = getToggledContent($control)
-      var contentIds = ''
 
       // Set aria-controls and defaults
       if ($content.length) {
-        $content.each(function () {
-          $(this).attr('aria-hidden', 'true')
-          contentIds += ' ' + $(this).attr('id')
-        })
-
-        $control.attr('aria-controls', $.trim(contentIds))
+        $control.attr('aria-controls', $content.attr('id'))
         $control.attr('aria-expanded', 'false')
+        $content.attr('aria-hidden', 'true')
       }
     }
 
     // Return toggled content for control
     function getToggledContent ($control) {
-      var targetIds = $control.attr('aria-controls')
+      var id = $control.attr('aria-controls')
 
       // ARIA attributes aren't set before init
-      if (!targetIds) {
-        targetIds = $control.closest('label').data('target')
-      }
-
-      // turn a space-separated list of ids into a comma-separated css id selector
-      // ie, 'id-1 id-2 id-3' becomes '#id-1, #id-2, #id-3'
-      if (targetIds) {
-        targetIds = targetIds.split(' ')
-        targetIds = $.map(targetIds, function (targetId) {
-          return '#' + targetId
-        });
-        targetIds = targetIds.join(', ')
+      if (!id) {
+        id = $control.closest('[data-target]').data('target')
       }
 
       // Find show/hide content by id
-      return $(targetIds)
+      return $('#' + id)
     }
 
     // Show toggled content for control
     function showToggledContent ($control, $content) {
-      $content = $content || getToggledContent($control)
-
-      if (!$content.length) {
-        return
-      }
-
       // Show content
-      $content.each(function () {
-        var $contentElement = $(this)
-
-        // always remove the class
-        $contentElement.removeClass('js-hidden')
-        $contentElement.attr('aria-hidden', 'false')
+      if ($content.hasClass('js-hidden')) {
+        $content.removeClass('js-hidden')
+        $content.attr('aria-hidden', 'false')
 
         // If the controlling input, update aria-expanded
         if ($control.attr('aria-controls')) {
           $control.attr('aria-expanded', 'true')
         }
-
-        // Trigger show toggled content on revealed inputs
-        $contentElement.find('input:checked').each(function () {
-          showToggledContent($(this))
-        })
-      })
-    }
-
-    function isAnotherControlStillShowingThisContent(id, $control) {
-        return $('[data-target~="' + id + '"] input:checked').not($control).length > 0
+      }
     }
 
     // Hide toggled content for control
     function hideToggledContent ($control, $content) {
       $content = $content || getToggledContent($control)
 
-      if (!$content.length) {
-        return
-      }
-
       // Hide content
-      $content.each(function () {
-        var $contentElement = $(this)
+      if (!$content.hasClass('js-hidden')) {
+        $content.addClass('js-hidden')
+        $content.attr('aria-hidden', 'true')
 
-        if (
-            !$contentElement.hasClass('js-hidden')
-            && !isAnotherControlStillShowingThisContent($contentElement.attr('id'), $control)
-          )
-        {
-          $contentElement.addClass('js-hidden')
-          $contentElement.attr('aria-hidden', 'true')
-
-          // If the controlling input, update aria-expanded
-          // Caveat: only update this if at least one controlled is hidden
-          if ($control.attr('aria-controls')) {
-            $control.attr('aria-expanded', 'false')
-          }
-
-          // Trigger hide toggled content on hidden inputs
-          $contentElement.find('input').each(function () {
-            hideToggledContent($(this))
-          })
+        // If the controlling input, update aria-expanded
+        if ($control.attr('aria-controls')) {
+          $control.attr('aria-expanded', 'false')
         }
-      })
+      }
     }
 
     // Handle radio show/hide
@@ -171,7 +120,7 @@
 
       // Handle events
       $.each(eventSelectors, function (idx, eventSelector) {
-        $container.on('change.' + selectors.namespace, eventSelector, deferred)
+        $container.on('click.' + selectors.namespace, eventSelector, deferred)
       })
 
       // Any already :checked on init?
