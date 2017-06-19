@@ -3,11 +3,11 @@
 {% else %}
   {% set is_selected = (value and (input_value in value)) %}
 {% endif %}
-<div class="multiple-choice {% if input_value in followup %}data-target="{{ followup[input_value] | join(' ') }}"{% endif %}">
+<div class="multiple-choice" {% if input_value in followup %}data-target="{{ followup[input_value] | join(' ') }}"{% endif %}">
   <input
     type="{{ input_type }}"
     name="{{ name }}"
-    id="{{ id }}",
+    id="{{ id }}"
     value="{{ input_value }}"
     {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
     {% if is_selected %}checked="checked"{% endif %}

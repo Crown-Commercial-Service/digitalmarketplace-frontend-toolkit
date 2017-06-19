@@ -8,6 +8,7 @@ PR
 ## What changed
 
 - GOV.UK Elements is now a dependency and will need to be added to package.json for frontend apps.
+- The markup is different so custom javascript relying on the old markup such as the checkbox tree in the supplier app will have to be changed.
 
 
 ## 22.0.0
