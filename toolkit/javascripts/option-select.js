@@ -80,10 +80,13 @@
   };
 
   OptionSelect.prototype.checkedString = function checkedString(){
-    var count = this.$options.filter(":checked").size();
     var checkedString = "";
-    if (count > 0){
-      checkedString = count+" selected";
+
+    if (this.isClosed()) {
+      var count = this.$options.filter(":checked").size();
+      if (count > 0){
+        checkedString = count+" selected";
+      }
     }
 
     return checkedString;
@@ -96,6 +99,7 @@
     } else {
       this.close();
     }
+    this.updateCheckedCount();
     e.preventDefault();
   };
 
