@@ -298,7 +298,7 @@
     <span class="hint">{{ question_content.hint }}</span>
     {% endif %}
 
-    {% import "macros/toolkit_forms.html" as forms %}
+    {% import "toolkit/forms/macros/forms.html" as forms %}
 
     {% for child_question in question_content.questions %}
       {{ forms[child_question.type](
