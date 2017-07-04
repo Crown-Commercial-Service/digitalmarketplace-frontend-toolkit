@@ -32,13 +32,6 @@
         </span>
       {% endif %}
     </label>
-    {% if hidden and not error %}
-      <noscript>
-        <span class="hint">
-          You may not need to answer this question depending on how you answered an earlier question.
-        </span>
-      </noscript>
-    {% endif %}
     {% if optional %}
       <span class="question-optional">
         <strong>Optional</strong>
@@ -75,7 +68,7 @@
       name="{{ name }}"
       id="input-{{ name }}"
       class="file-upload-input"
-      {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+      {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
     />
   </div>
 {% if error or message %}

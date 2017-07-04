@@ -1,0 +1,102 @@
+{% from "toolkit/forms/macros/forms.html" import radios %}
+
+{% macro assurance_question(
+  name,
+  service_data,
+  type,
+  errors
+) %}
+
+  {% set assurance_options = {
+    '2answers-type1': [
+      {'label': 'service provider assertion',
+       'value': 'Service provider assertion'},
+      {'label': 'independent validation of assertion',
+       'value': 'Independent validation of assertion'}
+    ],
+    '3answers-type1': [
+      {'label': 'service provider assertion',
+       'value': 'Service provider assertion'},
+      {'label': 'contractual commitment',
+       'value': 'Contractual commitment'},
+      {'label': 'independent validation of assertion',
+       'value': 'Independent validation of assertion'}
+    ],
+    '3answers-type2': [
+      {'label': 'service provider assertion',
+       'value': 'Service provider assertion'},
+      {'label': 'independent validation of assertion',
+       'value': 'Independent validation of assertion'},
+      {'label': 'independent testing of implementation',
+       'value': 'Independent testing of implementation'}
+    ],
+    '3answers-type3': [
+      {'label': 'service provider assertion',
+       'value': 'Service provider assertion'},
+      {'label': 'independent testing of implementation',
+       'value': 'Independent testing of implementation'},
+      {'label': 'CESG-assured components'}
+    ],
+    '3answers-type4': [
+      {'label': 'service provider assertion',
+       'value': 'Service provider assertion'},
+      {'label': 'independent validation of assertion',
+       'value': 'Independent validation of assertion'},
+      {'label': 'independent testing of implementation',
+       'value': 'Independent testing of implementation'}
+    ],
+    '4answers-type1': [
+      {'label': 'service provider assertion',
+       'value': 'Service provider assertion'},
+      {'label': 'independent validation of assertion',
+       'value': 'Independent validation of assertion'},
+      {'label': 'independent testing of implementation',
+       'value': 'Independent testing of implementation'},
+      {'label': 'CESG-assured components'}
+    ],
+    '4answers-type2': [
+      {'label': 'service provider assertion',
+       'value': 'Service provider assertion'},
+      {'label': 'contractual commitment',
+       'value': 'Contractual commitment'},
+      {'label': 'independent validation of assertion',
+       'value': 'Independent validation of assertion'},
+      {'label': 'CESG-assured components'}
+    ],
+    '4answers-type3': [
+      {'label': 'service provider assertion',
+       'value': 'Service provider assertion'},
+      {'label': 'independent testing of implementation',
+       'value': 'Independent testing of implementation'},
+      {'label': 'assurance of service design',
+       'value': 'Assurance of service design'},
+      {'label': 'CESG-assured components'}
+    ],
+    '5answers-type1': [
+      {'label': 'service provider assertion',
+       'value': 'Service provider assertion'},
+      {'label': 'contractual commitment',
+       'value': 'Contractual commitment'},
+      {'label': 'independent validation of assertion',
+       'value': 'Independent validation of assertion'},
+      {'label': 'independent testing of implementation',
+       'value': 'Independent testing of implementation'},
+      {'label': 'CESG-assured components'}
+    ]
+  } %}
+
+  {{
+    radios(
+      question_content={
+        'question': 'You may have to provide evidence to back up your answer. Please confirm whether your response is assured by:',
+        'id': name + '--assurance',
+        'hint': 'Read more about <a href="https://www.gov.uk/government/publications/implementing-the-cloud-security-principles/implementing-the-cloud-security-principles#common-approaches-to-implementing-cloud-security-principles">how you can assure your responses</a>.'|safe,
+        'hint_underneath': 'True',
+        'options': assurance_options[type]
+      },
+      data=service_data,
+      errors=errors
+    )
+  }}
+
+{% endmacro %}

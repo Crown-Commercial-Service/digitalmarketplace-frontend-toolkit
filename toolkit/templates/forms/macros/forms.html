@@ -1,0 +1,319 @@
+{% macro text(question_content, data, errors) -%}
+  {%
+    with
+    name=question_content.id,
+    question=question_content.question,
+    optional=question_content.optional,
+    question_advice=question_content.question_advice,
+    hint=question_content.hint,
+    value=data[question_content.id],
+    error=errors.get(question_content.id)['message'],
+    hidden=question_content.hidden,
+    smaller=question_content.smaller,
+    question_number=kwargs.question_number,
+    message=kwargs.message
+  %}
+    {% include "toolkit/forms/textbox.html" %}
+  {% endwith %}
+{%- endmacro %}
+
+{% macro textbox_large(question_content, data, errors) -%}
+  {%
+    with
+    name=question_content.id,
+    question=question_content.question,
+    optional=question_content.optional,
+    question_advice=question_content.question_advice,
+    hint=question_content.hint,
+    value=data[question_content.id],
+    error=errors.get(question_content.id)['message'],
+    hidden=question_content.hidden,
+    large=True,
+    max_length_in_words=question_content.max_length_in_words,
+    question_number=kwargs.question_number,
+    message=kwargs.message
+  %}
+    {% include "toolkit/forms/textbox.html" %}
+  {% endwith %}
+{%- endmacro %}
+
+{% macro list(question_content, data, errors) -%}
+  {%
+    with
+    name=question_content.id,
+    id=question_content.id,
+    number_of_items=question_content.get('number_of_items', 10),
+    question=question_content.question,
+    question_advice=question_content.question_advice,
+    hint=question_content.hint,
+    optional=question_content.optional,
+    values=data[question_content.id],
+    error=errors.get(question_content.id)['message'],
+    hidden=question_content.hidden,
+    item_name=question_content.item_name,
+    question_number=kwargs.question_number,
+    message=kwargs.message
+  %}
+    {% include "toolkit/forms/list-entry.html" %}
+  {% endwith %}
+{%- endmacro %}
+
+{% macro checkboxes(question_content, data, errors) -%}
+  {%
+    with
+    name=question_content.id,
+    id=question_content.id,
+    question=question_content.question,
+    optional=question_content.optional,
+    question_advice=question_content.question_advice,
+    hint=question_content.hint,
+    options=question_content.options,
+    value=data[question_content.id],
+    error=errors.get(question_content.id)['message'],
+    hidden=question_content.hidden,
+    followup=question_content.values_followup,
+    type='checkbox',
+    inline=question_content.inline,
+    hint_underneath=question_content.hint_underneath,
+    question_number=kwargs.question_number,
+    message=kwargs.message
+  %}
+    {% include "toolkit/forms/selection-buttons.html" %}
+  {% endwith %}
+{%- endmacro %}
+
+{% macro radios(question_content, data, errors) -%}
+  {%
+    with
+    name=question_content.id,
+    id=question_content.id,
+    question=question_content.question,
+    optional=question_content.optional,
+    question_advice=question_content.question_advice,
+    hint=question_content.hint,
+    options=question_content.options,
+    value=data[question_content.id],
+    error=errors.get(question_content.id)['message'],
+    hidden=question_content.hidden,
+    followup=question_content.values_followup,
+    type='radio',
+    inline=question_content.inline,
+    hint_underneath=question_content.hint_underneath,
+    question_number=kwargs.question_number,
+    message=kwargs.message
+  %}
+    {% include "toolkit/forms/selection-buttons.html" %}
+  {% endwith %}
+{%- endmacro %}
+
+{% macro boolean(question_content, data, errors) -%}
+  {%
+    with
+    name=question_content.id,
+    id=question_content.id,
+    question=question_content.question,
+    optional=question_content.optional,
+    question_advice=question_content.question_advice,
+    hint=question_content.hint,
+    value=data[question_content.id],
+    error=errors.get(question_content.id)['message'],
+    hidden=question_content.hidden,
+    followup=question_content.values_followup,
+    type='boolean',
+    hint_underneath=question_content.hint_underneath,
+    question_number=kwargs.question_number,
+    message=kwargs.message
+  %}
+    {% include "toolkit/forms/selection-buttons.html" %}
+  {% endwith %}
+{%- endmacro %}
+
+{% macro checkbox_tree(question_content, data, errors) -%}
+  {%
+    with
+    name=question_content.id,
+    id=question_content.id,
+    question=question_content.question,
+    question_advice=question_content.question_advice,
+    hint=question_content.hint,
+    options=question_content.options,
+    value=data[question_content.id],
+    error=errors.get(question_content.id)['message'],
+    type='checkbox_tree',
+    number_of_items=question_content.number_of_items,
+    question_number=kwargs.question_number
+  %}
+    {% include "toolkit/forms/checkbox-tree.html" %}
+  {% endwith %}
+{%- endmacro %}
+
+# price, hours_for_price, minimum_price, maximum_price, price_unit, price_interval could all not be here
+{% macro pricing(question_content, data, errors) -%}
+  {%
+    with
+    name=question_content.id,
+    question=question_content.question,
+    optional=question_content.optional,
+    question_advice=question_content.question_advice,
+    hint=question_content.hint,
+    error=errors.get(question_content.id)['message'],
+    fields=question_content.fields,
+    optional_fields=question_content.optional_fields,
+    price=data.get(question_content.fields.price),
+    hours_for_price=data.get(question_content.fields.hours_for_price),
+    minimum_price=data.get(question_content.fields.minimum_price),
+    maximum_price=data.get(question_content.fields.maximum_price),
+    price_unit=data.get(question_content.fields.price_unit),
+    price_interval=data.get(question_content.fields.price_interval),
+    question_number=kwargs.question_number,
+    message=kwargs.message
+  %}
+    {% include "toolkit/forms/pricing.html" %}
+  {% endwith %}
+{%- endmacro %}
+
+{% macro date(question_content, data, errors) -%}
+  {%
+    with
+    name=question_content.id,
+    question=question_content.question,
+    optional=question_content.optional,
+    question_advice=question_content.question_advice,
+    hint=question_content.hint,
+    data=data,
+    error=errors.get(question_content.id)['message'],
+    hidden=question_content.hidden,
+    question_number=kwargs.question_number,
+    message=kwargs.message
+  %}
+    {% include "toolkit/forms/date.html" %}
+  {% endwith %}
+{%- endmacro %}
+
+{% macro upload(question_content, data, errors) -%}
+  {%
+    with
+    name=question_content.id,
+    question=question_content.question,
+    optional=question_content.optional,
+    question_advice=question_content.question_advice,
+    hint=question_content.hint,
+    value="Document uploaded {}".format(data[question_content.id]) if data[question_content.id] else None,
+    error=errors.get(question_content.id)['message'],
+    link=question_content.link,
+    question_number=kwargs.question_number,
+    message=kwargs.message
+  %}
+    {% include "toolkit/forms/upload.html" %}
+  {% endwith %}
+{%- endmacro %}
+
+{% macro number(question_content, data, errors) -%}
+  {%
+    with
+    name=question_content.id,
+    question=question_content.question,
+    optional=question_content.optional,
+    question_advice=question_content.question_advice,
+    hint=question_content.hint,
+    value=data[question_content.id],
+    error=errors.get(question_content.id)['message'],
+    hidden=question_content.hidden,
+    unit_in_full=question_content.unit_in_full,
+    unit_position=question_content.unit_position,
+    unit=question_content.unit,
+    smaller=True,
+    question_number=kwargs.question_number,
+    message=kwargs.message
+  %}
+    {% include "toolkit/forms/textbox.html" %}
+  {% endwith %}
+{%- endmacro %}
+
+{% macro boolean_list(question_content, service_data, errors) -%}
+  {% if question_content.boolean_list_questions %}
+    <fieldset class="question question-boolean-list" id="{{ question_content.id }}">
+        <legend>
+          <span class="visually-hidden">{{ question_content.name }}</span>
+        </legend>
+
+        <span class="question-heading">
+          <h2>{{ question_content.question }}</h2>
+        </span>
+
+      {% if question_content.question_advice %}
+        <span class="question-advice" id="input-{{ name }}-question-advice">
+          {{ question_content.question_advice }}
+        </span>
+      {% endif %}
+      {% if question_content.hint %}
+        <span class="hint">{{ question_content.hint }}</span>
+      {% endif %}
+
+      {% for boolean_question in question_content.boolean_list_questions %}
+        {% set boolean_question_id = '{}-{}'.format(question_content.id, loop.index0) %}
+        {% set
+            existing_value = service_data[question_content.id][loop.index0]
+              if (service_data[question_content.id] and service_data[question_content.id][loop.index0] is defined)
+              else None
+        %}
+        {% with
+            boolean_question_content = {
+              'id': boolean_question_id,
+              'question': boolean_question,
+            },
+            data = {
+              boolean_question_id: existing_value
+            }
+        %}
+          {{ boolean(boolean_question_content, data, errors, message=kwargs.message) }}
+        {% endwith %}
+      {% endfor %}
+    </fieldset>
+  {% endif %}
+{%- endmacro %}
+
+{% macro multiquestion(question_content, service_data, errors) -%}
+  <fieldset class="question" id="{{ question_content.id }}">
+    <legend>
+      <span class="visually-hidden">{{ question_content.name }}</span>
+    </legend>
+
+    <span class="question-heading">
+      {% if kwargs.question_number is not none %}
+        <span class="question-number">
+          {{ kwargs.question_number }}
+        </span>
+      {% endif %}
+        {{ question_content.question }}
+    </span>
+
+    {% if question_content.question_advice %}
+    <span class="question-advice" id="input-{{ name }}-question-advice">
+      {{ question_content.question_advice }}
+    </span>
+    {% endif %}
+
+    {% if question_content.hint %}
+    <span class="hint">{{ question_content.hint }}</span>
+    {% endif %}
+
+    {% import "toolkit/forms/macros/forms.html" as forms %}
+
+    {% for child_question in question_content.questions %}
+      {{ forms[child_question.type](
+            child_question,
+            service_data,
+            errors if errors and errors[child_question.id] else {},
+            message=(
+                    kwargs.message
+                  if
+                    service_data.get(child_question.id) is not none
+                  else
+                    None
+                    )
+          )
+      }}
+    {% endfor %}
+  </fieldset>
+{%- endmacro %}

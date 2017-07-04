@@ -38,13 +38,6 @@
     </span>
     {% endif %}
   </label>
-    {% if hidden and not error %}
-      <noscript>
-        <span class="hint">
-          You may not need to answer this question depending on how you answered an earlier question.
-        </span>
-      </noscript>
-    {% endif %}
   {% if optional %}
   <span class="question-optional">
     <strong>Optional</strong>
@@ -69,7 +62,7 @@
     name="{{ fields.price }}"
     id="input-{{ name }}"
     value="{{ price or "" }}"
-    {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+    {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
   />
 </div>
 {% else %}
@@ -113,7 +106,7 @@
           class="pricing-input-select"
           name="{{ fields.hours_for_price }}"
           id="input-pricing-hours"
-          {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+          {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
         >
           {{ _option("", hours_for_price) }}
           {{ _option("1 hour", hours_for_price) }}
@@ -143,7 +136,7 @@
           name="{{ fields.price }}"
           id="input-price"
           value="{{ price or "" }}"
-          {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+          {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
         />
       </div>
       {% endif %}
@@ -163,7 +156,7 @@
           name="{{ fields.minimum_price }}"
           id="input-minimum-price"
           value="{{ minimum_price or "" }}"
-          {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+          {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
         />
       </div>
       {% endif %}
@@ -186,7 +179,7 @@
           name="{{ fields.maximum_price }}"
           id="input-maximum-price"
           value="{{ maximum_price or "" }}"
-          {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+          {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
         />
       </div>
       {% endif %}
@@ -205,7 +198,7 @@
           class="pricing-input-select"
           name="{{ fields.price_unit }}"
           id="input-price-unit"
-          {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+          {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
         >
           {{ _option("", price_unit) }}
           {{ _option("Unit", price_unit) }}
@@ -238,7 +231,7 @@
           class="pricing-input-select"
           name="{{ fields.price_interval }}"
           id="input-pricing-interval"
-          {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ') }}"{% endif %}
+          {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
         >
           {{ _option("", price_interval) }}
           {{ _option("Second", price_interval) }}
