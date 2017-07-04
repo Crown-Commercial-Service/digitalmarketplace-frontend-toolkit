@@ -87,15 +87,15 @@
 
   {{
     radios(
-      question_content = {
+      question_content={
         'question': 'You may have to provide evidence to back up your answer. Please confirm whether your response is assured by:',
         'id': name + '--assurance',
         'hint': 'Read more about <a href="https://www.gov.uk/government/publications/implementing-the-cloud-security-principles/implementing-the-cloud-security-principles#common-approaches-to-implementing-cloud-security-principles">how you can assure your responses</a>.'|safe,
         'hint_underneath': 'True',
         'options': assurance_options[type]
       },
-      service_data=service_data,
-      errors = errors
+      data=service_data,
+      errors=errors
     )
   }}
 
