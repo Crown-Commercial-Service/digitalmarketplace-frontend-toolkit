@@ -12,7 +12,7 @@
     {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
     {% if is_selected %}checked="checked"{% endif %}
   />
-  <label class="{{ input_type }}{% if input_value in followup %} block-label{% endif %}{% if is_selected %} selected{% endif %}{% if last %} last-of-type{% endif %}" for="{{ id }}">
+  <label class="{{ input_type }}{% if is_selected %} selected{% endif %}{% if last %} last-of-type{% endif %}" for="{{ id }}">
     {{ option.label }}
     {% if option.description %}
       <p class="question-description">
