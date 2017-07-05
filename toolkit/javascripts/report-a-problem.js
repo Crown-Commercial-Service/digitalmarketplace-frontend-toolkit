@@ -3,7 +3,6 @@
   window.GOVUK = window.GOVUK || {};
 
   var ReportAProblem = function ($container) {
-  debugger;
     this.$container = $container;
     var $form = $container.find('form');
 
