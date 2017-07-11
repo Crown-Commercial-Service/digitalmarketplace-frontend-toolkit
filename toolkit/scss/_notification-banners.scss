@@ -15,6 +15,10 @@
   border-style: solid;
 }
 
+.flash-message-container%banner {
+  margin-bottom: 40px;
+}
+
 %banner-destructive {
   @extend %banner;
   color: $red;

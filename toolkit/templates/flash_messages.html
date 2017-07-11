@@ -1,0 +1,23 @@
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      {% if category != 'must_login' %}  {# skip showing Flask's "Please log in" message #}
+        <div class="flash-message-container {{ 'banner-destructive-without-action' if category == 'error' else 'banner-success-without-action' }}">
+          <p class="banner-message">
+            {# TODO remove the below special cases, once those two apps have been updated to contain the message. #}
+            {% if message == 'supplier-role-required' %}  {# set by supplier app #}
+              You must log in with a supplier account to see this page.
+
+            {% elif message == 'buyer-role-required' %}  {# set by briefs app #}
+              You must log in with a buyer account to see this page.
+
+            {% else %}
+              {{ message }}
+
+            {% endif %}
+          </p>
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endwith %}
