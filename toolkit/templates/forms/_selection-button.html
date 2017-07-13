@@ -3,7 +3,7 @@
 {% else %}
   {% set is_selected = (value and (input_value in value)) %}
 {% endif %}
-<div class="multiple-choice" {% if input_value in followup %}data-target="{{ followup[input_value] | join(' ') }}"{% endif %}">
+<div class="multiple-choice"{% if input_value in followup %} data-target="{{ followup[input_value] | join(' ') }}"{% endif %}>
   <input
     type="{{ input_type }}"
     name="{{ name }}"
