@@ -9,7 +9,7 @@ var npmRoot = repoRoot + 'node_modules';
 var govukToolkitRoot = npmRoot + '/govuk_frontend_toolkit';
 var govukToolkitAppFolder = repoRoot + 'pages_builder/govuk_frontend_toolkit';
 var govukElementsRoot = npmRoot + '/govuk-elements-sass';
-var govukElementsRootFolder = 'pages_builder/govuk-elements-sass'
+var govukElementsRootFolder = repoRoot + 'pages_builder/govuk-elements-sass'
 
 // Clean directories
 
