@@ -1,3 +1,4 @@
+// COPIED FROM https://github.com/alphagov/static/blob/master/app/assets/javascripts/report-a-problem.js
 (function() {
   "use strict";
   window.GOVUK = window.GOVUK || {};
