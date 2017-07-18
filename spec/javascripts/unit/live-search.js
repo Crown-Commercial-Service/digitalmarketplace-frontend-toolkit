@@ -108,6 +108,23 @@ describe("live-search", function(){
     expect(liveSearch.displayFilterResults).toHaveBeenCalled();
   });
 
+  it("should cache results against the form state that submitted the request, not the form state when the response is received", function(){
+    spyOn(liveSearch, 'displayFilterResults');
+
+    liveSearch.state = { q: 'old-state' };
+    var promise = liveSearch.updateResults();
+    liveSearch.state = { q: 'new-state' };
+
+    jasmine.Ajax.requests.mostRecent().respondWith({
+      "status": 200,
+      "contentType": "application/json",
+      "responseText": dummyResponseString
+    });
+
+    expect(JSON.stringify(liveSearch.cache('q=old-state'))).toBe(dummyResponseString);
+    expect(liveSearch.cache('q=new-state')).toBe(undefined);
+  });
+
   it("should show error indicator when error loading new results", function(){
     liveSearch.state = { not: "cached" };
     spyOn(liveSearch, 'displayFilterResults');
