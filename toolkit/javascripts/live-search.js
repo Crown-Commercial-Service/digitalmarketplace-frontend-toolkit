@@ -131,7 +131,7 @@ endpoint response (application/json):
         searchState: searchState
 
       }).done(function(response){
-        liveSearch.cache($.param(liveSearch.state), response);
+        liveSearch.cache(this.searchState, response);
         liveSearch.displayFilterResults(response, this.searchState);
 
       }).error(function(response){

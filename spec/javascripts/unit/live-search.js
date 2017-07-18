@@ -4,14 +4,18 @@ describe("live-search", function(){
   var dummyPage = "<div id=\"js-dm-live-search-wrapper\">   <div class=\"grid-row\">      <section class=\"column-one-third search-page-filters\" aria-label=\"Search filters\">         <form action=\"/somewhere\" method=\"get\" id=\"js-dm-live-search-form\">            <div class=\"govuk-option-select filter-field-text js-collapsible\">               <div class=\"container-head\">                  <label class=\"option-select-label\" for=\"keywords\">                  Keywords                  </label>               </div>               <div class=\"container-search\">                  <input type=\"search\" name=\"q\" id=\"keywords\" value=\"\" maxlength=\"200\">                  <input class=\"submit\" type=\"submit\" value=\"Search\">               </div>            </div>            <div id=\"js-dm-live-search-categories\" class=\"js-dm-live-search-fade\" style=\"opacity: 1;\">            </div>            <div class=\"govuk-option-select js-collapsible\">               <button class=\"js-container-head\" type=\"button\" aria-expanded=\"false\" aria-controls=\"\">                  <div class=\"option-select-label\">Option 1</div>                  <div class=\"js-selected-counter\"></div>               </button>               <div class=\"options-container\" id=\"\">                  <div class=\"js-auto-height-inner\">                     <label for=\"option1_1\">                     <input name=\"option1_1\" value=\"1_1\" id=\"option1_1\" type=\"checkbox\" aria-controls=\"\">                     Option 1_1                     </label>                     <label for=\"option1_2\">                     <input name=\"option1_2\" value=\"1_2\" id=\"option1_2\" type=\"checkbox\" aria-controls=\"\">                     Option 1_2                     </label>                     <label for=\"option1_3\">                     <input name=\"option1_3\" value=\"1_3\" id=\"option1_3\" type=\"checkbox\" aria-controls=\"\">                     Option 1_3                     </label>                     <label for=\"option1_4\">                     <input name=\"option1_4\" value=\"1_4\" id=\"option1_4\" type=\"checkbox\" aria-controls=\"\">                     Option 1_4                     </label>                  </div>               </div>            </div>            <div class=\"govuk-option-select js-collapsible\">               <button class=\"js-container-head\" type=\"button\" aria-expanded=\"false\" aria-controls=\"\">                  <div class=\"option-select-label\">Option 2</div>                  <div class=\"js-selected-counter\"></div>               </button>               <div class=\"options-container\" id=\"\">                  <div class=\"js-auto-height-inner\">                     <label for=\"option2_1\">                     <input name=\"option2_1\" value=\"2_1\" id=\"option2_1\" type=\"checkbox\" aria-controls=\"\">                     Option 2_1                     </label>                     <label for=\"option2_2\">                     <input name=\"option2_2\" value=\"2_2\" id=\"option2_2\" type=\"checkbox\" aria-controls=\"\">                     Option 2_2                     </label>                     <label for=\"option2_3\">                     <input name=\"option2_3\" value=\"2_3\" id=\"option2_3\" type=\"checkbox\" aria-controls=\"\">                     Option 2_3                     </label>                  </div>               </div>            </div>            <button class=\"button-save js-hidden js-dm-live-search\" type=\"submit\">Filter</button>         </form>      </section>      <section class=\"column-two-thirds\" aria-label=\"Search results\">         <div id=\"js-dm-live-search-info\">            <p class=\"search-summary\">               <span class=\"search-summary-count\">0</span> results found in <em>All categories</em>            </p>         </div>         <div id=\"js-dm-live-search-results\" class=\"js-dm-live-search-fade\" style=\"opacity: 1;\">            <nav role=\"navigation\">               <ul class=\"previous-next-navigation\">               </ul>            </nav>         </div>      </section>   </div></div>";
 
   var dummyResponse = {
-    "_meta": {
-      "categories": "#js-dm-live-search-categories",
-      "results": "#js-dm-live-search-results",
-      "summary": "#js-dm-live-search-info"
+    "categories": {
+      "selector": "#js-dm-live-search-categories",
+      "html": "<div id=\"js-dm-live-search-categories\" class=\"js-dm-live-search-fade\" style=\"opacity: 1;\">    <div class=\"lot-filters\">        <h2>Choose a category</h2>        <ul>            <li aria-current=\"page\">            <strong>All categories</strong>            <ul class=\"lot-filters--last-list\">                <li>Cloud hosting (0)</li>                <li><a href=\"/somewhere?q=cat&amp;lot=cloud-software\">Cloud software (1)</a></li>                <li>Cloud support (0)</li>            </ul>            </li>        </ul>    </div></div>"
     },
-    "categories": "<div id=\"js-dm-live-search-categories\" class=\"js-dm-live-search-fade\" style=\"opacity: 1;\">    <div class=\"lot-filters\">        <h2>Choose a category</h2>        <ul>            <li aria-current=\"page\">            <strong>All categories</strong>            <ul class=\"lot-filters--last-list\">                <li>Cloud hosting (0)</li>                <li><a href=\"/somewhere?q=cat&amp;lot=cloud-software\">Cloud software (1)</a></li>                <li>Cloud support (0)</li>            </ul>            </li>        </ul>    </div></div>",
-    "results": "<div id=\"js-dm-live-search-results\" class=\"js-dm-live-search-fade\" style=\"opacity: 1;\">  <div class=\"search-result\">      <h2 class=\"search-result-title\">        <a href=\"/somewhere/123456789\">A aervice</a>      </h2>      <p class=\"search-result-supplier\">        A service supplier      </p>      <p class=\"search-result-excerpt\">        A service excerpt.      </p>      <ul aria-label=\"tags\" class=\"search-result-metadata\">        <li class=\"search-result-metadata-item\">            A service lot        </li>        <li class=\"search-result-metadata-item\">            A service framework        </li>      </ul>  </div>  <nav role=\"navigation\">      <ul class=\"previous-next-navigation\">      </ul>  </nav></div>",
-    "summary": "<div id=\"js-dm-live-search-info\">  <p class=\"search-summary\">      <span class=\"search-summary-count\">1</span> result contaning <em>cat</em> found in <em>All categories</em>  </p></div>"
+    "results": {
+      "selector": "#js-dm-live-search-results",
+      "html": "<div id=\"js-dm-live-search-results\" class=\"js-dm-live-search-fade\" style=\"opacity: 1;\">  <div class=\"search-result\">      <h2 class=\"search-result-title\">        <a href=\"/somewhere/123456789\">A aervice</a>      </h2>      <p class=\"search-result-supplier\">        A service supplier      </p>      <p class=\"search-result-excerpt\">        A service excerpt.      </p>      <ul aria-label=\"tags\" class=\"search-result-metadata\">        <li class=\"search-result-metadata-item\">            A service lot        </li>        <li class=\"search-result-metadata-item\">            A service framework        </li>      </ul>  </div>  <nav role=\"navigation\">      <ul class=\"previous-next-navigation\">      </ul>  </nav></div>"
+    },
+    "summary": {
+      "selector": "#js-dm-live-search-info",
+      "html": "<div id=\"js-dm-live-search-info\">  <p class=\"search-summary\">      <span class=\"search-summary-count\">1</span> result contaning <em>cat</em> found in <em>All categories</em>  </p></div>"
+    }
   };
   var dummyResponseString = JSON.stringify(dummyResponse);
 
@@ -102,6 +106,23 @@ describe("live-search", function(){
 
     expect(typeof promise.done).toBe('function');
     expect(liveSearch.displayFilterResults).toHaveBeenCalled();
+  });
+
+  it("should cache results against the form state that submitted the request, not the form state when the response is received", function(){
+    spyOn(liveSearch, 'displayFilterResults');
+
+    liveSearch.state = { q: 'old-state' };
+    var promise = liveSearch.updateResults();
+    liveSearch.state = { q: 'new-state' };
+
+    jasmine.Ajax.requests.mostRecent().respondWith({
+      "status": 200,
+      "contentType": "application/json",
+      "responseText": dummyResponseString
+    });
+
+    expect(JSON.stringify(liveSearch.cache('q=old-state'))).toBe(dummyResponseString);
+    expect(liveSearch.cache('q=new-state')).toBe(undefined);
   });
 
   it("should show error indicator when error loading new results", function(){
