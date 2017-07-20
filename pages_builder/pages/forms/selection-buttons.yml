@@ -3,8 +3,7 @@ assetPath: ../govuk_template/assets/
 grid: column-two-thirds
 bodyEnd: >
   <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/vendor/polyfills/bind.js"></script>
-  <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/govuk/selection-buttons.js"></script>
-  <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/govuk/show-hide-content.js"></script>
+  <script type="text/javascript" src="../public/javascripts/show-hide-content.js"></script>
 examples:
   -
     type: radio

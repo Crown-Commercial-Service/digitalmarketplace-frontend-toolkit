@@ -10,8 +10,8 @@
     // Radio and Checkbox selectors
     var selectors = {
       namespace: 'ShowHideContent',
-      radio: '.block-label[data-target] input[type="radio"]',
-      checkbox: '.block-label[data-target] input[type="checkbox"]'
+      radio: '[data-target] > input[type="radio"]',
+      checkbox: '[data-target] > input[type="checkbox"]'
     }
 
     // Escape name attribute for use in DOM selector
@@ -44,7 +44,7 @@
 
       // ARIA attributes aren't set before init
       if (!targetIds) {
-        targetIds = $control.closest('label').data('target')
+        targetIds = $control.closest('[data-target]').data('target')
       }
 
       // turn a space-separated list of ids into a comma-separated css id selector

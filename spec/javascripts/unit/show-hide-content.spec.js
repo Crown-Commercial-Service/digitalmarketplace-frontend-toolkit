@@ -45,31 +45,31 @@ describe('show-hide-content', function () {
 
         // Radio buttons (yes/no)
         '<form>' +
-        '<label class="block-label" data-target="show-hide-radios">' +
+        '<div class="multiple-choice" data-target="show-hide-radios">' +
         '<input type="radio" name="single" value="yes">' +
-        'Yes' +
-        '</label>' +
-        '<label class="block-label">' +
+        '<label>Yes</label>' +
+        '</div>' +
+        '<div class="multiple-choice">' +
         '<input type="radio" name="single" value="no">' +
-        'No' +
-        '</label>' +
+        '<label>No</label>' +
+        '</div>' +
         '<div id="show-hide-radios" class="panel js-hidden" />' +
         '</form>' +
 
         // Checkboxes (multiple values)
         '<form>' +
-        '<label class="block-label" data-target="show-hide-checkboxes">' +
+        '<div class="multiple-choice" data-target="show-hide-checkboxes">' +
         '<input type="checkbox" name="multiple[option1]">' +
-        'Option 1' +
-        '</label>' +
-        '<label class="block-label">' +
+        '<label>Option 1</label>' +
+        '</div>' +
+        '<div class="multiple-choice">' +
         '<input type="checkbox" name="multiple[option2]">' +
-        'Option 2' +
-        '</label>' +
-        '<label class="block-label">' +
+        '<label>Option 2</label>' +
+        '</div>' +
+        '<div class="multiple-choice">' +
         '<input type="checkbox" name="multiple[option3]">' +
-        'Option 3' +
-        '</label>' +
+        '<label>Option 3</label>' +
+        '</div>' +
         '<div id="show-hide-checkboxes" class="panel js-hidden" />' +
         '</form>'
       )
@@ -250,7 +250,7 @@ describe('show-hide-content', function () {
         }))
         expect(events && events.change).toContain(jasmine.objectContaining({
           namespace: 'ShowHideContent',
-          selector: '.block-label[data-target] input[type="checkbox"]'
+          selector: '[data-target] > input[type="checkbox"]'
         }))
       })
     })
@@ -268,7 +268,7 @@ describe('show-hide-content', function () {
         }))
         expect(events && events.change).not.toContain(jasmine.objectContaining({
           namespace: 'ShowHideContent',
-          selector: '.block-label[data-target] input[type="checkbox"]'
+          selector: '[data-target] > input[type="checkbox"]'
         }))
       })
     })
@@ -468,46 +468,46 @@ describe('show-hide-content', function () {
 
         // First group of radio buttons (yes/no)
         '<form>' +
-        '<label class="block-label" data-target="show-hide-radios">' +
+        '<div class="multiple-choice" data-target="show-hide-radios">' +
         '<input type="radio" name="single" value="yes">' +
         'Yes' +
-        '</label>' +
-        '<label class="block-label">' +
+        '</div>' +
+        '<div class="multiple-choice">' +
         '<input type="radio" name="single" value="no">' +
         'No' +
-        '</label>' +
+        '</div>' +
 
         // Second group of radio buttons (yes/no)
-        '<label class="block-label" data-target="show-hide-radios">' +
+        '<div class="multiple-choice" data-target="show-hide-radios">' +
         '<input type="radio" name="also-single" value="also-yes">' +
         'Also yes' +
-        '</label>' +
-        '<label class="block-label">' +
+        '</div>' +
+        '<div class="multiple-choice">' +
         '<input type="radio" name="also-single" value="also-no">' +
         'Also no' +
-        '</label>' +
+        '</div>' +
 
         '<div id="show-hide-radios" class="panel js-hidden" />' +
         '</form>' +
 
         // Checkboxes (first two options both control the same content)
         '<form>' +
-        '<label class="block-label" data-target="show-hide-checkboxes">' +
+        '<div class="multiple-choice" data-target="show-hide-checkboxes">' +
         '<input type="checkbox" name="multiple[option1]">' +
         'Option 1' +
-        '</label>' +
-        '<label class="block-label">' +
+        '</div>' +
+        '<div class="multiple-choice">' +
         '<input type="checkbox" name="multiple[option2]">' +
         'Option 2' +
-        '</label>' +
-        '<label class="block-label" data-target="show-hide-checkboxes">' +
+        '</div>' +
+        '<div class="multiple-choice" data-target="show-hide-checkboxes">' +
         '<input type="checkbox" name="multiple[option3]">' +
         'Option 3' +
-        '</label>' +
-        '<label class="block-label">' +
+        '</div>' +
+        '<div class="multiple-choice">' +
         '<input type="checkbox" name="multiple[option4]">' +
         'Option 4' +
-        '</label>' +
+        '</div>' +
         '<div id="show-hide-checkboxes" class="panel js-hidden" />' +
         '</form>'
       )
@@ -678,24 +678,24 @@ describe('show-hide-content', function () {
 
         // First group of radio buttons (yes/no)
         '<form>' +
-        '<label class="block-label" data-target="show-hide-radios-1 show-hide-radios-2">' +
+        '<div class="multiple-choice" data-target="show-hide-radios-1 show-hide-radios-2">' +
         '<input type="radio" name="single" value="yes">' +
         'Yes' +
-        '</label>' +
-        '<label class="block-label">' +
+        '</div>' +
+        '<div class="multiple-choice">' +
         '<input type="radio" name="single" value="no">' +
         'No' +
-        '</label>' +
+        '</div>' +
 
         // Second group of radio buttons (yes/no)
-        '<label class="block-label" data-target="show-hide-radios-1 show-hide-radios-3">' +
+        '<div class="multiple-choice" data-target="show-hide-radios-1 show-hide-radios-3">' +
         '<input type="radio" name="also-single" value="also-yes">' +
         'Also yes' +
-        '</label>' +
-        '<label class="block-label">' +
+        '</div>' +
+        '<div class="multiple-choice">' +
         '<input type="radio" name="also-single" value="also-no">' +
         'Also no' +
-        '</label>' +
+        '</div>' +
 
         '<div id="show-hide-radios-1" class="panel js-hidden" />' +
         '<div id="show-hide-radios-2" class="panel js-hidden" />' +
@@ -704,26 +704,26 @@ describe('show-hide-content', function () {
 
         // Checkboxes (first two options both control the same content)
         '<form>' +
-        '<label class="block-label" data-target="show-hide-checkboxes-1 show-hide-checkboxes-2">' +
+        '<div class="multiple-choice" data-target="show-hide-checkboxes-1 show-hide-checkboxes-2">' +
         '<input type="checkbox" name="multiple[option1]">' +
         'Option 1' +
-        '</label>' +
-        '<label class="block-label">' +
+        '</div>' +
+        '<div class="multiple-choice">' +
         '<input type="checkbox" name="multiple[option2]">' +
         'Option 2' +
         '</label>' +
-        '<label class="block-label" data-target="show-hide-checkboxes-1 show-hide-checkboxes-3">' +
+        '<div class="multiple-choice" data-target="show-hide-checkboxes-1 show-hide-checkboxes-3">' +
         '<input type="checkbox" name="multiple[option3]">' +
         'Option 3' +
-        '</label>' +
-        '<label class="block-label">' +
+        '</div>' +
+        '<div class="multiple-choice">' +
         '<input type="checkbox" name="multiple[option4]">' +
         'Option 4' +
-        '</label>' +
-        '<label class="block-label" data-target="show-hide-checkboxes-2 show-hide-checkboxes-3">' +
+        '</div>' +
+        '<div class="multiple-choice" data-target="show-hide-checkboxes-2 show-hide-checkboxes-3">' +
         '<input type="checkbox" name="multiple[option5]">' +
         'Option 5' +
-        '</label>' +
+        '</div>' +
         '<div id="show-hide-checkboxes-1" class="panel js-hidden" />' +
         '<div id="show-hide-checkboxes-2" class="panel js-hidden" />' +
         '<div id="show-hide-checkboxes-3" class="panel js-hidden" />' +
@@ -857,14 +857,14 @@ describe('show-hide-content', function () {
       // Sample markup
       this.$content = $(
         // Radio buttons (yes/no)
-        '<label class="block-label" data-target="show-hide-radios">' +
+        '<div class="multiple-choice" data-target="show-hide-radios">' +
         '<input type="radio" name="single" value="yes">' +
         'Yes' +
-        '</label>' +
-        '<label class="block-label">' +
+        '</div>' +
+        '<div class="multiple-choice">' +
         '<input type="radio" name="single" value="no">' +
         'No' +
-        '</label>' +
+        '</div>' +
         '<div id="show-hide-radios" class="panel js-hidden" />'
       )
 
@@ -912,14 +912,14 @@ describe('show-hide-content', function () {
       // Sample markup
       this.$content = $(
         // Radio buttons (yes/no)
-        '<label class="block-label" data-target="show-hide-radios-1 show-hide-radios-2">' +
+        '<div class="multiple-choice" data-target="show-hide-radios-1 show-hide-radios-2">' +
         '<input type="radio" name="single" value="yes">' +
         'Yes' +
-        '</label>' +
-        '<label class="block-label">' +
+        '</div>' +
+        '<div class="multiple-choice">' +
         '<input type="radio" name="single" value="no">' +
         'No' +
-        '</label>' +
+        '</div>' +
         '<div id="show-hide-radios-1" class="panel js-hidden" />' +
         '<div id="show-hide-radios-2" class="panel js-hidden" />'
       )
@@ -972,23 +972,23 @@ describe('show-hide-content', function () {
       // Sample markup
       this.$content = $(
         // Radio buttons (yes/no)
-        '<label class="block-label" data-target="show-hide-radios-1">' +
+        '<div class="multiple-choice" data-target="show-hide-radios-1">' +
         '<input type="radio" name="single" value="yes" checked="checked">' +
         'Yes' +
-        '</label>' +
-        '<label class="block-label">' +
+        '</div>' +
+        '<div class="multiple-choice">' +
         '<input type="radio" name="single" value="no">' +
         'No' +
-        '</label>' +
+        '</div>' +
         '<div id="show-hide-radios-1" class="panel">' +
-        '<label class="block-label" data-target="show-hide-radios-2">' +
+        '<div class="multiple-choice" data-target="show-hide-radios-2">' +
         '<input type="radio" name="double" value="yes" checked="checked">' +
         'Yes' +
-        '</label>' +
-        '<label class="block-label">' +
+        '</div>' +
+        '<div class="multiple-choice">' +
         '<input type="radio" name="double" value="no">' +
         'No' +
-        '</label>' +
+        '</div>' +
         '</div>' +
         '<div id="show-hide-radios-2" class="panel" />'
       )
