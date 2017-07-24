@@ -21,3 +21,11 @@
     }
   }
 }
+
+.search-suggestion {
+  @include core-14;
+
+  @include media(tablet) {
+    @include core-16;
+  }
+}
