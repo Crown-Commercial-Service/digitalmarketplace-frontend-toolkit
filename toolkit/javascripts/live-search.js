@@ -51,6 +51,7 @@ endpoint response (application/json):
     if(GOVUK.GDM.support.history()) {
       this.saveState();
       this.$form.on('change', 'input[type=checkbox], input[type=search], input[type=radio]', this.formChange.bind(this));
+      this.$form.on('change', 'input[type=checkbox]', this.filterSelected);
 
       this.$form.find('input[type=search]').keypress(
         function(e){
@@ -99,6 +100,15 @@ endpoint response (application/json):
           }
         }.bind(this)
       );
+    }
+  };
+
+  LiveSearch.prototype.filterSelected = function(){
+    if(this.checked) {
+      var group = $(this).closest('.options-container').attr('id');
+      var key = $(this).attr('name');
+      var value = $(this).attr('value');
+      GOVUK.GDM.analytics.virtualPageViews.trackFilterAnalytics(group, key, value);
     }
   };
 
