@@ -1,7 +1,8 @@
-// COPIED FROM https://github.com/alphagov/static/blob/master/app/assets/javascripts/report-a-problem.js
+// REDUCED VARIANT OF https://github.com/alphagov/static/blob/master/app/assets/javascripts/report-a-problem.js
 (function() {
   "use strict";
   window.GOVUK = window.GOVUK || {};
+  window.GOVUK.GDM = window.GOVUK.GDM || {};
 
   var ReportAProblem = function ($container) {
     this.$container = $container;
@@ -11,6 +12,8 @@
 
     this.addToggleLink();
   };
+
+  ReportAProblem.init = function() {}
 
   ReportAProblem.prototype.addToggleLink = function() {
     this.$container.before('<div class="report-a-problem-toggle-wrapper js-footer">' +
@@ -34,19 +37,7 @@
     }
   };
 
-  ReportAProblem.prototype.showConfirmation = function(evt, data) {
-    this.trackEvent('GOVUK Send Feedback');
-
-    this.$container.find('.report-a-problem-content').html(data.message);
-  };
-
-  ReportAProblem.prototype.showError = function() {
-    var response = '<h2>Sorry, we’re unable to receive your message right now.</h2>' +
-      '<p>We have other ways for you to provide feedback on the ' +
-      '<a href="/contact">contact page</a>.</p>';
-
-    this.$container.find('.report-a-problem-content').html(response);
-  };
+  GOVUK.GDM.ReportAProblem = ReportAProblem;
 
   ReportAProblem.prototype.trackEvent = function(action){
     if (GOVUK.analytics && GOVUK.analytics.trackEvent) {
@@ -54,9 +45,7 @@
     }
   };
 
-  GOVUK.ReportAProblem = ReportAProblem;
-
   $(document).ready(function() {
-    new GOVUK.ReportAProblem($('.report-a-problem-container'));
+    new GOVUK.GDM.ReportAProblem($('.report-a-problem-container'));
   });
 }());
