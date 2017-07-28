@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 23.1.1
-=======
-23.0.5
->>>>>>> updates frontend toolkit to 23.0.5
