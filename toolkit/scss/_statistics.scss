@@ -1,0 +1,33 @@
+@import "_typography.scss";
+@import "_measurements.scss";
+
+%statistic {
+  @include core-14;
+
+  @include media(tablet) {
+    @include core-16;
+  }
+  @include media(tablet) {
+    padding-right: 10px;
+  }
+}
+
+.statistic-container {
+  @include inline-block;
+  padding-right: 7em;
+  padding-bottom: 3em;
+
+  @include media(mobile) {
+    padding-bottom: 1em;
+  }
+
+  .big-statistic {
+    @extend %statistic;
+    @include bold-36;
+  }
+
+  .statistic-name {
+    @extend %statistic;
+    @include bold-19;
+  }
+}

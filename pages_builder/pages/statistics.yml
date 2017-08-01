@@ -1,0 +1,9 @@
+pageTitle: Statistics
+pageDescription: Macros for displaying statistical data. For now the only macro is big statistic, used to prominently display key statistics.
+assetPath: govuk_template/assets/
+grid: column-one-whole
+examples:
+  - |
+    {% import "statistics.html" as statistics %}
+    {{ statistics.big_stat(12, "Started applications", id="started-applications") }}
+    {{ statistics.big_stat(1, "Completed applications", id="completed-applications") }}
