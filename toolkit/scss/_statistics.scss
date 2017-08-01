@@ -16,7 +16,11 @@
   @include inline-block;
   padding-right: 7em;
   padding-bottom: 3em;
-  
+
+  @include media(mobile) {
+    padding-bottom: 1em;
+  }
+
   .big-statistic {
     @extend %statistic;
     @include bold-36;
