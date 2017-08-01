@@ -23,6 +23,7 @@
     this.$clearFilterLink.on('click', function(event) {
         event.preventDefault();
         _this.clearFilters();
+        $(this).blur();
     });
     
   };
