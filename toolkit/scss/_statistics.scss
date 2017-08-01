@@ -16,6 +16,7 @@
   @include inline-block;
   padding-right: 7em;
   padding-bottom: 3em;
+  vertical-align: top;
 
   @include media(mobile) {
     padding-bottom: 1em;
@@ -29,5 +30,9 @@
   .statistic-name {
     @extend %statistic;
     @include bold-19;
+  }
+
+  .statistic-description {
+    @extend %statistic;
   }
 }

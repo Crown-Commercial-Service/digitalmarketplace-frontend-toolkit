@@ -7,3 +7,8 @@ examples:
     {% import "statistics.html" as statistics %}
     {{ statistics.big_stat(12, "Started applications", id="started-applications") }}
     {{ statistics.big_stat(1, "Completed applications", id="completed-applications") }}
+
+  - |
+    {% import "statistics.html" as statistics %}
+    {{ statistics.big_stat(12, "Started applications", stat_description="12 SME, 2 large", id="started-applications") }}
+    {{ statistics.big_stat(1, "Completed applications", stat_description="2 SME, 0 large", id="completed-applications") }}
