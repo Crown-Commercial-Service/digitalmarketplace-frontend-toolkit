@@ -1,7 +1,11 @@
-{% macro big_stat(stat_value, stat_name, id=None) -%}
+{% macro big_stat(stat_value, stat_name, stat_extra=None, id=None) -%}
   <div class="statistic-container" id="{{ id }}">
     <h3 class="visually-hidden">{{ stat_name }}</h3>
     <div class="big-statistic">{{ stat_value }}</div>
     <div class="statistic-name">{{ stat_name }}</div>
+    {% if stat_extra %}
+      <div class="statistic-extra">{{ stat_extra }}</div>
+    {% endif %}
+
   </div>
 {%- endmacro %}

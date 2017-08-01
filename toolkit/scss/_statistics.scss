@@ -30,4 +30,8 @@
     @extend %statistic;
     @include bold-19;
   }
+
+  .statistic-extra {
+    @extend %statistic;
+  }
 }
