@@ -11,7 +11,7 @@ PR: [#367](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/
 - 'media-down' IE helper mixin has been moved to a '_conditionals2.scss' stylesheet, which is consistent
   with its location in the equivalent gov.uk repository;
 - this means we can use it even if we aren't using the next/previous navigation stylesheet.
-- non-breaking change: "report-a-problem" JS for feedback forms feature.
+- non-breaking change: "report-a-problem" JS/CSS/HTML for feedback forms feature.
 
 ###
 
