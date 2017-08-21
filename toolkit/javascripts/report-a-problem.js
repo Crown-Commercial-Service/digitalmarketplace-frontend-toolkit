@@ -13,8 +13,6 @@
     this.addToggleLink();
   };
 
-  ReportAProblem.init = function() {}
-
   ReportAProblem.prototype.addToggleLink = function() {
     this.$container.before('<div class="report-a-problem-toggle-wrapper js-footer">' +
         '<p class="report-a-problem-toggle">' +
@@ -33,7 +31,8 @@
 
   GOVUK.GDM.ReportAProblem = ReportAProblem;
 
-  $(document).ready(function() {
-    new GOVUK.GDM.ReportAProblem($('.report-a-problem-container'));
-  });
+  ReportAProblem.init = function() {
+    ReportAProblem.instance = new ReportAProblem($('.report-a-problem-container'));
+  }
+
 }());
