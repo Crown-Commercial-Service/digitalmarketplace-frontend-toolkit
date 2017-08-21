@@ -4,6 +4,8 @@ Records breaking changes from major version bumps
 
 ## 24.0.0
 
+PR: [#367](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/367)
+
 ### What changed
 
 - 'media-down' IE helper mixin has been moved to a '_conditionals2.scss' stylesheet, which is consistent
@@ -21,6 +23,8 @@ app/assets/scss/application.scss
 ```
 
 ## 23.0.0
+
+PR: [#353](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/353)
 
 ### What changed
 
