@@ -1,0 +1,47 @@
+pageTitle: Page header
+assetPath: govuk_template/assets/
+examples:
+  - |
+    {% set csrf_token_value = 'token_set_for_documentation_only' %}
+    <header role="banner" id="global-header" class="">
+      <div class="header-wrapper">
+        <div class="header-global">
+          <div class="header-logo">
+            <a href="#" title="" id="logo" class="content"></a>
+          </div>
+        </div>
+        {% with logged_in=False %}
+          {% include "proposition-header.html" %}
+        {% endwith %}
+      </div>
+    </header>
+
+  - |
+    {% set csrf_token_value = 'token_set_for_documentation_only' %}
+    <header role="banner" id="global-header" class="">
+      <div class="header-wrapper">
+        <div class="header-global">
+          <div class="header-logo">
+            <a href="#" title="" id="logo" class="content"></a>
+          </div>
+        </div>
+        {% with logged_in=True, role='buyer' %}
+          {% include "proposition-header.html" %}
+        {% endwith %}
+      </div>
+    </header>
+
+  - |
+    {% set csrf_token_value = 'token_set_for_documentation_only' %}
+    <header role="banner" id="global-header" class="">
+      <div class="header-wrapper">
+        <div class="header-global">
+          <div class="header-logo">
+            <a href="#" title="" id="logo" class="content"></a>
+          </div>
+        </div>
+        {% with logged_in=True, role='supplier' %}
+          {% include "proposition-header.html" %}
+        {% endwith %}
+      </div>
+    </header>

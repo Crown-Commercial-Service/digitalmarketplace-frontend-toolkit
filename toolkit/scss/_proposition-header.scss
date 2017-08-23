@@ -1,0 +1,12 @@
+.logout-button {
+    @include bold-16();
+    color: $white;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    text-decoration: underline;
+}

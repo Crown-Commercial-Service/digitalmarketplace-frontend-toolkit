@@ -1,0 +1,21 @@
+<div class="header-proposition">
+  <div class="content">
+    <a href="#proposition-links" class="js-header-toggle menu">Menu</a>
+    <nav id="proposition-menu">
+      <a href="/" id="proposition-name">Digital Marketplace</a>
+      <ul id="proposition-links">
+        {% if logged_in %}
+          <li><a href="{{ '/' if role == 'buyer' else '/suppliers' }}">View your account</a></li>
+          <li>
+            <form method="post" action="/user/logout">
+              <input type="submit" class="logout-button" value="Log out" />
+              <input type="hidden" name="csrf_token" value="{{ csrf_token_value or csrf_token() }}" />
+            </form>
+          </li>
+        {% else %}
+          <li><a href="/user/login">Log in</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</div>
