@@ -5,7 +5,14 @@
       <a href="/" id="proposition-name">Digital Marketplace</a>
       <ul id="proposition-links">
         {% if logged_in %}
-          <li><a href="{{ '/' if role == 'buyer' else '/suppliers' }}">View your account</a></li>
+          {% if role == 'buyer' %}
+            <li><a href="/">View your account</a></li>
+          {% elif role == 'supplier' %}
+            <li><a href="/suppliers">View your account</a></li>
+          {% endif %}
+          {% for item in items %}
+            <li><a href="{{ item.link }}">{{ item.label }}</a></li>
+          {% endfor %}
           <li>
             <form method="post" action="/user/logout">
               <input type="submit" class="logout-button" value="Log out" />
