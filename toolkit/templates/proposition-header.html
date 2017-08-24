@@ -4,10 +4,10 @@
     <nav id="proposition-menu">
       <a href="/" id="proposition-name">Digital Marketplace</a>
       <ul id="proposition-links">
-        {% if logged_in %}
-          {% if role == 'buyer' %}
+        {% if (current_user.is_authenticated() if logged_in is not defined else logged_in) %}
+          {% if (role or current_user.role) == 'buyer' %}
             <li><a href="/">View your account</a></li>
-          {% elif role == 'supplier' %}
+          {% elif (role or current_user.role) == 'supplier' %}
             <li><a href="/suppliers">View your account</a></li>
           {% endif %}
           {% for item in items %}
