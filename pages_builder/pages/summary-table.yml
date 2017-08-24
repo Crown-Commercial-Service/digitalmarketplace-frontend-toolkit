@@ -13,7 +13,7 @@ examples:
         {"name": "Service 2", "lot": "IaaS"},
       ],
       caption="Summary table",
-      empty_message="You haven't submited any services yet",
+      empty_message="You haven't submitted any services yet",
       field_headings=[
         "Service",
         "Lot",
@@ -34,7 +34,7 @@ examples:
     {% call(item) summary.list_table(
       [],
       caption="Summary table with no entries",
-      empty_message="You haven't submited any services yet",
+      empty_message="You haven't submitted any services yet",
     ) %}
       {% call summary.row() %}
         {{ summary.service_link(item.name, '#') }}
@@ -53,7 +53,7 @@ examples:
         {"name": "Service 2", "lot": "IaaS", "id": "9012123456783456", "date": "12 June 2015", "framework": "G-Cloud 6"},
       ],
       caption="Summary table with many columns",
-      empty_message="You haven't submited any services yet",
+      empty_message="You haven't submitted any services yet",
       field_headings=[
         "Service",
         "ID",
@@ -114,7 +114,7 @@ examples:
     {% call(item) summary.list_table(
       [],
       caption="Summary table with top-level action",
-      empty_message="You haven't submited any services yet",
+      empty_message="You haven't submitted any services yet",
     ) %}
       {% call summary.row() %}
         {{ summary.service_link(item.name, '#') }}
@@ -129,7 +129,7 @@ examples:
     {% call(item) summary.list_table(
       [],
       caption="Summary table with number",
-      empty_message="You haven't submited any services yet",
+      empty_message="You haven't submitted any services yet",
     ) %}
       {% call summary.row() %}
         {{ summary.service_link(item.name, '#') }}
@@ -148,7 +148,7 @@ examples:
         {"name": "Service 2", "lot": "IaaS"},
       ],
       caption="Summary table with name field as link",
-      empty_message="You haven't submited any services yet",
+      empty_message="You haven't submitted any services yet",
       field_headings=[
         "Service",
         "Lot",
@@ -173,7 +173,7 @@ examples:
         {"name": "Service 2", "lot": "IaaS"},
       ],
       caption="Summary table with name field as link",
-      empty_message="You haven't submited any services yet",
+      empty_message="You haven't submitted any services yet",
       field_headings=[
         "Service",
         "Lot",
@@ -324,7 +324,7 @@ examples:
         ("Features", "Answer required"),
       ],
       caption="Summary table with incomplete entry",
-      empty_message="You haven't submited any services yet",
+      empty_message="You haven't submitted any services yet",
       field_headings=[
         "Field name",
         "Field value",
