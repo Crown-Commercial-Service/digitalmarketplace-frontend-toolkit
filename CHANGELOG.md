@@ -1,21 +1,41 @@
 # Digital Marketplace front-end toolkit changelog
 
 Records breaking changes from major version bumps
+
+## 24.0.0
+
+PR: [#367](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/367)
+
+### What changed
+
+- 'media-down' IE helper mixin has been moved to a '_conditionals2.scss' stylesheet, which is consistent
+  with its location in the equivalent gov.uk repository;
+- this means we can use it even if we aren't using the next/previous navigation stylesheet.
+- non-breaking change: "report-a-problem" JS/CSS/HTML for feedback forms feature.
+
+###
+
+Example app change:
+
+app/assets/scss/application.scss
+```diff
++@import "toolkit/shared_scss/_conditionals2.scss";
+```
+
 ## 23.0.0
 
-PR
+PR: [#353](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/353)
 
-## What changed
+### What changed
 
 - GOV.UK Elements is now a dependency and will need to be added to package.json for frontend apps.
 - The markup is different so custom javascript relying on the old markup such as the checkbox tree in the supplier app will have to be changed.
-
 
 ## 22.0.0
 
 PR: [#313](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/313)
 
-## What changed
+### What changed
 
 - The `fake-full-width` [Sass mixin](http://sass-lang.com/guide#topic-6) is now required to compile the `_pricing.scss` file.
   This means a new shared placeholder in the apps that use the frontend toolkit

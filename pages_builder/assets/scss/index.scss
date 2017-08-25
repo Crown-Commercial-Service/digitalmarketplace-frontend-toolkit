@@ -8,6 +8,7 @@ $path : '../images/';
 @import "shared_placeholders/_mixins.scss";
 
 // Toolkit components
+@import "_report-a-problem.scss";
 @import "_grids";
 @import "_phase-banner.scss";
 @import "_secondary-action-link.scss";
