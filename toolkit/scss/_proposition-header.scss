@@ -1,5 +1,12 @@
 .logout-button {
-    @include bold-16();
+    font-family: $toolkit-font-stack;
+    font-size: 12px;
+    font-weight: 700;
+
+    @include media(tablet) {
+        font-size: 16px
+    }
+
     color: $white;
     background: none;
     border: none;
