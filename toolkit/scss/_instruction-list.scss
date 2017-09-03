@@ -25,10 +25,32 @@
 .divider {
   padding: 20px 0 15px 0;
   border-top: 1px solid $grey-3;
+
+  p.instruction-list-item-top,
+  a.instruction-list-item-action,
+  p.instruction-list-item-box {
+    margin-top: 0.5em;
+  }
+}
+
+p.instruction-list-item-top.search-summary {
+  @include core-16;
+  padding-bottom: 0px;
+  border-bottom: 0px;
+
+  .search-summary-count {
+    @include core-16;
+    font-weight: normal;
+    padding-right: 0px;
+  }
 }
 
 .instruction-list .divider:first-child {
   border-top: none;
+}
+
+li.instruction-list-item.divider:first-of-type {
+  padding-top: 0px;
 }
 
 .instruction-list[start] .divider {
@@ -50,6 +72,29 @@
 .instruction-list-item-bottom,
 .lead-in {
   font-weight: normal;
+}
+
+.instruction-list-item-action.button-save {
+  @include core-19;
+  margin-bottom: 0px;
+}
+
+.instruction-list-item-box {
+  @include core-16;
+}
+
+.instruction-list-item-box {
+  border: 3px solid $grey-1;
+  font-weight: bold;
+  color: $grey-1;
+  padding: 0.33em;
+  width: fit-content;
+  width: -moz-fit-content;
+}
+
+.instruction-list-item-box.complete {
+  border-color: $black;
+  color: $black;
 }
 
 .instruction-list-item-bottom {
