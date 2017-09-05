@@ -23,13 +23,13 @@
 }
 
 .divider {
-  padding: 20px 0 15px 0;
+  padding: 20px 0 20px 0;
   border-top: 1px solid $grey-3;
 
   p.instruction-list-item-top,
   a.instruction-list-item-action,
   p.instruction-list-item-box {
-    margin-top: 0.5em;
+    margin-top: 1em;
   }
 }
 
@@ -87,7 +87,7 @@ li.instruction-list-item.divider:first-of-type {
   border: 3px solid $grey-1;
   font-weight: bold;
   color: $grey-1;
-  padding: 0.33em;
+  padding: 0.5em 0.75em 0.33em 0.5em;
   width: fit-content;
   width: -moz-fit-content;
 }
