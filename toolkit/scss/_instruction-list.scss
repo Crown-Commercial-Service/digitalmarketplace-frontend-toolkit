@@ -88,8 +88,7 @@ li.instruction-list-item.divider:first-of-type {
   font-weight: bold;
   color: $grey-1;
   padding: 0.5em 0.75em 0.33em 0.5em;
-  width: fit-content;
-  width: -moz-fit-content;
+  display: table;
 }
 
 .instruction-list-item-box.complete {
