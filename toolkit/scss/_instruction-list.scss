@@ -37,12 +37,6 @@ p.instruction-list-item-top.search-summary {
   @include core-16;
   padding-bottom: 0px;
   border-bottom: 0px;
-
-  .search-summary-count {
-    @include core-16;
-    font-weight: normal;
-    padding-right: 0px;
-  }
 }
 
 .instruction-list .divider:first-child {
