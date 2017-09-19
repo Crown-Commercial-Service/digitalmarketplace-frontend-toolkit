@@ -11,7 +11,10 @@
     hidden=question_content.hidden,
     smaller=question_content.smaller,
     question_number=kwargs.question_number,
-    message=kwargs.message
+    message=kwargs.message,
+    unit=question_content.unit,
+    unit_in_full=question_content.unit_in_full,
+    unit_position=question_content.unit_position
   %}
     {% include "toolkit/forms/textbox.html" %}
   {% endwith %}
