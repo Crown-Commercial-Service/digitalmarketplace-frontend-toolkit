@@ -1,20 +1,20 @@
 {% macro text(question_content, data, errors) -%}
   {%
     with
-    name=question_content.id,
-    question=question_content.question,
-    optional=question_content.optional,
-    question_advice=question_content.question_advice,
-    hint=question_content.hint,
-    value=data[question_content.id],
-    error=errors.get(question_content.id)['message'],
-    hidden=question_content.hidden,
-    smaller=question_content.smaller,
+    name=kwargs.get("name", question_content.id),
+    question=kwargs.get("question", question_content.question),
+    optional=kwargs.get("optional", question_content.optional),
+    question_advice=kwargs.get("question_advice", question_content.question_advice),
+    hint=kwargs.get("hint", question_content.hint),
+    value=kwargs.get("value", data[question_content.id]),
+    error=kwargs.get("error", errors.get(question_content.id)['message']),
+    hidden=kwargs.get("hidden", question_content.hidden),
+    smaller=kwargs.get("smaller", question_content.smaller),
     question_number=kwargs.question_number,
     message=kwargs.message,
-    unit=question_content.unit,
-    unit_in_full=question_content.unit_in_full,
-    unit_position=question_content.unit_position
+    unit=kwargs.get("unit", question_content.unit),
+    unit_in_full=kwargs.get("unit_in_full", question_content.unit_in_full),
+    unit_position=kwargs.get("unit_position", question_content.unit_position)
   %}
     {% include "toolkit/forms/textbox.html" %}
   {% endwith %}
@@ -23,16 +23,16 @@
 {% macro textbox_large(question_content, data, errors) -%}
   {%
     with
-    name=question_content.id,
-    question=question_content.question,
-    optional=question_content.optional,
-    question_advice=question_content.question_advice,
-    hint=question_content.hint,
-    value=data[question_content.id],
-    error=errors.get(question_content.id)['message'],
-    hidden=question_content.hidden,
-    large=True,
-    max_length_in_words=question_content.max_length_in_words,
+    name=kwargs.get("name", question_content.id),
+    question=kwargs.get("question", question_content.question),
+    optional=kwargs.get("optional", question_content.optional),
+    question_advice=kwargs.get("question_advice", question_content.question_advice),
+    hint=kwargs.get("hint", question_content.hint),
+    value=kwargs.get("value", data[question_content.id]),
+    error=kwargs.get("error", errors.get(question_content.id)['message']),
+    hidden=kwargs.get("hidden", question_content.hidden),
+    large=kwargs.get("large", True),
+    max_length_in_words=kwargs.get("max_length_in_words", question_content.max_length_in_words),
     question_number=kwargs.question_number,
     message=kwargs.message
   %}
@@ -43,17 +43,17 @@
 {% macro list(question_content, data, errors) -%}
   {%
     with
-    name=question_content.id,
-    id=question_content.id,
-    number_of_items=question_content.get('number_of_items', 10),
-    question=question_content.question,
-    question_advice=question_content.question_advice,
-    hint=question_content.hint,
-    optional=question_content.optional,
-    values=data[question_content.id],
-    error=errors.get(question_content.id)['message'],
-    hidden=question_content.hidden,
-    item_name=question_content.item_name,
+    name=kwargs.get("name", question_content.id),
+    id=kwargs.get("id", question_content.id),
+    number_of_items=kwargs.get("number_of_items", question_content.get('number_of_items', 10)),
+    question=kwargs.get("question", question_content.question),
+    question_advice=kwargs.get("question_advice", question_content.question_advice),
+    hint=kwargs.get("hint", question_content.hint),
+    optional=kwargs.get("optional", question_content.optional),
+    values=kwargs.get("values", data[question_content.id]),
+    error=kwargs.get("error", errors.get(question_content.id)['message']),
+    hidden=kwargs.get("hidden", question_content.hidden),
+    item_name=kwargs.get("item_name", question_content.item_name),
     question_number=kwargs.question_number,
     message=kwargs.message
   %}
@@ -64,20 +64,20 @@
 {% macro checkboxes(question_content, data, errors) -%}
   {%
     with
-    name=question_content.id,
-    id=question_content.id,
-    question=question_content.question,
-    optional=question_content.optional,
-    question_advice=question_content.question_advice,
-    hint=question_content.hint,
-    options=question_content.options,
-    value=data[question_content.id],
-    error=errors.get(question_content.id)['message'],
-    hidden=question_content.hidden,
-    followup=question_content.values_followup,
-    type='checkbox',
-    inline=question_content.inline,
-    hint_underneath=question_content.hint_underneath,
+    name=kwargs.get("name", question_content.id),
+    id=kwargs.get("id", question_content.id),
+    question=kwargs.get("question", question_content.question),
+    optional=kwargs.get("optional", question_content.optional),
+    question_advice=kwargs.get("question_advice", question_content.question_advice),
+    hint=kwargs.get("hint", question_content.hint),
+    options=kwargs.get("options", question_content.options),
+    value=kwargs.get("value", data[question_content.id]),
+    error=kwargs.get("error", errors.get(question_content.id)['message']),
+    hidden=kwargs.get("hidden", question_content.hidden),
+    followup=kwargs.get("followup", question_content.values_followup),
+    type=kwargs.get("type", 'checkbox'),
+    inline=kwargs.get("inline", question_content.inline),
+    hint_underneath=kwargs.get("hint_underneath", question_content.hint_underneath),
     question_number=kwargs.question_number,
     message=kwargs.message
   %}
@@ -88,20 +88,20 @@
 {% macro radios(question_content, data, errors) -%}
   {%
     with
-    name=question_content.id,
-    id=question_content.id,
-    question=question_content.question,
-    optional=question_content.optional,
-    question_advice=question_content.question_advice,
-    hint=question_content.hint,
-    options=question_content.options,
-    value=data[question_content.id],
-    error=errors.get(question_content.id)['message'],
-    hidden=question_content.hidden,
-    followup=question_content.values_followup,
-    type='radio',
-    inline=question_content.inline,
-    hint_underneath=question_content.hint_underneath,
+    name=kwargs.get("name", question_content.id),
+    id=kwargs.get("id", question_content.id),
+    question=kwargs.get("question", question_content.question),
+    optional=kwargs.get("optional", question_content.optional),
+    question_advice=kwargs.get("question_advice", question_content.question_advice),
+    hint=kwargs.get("hint", question_content.hint),
+    options=kwargs.get("options", question_content.options),
+    value=kwargs.get("value", data[question_content.id]),
+    error=kwargs.get("error", errors.get(question_content.id)['message']),
+    hidden=kwargs.get("hidden", question_content.hidden),
+    followup=kwargs.get("followup", question_content.values_followup),
+    type=kwargs.get("type", 'radio'),
+    inline=kwargs.get("inline", question_content.inline),
+    hint_underneath=kwargs.get("hint_underneath", question_content.hint_underneath),
     question_number=kwargs.question_number,
     message=kwargs.message
   %}
@@ -112,18 +112,18 @@
 {% macro boolean(question_content, data, errors) -%}
   {%
     with
-    name=question_content.id,
-    id=question_content.id,
-    question=question_content.question,
-    optional=question_content.optional,
-    question_advice=question_content.question_advice,
-    hint=question_content.hint,
-    value=data[question_content.id],
-    error=errors.get(question_content.id)['message'],
-    hidden=question_content.hidden,
-    followup=question_content.values_followup,
-    type='boolean',
-    hint_underneath=question_content.hint_underneath,
+    name=kwargs.get("name", question_content.id),
+    id=kwargs.get("id", question_content.id),
+    question=kwargs.get("question", question_content.question),
+    optional=kwargs.get("optional", question_content.optional),
+    question_advice=kwargs.get("question_advice", question_content.question_advice),
+    hint=kwargs.get("hint", question_content.hint),
+    value=kwargs.get("value", data[question_content.id]),
+    error=kwargs.get("error", errors.get(question_content.id)['message']),
+    hidden=kwargs.get("hidden", question_content.hidden),
+    followup=kwargs.get("followup", question_content.values_followup),
+    type=kwargs.get("type", 'boolean'),
+    hint_underneath=kwargs.get("hint_underneath", question_content.hint_underneath),
     question_number=kwargs.question_number,
     message=kwargs.message
   %}
@@ -134,16 +134,16 @@
 {% macro checkbox_tree(question_content, data, errors) -%}
   {%
     with
-    name=question_content.id,
-    id=question_content.id,
-    question=question_content.question,
-    question_advice=question_content.question_advice,
-    hint=question_content.hint,
-    options=question_content.options,
-    value=data[question_content.id],
-    error=errors.get(question_content.id)['message'],
-    type='checkbox_tree',
-    number_of_items=question_content.number_of_items,
+    name=kwargs.get("name", question_content.id),
+    id=kwargs.get("id", question_content.id),
+    question=kwargs.get("question", question_content.question),
+    question_advice=kwargs.get("question_advice", question_content.question_advice),
+    hint=kwargs.get("hint", question_content.hint),
+    options=kwargs.get("options", question_content.options),
+    value=kwargs.get("value", data[question_content.id]),
+    error=kwargs.get("error", errors.get(question_content.id)['message']),
+    type=kwargs.get("type", 'checkbox_tree'),
+    number_of_items=kwargs.get("number_of_items", question_content.number_of_items),
     question_number=kwargs.question_number
   %}
     {% include "toolkit/forms/checkbox-tree.html" %}
@@ -154,20 +154,20 @@
 {% macro pricing(question_content, data, errors) -%}
   {%
     with
-    name=question_content.id,
-    question=question_content.question,
-    optional=question_content.optional,
-    question_advice=question_content.question_advice,
-    hint=question_content.hint,
-    error=errors.get(question_content.id)['message'],
-    fields=question_content.fields,
-    optional_fields=question_content.optional_fields,
-    price=data.get(question_content.fields.price),
-    hours_for_price=data.get(question_content.fields.hours_for_price),
-    minimum_price=data.get(question_content.fields.minimum_price),
-    maximum_price=data.get(question_content.fields.maximum_price),
-    price_unit=data.get(question_content.fields.price_unit),
-    price_interval=data.get(question_content.fields.price_interval),
+    name=kwargs.get("name", question_content.id),
+    question=kwargs.get("question", question_content.question),
+    optional=kwargs.get("optional", question_content.optional),
+    question_advice=kwargs.get("question_advice", question_content.question_advice),
+    hint=kwargs.get("hint", question_content.hint),
+    error=kwargs.get("error", errors.get(question_content.id)['message']),
+    fields=kwargs.get("fields", question_content.fields),
+    optional_fields=kwargs.get("optional_fields", question_content.optional_fields),
+    price=kwargs.get("price", data.get(question_content.fields.price)),
+    hours_for_price=kwargs.get("hours_for_price", data.get(question_content.fields.hours_for_price)),
+    minimum_price=kwargs.get("minimum_price", data.get(question_content.fields.minimum_price)),
+    maximum_price=kwargs.get("maximum_price", data.get(question_content.fields.maximum_price)),
+    price_unit=kwargs.get("price_unit", data.get(question_content.fields.price_unit)),
+    price_interval=kwargs.get("price_interval", data.get(question_content.fields.price_interval)),
     question_number=kwargs.question_number,
     message=kwargs.message
   %}
@@ -178,14 +178,14 @@
 {% macro date(question_content, data, errors) -%}
   {%
     with
-    name=question_content.id,
-    question=question_content.question,
-    optional=question_content.optional,
-    question_advice=question_content.question_advice,
-    hint=question_content.hint,
-    data=data,
-    error=errors.get(question_content.id)['message'],
-    hidden=question_content.hidden,
+    name=kwargs.get("name", question_content.id),
+    question=kwargs.get("question", question_content.question),
+    optional=kwargs.get("optional", question_content.optional),
+    question_advice=kwargs.get("question_advice", question_content.question_advice),
+    hint=kwargs.get("hint", question_content.hint),
+    data=kwargs.get("data", data),
+    error=kwargs.get("error", errors.get(question_content.id)['message']),
+    hidden=kwargs.get("hidden", question_content.hidden),
     question_number=kwargs.question_number,
     message=kwargs.message
   %}
@@ -196,14 +196,14 @@
 {% macro upload(question_content, data, errors) -%}
   {%
     with
-    name=question_content.id,
-    question=question_content.question,
-    optional=question_content.optional,
-    question_advice=question_content.question_advice,
-    hint=question_content.hint,
-    value="Document uploaded {}".format(data[question_content.id]) if data[question_content.id] else None,
-    error=errors.get(question_content.id)['message'],
-    link=question_content.link,
+    name=kwargs.get("name", question_content.id),
+    question=kwargs.get("question", question_content.question),
+    optional=kwargs.get("optional", question_content.optional),
+    question_advice=kwargs.get("question_advice", question_content.question_advice),
+    hint=kwargs.get("hint", question_content.hint),
+    value=kwargs.get("value", "Document uploaded {}".format(data[question_content.id]) if data[question_content.id] else None),
+    error=kwargs.get("error", errors.get(question_content.id)['message']),
+    link=kwargs.get("link", question_content.link),
     question_number=kwargs.question_number,
     message=kwargs.message
   %}
@@ -214,18 +214,18 @@
 {% macro number(question_content, data, errors) -%}
   {%
     with
-    name=question_content.id,
-    question=question_content.question,
-    optional=question_content.optional,
-    question_advice=question_content.question_advice,
-    hint=question_content.hint,
-    value=data[question_content.id],
-    error=errors.get(question_content.id)['message'],
-    hidden=question_content.hidden,
-    unit_in_full=question_content.unit_in_full,
-    unit_position=question_content.unit_position,
-    unit=question_content.unit,
-    smaller=True,
+    name=kwargs.get("name", question_content.id),
+    question=kwargs.get("question", question_content.question),
+    optional=kwargs.get("optional", question_content.optional),
+    question_advice=kwargs.get("question_advice", question_content.question_advice),
+    hint=kwargs.get("hint", question_content.hint),
+    value=kwargs.get("value", data[question_content.id]),
+    error=kwargs.get("error", errors.get(question_content.id)['message']),
+    hidden=kwargs.get("hidden", question_content.hidden),
+    unit_in_full=kwargs.get("unit_in_full", question_content.unit_in_full),
+    unit_position=kwargs.get("unit_position", question_content.unit_position),
+    unit=kwargs.get("unit", question_content.unit),
+    smaller=kwargs.get("smaller", True),
     question_number=kwargs.question_number,
     message=kwargs.message
   %}
