@@ -135,6 +135,7 @@
   {%
     with
     error=kwargs.get("error", errors.get(question_content.id)['message']),
+    hidden=kwargs.get("hidden", question_content.hidden),
     hint=kwargs.get("hint", question_content.hint),
     id=kwargs.get("id", question_content.id),
     name=kwargs.get("name", question_content.id),
