@@ -3,6 +3,7 @@
     <div class="report-a-problem-content">
       <h2>Help us improve the Digital Marketplace</h2>
       <form autocomplete="off" action="/feedback" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <input id="uri" name="uri" type="hidden" value="{{ request.url }}">
 
         <p>Please do not include personal details or sensitive information about your organisation or department.</p>
