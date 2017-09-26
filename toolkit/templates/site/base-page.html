@@ -1,0 +1,49 @@
+{% extends "govuk/govuk_template.html" %}
+
+{% block head %}
+  {% include "toolkit/site/stylesheets.html" %}
+{% endblock %}
+
+{% block cookie_message %}
+  {% include "toolkit/site/cookie-message.html" %}
+{% endblock %}
+
+{% block header_class %}with-proposition{% endblock %}
+
+{% block proposition_header %}
+  {% include "toolkit/proposition-header.html" %}
+{% endblock %}
+
+{% block content %}
+    {% block top_header %}
+    {% endblock %}
+{% block phase_banner %}
+  {% include "toolkit/phase-banner.html" %}
+{% endblock %}
+  {% block breadcrumb %}{% endblock %}
+  <div id="wrapper">
+    <main id="content" role="main">
+      {% include "toolkit/site/flash-messages.html" %}
+      {% block main_content %}
+      {% endblock %}
+    </main>
+  </div>
+  {% include "toolkit/site/report-a-problem.html" %}
+{% endblock %}
+
+{% block footer_top %}
+  {% include "toolkit/site/footer-categories.html" %}
+{% endblock %}
+
+{% block footer_support_links %}
+    <h2 class="visuallyhidden">Support links</h2>
+    <ul>
+        <li><a href="/terms-and-conditions" class="terms-and-conditions">Terms and conditions</a></li>
+        <li><a href="/cookies">Cookies</a></li>
+        <li>Built by the <a href="https://www.gov.uk/government/organisations/government-digital-service">Government Digital Service</a></li>
+    </ul>
+{% endblock %}
+
+{% block body_end %}
+  {% include "toolkit/site/javascripts.html" %}
+{% endblock %}
