@@ -2,6 +2,40 @@
 
 Records breaking changes from major version bumps
 
+## 25.0.0
+
+PR: [#378](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/378)
+
+### What changed
+
+The changes in this version are technically not breaking, but are nonetheless significant enough that tracking
+them as a major change seems worthwhile.
+
+Common templates from the frontend applications, such as "base-page.html", move into the frontend toolkit:
+
+- site-wide templates, that we expect to use only once per application, are in the new 'site' directory;
+- templates in that directory cannot currently be made available via the online styleguide (as built by the 'pages
+  builder' included in this module), therefore in practice some templates such as the log-in banner "proposition header"
+  are used only once but do not qualify to be moved into the 'site' directory;
+- flash message display is included in the shared base template, which means that moving to use that template is a
+  breaking change for frontend applications, if they already display flash messages on specific pages.
+
+### Example app change
+
+- replace the app's existing _base_page.html, or alternatively replace existing templates' "extends" tags, with
+  the following:
+```
+{% extends "toolkit/site/base-page.html" %}
+```
+
+- ensure that `application.sccs` and `application.js` include the site-wide CSS and JS respectively:
+```diff
++@import "toolkit/site.scss";
+```
+```diff
++//= include ../../../bower_components/digitalmarketplace-frontend-toolkit/toolkit/javascripts/site.js
+```
+
 ## 24.0.0
 
 PR: [#367](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/367)
