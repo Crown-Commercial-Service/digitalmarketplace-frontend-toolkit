@@ -82,20 +82,20 @@ class Styleguide_publisher(object):
 
     def render_pages(self):
 
-        print "\nCREATING PAGES from " + self.pages_dirname + " \n"
+        print("\nCREATING PAGES from " + self.pages_dirname + " \n")
 
         if os.path.isdir(self.output_dirname) is False:
-            print "★ Creating " + self.output_dirname
+            print("★ Creating " + self.output_dirname)
             os.mkdir(self.output_dirname)
 
         for root, dirs, files in os.walk(self.pages_dirname):
             for dir in dirs:
                 output_dir = self.__get_output_dir(dir)
                 if os.path.isdir(output_dir) is False:
-                    print "★ Creating " + output_dir
+                    print("★ Creating " + output_dir)
                     os.mkdir(output_dir)
                 else:
-                    print "✔ Found " + output_dir
+                    print("✔ Found " + output_dir)
 
             for file in files:
                 if self.__is_yaml(file):
@@ -231,17 +231,17 @@ class Styleguide_publisher(object):
             }
         )
         page_render = pystache.render(self.template_view, partial)
-        print "\n  " + input_file
-        print "▸ " + output_file
+        print("\n  " + input_file)
+        print("▸ " + output_file)
         open(output_file, "w+").write(page_render.encode('utf-8'))
 
     def compile_assets(self, folder):
-        print "\nCOMPILING ASSETS from " + folder + "\n"
+        print("\nCOMPILING ASSETS from " + folder + "\n")
         self.asset_compiler.compile(folder)
 
     def copy_javascripts(self):
-        print "\nCOPYING JAVASCRIPTSn"
-        print "Created files:\n\n"
+        print("\nCOPYING JAVASCRIPTSn")
+        print("Created files:\n\n")
         copied_scripts = []
         copied_scripts += dir_util.copy_tree("toolkit/javascripts", "pages/public/javascripts")
         copied_scripts += dir_util.copy_tree(
@@ -251,13 +251,13 @@ class Styleguide_publisher(object):
             "node_modules/govuk_frontend_toolkit/javascripts",
             "pages/public/javascripts/govuk_frontend_toolkit/"
         )
-        print "\n".join(copied_scripts)
-        print "★ Done"
+        print("\n".join(copied_scripts))
+        print("★ Done")
 
     def copy_images(self):
-        print "\nCOPYING IMAGES\n"
+        print("\nCOPYING IMAGES\n")
         dir_util.copy_tree("toolkit/images", "pages/public/images")
-        print "★ Done"
+        print("★ Done")
 
     def __get_output_dir(self, directory):
         return os.path.join(self.output_dirname, directory)

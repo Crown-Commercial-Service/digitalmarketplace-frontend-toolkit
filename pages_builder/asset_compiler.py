@@ -28,9 +28,9 @@ class AssetCompiler(object):
         dest_path_abs = os.path.join(self.sass_dest_root, file)
         dest_path_abs = self.__change_extension_to(dest_path_abs, "css")
         result = sass.compile(**sass_options)
-        print "    " + sass_options["filename"]
-        print "▸ " + dest_path_abs
-        print ""
+        print("    " + sass_options["filename"])
+        print("▸ " + dest_path_abs)
+        print("")
         with codecs.open(dest_path_abs, "w+", "utf-8") as file:
             file.write(result)
 
@@ -39,12 +39,12 @@ class AssetCompiler(object):
             for dir in dirs:
                 dest_dir = os.path.join(self.sass_dest_root, dir)
                 if os.path.isdir(dest_dir) is False:
-                    print "★ Creating " + dest_dir
+                    print("★ Creating " + dest_dir)
                     os.mkdir(dest_dir)
                 else:
-                    print "✔ Found " + dest_dir
+                    print("✔ Found " + dest_dir)
 
-            print ""
+            print("")
 
             for file in files:
                 if self.__get_filename_parts(file)["extension"] == ".scss":
