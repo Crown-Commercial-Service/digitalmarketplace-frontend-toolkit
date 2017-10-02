@@ -19,7 +19,7 @@ from pygments.formatters import HtmlFormatter
 # preserve key order when parsing YAML – http://stackoverflow.com/a/21048064/147318
 
 def dict_representer(dumper, data):
-    return dumper.represent_dict(data.iteritems())
+    return dumper.represent_dict(data.items())
 
 
 def dict_constructor(loader, node):
@@ -119,7 +119,7 @@ class Styleguide_publisher(object):
 
         presented_parameters = {
             key: json.dumps(value, indent=4)
-            for key, value in parameters.iteritems()
+            for key, value in parameters.items()
         }
 
         return parameters_template.render(
