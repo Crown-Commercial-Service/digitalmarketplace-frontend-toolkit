@@ -233,7 +233,7 @@ class Styleguide_publisher(object):
         page_render = pystache.render(self.template_view, partial)
         print("\n  " + input_file)
         print("▸ " + output_file)
-        open(output_file, "w+").write(page_render.encode('utf-8'))
+        open(output_file, "wb+").write(page_render.encode('utf-8'))
 
     def compile_assets(self, folder):
         print("\nCOMPILING ASSETS from " + folder + "\n")

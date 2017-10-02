@@ -33,7 +33,7 @@ class TemplateHandler(object):
     print("Downloading the latest govuk_template (" + self.latest_release + ")")
     temp_tarball_filename = os.path.join(temp_dir, self.latest_release_filename)
     response = requests.get(self.latest_release_url)
-    open(temp_tarball_filename, "w").write(response.content)
+    open(temp_tarball_filename, "wb").write(response.content)
 
   def extract_archive(self, temp_dir):
    print("Extracting govuk_template " + self.latest_release + " from tarball")
