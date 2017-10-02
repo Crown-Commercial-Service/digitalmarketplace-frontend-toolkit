@@ -1,7 +1,6 @@
 import sys
-from SimpleHTTPServer import SimpleHTTPRequestHandler
-from SocketServer import ThreadingMixIn
-from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
+from http.server import SimpleHTTPRequestHandler, HTTPServer, BaseHTTPRequestHandler
+from socketserver import ThreadingMixIn
 
 
 PORT = 8000
