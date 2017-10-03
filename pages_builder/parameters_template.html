@@ -1,7 +1,7 @@
 {{ '
 {%
   with' }}
-{%- for key, value in parameters.iteritems() %}
+{%- for key, value in parameters.items() %}
   {{ key }} = {{ value }}{% if not loop.last %},{% endif %}
 {%- endfor %}
 {{ '%}' }}

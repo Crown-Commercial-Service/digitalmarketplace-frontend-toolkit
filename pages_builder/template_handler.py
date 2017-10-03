@@ -30,13 +30,13 @@ class TemplateHandler(object):
     return self.template_dir
 
   def download_archive(self, temp_dir):
-    print "Downloading the latest govuk_template (" + self.latest_release + ")"
+    print("Downloading the latest govuk_template (" + self.latest_release + ")")
     temp_tarball_filename = os.path.join(temp_dir, self.latest_release_filename)
     response = requests.get(self.latest_release_url)
-    open(temp_tarball_filename, "w").write(response.content)
+    open(temp_tarball_filename, "wb").write(response.content)
 
   def extract_archive(self, temp_dir):
-   print "Extracting govuk_template " + self.latest_release + " from tarball"
+   print("Extracting govuk_template " + self.latest_release + " from tarball")
    tarball = os.path.join(temp_dir, self.latest_release_filename)
    tar_obj = tarfile.open(tarball, "r:gz")
    tar_obj.extractall(temp_dir)
@@ -52,7 +52,7 @@ class TemplateHandler(object):
    template_dir = os.path.join(self.repo_root, self.template_dir)
    template_release_dir = os.path.join(temp_dir, self.latest_release_dirname)
 
-   print "Saving the release to the 'govuk_template' dir"
+   print("Saving the release to the 'govuk_template' dir")
    shutil.copytree(template_release_dir, template_dir)
 
   def clean_up(self, temp_dir):
