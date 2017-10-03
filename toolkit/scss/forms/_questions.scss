@@ -33,10 +33,10 @@
   padding-top: 0;
 
   p {
-    margin-top: 10px;
+    margin-bottom: 10px;
 
-    &:first-child {
-      margin-top: 0;
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }
