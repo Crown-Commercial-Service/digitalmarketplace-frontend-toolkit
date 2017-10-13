@@ -1,16 +1,16 @@
 <ul class='document-list'>
   {% for item in items %}
     <li class='document-list-item'>
-      {% if item.file_type %}
-        <a href="{{ item.link }}" class='document-link-with-icon' {% if item.download %}download {% endif %}>
-          <span class='document-icon'>{{ item.file_type }}<span> document:</span></span>
+        <a href="{{ item.link }}" class='document-link{% if item.file_type %}-with-icon{% endif %}' 
+          {% if item.download %}download {% endif %}
+          {% if item.analytics %}data-analytics="{{ item.analytics }}" {% endif %}
+          {% if item.analytics_category %}data-analytics-category="{{ item.analytics_category }}" {% endif %}
+          {% if item.analytics_action %}data-analytics-action="{{ item.analytics_action }}" {% endif %}
+          {% if item.analytics_label %}data-analytics-label="{{ item.analytics_label }}" {% endif %}
+        >
+          {% if item.file_type %}<span class='document-icon'>{{ item.file_type }}<span> document:</span></span>{% endif %}
           {{ item.title }}
         </a>
-      {% else %}
-        <a href="{{ item.link }}" class='document-link'>
-          {{ item.title }}
-        </a>
-      {% endif %}
     </li>
   {% endfor %}
 </ul>
