@@ -11,9 +11,19 @@ examples:
     type: success
     message: '<a href="#">With a link</a> and some plain text.'
   -
+    title: Success banner
+    type: success
+    heading: You've successfully updated this
+    content: <p>You can now:</p><ul><li>look upon your work with pride</li><li>carry on with something else</li></ul>
+  -
     title: Warning banner
     type: warning
     message: '<a href="#">With a link</a> and some plain text but without an action.'
+  -
+    title: Warning banner
+    type: warning
+    heading: Caution advised
+    content: <p>This page contains:</p><ul><li>important information you need to know before proceeding</li><li>read the page to find out more</li></ul>
   -
     title: Destructive banner
     type: destructive
@@ -27,11 +37,22 @@ examples:
   -
     title: Destructive banner
     type: destructive
+    heading: Are you sure?
+    content: <p>You should only do this if:</p><ul><li>you know what you're doing</li><li>it actually makes sense</li></ul><p>If all that's done, then go ahead.</p>
+    action: '<button class="button-destructive banner-action">Action button</button>'
+  -
+    title: Destructive banner
+    type: destructive
     message: <a href="#">With a link</a> and some plain text but without an action.
   -
     title: Informational banner
     type: information
     message: This text provides some information about what you can see on the page.
+  -
+    title: Informational banner
+    type: information
+    heading: Some information about this page
+    content: <p>This page contains:</p><ul><li>information you need to know</li><li>read the page to find out more</li></ul>
   -
     title: Temporary message banner
     type: temporary-message
@@ -39,3 +60,10 @@ examples:
             Cloud Supplier Limited stopped providing this service on
             Thursday 31 December 2015.
     message: Any existing contracts for this service remain valid. <a href="#">Here’s a blog post about it</a>, which you should definitely read if you are at all perturbed by this shouty blue box.
+  -
+    title: Temporary message banner
+    type: temporary-message
+    heading: >
+            Cloud Supplier Limited stopped providing this service on
+            Thursday 31 December 2015.
+    content: <p>Any existing contracts for this service remain valid. </p><ul><li><a href="#">Here’s a blog post about it</a></li><li>read the page to find out more if you are at all perturbed by this shouty blue box.</li></ul>
