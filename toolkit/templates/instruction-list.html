@@ -64,20 +64,36 @@
             {% endwith %}
           {% endfor %}
         {% endif %}
+        {% if item.custom_body_list %}
+          {% for custom_body in item.custom_body_list %}
+            {% if custom_body.type == 'text' %}
+                <p class="instruction-list-item-top{% for class in custom_body.class %} {{ class }}{% endfor %}">{{ custom_body.text|safe }}</p>
+            {% elif custom_body.type == 'action' %}
+                <a class="instruction-list-item-action button-save" href="{{ custom_body.href }}" 
+                {% if custom_body.analytics %}data-analytics="{{ custom_body.analytics }}" {% endif %} 
+                {% if custom_body.analytics_category %}data-analytics-category="{{ custom_body.analytics_category }}" {% endif %} 
+                {% if custom_body.analytics_action %}data-analytics-action="{{ custom_body.analytics_action}}" {% endif %} 
+                {% if custom_body.analytics_label %}data-analytics-label="{{ custom_body.analytics_label }}" {% endif %}
+                >{{ custom_body.label }}</a>
+            {% elif custom_body.type == 'box' %}
+                <p class="instruction-list-item-box {{ custom_body.style }}">{{ custom_body.label }}</p>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
         {% if item.bottom %}
-            <p class="instruction-list-item-bottom">
-              {{ item.bottom }}
-            </p>
+          <p class="instruction-list-item-bottom">
+            {{ item.bottom }}
+          </p>
         {% endif %}
         {% if item.important %}
-        <div class="notice">
-          <i class="icon icon-important">
-            <span class="visually-hidden">Warning</span>
-          </i>
-          <strong class="bold-small">
-            {{ item.important }}
-          </strong>
-        </div>
+          <div class="notice">
+            <i class="icon icon-important">
+              <span class="visually-hidden">Warning</span>
+            </i>
+            <strong class="bold-small">
+              {{ item.important }}
+            </strong>
+          </div>
         {% endif %}
       </li>
     {% endfor %}
