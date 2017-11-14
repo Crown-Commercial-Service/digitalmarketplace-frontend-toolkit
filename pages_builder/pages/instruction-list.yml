@@ -78,4 +78,47 @@ examples:
         body: Read your signed signature page and details of the person who signed it.
         bottom: |
           <a href="http://example.com"><strong>Return your signed signature page</strong></a>
-
+  -
+    verbose: True
+    items:
+      -
+        body: Write a list of your requirements
+        custom_body_list:
+          -
+            type: 'text'
+            text: |
+              Work with buyers, someone who will use the service and technical experts to prepare a list of ‘must-haves’ and ‘wants’. These should inform your search category, keywords and filters.
+          - 
+            type: 'text'
+            text: |
+              You can also <a href="https://www.gov.uk/guidance/talking-to-suppliers-before-you-buy-digital-marketplace-services" target="_blank" rel="external noopener noreferrer" data-analytics="trackEvent" data-analytics-category="Direct Award" data-analytics-action="External Link">talk to suppliers before you start</a> to help you refine your requirements.
+      -
+        body: Save your search
+        custom_body_list:
+          -
+            type: 'text'
+            text: |
+              <span class="search-summary-count">1</span> result found containing <em>test</em> in <em>Cloud software</em>
+          -
+            type: 'text'
+            text: |
+              <a href="#">View Results</a>
+          -
+            type: 'box'
+            style: style
+            label: Search saved on Tuesday 17 October 2017 at 9:18am GMT
+      -
+        body: End your search
+        custom_body_list:
+          -
+            type: 'text'
+            text: |
+              End your search to create a spreadsheet of the services you’ve found. You should only do this when you have finished searching for services.
+          - 
+            type: 'action'
+            href: '/g-cloud/search/?q=test'
+            label: 'End Search'
+            analytics: trackEvent
+            analytics_category: testCategory
+            analytics_action: testAction
+            analytics_label: testLabel
