@@ -2,6 +2,15 @@
 
 Records breaking changes from major version bumps
 
+## 25.0.0
+
+PR: [#388](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/388)
+
+### What changed
+
+- 'notification-banner' template macro now takes `banner-content` instead of `content` to avoid clashing with
+   a commonly used context variable of the same name.
+
 ## 24.0.0
 
 PR: [#367](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/367)
