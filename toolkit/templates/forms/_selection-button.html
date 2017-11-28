@@ -1,14 +1,14 @@
 {% if type in ["boolean", "radio"] %}
   {% set is_selected = (input_value == value) %}
 {% else %}
-  {% set is_selected = (value and (input_value in value)) %}
+  {% set is_selected = (input_value and (input_value in value)) %}
 {% endif %}
-<div class="multiple-choice"{% if input_value in followup %} data-target="{{ followup[input_value] | join(' ') }}"{% endif %}>
+<div class="multiple-choice"{% if value in followup %} data-target="{{ followup[value] | join(' ') }}"{% endif %}>
   <input
     type="{{ input_type }}"
     name="{{ name }}"
     id="{{ id }}"
-    value="{{ input_value }}"
+    value="{{ value }}"
     {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
     {% if is_selected %}checked="checked"{% endif %}
   />

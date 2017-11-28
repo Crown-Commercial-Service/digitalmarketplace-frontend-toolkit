@@ -67,7 +67,8 @@
         {% for option in options %}
           {%
             with
-            input_value = option.value if 'value' in option else option.label,
+            value = option.value if 'value' in option else option.label,
+            input_value = option.input_value if 'input_value' in option else false,
             id="input-{}-{}".format(id, loop.index) if id else "input-{}-{}".format(name, loop.index)
           %}
             {% include 'toolkit/forms/_selection-button.html' %}

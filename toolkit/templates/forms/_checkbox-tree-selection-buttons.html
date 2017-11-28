@@ -27,7 +27,8 @@
             {% for option in parent_category.options %}
               {%
                 with
-                input_value = option.value if 'value' in option else option.label,
+                value = option.value if 'value' in option else option.label,
+                input_value = option.input_value if 'input_value' in option else false,
                 id="input-{}-{}".format(id_prefix, loop.index),
                 input_type="checkbox",
                 question_advice=None,
@@ -45,7 +46,8 @@
       {% set option = parent_category %}
       {%
         with
-        input_value = option.value if 'value' in option else option.label,
+        value = option.value if 'value' in option else option.label,
+        input_value = option.input_value if 'input_value' in option else false,
         id="input-{}-{}".format(id_prefix, loop.index),
         input_type="checkbox",
         question_advice=None,
