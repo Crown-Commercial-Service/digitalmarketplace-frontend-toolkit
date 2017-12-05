@@ -2,7 +2,7 @@
   <div class="container-head js-container-head">
     <div class="option-select-label">{{ label }}</div>
   </div>
-  <div class="options-container" id="{{ options_container_id }}">
+  <div class="options-container" id="{{ options_container_id }}" {% if framework_family %}data-framework="{{ framework_family }}"{% endif %} {% if current_lot %}data-current-lot="{{ current_lot.slug }}"{% endif %}>
     <div class="js-auto-height-inner">
       {% for option in options %}
         <label for="{{ option.id }}">
