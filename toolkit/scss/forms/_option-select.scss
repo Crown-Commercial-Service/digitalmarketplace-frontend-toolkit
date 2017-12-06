@@ -46,9 +46,6 @@
     background-color: $page-colour;
     overflow-y: scroll;
     overflow-x: hidden;
-    @include media(desktop){
-      max-height: 200px;
-    }
 
     label {
       @include inline-block;
