@@ -2,6 +2,14 @@
 
 Records breaking changes from major version bumps
 
+## 26.0.0
+
+PR: [#391](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/391)
+
+### What changed
+
+- 'link-button' removed and so apps will no longer be able to import those files that have been deleted
+
 ## 25.0.0
 
 PR: [#388](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/388)
