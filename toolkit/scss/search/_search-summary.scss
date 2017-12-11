@@ -2,28 +2,24 @@
 @import "_measurements.scss";
 
 .search-summary {
-  @include core-14;
-
-  @include media(tablet) {
-    @include core-16;
-  }
-
+  @include core-19;
   strong {
     font-weight: bold;
   }
 }
 
-.search-results-page .search-summary .search-summary-count {
-  @include bold-48;
-  padding-right: 6px;
+.search-results-page .search-summary, .search-suggestion{
+  border-bottom: 1px solid $border-colour;
+  padding: 0 0 $gutter-one-third;
+  margin-bottom: $gutter-half;
+}
 
-  @include media(tablet) {
-    padding-right: 10px;
-  }
+.search-summary .search-summary-count {
+  @include bold-19;
 }
 
 .search-suggestion {
-  @include core-14;
+  @include core-16;
 
   @include media(tablet) {
     @include core-16;
