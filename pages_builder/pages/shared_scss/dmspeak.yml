@@ -4,6 +4,12 @@ grid: column-two-thirds
 examples_html_only: true
 examples:
   - |
+    <h2><code>.dmspeak .heading-large</code></h2>
+    <br />
+    <div class="dmspeak">
+      <h2 class="heading-large">User support</h2>
+    </div>
+  - |
     <h2><code>.dmspeak .heading-xmedium</code></h2>
     <br />
     <div class="dmspeak">
