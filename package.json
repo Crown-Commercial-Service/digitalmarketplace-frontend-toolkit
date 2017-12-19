@@ -3,13 +3,13 @@
   "description": "Front end application for Digital Marketplace suppliers",
   "version": "0.0.1",
   "private": true,
-  "engine": "node >= 0.10.0",
+  "engine": "node == 6.10.3",
   "dependencies": {
     "del": "^2.2.2",
     "govuk_frontend_toolkit": "5.0.3",
     "govuk-elements-sass": "3.0.3",
-    "gulp": "3.8.7",
-    "gulp-jasmine-phantom": "2.0.1",
+    "gulp": "3.8.11",
+    "gulp-jasmine-phantom": "3.0.0",
     "jasmine-core": "2.6.4"
   },
   "scripts": {
