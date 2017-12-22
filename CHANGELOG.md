@@ -2,6 +2,14 @@
 
 Records breaking changes from major version bumps
 
+## 27.0.0
+
+PR: [#395](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/395)
+
+### What changed
+
+- Updates some of our javascript dependencies and node to the same version we have in production.
+
 ## 26.0.0
 
 PR: [#391](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/391)
