@@ -4,7 +4,13 @@
       {{ context }}
     </p>
   {%- endif -%}
-  <h1>
-    {{ heading }}
-  </h1>
+  {%- if heading_level == '2' -%}
+    <h2>
+      {{ heading }}
+    </h2>
+  {%- else -%}
+    <h1>
+      {{ heading }}
+    </h1>
+  {%- endif -%}
 </header>

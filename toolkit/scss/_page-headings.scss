@@ -20,6 +20,10 @@
   h1 {
     @include bold-48;
   }
+
+  h2 {
+    @include bold-36;
+  }
 }
 
 .page-heading-no-breadcrumb {
