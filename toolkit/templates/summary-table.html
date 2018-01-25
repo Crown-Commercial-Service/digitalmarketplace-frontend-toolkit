@@ -160,7 +160,7 @@
     {% if text and action -%}
       <form method="post" action="{{ action }}">
         <input type="hidden" name="csrf_token" value="{{ csrf_token_value or csrf_token() }}" />
-        <button type="submit" class="button-secondary">{{ text }}</button>
+        <button type="submit" class="button-secondary"{% if aria_controls %} aria-controls="{{ aria_controls }}"{% endif %}>{{ text }}</button>
       </form>
     {%- endif %}
   {%- endcall %}

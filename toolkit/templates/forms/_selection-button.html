@@ -9,6 +9,7 @@
     name="{{ name }}"
     id="{{ id }}"
     value="{{ input_value }}"
+    {% if aria_controls %}aria-controls="{{ aria_controls }}"{% endif %}
     {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
     {% if is_selected %}checked="checked"{% endif %}
   />

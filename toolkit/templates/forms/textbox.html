@@ -89,6 +89,7 @@
         id="input-{{ name }}"
         class="text-box{% if unit %}-with-unit-{{ unit_position }}{% endif %}{% if error %}-with-error{% endif %}{% if smaller %} text-box-smaller{% endif %}"
         value="{% if value !=  None %}{{ value }}{% endif %}"
+        {% if aria_controls %}aria-controls="{{ aria_controls }}"{% endif %}
         {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
       />
       {% if unit_position == "after" %}
