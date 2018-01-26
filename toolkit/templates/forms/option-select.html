@@ -6,7 +6,7 @@
     <div class="js-auto-height-inner">
       {% for option in options %}
         <label for="{{ option.id }}">
-          <input name="{{ option.name }}" value="{{ option.value }}" id="{{ option.id }}" type="checkbox" aria-controls=""{% if option.checked %} checked="checked"{% endif %}>
+          <input name="{{ option.name }}" value="{{ option.value }}" id="{{ option.id }}" type="checkbox"{% if aria_controls %} aria-controls="{{ aria_controls }}"{% endif %}{% if option.checked %} checked="checked"{% endif %}>
           {{ option.label }}
         </label>
       {% endfor %}

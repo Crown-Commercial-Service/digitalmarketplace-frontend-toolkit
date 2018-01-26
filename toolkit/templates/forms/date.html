@@ -74,6 +74,7 @@
             maxlength={{ field_length }}
             class="text-box {{ field_class }}"
             value="{% if name !=  None %}{{ data[field_name] }}{% endif %}"
+            {% if aria_controls %}aria-controls="{{ aria_controls }}"{% endif %}
             {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
           />
         </div>

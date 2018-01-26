@@ -1,1 +1,1 @@
-<input type="submit" class="button-{{ type }}{% if advice %}-with-advice{% endif %}" {% if name %}name="{{ name }}"{% endif %} value="{{ label }}" />
+<input type="submit" class="button-{{ type }}{% if advice %}-with-advice{% endif %}" {% if name %}name="{{ name }}"{% endif %}{% if aria_controls %} aria-controls="{{ aria_controls }}"{% endif %} value="{{ label }}" />
