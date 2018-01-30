@@ -29,3 +29,7 @@
     @include core-16;
   }
 }
+
+.search-summary-accessible-hint-wrapper {
+  @extend %visually-hidden;
+}
