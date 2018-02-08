@@ -44,9 +44,15 @@
   padding: 0;
 }
 
+%search-result-metadata-item,
 .search-result-metadata-item {
   list-style: none;
+  @include core-14;
+  color: $secondary-text-colour;
+}
+
+.search-result-metadata-item-inline {
+  @extend %search-result-metadata-item;
   @include inline-block;
   margin: 5px 10px 0 0;
-  @include core-14;
 }
