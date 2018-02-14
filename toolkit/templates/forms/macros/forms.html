@@ -322,7 +322,7 @@
   </fieldset>
 {%- endmacro %}
 
-{% macro question_input(name, question, value='', hint='', errors=None) -%}
+{% macro question_textbox(name, question, value='', hint='', errors=None) -%}
   {% with
     value=value or '',
     error=errors[0]
