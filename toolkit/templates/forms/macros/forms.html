@@ -321,3 +321,34 @@
     {% endfor %}
   </fieldset>
 {%- endmacro %}
+
+{% macro question_input(name, question, value='', hint='', errors=None) -%}
+  {% with
+    value=value or '',
+    error=errors[0]
+  %}
+    {% include "toolkit/forms/textbox.html" %}
+  {% endwith %}
+{%- endmacro %}
+
+{% macro input(name, value='', errors=None, type='text') -%}
+  {{ field_errors(name, errors) }}
+  <input type="{{ type }}" class="text-box" name="{{ name }}" id="{{ name }}-input" value="{{ value or '' }}" />
+{%- endmacro %}
+
+{% macro question_textarea(name, question, value='', hint='', errors=None, max_length_in_words=None) -%}
+  {% with
+    large=True,
+    error=errors[0]
+  %}
+    {% include "toolkit/forms/textbox.html" %}
+  {% endwith %}
+{%- endmacro %}
+
+{% macro field_errors(name, errors=None) -%}
+  {% if errors %}
+  <p class="validation-message" id="{{ name }}-errors">
+      {% for error in errors %}{{ error }}{% endfor %}
+  </p>
+  {% endif %}
+{%- endmacro %}
