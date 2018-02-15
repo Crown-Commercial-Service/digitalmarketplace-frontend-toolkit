@@ -2,6 +2,29 @@
 
 Records breaking changes from major version bumps
 
+## 28.0.0
+
+PR: [#397](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/397)
+
+### What changed
+
+- Changes existing header to product page style header.
+- Product page Github: https://github.com/alphagov/product-page-example
+- To get this working on a frontend application, do the following:
+  - in _base_page.html:
+    - Remove:
+      ```python
+        {% include "toolkit/phase-banner.html" %}
+      ```
+    - Add:
+      ```python
+        {% block inside_header %}
+          {% include "toolkit/inside-header.html" %}
+        {% endblock %}
+      ```
+  - Update the frontend toolkit to version 28.0.0
+  - Update the dmutils module to version 33.0.1 and above
+
 ## 27.0.0
 
 PR: [#395](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/395)

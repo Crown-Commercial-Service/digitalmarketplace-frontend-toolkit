@@ -17,3 +17,71 @@
 .logout-button:hover {
     text-decoration: underline;
 }
+
+#global-header.with-proposition {
+    .header-wrapper {
+        .header-global {
+            @media only screen and (min-width: 769px)  {
+                width: 60%;
+            }
+
+            .header-logo {
+                width: auto;
+            }
+
+            .header-title {
+                float: left;
+                font-family: $toolkit-font-stack;
+                font-weight: normal; 
+                padding-top: 7px;
+                font-size: 24px;
+
+                @media only screen and (max-width: 800px)  {
+                    padding-left: 15px;
+                }
+
+                @media only screen and (min-width: 473px) and (max-width: 769px)  {
+                    padding-left: 0px;
+                }
+
+                a {
+                    color: $white;
+                    text-decoration: none;
+                }
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .phase-tag {
+                margin-left: 10px;
+                margin-top: 4px;
+                vertical-align: top;
+            }
+        }
+
+        .header-proposition {
+            text-align: right;
+            
+            @media only screen and (min-width: 769px)  {
+                width: 40%;
+            }
+
+            #proposition-links {
+                float: right;
+
+                li {
+                    @media only screen and (max-width: 769px)  {
+                        text-align: left;
+                        width: 100%;
+                    }
+                }
+
+                @media only screen and (max-width: 769px)  {
+                    float: none;
+                }
+            }
+        }
+    }
+}
