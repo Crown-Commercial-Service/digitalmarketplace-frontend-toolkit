@@ -2,6 +2,7 @@ pageTitle: Page header
 assetPath: govuk_template/assets/
 examples:
   - |
+    {% macro url_for(mocked_link_for_documentation_only) %}#{% endmacro %}
     {% set csrf_token_value = 'token_set_for_documentation_only' %}
     <header role="banner" id="global-header" class="">
       <div class="header-wrapper">
@@ -17,6 +18,7 @@ examples:
     </header>
 
   - |
+    {% macro url_for(mocked_link_for_documentation_only) %}#{% endmacro %}
     {% set csrf_token_value = 'token_set_for_documentation_only' %}
     <header role="banner" id="global-header" class="">
       <div class="header-wrapper">
@@ -32,6 +34,7 @@ examples:
     </header>
 
   - |
+    {% macro url_for(mocked_link_for_documentation_only) %}#{% endmacro %}
     {% set csrf_token_value = 'token_set_for_documentation_only' %}
     <header role="banner" id="global-header" class="">
       <div class="header-wrapper">
@@ -47,6 +50,7 @@ examples:
     </header>
 
   - |
+    {% macro url_for(mocked_link_for_documentation_only) %}#{% endmacro %}
     {% set csrf_token_value = 'token_set_for_documentation_only' %}
     <header role="banner" id="global-header" class="">
       <div class="header-wrapper">
