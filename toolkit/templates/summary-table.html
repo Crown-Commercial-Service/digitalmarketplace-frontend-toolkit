@@ -9,14 +9,14 @@
   </h2>
 {%- endmacro %}
 
-{% macro top_link(label, top_link, analytics=None, analytics_category=None, analytics_action=None, analytics_label=None) -%}
+{% macro top_link(label, top_link, analytics=None, analytics_category=None, analytics_action=None, analytics_label=None, hidden_text=None) -%}
   <p class="summary-item-top-level-action">
     <a href="{{ top_link }}" class="summary-change-link"
       {% if analytics %}data-analytics="{{ analytics }}" {% endif %}
       {% if analytics_category %}data-analytics-category="{{ analytics_category }}" {% endif %}
       {% if analytics_action %}data-analytics-action="{{ analytics_action }}" {% endif %}
       {% if analytics_label %}data-analytics-label="{{ analytics_label }}" {% endif %}
-    >{{ label }}</a>
+    >{{ label }}{% if hidden_text %}<span class="visually-hidden"> {{ hidden_text }}</span>{% endif %}</a>
   </p>
 {%- endmacro %}
 
