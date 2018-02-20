@@ -53,14 +53,14 @@
       {{ locality }}
     </span>
     {% endif %}
-    {% if country %}
-    <span itemprop="addressCountry">
-      {{ country }}
-    </span>
-    {% endif %}
     {% if postcode %}
     <span itemprop="postalCode">
       {{ postcode }}
+    </span>
+    {% endif %}
+    {% if country %}
+    <span itemprop="addressCountry">
+      {{ country }}
     </span>
     {% endif %}
   </p>
