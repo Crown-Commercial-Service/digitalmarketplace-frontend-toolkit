@@ -318,7 +318,7 @@ examples:
   - |
     {% import "summary-table.html" as summary %}
     {{ summary.heading("Summary table with incomplete entry") }}
-    {{ summary.top_link("Edit", '#') }}
+    {{ summary.top_link("Edit", '#', hidden_text="extra text for screenreaders") }}
     {% call(item) summary.list_table(
       [
         ("Features", "Answer required"),
