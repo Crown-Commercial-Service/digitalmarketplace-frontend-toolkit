@@ -3,7 +3,7 @@
 {% else %}
   {% set is_selected = (value and (input_value in value)) %}
 {% endif %}
-<div class="multiple-choice"{% if input_value in followup %} data-target="{{ followup[input_value] | join(' ') }}"{% endif %}>
+<div class="multiple-choice"{% if input_value in followup %} data-target="{{ followup[input_value] | join(' ') }}"{% elif option.reveal %} data-target="{{ option.reveal['name'] }}-target"{% endif %}>
   <input
     type="{{ input_type }}"
     name="{{ name }}"
@@ -22,3 +22,23 @@
     {% endif %}
   </label>
 </div>
+
+{% if option.reveal %}
+  {% set reveal_question = option.reveal['question']%}
+  {% set reveal_name = option.reveal['name'] %}
+  {% set reveal_value = option.reveal['value'] %}
+  {% set reveal_error = option.reveal['error'] %}
+  <div class="panel {% if reveal_error %} form-group-error{% endif %} panel-border-narrow js-hidden" id="{{ reveal_name }}-target">
+    <label class="form-label" for="{{ reveal_name }}">
+        {{ reveal_question }}
+        {% if reveal_error %}
+        <span class="validation-message">
+          {{ reveal_error }}
+        </span>
+        {% endif %}
+    </label>
+    <div id="{{ reveal_name }}">
+      <input class="form-control{% if reveal_error %} form-control-error{% endif %}" name="{{ reveal_name }}" type="text" value="{{ reveal_value }}">
+    </div>
+  </div>
+{% endif %}

@@ -268,3 +268,34 @@ examples:
           {% include "forms/textbox.html" %}
         {% endwith %}
       </form>
+  -
+    type: radio
+    name: reveal-130
+    question: Are you registered for VAT (conditionally revealing content)?
+    options:
+      -
+        label: "Yes"
+        value: yes
+        reveal:
+          name: vat_number
+          question: What is your VAT number?
+      -
+        label: "No"
+        value: Not VAT registered
+  -
+    type: radio
+    name: reveal-error-140
+    question: Are you registered for VAT (conditionally revealing content with an error)?
+    value: yes
+    options:
+      -
+        label: "Yes"
+        value: yes
+        reveal:
+          name: vat_number_error
+          question: What is your VAT number?
+          value: Blurgh
+          error: You must enter a valid VAT number.
+      -
+        label: "No"
+        value: Not VAT registered
