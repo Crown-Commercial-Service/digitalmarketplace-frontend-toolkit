@@ -1,0 +1,12 @@
+@import "_digital-marketplace-colours.scss";
+
+ins {
+  text-decoration: none;
+  background-color: $text-diff-insertion-green;
+  padding-right: 3px;
+}
+
+del {
+  background-color: $text-diff-deletion-red;
+  padding-right: 3px;
+}
