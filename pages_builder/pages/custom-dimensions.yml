@@ -1,0 +1,15 @@
+pageTitle: Custom dimensions
+assetPath: govuk_template/assets/
+pageDescription: Meta tags for Google Analytics custom dimensions to be included in the <head> tag.
+examples:
+  -
+    custom_dimensions:
+      -
+        data_id: 8
+        data_value: save_and_refine_search
+
+    current_user:
+        role: buyer
+  -
+    current_user:
+        role: supplier
