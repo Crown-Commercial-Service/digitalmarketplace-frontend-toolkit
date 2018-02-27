@@ -59,10 +59,6 @@ caption {
   position: relative;
   z-index: 10;
   font-weight: bold;
-
-  @include ie(6) {
-    zoom: 1;
-  }
 }
 
 .summary-item-no-content {

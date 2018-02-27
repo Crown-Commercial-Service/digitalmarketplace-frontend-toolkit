@@ -9,8 +9,8 @@ Support for older versions of Internet Explorer is made possible by the use of t
 [_conditionals.scss](../govuk_frontend_toolkit/stylesheets/_conditionals.scss).
 
 ```
-@include ie(6) {
-  /* Block of IE6-specific SCSS */
+@include ie(7) {
+  /* Block of IE7-specific SCSS */
 }
 ```
 
@@ -27,14 +27,14 @@ stylesheets are wrapped in conditional comments to ensure that:
 - each version of Internet Explorer only gets its variant
 - other browsers don't request the Internet-Explorer-specific stylesheets
 
-The SCSS file for IE6 just includes `forms/index.scss` while setting a
+The SCSS file for IE7 just includes `forms/index.scss` while setting a
 few variables. The mixins from `_conditionals.scss` use these variables
 to determine whether or not to insert the block of browser-specific CSS.
 
 ```
 $is-ie: true;
-$ie-version: 6;
-$mobile-ie6: false;
+$ie-version: 7;
+$mobile-ie7: false;
 
 @import "index.scss";
 ```
