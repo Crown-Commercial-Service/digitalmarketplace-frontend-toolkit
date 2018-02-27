@@ -9,6 +9,10 @@
 @import "conditionals";
 @import "typography";
 @import "elements/forms/_form-multiple-choice";
+@import "elements/_helpers";
+@import "elements/_panels";
+@import "elements/_forms";
+@import "elements/forms/_form-validation";
 
 // The following placeholders must be present in your main stylesheet:
 // - shared_placeholders/_placeholders.scss
