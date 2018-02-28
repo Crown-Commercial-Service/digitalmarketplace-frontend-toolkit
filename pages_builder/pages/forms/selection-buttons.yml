@@ -279,6 +279,7 @@ examples:
         reveal:
           name: vat_number
           question: What is your VAT number?
+          hint: It is made up of some digits
       -
         label: "No"
         value: Not VAT registered
@@ -294,6 +295,7 @@ examples:
         reveal:
           name: vat_number_error
           question: What is your VAT number?
+          hint: It is made up of some digits
           value: Blurgh
           error: You must enter a valid VAT number.
       -
