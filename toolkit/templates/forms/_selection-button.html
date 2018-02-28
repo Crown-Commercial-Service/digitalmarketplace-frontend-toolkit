@@ -28,13 +28,15 @@
   {% set reveal_name = option.reveal['name'] %}
   {% set reveal_value = option.reveal['value'] %}
   {% set reveal_error = option.reveal['error'] %}
+  {% set reveal_hint = option.reveal['hint'] %}
   <div class="panel {% if reveal_error %} form-group-error{% endif %} panel-border-narrow js-hidden" id="{{ reveal_name }}-target">
     <label class="form-label" for="{{ reveal_name }}">
         {{ reveal_question }}
+        {% if reveal_hint %}
+          <span class="hint">{{ reveal_hint }}</span>
+        {% endif %}
         {% if reveal_error %}
-        <span class="validation-message">
-          {{ reveal_error }}
-        </span>
+          <span class="validation-message">{{ reveal_error }}</span>
         {% endif %}
     </label>
     <div id="{{ reveal_name }}">
