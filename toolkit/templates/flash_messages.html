@@ -1,7 +1,9 @@
 {% with messages = get_flashed_messages(with_categories=true) %}
   {% if messages %}
     {% for category, message in messages %}
-      {% if category != 'must_login' and category != 'flag' %}  {# skip showing Flask's "Please log in" message; also skip "flag" messages intended for Google Analytics etc. #}
+      {% if category == 'track-page-view' %}
+        <div data-analytics="trackPageView" data-url="{{ message }}"></div>
+      {% elif category != 'must_login' and category != 'flag' %}  {# skip showing Flask's "Please log in" message; also skip "flag" messages intended for Google Analytics etc. #}
         <div class="flash-message-container {{ 'banner-destructive-without-action' if category == 'error' else 'banner-success-without-action' }}">
           <p class="banner-message">
             {# TODO remove the below special cases, once those two apps have been updated to contain the message. #}
