@@ -1,0 +1,8 @@
+pageTitle: User research consent banner
+assetPath: govuk_template/assets/
+bodyEnd: >
+  <script type="text/javascript" src="../public/javascripts/user-research-consent-banner.js"></script>
+examples: 
+  - |
+    {% macro url_for(mocked_link_for_documentation_only) %}#{% endmacro %}
+    {% include "user-research-consent-banner.html" %}

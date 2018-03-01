@@ -1,0 +1,31 @@
+@import "colours";
+
+.user-research-banner {
+  background-color: $govuk-blue;
+  color: $white;
+  display: none;
+  
+  .wrapper {
+    margin: 0 auto;
+    max-width: 960px;
+    padding: 20px;
+
+    a {
+      color: $white;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    .banner-heading {
+      font-size: 24px;
+    }
+
+    .user-research-banner-close-btn {
+      float: right;
+    }
+
+  }
+
+}
