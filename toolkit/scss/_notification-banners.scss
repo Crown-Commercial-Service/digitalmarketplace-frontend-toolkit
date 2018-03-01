@@ -16,6 +16,7 @@
   border-style: solid;
 
   .banner-content {
+    @include core-19;
     color: $text-colour;
     margin-top: 15px;
     margin-bottom: 15px;
