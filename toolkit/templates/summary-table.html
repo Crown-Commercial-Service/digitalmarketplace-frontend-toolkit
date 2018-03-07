@@ -178,10 +178,10 @@
   {%- endcall %}
 {%- endmacro %}
 
-{% macro link(link_title=None, link=None) -%}
+{% macro link(link_title=None, link=None, hidden_text='') -%}
   {% call field() -%}
     {% if link_title -%}
-      <a href="{{ link }}">{{ link_title }}</a>
+      <a href="{{ link }}">{{ link_title }}{% if hidden_text %}<span class="visually-hidden"> {{ hidden_text }}</span>{% endif %}</a>
     {%- endif %}
   {%- endcall %}
 {%- endmacro %}
