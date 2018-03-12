@@ -1,3 +1,4 @@
+{% if not current_user.user_research_opted_in and not current_user.is_anonymous() %}
 <div class="user-research-banner">
   <div class="wrapper">
     <p>
@@ -9,3 +10,4 @@
     </p>
   </div>
 </div>
+{% endif %}
