@@ -165,6 +165,31 @@ examples:
 
   - |
     {% import "summary-table.html" as summary %}
+    {{ summary.heading("Summary table with left-aligned action links that have hidden text for accessibility") }}
+    {% call(item) summary.list_table(
+      [
+        {"question": "Registered company name", "answer": "Answer required"},
+        {"question": "Registered company address", "answer": "Answer required"},
+        {"question": "Registration number", "answer": "Answer required"},
+      ],
+      caption="Summary table with left-aligned action links that have hidden text for accessibility",
+      empty_message="You haven't submitted any services yet",
+      field_headings=[
+        "Question",
+        "Answer",
+        summary.hidden_field_heading("Action")
+      ],
+      field_headings_visible=False
+    ) %}
+      {% call summary.row() %}
+        {{ summary.field_name(item.question) }}
+        {{ summary.link(link_title=item.answer, link='#', hidden_text="for " + item.question) }}
+        {{ summary.text("") }}
+      {% endcall %}
+    {% endcall %}
+
+  - |
+    {% import "summary-table.html" as summary %}
     {{ summary.heading("Summary table with action button") }}
     {% call(item) summary.list_table(
       [
