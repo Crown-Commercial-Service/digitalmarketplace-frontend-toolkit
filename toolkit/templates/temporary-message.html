@@ -7,4 +7,18 @@
     {{ message }}
   </p>
   {%- endfor %}
+  {% if link %}
+  <a href="{{ link.url }}">{{ link.label }}</a>
+  {% endif %}
+  {% if button %}
+    {%
+      with
+      advice = true,
+      temporary_message = true,
+      type = button.type,
+      label = button.label
+    %}
+      {% include "toolkit/button.html" %}
+    {% endwith %}
+  {% endif %}
 </div>

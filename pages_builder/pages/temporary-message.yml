@@ -28,3 +28,25 @@ examples:
       - Example of variant used for main page already containing dark blue banner.
       - G‑Cloud 8 services will be available from 23 November 2015.
     grid: column-one-third
+  -
+    heading: G-Cloud X is open for applications
+    main: True
+    headingId: closed-notice
+    grid: column-two-thirds
+    messages:
+      - Example of a variant with a button.
+      - G-Cloud X is awesome and you can apply now. Just click the button
+    button:
+      type: save
+      label: Apply
+  -
+    heading: Your G-Cloud X application
+    main: True
+    headingId: closed-notice
+    grid: column-two-thirds
+    messages:
+      - Example of a variant with a link.
+      - "Deadline: Friday 28 September 2018"
+    link:
+      url: http://www.digitalmarketplace.service.gov.uk
+      label: Continue your application
