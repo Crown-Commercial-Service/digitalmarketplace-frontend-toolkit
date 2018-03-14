@@ -52,6 +52,12 @@ endpoint response (application/json):
       this.saveState();
       this.$form.on('change', 'input[type=checkbox], input[type=search], input[type=radio]', this.formChange.bind(this));
 
+      this.$form.find('input[type=submit]').click(
+        function(e){
+          this.formChange();
+          e.preventDefault();
+        }.bind(this)
+      );
       this.$form.find('input[type=search]').keypress(
         function(e){
           if(e.keyCode == 13) {
