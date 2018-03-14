@@ -22,7 +22,7 @@ separate stylesheet for each version of Internet Explorer that you need to targe
 An example of this can be seen on the
 [forms/summary.html](http://alphagov.github.io/digitalmarketplace-frontend-toolkit/forms/summary.html)
 page. In [gh-pages/data/forms/summary.yml](../gh-pages/data/forms/summary.yml) you
-can see that `forms/index.css` has variants for IE6, 7 and 8. The links to the
+can see that `forms/index.css` has variants for IE7 and 8. The links to the
 stylesheets are wrapped in conditional comments to ensure that:
 - each version of Internet Explorer only gets its variant
 - other browsers don't request the Internet-Explorer-specific stylesheets
@@ -34,7 +34,6 @@ to determine whether or not to insert the block of browser-specific CSS.
 ```
 $is-ie: true;
 $ie-version: 7;
-$mobile-ie7: false;
 
 @import "index.scss";
 ```
