@@ -11,6 +11,10 @@
 .temporary-message {
   @extend %temporary-message;
   margin-bottom: $gutter;
+
+  input[type="submit"] {
+    margin-bottom: 5px;
+  }
 }
 
 .temporary-message-main {
@@ -18,6 +22,17 @@
   background: $light-blue-25;
   @include core-19;
   color: $black;
+
+  a {
+    color: $link-colour;
+    &:visited {
+      color: $link-visited-colour;
+    }
+    &:hover,
+    &:active {
+      color: $link-hover-colour;
+    }
+  }
 }
 
 .temporary-message-without-messages {
