@@ -9,31 +9,32 @@ Support for older versions of Internet Explorer is made possible by the use of t
 [_conditionals.scss](../govuk_frontend_toolkit/stylesheets/_conditionals.scss).
 
 ```
-@include ie(7) {
-  /* Block of IE7-specific SCSS */
+@include ie(8) {
+  /* Block of IE8-specific SCSS */
 }
 ```
 
 ### Required set up
 
 This works by using the [sass-ie](http://jakearchibald.github.io/sass-ie/) method which generates a
-separate stylesheet for each version of Internet Explorer that you need to target.
+separate stylesheet for each version of Internet Explorer that you need to target. Currently IE8 is the only version of
+Internet Explorer that we both support and requires targeting.
 
 An example of this can be seen on the
 [forms/summary.html](http://alphagov.github.io/digitalmarketplace-frontend-toolkit/forms/summary.html)
 page. In [gh-pages/data/forms/summary.yml](../gh-pages/data/forms/summary.yml) you
-can see that `forms/index.css` has variants for IE7 and 8. The links to the
+can see that `forms/index.css` has a variant for IE8. The links to the
 stylesheets are wrapped in conditional comments to ensure that:
 - each version of Internet Explorer only gets its variant
 - other browsers don't request the Internet-Explorer-specific stylesheets
 
-The SCSS file for IE7 just includes `forms/index.scss` while setting a
+The SCSS file for IE8 just includes `forms/index.scss` while setting a
 few variables. The mixins from `_conditionals.scss` use these variables
 to determine whether or not to insert the block of browser-specific CSS.
 
 ```
 $is-ie: true;
-$ie-version: 7;
+$ie-version: 8;
 
 @import "index.scss";
 ```
