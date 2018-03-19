@@ -1,7 +1,7 @@
 <div class="temporary-message{% if not messages %}-without-messages{% endif %}{% if main %}-main{% endif %}">
-  <h3 class="temporary-message-heading{% if main %}-main{% endif %}">
+  <{% if header_level %}{{ header_level }}{% else %}h3{% endif %} class="temporary-message-heading{% if main %}-main{% endif %}">
     {{ heading }}
-  </h3>
+  </{% if header_level %}{{ header_level }}{% else %}h3{% endif %}>
   {%- for message in messages %}
   <p class="temporary-message-message{% if main %}-main{% endif %}">
     {{ message }}

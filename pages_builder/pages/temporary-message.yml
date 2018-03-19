@@ -5,33 +5,29 @@ grid: column-one-whole
 examples:
   -
     heading: G‑Cloud 7 is closed for applications
-    headingId: closed-notice
     messages:
       - Applications are being reviewed.
       - G‑Cloud 7 services will be available from 23 November 2015.
     grid: column-one-third
   -
     heading: The G-Cloud 7 application deadline has passed
-    headingId: closed-notice
     messages:
       - No services were submitted because you didn’t mark any as complete.
       - <a href="#">View your application</a>
   -
     heading: Example without any body copy that is quite long and may wrap onto multiple lines
-    headingId: closed-notice
     grid: column-two-thirds
   -
     heading: G‑Cloud  is open for applications
     main: True
-    headingId: closed-notice
     messages:
       - Example of variant used for main page already containing dark blue banner.
       - G‑Cloud 8 services will be available from 23 November 2015.
     grid: column-one-third
   -
     heading: G-Cloud X is open for applications
+    header_level: h2
     main: True
-    headingId: closed-notice
     grid: column-two-thirds
     messages:
       - Example of a variant with a button.
@@ -41,8 +37,8 @@ examples:
       label: Apply
   -
     heading: Your G-Cloud X application
+    header_level: h2
     main: True
-    headingId: closed-notice
     grid: column-two-thirds
     messages:
       - Example of a variant with a link.
