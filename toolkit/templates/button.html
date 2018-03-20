@@ -1,1 +1,10 @@
-<input type="submit" class="button-{{ type }}{% if advice %}-with-advice{% endif %}" {% if name %}name="{{ name }}"{% endif %}{% if aria_controls %} aria-controls="{{ aria_controls }}"{% endif %} value="{{ label }}" />
+<input 
+  type="submit" 
+  class="button-{{ type }}{% if advice %}-with-advice{% endif %}" 
+  {% if name %} name="{{ name }}" {% endif %}
+  {% if aria_controls %} aria-controls="{{ aria_controls }}" {% endif %} 
+  {% if analytics %} data-analytics="{{ analytics }}" {% endif %}
+  {% if analytics_category %} data-analytics-category="{{ analytics_category }}" {% endif %}
+  {% if analytics_action %} data-analytics-action="{{ analytics_action }}" {% endif %}
+  {% if analytics_label %} data-analytics-label="{{ analytics_label }}" {% endif %}
+  value="{{ label }}" />

@@ -6,7 +6,7 @@
     this.$userResearchBannerCloseBtn = this.$userResearchBanner.find('.user-research-banner-close-btn');
     this.userResearchCookie = {
       name: 'seen_user_research_message',
-      value: true
+      value: 'yes'
     };
     this.showBannerIfMessageNotSeen();
     this.initaliseListener();
