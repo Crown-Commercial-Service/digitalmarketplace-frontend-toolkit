@@ -3,7 +3,17 @@
     {% for category, message in messages %}
       {% if category == 'track-page-view' %}
         <div data-analytics="trackPageView" data-url="{{ message }}"></div>
-      {% elif category != 'must_login' and category != 'flag' %}  {# skip showing Flask's "Please log in" message; also skip "flag" messages intended for Google Analytics etc. #}
+      {% elif category == 'flag' %}
+        {# these were originally messages with a function similar to the above "track-page-view" ones (analytics) but #}
+        {# they did not know about their actual virtual page view url, expecting the receiving page to know the       #}
+        {# corresponding url for a particular symbolic "message".                                                     #}
+        {# TODO these can be got rid of as soon as the app generating each flag flash message is converted to using   #}
+        {# new "track-page-view" mechanism                                                                            #}
+        {% if message == "account-created" %}
+          <div data-analytics="trackPageView" data-url="/suppliers?account-created=true"></div>
+        {% endif %}
+        {# else we don't know about this particular flag-message so shouldn't try to do anything about it #}
+      {% elif category != 'must_login' %}  {# skip showing Flask's "Please log in" message #}
         <div class="flash-message-container {{ 'banner-destructive-without-action' if category == 'error' else 'banner-success-without-action' }}">
           <p class="banner-message">
             {# TODO remove the below special cases, once those two apps have been updated to contain the message. #}
