@@ -137,7 +137,7 @@ class Styleguide_publisher(object):
     def render_page(self, root, file):
         input_file = os.path.join(root, file)
         output_file = self.__get_page_filename(input_file)
-        partial = yaml.load(open(input_file, "r").read())
+        partial = yaml.safe_load(open(input_file, "r").read())
         url_root = os.getenv("ROOT_DIRECTORY") or ""
         # for index pages, we want to render variables in the content
         # - add version number from VERSION.txt to the main index page
