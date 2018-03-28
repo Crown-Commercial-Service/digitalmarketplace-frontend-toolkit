@@ -18,6 +18,9 @@ input.button-save {
   @include media(tablet) {
     margin-top: 55px;
   }
+  @include media(mobile) {
+    margin-top: 30px;
+  }
 }
 
 input.button-save-with-advice {
