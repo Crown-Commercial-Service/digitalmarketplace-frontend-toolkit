@@ -15,5 +15,6 @@
     this.pageViews.init();
     this.events.init();
     this.virtualPageViews();
+    this.trackExternalLinks.init();
   };
 })(window);
