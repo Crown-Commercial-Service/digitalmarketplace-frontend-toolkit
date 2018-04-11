@@ -162,5 +162,5 @@ To make a new version:
   changes you are making; for a larger PR you might want a separate commit with a message that summarises the entire PR.
 
 When the pull request is merged
-[a Jenkins job](https://ci.beta.digitalmarketplace.service.gov.uk/view/Utils and toolkit/job/tag-toolkit/)
+[a Jenkins job](https://ci.marketplace.team/view/Utils%20and%20toolkit/job/tag-toolkit/)
 will be run to tag the new version.
