@@ -129,6 +129,22 @@ Then:
 sh pages_builder/push_to_github_pages.sh
 ```
 
+## Development
+
+A local checkout of the frontend-toolkit repo can be shared with locally-running services (i.e. frontend applications)
+as follows, assuming you have a system-wide install of yarn available:
+
+- from this repo, run `yarn link`
+- from each app, run `yarn link digitalmarketplace-frontend-toolkit`
+
+Your frontend apps will then be using your local copy of the frontend-toolkit patterns rather than the version specified
+in their `package.json` - for example, whenever you:
+
+ - rebuild the app's `toolkit` directory by running `make frontend-build`; or
+ - run `yarn run frontend-build:watch` to automatically rebuild the frontend-toolkit content whenever a pattern file
+   changes.
+
+
 ## Versioning
 
 Releases of this project follow [semantic versioning](http://semver.org/), ie
@@ -139,11 +155,12 @@ Releases of this project follow [semantic versioning](http://semver.org/), ie
 > - PATCH version when you make backwards-compatible bug fixes.
 
 To make a new version:
-- update `VERSION.txt` with the new version number
-- commit this change; the first line of the commit message **must** be in the
-  format `Bump version to X.X.X`
-- create a pull request for the version bump
+- run `yarn version` to update the version number;
+- (note that yarn has been configured **not** to create a new tag when you run this command - see `.yarnrc`)
+- if you are making a major change, also update the change log;
+- commit `package.json` and `CHANGELOG.md` if appropriate - for a small PR, this could be in the same commit as other
+  changes you are making; for a larger PR you might want a separate commit with a message that summarises the entire PR.
 
 When the pull request is merged
-[a Jenkins job](https://ci.beta.digitalmarketplace.service.gov.uk/view/Utils and toolkit/job/tag-toolkit/)
-is run which tags the new version.
+[a Jenkins job](https://ci.marketplace.team/view/Utils%20and%20toolkit/job/tag-toolkit/)
+will be run to tag the new version.
