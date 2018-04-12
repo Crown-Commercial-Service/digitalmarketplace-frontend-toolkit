@@ -62,9 +62,8 @@ class Styleguide_publisher(object):
         self.copy_images()
 
     def get_version(self):
-        return open(
-            os.path.join(self.repo_root, "VERSION.txt")
-        ).read().rstrip()
+        data = json.load(open(os.path.join(self.repo_root, "package.json")))
+        return data["version"]
 
     def get_template_folder(self):
         template_handler = TemplateHandler()
@@ -140,7 +139,7 @@ class Styleguide_publisher(object):
         partial = yaml.safe_load(open(input_file, "r").read())
         url_root = os.getenv("ROOT_DIRECTORY") or ""
         # for index pages, we want to render variables in the content
-        # - add version number from VERSION.txt to the main index page
+        # - add version number from package.json to the main index page
         # - add urlRoot to the nested 'index.html' pages
         if 'index.html' in output_file:
             partial['content'] = pystache.render(
