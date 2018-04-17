@@ -155,12 +155,18 @@
   {%- endcall %}
 {%- endmacro %}
 
-{% macro button(text=None, action=None, csrf_token_value='') -%}
+{% macro button(text=None, action=None, csrf_token_value='', analytics=None, analytics_category=None, analytics_action=None, analytics_label=None) -%}
   {% call field(action=True) -%}
     {% if text and action -%}
       <form method="post" action="{{ action }}">
         <input type="hidden" name="csrf_token" value="{{ csrf_token_value or csrf_token() }}" />
-        <button type="submit" class="button-secondary"{% if aria_controls %} aria-controls="{{ aria_controls }}"{% endif %}>{{ text }}</button>
+        <button type="submit" class="button-secondary"
+          {% if aria_controls %} aria-controls="{{ aria_controls }}"{% endif %}
+          {% if analytics %}data-analytics="{{ analytics }}" {% endif %}
+          {% if analytics_category %}data-analytics-category="{{ analytics_category }}" {% endif %}
+          {% if analytics_action %}data-analytics-action="{{ analytics_action }}" {% endif %}
+          {% if analytics_label %}data-analytics-label="{{ analytics_label }}" {% endif %}
+        >{{ text }}</button>
       </form>
     {%- endif %}
   {%- endcall %}
