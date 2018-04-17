@@ -7,6 +7,7 @@
 //= include _register.js
 //= include _pageViews.js
 //= include _virtualPageViews.js
+//= include _trackExternalLinks.js
 
 (function(root) {
   "use strict";
