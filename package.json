@@ -1,7 +1,7 @@
 {
   "name": "digitalmarketplace-frontend-toolkit",
-  "description": "Front end application for Digital Marketplace suppliers",
-  "version": "28.13.1",
+  "description": "A toolkit for design patterns used across Digital Marketplace projects",
+  "version": "28.13.2",
   "repository": "git@github.com:alphagov/digitalmarketplace-frontend-toolkit.git",
   "author": "enquiries@digitalmarketplace.service.gov.uk",
   "private": true,
