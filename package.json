@@ -10,13 +10,17 @@
     "del": "^2.2.2",
     "govuk_frontend_toolkit": "5.0.3",
     "govuk-elements-sass": "3.0.3",
-    "gulp": "3.8.11",
+    "gulp": "4.0.0",
     "gulp-jasmine-phantom": "3.0.0",
-    "jasmine-core": "2.6.4"
+    "jasmine-core": "3.1.0",
+    "snyk": "^1.73.0"
   },
   "scripts": {
     "clean": "./node_modules/gulp/bin/gulp.js clean",
     "copy": "./node_modules/gulp/bin/gulp.js copy",
-    "test": "./node_modules/gulp/bin/gulp.js test"
-  }
+    "test": "./node_modules/gulp/bin/gulp.js test",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
