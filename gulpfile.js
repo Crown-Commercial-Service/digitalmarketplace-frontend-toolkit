@@ -77,7 +77,7 @@ gulp.task('test', function () {
 
   return gulp.src(manifest.test)
     .pipe(jasmine({
-      'jasmine': '2.0',
+      'jasmineVersion': '2.0',
       'integration': true,
       'abortOnFail': true,
       'vendor': manifest.support
