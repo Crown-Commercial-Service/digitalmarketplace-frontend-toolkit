@@ -1,0 +1,53 @@
+{% extends "govuk/govuk_template.html" %}
+
+{% block head %} 
+  {% block custom_meta %}{% include "toolkit/custom-dimensions.html" %}{% endblock %}
+  {% include "toolkit/layouts/_stylesheets.html" %}
+  {% include "toolkit/layouts/_site_verification.html" %}
+{% endblock %}
+
+{% block cookie_message %}
+  {% include "toolkit/layouts/_cookie_message.html" %}
+{% endblock %}
+
+{% block header_class %}with-proposition{% endblock %}
+
+{% block inside_header %}
+  {% include "toolkit/inside-header.html" %}
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "toolkit/proposition-header.html" %}
+{% endblock %}
+
+{% block content %}
+    {% block top_header %}
+    {% endblock %}
+  {% block breadcrumb %}{% endblock %}
+  <div id="wrapper">
+    <main id="content" role="main">
+      {% include "toolkit/flash_messages.html" %}
+      {% block main_content %}
+      {% endblock %}
+    </main>
+  </div>
+{% include "toolkit/report-a-problem.html" %}
+{% endblock %}
+
+{% block footer_top %}
+  {% include "toolkit/layouts/_footer_categories.html" %}
+{% endblock %}
+
+{% block footer_support_links %}
+    <h2 class="visuallyhidden">Support links</h2>
+    <ul>
+        <li><a href="/terms-and-conditions" class="terms-and-conditions">Terms and conditions</a></li>
+        <li><a href="/cookies">Cookies</a></li>
+        <li>Built by the <a href="https://www.gov.uk/government/organisations/government-digital-service">Government Digital Service</a></li>
+    </ul>
+{% endblock %}
+
+{% block body_end %}
+  {% include "toolkit/layouts/_javascripts.html" %}
+  {% block page_scripts %}{% endblock %}
+{% endblock %}
