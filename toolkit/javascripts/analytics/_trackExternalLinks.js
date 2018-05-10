@@ -12,7 +12,10 @@
         var category = 'external-link-all';
         var action = $target.text();
         var label = $target.attr('href');
-        GOVUK.GDM.analytics.events.sendEvent(category, action, label);
+        GOVUK.analytics.trackEvent(category, action, {
+          'label': label,
+          'transport': 'beacon'
+        });
       });
     }
   };
