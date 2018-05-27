@@ -2,6 +2,45 @@
 
 Records breaking changes from major version bumps
 
+## 29.0.0
+
+PR: [439](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/439)
+
+### What changed
+The validation masthead in `toolkit.forms.validation` is now an h2 rather than an h1. This may break associated unit and functional tests. Manual review will be needed here.
+
+The pattern now expects to reference a variable called `errors`, so you will need to pass all form errors into the templating engine as `errors=errors` or `errors=get_errors_from_wtform(form)` when calling `render_template()`.
+
+A new utility function has been added to `dmutils.forms` called `get_errors_from_wtform`. Wherever we use WTForms to do form validation, we should use this method to collect errors from the form and pass them into the Jinja templating engine with `render_template(..., errors=errors, ...)`.
+
+Old code sample 1 (template):
+```Jinja2
+  {% if errors %}
+    {% with errors = errors.values() %}
+      {% include 'toolkit/forms/validation.html' %}
+    {% endwith %}
+  {% endif %}
+```
+
+New code sample 1 (template):
+```Jinja2
+{% include 'toolkit/forms/validation.html' %}
+```
+
+Old code sample 2 (python):
+```python
+form_errors = [
+    {'question': form[field].label.text, 'input_name': form[field].name} for field in form.errors.keys()
+]
+return render_template('blah.html', form_errors=form_errors)
+```
+
+New code sample 2 (python):
+```python
+from dmutils.forms import get_errors_from_wtform
+return render_template('blah.html', errors=get_errors_from_wtform(form))
+```
+
 ## 28.0.0
 
 PR: [#397](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/397)
