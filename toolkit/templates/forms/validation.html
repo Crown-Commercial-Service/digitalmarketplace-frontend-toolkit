@@ -1,13 +1,15 @@
+{% if errors %}
 <div class="validation-masthead" aria-labelledby="validation-masthead-heading" aria-role="group" tabindex="-1">
-  <h1 class="validation-masthead-heading" id="validation-masthead-heading">
+  <h2 class="validation-masthead-heading" id="validation-masthead-heading">
     {{ lede or "There was a problem with your answer to:"}}
-  </h1>
+  </h2>
   {% if description %}
     <p class="validation-masthead-description">
       {{ description }}
     </p>
   {% endif %}
-  {% for error in errors %}
+  {% for error in errors.values() %}
     <a href="#{{ error.input_name }}" class="validation-masthead-link">{{ error.question }}</a>
   {% endfor %}
 </div>
+{% endif %}
