@@ -14,7 +14,9 @@
     unit=kwargs.get("unit", question_content.unit),
     unit_in_full=kwargs.get("unit_in_full", question_content.unit_in_full),
     unit_position=kwargs.get("unit_position", question_content.unit_position),
-    value=kwargs.get("value", data[question_content.id])
+    value=kwargs.get("value", data[question_content.id]),
+    type=kwargs.get("type", "text"),
+    autocomplete=kwargs.get("autocomplete")
   %}
     {% include "toolkit/forms/textbox.html" %}
   {% endwith %}
@@ -34,7 +36,9 @@
     question=kwargs.get("question", question_content.question),
     question_advice=kwargs.get("question_advice", question_content.question_advice),
     question_number=kwargs.question_number,
-    value=kwargs.get("value", data[question_content.id])
+    value=kwargs.get("value", data[question_content.id]),
+    type=kwargs.get("type", "text"),
+    autocomplete=kwargs.get("autocomplete")
   %}
     {% include "toolkit/forms/textbox.html" %}
   {% endwith %}

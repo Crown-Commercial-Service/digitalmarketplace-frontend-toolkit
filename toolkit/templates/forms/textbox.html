@@ -4,6 +4,12 @@
 {% if question_advice %}
   {% set question_advice_id="input-" + name + "-question-advice" %}
 {% endif %}
+{% if not type %}
+  {% set type = "text" %}
+{% endif %}
+{% if not autocomplete and type == "password" %}
+  {% set autocomplete = "off" %}
+{% endif %}
 
 {% if error %}
   <div class="validation-wrapper">
@@ -84,11 +90,12 @@
         </label>
       {% endif %}
       <input
-        type="text"
+        type="{{ type }}"
         name="{{ name }}"
         id="input-{{ name }}"
         class="text-box{% if unit %}-with-unit-{{ unit_position }}{% endif %}{% if error %}-with-error{% endif %}{% if smaller %} text-box-smaller{% endif %}"
         value="{% if value !=  None %}{{ value }}{% endif %}"
+        {% if autocomplete %}autocomplete="{{ autocomplete }}"{% endif %}
         {% if aria_controls %}aria-controls="{{ aria_controls }}"{% endif %}
         {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
       />
