@@ -6,17 +6,17 @@ examples:
   -
     title: Masthead
     errors:
-      -
+      example-textbox:
         input_name: example-textbox
         question: What was the name of your first pet?
-      -
-        input_name: example-textbox-2
+      example-textbox-2:
+        input_name:
         question: What street did you grow up on?
   -
     title: With a custom message and description
     lede: Something went wrong
     description: Please make it right
     errors:
-      -
+      example-textbox:
         input_name: example-textbox
         question: What was the name of your first pet?

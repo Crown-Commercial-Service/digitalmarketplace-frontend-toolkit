@@ -132,3 +132,7 @@ examples:
     question: Textbox with message
     name: question-11
     message: You really need to know about this box
+  -
+    question: Textbox for password field
+    name: password-1
+    type: password
