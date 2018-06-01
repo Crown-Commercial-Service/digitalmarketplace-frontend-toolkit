@@ -43,7 +43,7 @@
   };
 
   UserResearchBanner.prototype.setCookie = function () {
-    return GOVUK.setCookie(this.userResearchCookie.name, this.userResearchCookie.value);
+    return GOVUK.setCookie(this.userResearchCookie.name, this.userResearchCookie.value, {days: 90});
   };
 
   $ = global.jQuery

@@ -20,6 +20,12 @@
   {% include "toolkit/proposition-header.html" %}
 {% endblock %}
 
+{% block after_header %}
+  {% if not current_user.user_research_opted_in and not 'seen_user_research_message' in request.cookies %}
+    {% include "toolkit/user-research-consent-banner.html" %}
+  {% endif %}
+{% endblock %}
+
 {% block content %}
     {% block top_header %}
     {% endblock %}
