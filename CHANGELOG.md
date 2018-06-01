@@ -2,6 +2,16 @@
 
 Records breaking changes from major version bumps
 
+## 30.0.0
+
+PR: [441](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/441)
+
+### What changed
+User research consent banner will now show on every page that uses the new shared layouts (toolkit/templates/layouts/_base_page.html).
+This will also require each app to include the following files:
+- toolkit/javascripts/user-research-consent-banner.js
+- toolkit/scss/_user-research-consent-banner.scss
+
 ## 29.0.0
 
 PR: [439](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/439)
