@@ -1,0 +1,8 @@
+{# User-level custom dimensions #}
+{% if current_user.role %}
+  <meta name="ga_customDimension" data-id="10" data-value="{{ current_user.role }}">
+{% endif %}
+
+{% if current_user and current_user.supplier_organisation_size %}
+  <meta name="ga_customDimension" data-id="11" data-value="{{ current_user.supplier_organisation_size }}">
+{% endif %}
