@@ -4,6 +4,10 @@
   var UserResearchBanner = function( _userResearchBanner ) {
     this.$userResearchBanner = _userResearchBanner;
     this.$userResearchBannerCloseBtn = this.$userResearchBanner.find('.user-research-banner-close-btn');
+
+    // Changing cookie name will require an update to the following files:
+    // digitalmarketplace-frontend-toolkit/toolkit/templates/user-research-consent-banner.html
+    // digitalmarketplace-user-frontend/app/main/views/notifications.py
     this.userResearchCookie = {
       name: 'seen_user_research_message',
       value: 'yes'
@@ -43,7 +47,7 @@
   };
 
   UserResearchBanner.prototype.setCookie = function () {
-    return GOVUK.setCookie(this.userResearchCookie.name, this.userResearchCookie.value);
+    return GOVUK.setCookie(this.userResearchCookie.name, this.userResearchCookie.value, {days: 90});
   };
 
   $ = global.jQuery
