@@ -1,6 +1,13 @@
 {% extends "govuk/govuk_template.html" %}
 
 {% block head %}
+  {% with custom_dimensions=[
+        {"data_id": 11, "data_value": current_user.supplier_organisation_size }
+    ] if current_user and current_user.supplier_organisation_size else []
+  %}
+    {% include "toolkit/custom-dimensions.html" %}
+  {% endwith %}
+
   {% block custom_meta %}{% include "toolkit/custom-dimensions.html" %}{% endblock %}
   {% include "toolkit/layouts/_stylesheets.html" %}
   {% include "toolkit/layouts/_site_verification.html" %}
