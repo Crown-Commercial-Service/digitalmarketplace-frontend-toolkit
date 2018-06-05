@@ -14,6 +14,7 @@
 {% endif %}
 
 {# Additional custom dimensions #}
+{# Requires variable called `custom_dimensions` to be passed with data_id and data_value attributes #}
 {% for custom_dimension in custom_dimensions %}
   <meta name="ga_customDimension" data-id="{{ custom_dimension.data_id }}" data-value="{{ custom_dimension.data_value }}">
 {% endfor %}
