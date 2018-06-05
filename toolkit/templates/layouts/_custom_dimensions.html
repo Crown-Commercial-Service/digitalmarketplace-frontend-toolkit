@@ -1,0 +1,20 @@
+{# User-level custom dimensions #}
+{% if current_user.role %}
+  <meta name="ga_customDimension" data-id="10" data-value="{{ current_user.role }}">
+{% endif %}
+
+{# User organisation size custom dimension #}
+{% if current_user and current_user.supplier_organisation_size %}
+  <meta name="ga_customDimension" data-id="11" data-value="{{ current_user.supplier_organisation_size }}">
+{% endif %}
+
+{# Custom dimension for user research banner #}
+{% if not current_user.user_research_opted_in and not 'seen_user_research_message' in request.cookies %}
+  <meta name="ga_customDimension" data-id="12" data-value="User research banner">
+{% endif %}
+
+{# Additional custom dimensions #}
+{# Requires variable called `custom_dimensions` to be passed with data_id and data_value attributes #}
+{% for custom_dimension in custom_dimensions %}
+  <meta name="ga_customDimension" data-id="{{ custom_dimension.data_id }}" data-value="{{ custom_dimension.data_value }}">
+{% endfor %}
