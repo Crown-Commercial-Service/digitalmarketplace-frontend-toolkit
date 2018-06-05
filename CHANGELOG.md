@@ -10,6 +10,8 @@ PR: [442](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/4
 This removes `toolkit/templates/custom-dimensions.html` from the toolkit and replaces it with 
 `toolkit/templates/layouts/_custom_dimensions.html`. It also removes the `custom_meta` block as it is not longer used.
 
+This change will break any place where `custom_meta` block was used or `custom-dimensions.html`.
+
 ## 30.0.0
 
 PR: [441](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/441)
