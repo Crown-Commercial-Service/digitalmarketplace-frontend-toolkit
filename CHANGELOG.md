@@ -2,6 +2,14 @@
 
 Records breaking changes from major version bumps
 
+## 31.0.0
+
+PR: [442](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/442)
+
+### What changed
+This removes `toolkit/templates/custom-dimensions.html` from the toolkit and replaces it with 
+`toolkit/templates/layouts/_custom_dimensions.html`. It also removes the `custom_meta` block as it is not longer used.
+
 ## 30.0.0
 
 PR: [441](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/441)
