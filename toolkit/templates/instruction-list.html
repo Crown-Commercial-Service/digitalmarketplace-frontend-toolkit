@@ -74,6 +74,7 @@
                 {% if custom_body.analytics_category %}data-analytics-category="{{ custom_body.analytics_category }}" {% endif %} 
                 {% if custom_body.analytics_action %}data-analytics-action="{{ custom_body.analytics_action}}" {% endif %} 
                 {% if custom_body.analytics_label %}data-analytics-label="{{ custom_body.analytics_label }}" {% endif %}
+                {% if custom_body.analytics_target %} data-analytics-target-selector="{{ custom_body.analytics_target }}" {% endif %}
                 >{{ custom_body.label }}</a>
             {% elif custom_body.type == 'box' %}
                 <p class="instruction-list-item-box {{ custom_body.style }}">{{ custom_body.label }}</p>

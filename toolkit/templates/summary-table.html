@@ -16,6 +16,7 @@
       {% if analytics_category %}data-analytics-category="{{ analytics_category }}" {% endif %}
       {% if analytics_action %}data-analytics-action="{{ analytics_action }}" {% endif %}
       {% if analytics_label %}data-analytics-label="{{ analytics_label }}" {% endif %}
+      {% if analytics_target %}data-analytics-target-selector="{{ analytics_target }}" {% endif %}
     >{{ label }}{% if hidden_text %}<span class="visually-hidden"> {{ hidden_text }}</span>{% endif %}</a>
   </p>
 {%- endmacro %}
@@ -155,7 +156,7 @@
   {%- endcall %}
 {%- endmacro %}
 
-{% macro button(text=None, action=None, csrf_token_value='', analytics=None, analytics_category=None, analytics_action=None, analytics_label=None) -%}
+{% macro button(text=None, action=None, csrf_token_value='', analytics=None, analytics_category=None, analytics_action=None, analytics_label=None, analytics_target=None) -%}
   {% call field(action=True) -%}
     {% if text and action -%}
       <form method="post" action="{{ action }}">
@@ -166,6 +167,7 @@
           {% if analytics_category %}data-analytics-category="{{ analytics_category }}" {% endif %}
           {% if analytics_action %}data-analytics-action="{{ analytics_action }}" {% endif %}
           {% if analytics_label %}data-analytics-label="{{ analytics_label }}" {% endif %}
+          {% if analytics_target %}data-analytics-target-selector="{{ analytics_target }}" {% endif %}
         >{{ text }}</button>
       </form>
     {%- endif %}
