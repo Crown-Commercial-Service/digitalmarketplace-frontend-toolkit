@@ -138,6 +138,7 @@ class Styleguide_publisher(object):
         output_file = self.__get_page_filename(input_file)
         partial = yaml.safe_load(open(input_file, "r").read())
         url_root = os.getenv("ROOT_DIRECTORY") or ""
+        print("\n  " + input_file)
         # for index pages, we want to render variables in the content
         # - add version number from package.json to the main index page
         # - add urlRoot to the nested 'index.html' pages
@@ -230,7 +231,6 @@ class Styleguide_publisher(object):
             }
         )
         page_render = pystache.render(self.template_view, partial)
-        print("\n  " + input_file)
         print("▸ " + output_file)
         open(output_file, "wb+").write(page_render.encode('utf-8'))
 
