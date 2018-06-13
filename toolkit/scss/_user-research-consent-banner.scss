@@ -4,7 +4,7 @@
   background-color: $govuk-blue;
   color: $white;
   display: none;
-  
+
   .wrapper {
     margin: 0 auto;
     max-width: 960px;
@@ -15,11 +15,12 @@
     }
 
     p {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+      font-size: 19px;
     }
 
-    .banner-heading {
-      font-size: 24px;
+    p:last-child {
+      margin-bottom: 0;
     }
 
     .user-research-banner-close-btn {
