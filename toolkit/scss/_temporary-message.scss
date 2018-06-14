@@ -40,6 +40,11 @@
   padding-bottom: 5px;
 }
 
+.temporary-message-banner {
+  @extend %temporary-message-section;
+  margin-top: 15px;
+}
+
 .temporary-message-heading {
   @include bold-24;
   margin: 0 0 10px 0;

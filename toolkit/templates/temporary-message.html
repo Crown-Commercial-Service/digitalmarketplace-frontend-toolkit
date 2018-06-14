@@ -1,4 +1,4 @@
-<div class="temporary-message{% if not messages %}-without-messages{% endif %}{% if main %}-main{% endif %}">
+<div class="temporary-message{% if not messages %}-without-messages{% endif %}{% if main %}-main{% endif %}{% if banner %}-banner{% endif %}">
   <{% if header_level %}{{ header_level }}{% else %}h3{% endif %} class="temporary-message-heading{% if main %}-main{% endif %}">
     {{ heading }}
   </{% if header_level %}{{ header_level }}{% else %}h3{% endif %}>
