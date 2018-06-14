@@ -6,5 +6,6 @@ install:
  - npm install
 script:
  - npm test
+ - make generate_pages
 notifications:
  email: false
