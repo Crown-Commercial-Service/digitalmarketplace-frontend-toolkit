@@ -21,6 +21,11 @@
   @include list-bullet;
 }
 
+.list-bullet-small {
+  @include core-16;
+  @include list-bullet;
+}
+
 .list-number {
   list-style-type: decimal;
   padding-left: 20px;
