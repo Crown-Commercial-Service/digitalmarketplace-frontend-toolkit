@@ -33,6 +33,35 @@ examples:
       </li>
     </ul>
   - |
+    <h2><code>.list-bullet-small</code></h2>
+    <br />
+    <ul class="list-bullet-small">
+      <li>
+        1 crisp celery stalk
+      </li>
+      <li>
+        lime wedge
+      </li>
+      <li>
+        ground pepper
+      </li>
+      <li>
+        celery salt
+      </li>
+      <li>
+        4 dashes worcestershire sauce
+      </li>
+      <li>
+        2 dashes tabasco sauce
+      </li>
+      <li>
+        1–1½ oz. vodka
+      </li>
+      <li>
+        6 oz. clamato juice
+      </li>
+    </ul>
+  - |
     <h2><code>.list-number</code></h2>
     <br />
     <ol class="list-number">
