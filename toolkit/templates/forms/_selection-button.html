@@ -20,6 +20,11 @@
         {{ option.description }}
       </p>
     {% endif %}
+    {% if option.hint %}
+      <span class="form-hint">
+        {{ option.hint }}
+      </span>
+    {% endif %}
   </label>
 </div>
 
