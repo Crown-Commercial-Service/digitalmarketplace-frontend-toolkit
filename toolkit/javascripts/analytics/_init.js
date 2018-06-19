@@ -5,6 +5,7 @@
 
 // DM Frontend Toolkit analytics
 //= include _register.js
+//= include _events.js
 //= include _pageViews.js
 //= include _virtualPageViews.js
 //= include _trackExternalLinks.js
