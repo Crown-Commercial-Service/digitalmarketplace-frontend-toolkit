@@ -301,3 +301,18 @@ examples:
       -
         label: "No"
         value: Not VAT registered
+  -
+    type: radio
+    name: finally-or-10
+    question: Radio box with "or" before the final option
+    finally: or
+    options:
+      -
+        label: Yes
+        value: yes
+      -
+        label: No
+        value: no
+      -
+        label: Maybe
+        value: maybe
