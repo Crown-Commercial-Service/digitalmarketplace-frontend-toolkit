@@ -72,6 +72,9 @@
           %}
             {% include 'toolkit/forms/_selection-button.html' %}
           {% endwith %}
+          {% if finally and loop.revindex0 == 1 %}
+            <p class="form-block">{{ finally }}</p>
+          {% endif %}
         {% endfor %}
         {% if hint and hint_underneath %}
           <div class="hint-underneath" id="{{ answer_advice_id }}">
