@@ -72,7 +72,7 @@
           %}
             {% include 'toolkit/forms/_selection-button.html' %}
           {% endwith %}
-          {% if finally and loop.revindex0 == 1 %}
+          {% if finally and loop.revindex0 == 1 and loop.length > 1 %}
             <p class="form-block">{{ finally }}</p>
           {% endif %}
         {% endfor %}
