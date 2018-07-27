@@ -34,8 +34,9 @@
   {% set reveal_value = option.reveal['value'] %}
   {% set reveal_error = option.reveal['error'] %}
   {% set reveal_hint = option.reveal['hint'] %}
+  {% set reveal_id = "{}-{}".format(id, option.reveal['id']) if option.reveal['id'] else "{}-{}".format(id, reveal_name) %}
   <div class="panel {% if reveal_error %} form-group-error{% endif %} panel-border-narrow js-hidden" id="{{ reveal_name }}-target">
-    <label class="form-label" for="{{ reveal_name }}">
+    <label class="form-label" for="{{ reveal_id }}">
         {{ reveal_question }}
         {% if reveal_hint %}
           <span class="hint">{{ reveal_hint }}</span>
@@ -45,7 +46,7 @@
         {% endif %}
     </label>
     <div id="{{ reveal_name }}">
-      <input class="form-control{% if reveal_error %} form-control-error{% endif %}" name="{{ reveal_name }}" type="text" value="{{ reveal_value }}">
+      <input class="form-control{% if reveal_error %} form-control-error{% endif %}" id="{{ reveal_id }}" name="{{ reveal_name }}" type="text" value="{{ reveal_value }}">
     </div>
   </div>
 {% endif %}
