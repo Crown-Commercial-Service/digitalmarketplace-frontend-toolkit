@@ -9,26 +9,33 @@
         <li>
           <a href="{{ url_for('external.help') }}">Help</a>
         </li>
-        {% if (current_user.is_authenticated() if logged_in is not defined else logged_in) %} {% if (role or current_user.role) == 'buyer' %}
-        <li>
-          <a href="{{ url_for('external.buyer_dashboard') }}">View your account</a>
-        </li>
-        {% elif (role or current_user.role) == 'supplier' %}
-        <li>
-          <a href="{{ url_for('external.supplier_dashboard') }}">View your account</a>
-        </li>
-        {% endif %} 
-        {% for item in items %}
-        <li>
-          <a href="{{ item.link }}">{{ item.label }}</a>
-        </li>
-        {% endfor %}
-        <li>
-          <form method="post" action="{{ url_for('external.user_logout') }}">
-            <input type="submit" class="logout-button" value="Log out" />
-            <input type="hidden" name="csrf_token" value="{{ csrf_token_value or csrf_token() }}" />
-          </form>
-        </li>
+        {% set user_logged_in = logged_in|default(false, true) %}
+
+        {% if current_user %}
+          {% set user_logged_in = current_user.is_authenticated() if current_user.is_authenticated is callable else current_user.is_authenticated %}
+        {% endif %}
+
+        {% if user_logged_in %}
+          {% if (role or current_user.role) == 'buyer' %}
+            <li>
+              <a href="{{ url_for('external.buyer_dashboard') }}">View your account</a>
+            </li>
+          {% elif (role or current_user.role) == 'supplier' %}
+            <li>
+              <a href="{{ url_for('external.supplier_dashboard') }}">View your account</a>
+            </li>
+          {% endif %}
+          {% for item in items %}
+            <li>
+              <a href="{{ item.link }}">{{ item.label }}</a>
+            </li>
+          {% endfor %}
+          <li>
+            <form method="post" action="{{ url_for('external.user_logout') }}">
+              <input type="submit" class="logout-button" value="Log out" />
+              <input type="hidden" name="csrf_token" value="{{ csrf_token_value or csrf_token() }}" />
+            </form>
+          </li>
         {% else %}
         <li>
           <a href="{{ url_for('external.render_login') }}">Log in</a>
