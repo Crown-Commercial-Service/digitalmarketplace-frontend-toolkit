@@ -55,7 +55,9 @@ gulp.task(
 );
 
 gulp.task('copy',
-  ['copy:govuk_frontend_toolkit', 'copy:govuk-elements-sass']
+  gulp.parallel(
+    'copy:govuk_frontend_toolkit', 'copy:govuk-elements-sass'
+  )
 );
 
 // Test
