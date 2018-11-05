@@ -10,7 +10,7 @@
     "del": "^2.2.2",
     "govuk-elements-sass": "3.0.3",
     "govuk_frontend_toolkit": "5.0.3",
-    "gulp": "3.8.11",
+    "gulp": "4.0.0",
     "gulp-jasmine-phantom": "3.0.0",
     "jasmine-core": "3.1.0"
   },
