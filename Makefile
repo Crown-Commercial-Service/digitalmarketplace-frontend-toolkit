@@ -16,6 +16,9 @@ npm_copy:
 npm_clean:
 	npm run clean
 
+test: npm_install
+	npm test
+
 generate_pages: requirements npm_install npm_clean npm_copy
 	${VIRTUALENV_ROOT}/bin/python pages_builder/generate_pages.py
 
