@@ -79,7 +79,7 @@ gulp.task('test', function () {
 
   return gulp.src(manifest.test)
     .pipe(jasmine({
-      'jasmine': '2.0',
+      'jasmine': '3.1',
       'integration': true,
       'abortOnFail': true,
       'vendor': manifest.support
