@@ -35,7 +35,7 @@
   postcode
 %}
   <p class="contact-details-block{% if without_spacing %}-without-spacing{% endif %}" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-    {% if street_address %}
+    {% if street_address_line_1 or street_address_line_2 %}
     <span itemprop="streetAddress">
       {% if street_address_line_1 %}
         {{ street_address_line_1 }}
