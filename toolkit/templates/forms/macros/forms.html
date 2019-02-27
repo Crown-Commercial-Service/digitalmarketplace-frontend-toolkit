@@ -202,6 +202,7 @@
   {%
     with
     error=kwargs.get("error", errors.get(question_content.id)['message']),
+    hidden=kwargs.get("hidden", question_content.hidden),
     hint=kwargs.get("hint", question_content.hint),
     link=kwargs.get("link", question_content.link),
     message=kwargs.message,

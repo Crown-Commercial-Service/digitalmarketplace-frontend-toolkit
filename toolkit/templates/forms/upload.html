@@ -10,7 +10,7 @@
 {% elif message %}
   <div class="message-wrapper">
 {% endif %}
-  <div class="question" id="{{ name }}">
+  <div class="question{% if hidden %} js-hidden related-information{% endif %}" id="{{ name }}">
     <label for="input-{{ name }}">
       {% if question %}
         <span class="question-heading">
@@ -32,6 +32,13 @@
         </span>
       {% endif %}
     </label>
+    {% if hidden and not error %}
+      <noscript>
+        <span class="hint">
+          You may not need to answer this question depending on how you answered an earlier question.
+        </span>
+      </noscript>
+    {% endif %}
     {% if optional %}
       <span class="question-optional">
         <strong>Optional</strong>
