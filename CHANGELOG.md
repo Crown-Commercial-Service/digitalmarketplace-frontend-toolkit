@@ -2,6 +2,13 @@
 
 Records breaking changes from major version bumps
 
+## 32.0.0
+
+PR: [466](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/466)
+
+Bumps the engine to `node == 8.12.0` and gulp to `4.0.0`.
+Recommend thoroughly testing before pulling into a frontend app.
+
 ## 31.0.0
 
 PR: [442](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/442)
