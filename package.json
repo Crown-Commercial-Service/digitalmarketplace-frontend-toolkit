@@ -1,18 +1,18 @@
 {
   "name": "digitalmarketplace-frontend-toolkit",
   "description": "A toolkit for design patterns used across Digital Marketplace projects",
-  "version": "31.11.0",
+  "version": "32.0.0",
   "repository": "git@github.com:alphagov/digitalmarketplace-frontend-toolkit.git",
   "author": "enquiries@digitalmarketplace.service.gov.uk",
   "private": true,
-  "engine": "node == 6.10.3",
+  "engine": "node == 8.12.0",
   "dependencies": {
-    "del": "^2.2.2",
+    "del": "^4.1.0",
     "govuk-elements-sass": "3.0.3",
     "govuk_frontend_toolkit": "5.0.3",
-    "gulp": "3.8.11",
+    "gulp": "4.0.0",
     "gulp-jasmine-phantom": "3.0.0",
-    "jasmine-core": "2.6.4"
+    "jasmine-core": "3.4.0"
   },
   "scripts": {
     "clean": "./node_modules/gulp/bin/gulp.js clean",
