@@ -49,8 +49,10 @@ endpoint response (application/json):
     this.resultsCache = {};
 
     if(GOVUK.GDM.support.history()) {
+      this.originalState = this.$form.serializeArray();
       this.saveState();
       this.$form.on('change', 'input[type=checkbox], input[type=search], input[type=radio]', this.formChange.bind(this));
+      $(window).on('popstate', this.popState.bind(this));
 
       this.$form.find('input[type=submit]').click(
         function(e){
@@ -85,10 +87,13 @@ endpoint response (application/json):
   LiveSearch.prototype.popState = function popState(event){
     if(event.originalEvent.state){
       this.saveState(event.originalEvent.state);
-      this.updateResults();
-      this.restoreBooleans();
-      this.restoreSearchInputs();
+    } else {
+      this.saveState(this.originalState);
     }
+
+    this.restoreBooleans();
+    this.restoreSearchInputs();
+    this.updateResults();
   };
 
   LiveSearch.prototype.formChange = function formChange(e){
