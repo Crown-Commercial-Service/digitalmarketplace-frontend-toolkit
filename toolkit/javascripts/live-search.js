@@ -166,7 +166,8 @@ endpoint response (application/json):
   }
 
   LiveSearch.prototype.displayFilterResults = function displayFilterResults(response, state) {
-    if(state == $.param(this.state)) {
+    // The !(state === "") is required for browser versions which trigger the popstate event on first pageload
+    if(state == $.param(this.state) && !(state === "")) {
       for (var blockToReplace in response) {
         this.replaceBlock(response[blockToReplace]['selector'], response[blockToReplace]['html']);
       }
