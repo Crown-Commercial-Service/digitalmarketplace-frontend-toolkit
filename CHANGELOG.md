@@ -2,6 +2,10 @@
 
 Records breaking changes from major version bumps
 
+## 33.0.0
+
+Remove the "report a problem" form from the base page template.
+
 ## 32.0.0
 
 PR: [466](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/466)
