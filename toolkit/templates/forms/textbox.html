@@ -64,24 +64,28 @@
     {% if large %}
       {% if max_length_in_words %}
         <div class="word-count">
-          <textarea
-            class="text-box text-box-large{% if error %}-with-error{% endif %}"
-            name="{{ name }}"
-            id="input-{{ name }}"
-            data-max-length-in-words="{{ max_length_in_words }}"
-            {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
-          >
+          <div>
+            <textarea
+              class="text-box text-box-large{% if error %}-with-error{% endif %}"
+              name="{{ name }}"
+              id="input-{{ name }}"
+              data-max-length-in-words="{{ max_length_in_words }}"
+              {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
+            >
+            {%- if value != None -%}
+              {{ value }}
+            {%- endif -%}
+            </textarea>
+          </div>
+        </div>
+      {% else %}
+        <div>
+          <textarea class="text-box text-box-large{% if error %}-with-error{% endif %}" name="{{ name }}" id="input-{{ name }}">
           {%- if value != None -%}
             {{ value }}
           {%- endif -%}
-          </textarea>
+	        </textarea>
         </div>
-      {% else %}
-        <textarea class="text-box text-box-large{% if error %}-with-error{% endif %}" name="{{ name }}" id="input-{{ name }}">
-        {%- if value != None -%}
-        	{{ value }}
-        {%- endif -%}
-	</textarea>
       {% endif %}
     {% else %}
       {% if unit_position == "before" %}
