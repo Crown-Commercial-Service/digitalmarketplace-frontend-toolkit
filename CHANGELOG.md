@@ -2,6 +2,10 @@
 
 Records breaking changes from major version bumps
 
+## 34.0.0
+
+Remove the short-lived `GOVUK.xhr_semaphore` as `jQuery.active` makes it unnecessary.
+
 ## 33.0.0
 
 Remove the "report a problem" form from the base page template.
