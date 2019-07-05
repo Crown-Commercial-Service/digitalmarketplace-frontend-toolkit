@@ -13,7 +13,8 @@ var manifest = {
     '../../../toolkit/javascripts/validation.js',
     '../../../toolkit/javascripts/word-counter.js',
     '../../../toolkit/javascripts/support.js',
-    '../../../toolkit/javascripts/live-search.js'
+    '../../../toolkit/javascripts/live-search.js',
+    '../../../toolkit/javascripts/xhr-semaphore.js'
   ],
   test : [
     '../unit/ListEntrySpec.js',
