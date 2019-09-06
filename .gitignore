@@ -1,11 +1,15 @@
-.DS_Store
+# NodeJS stuff
+node_modules
+npm-debug.log
+
+# Python stuff
 *.pyc
 __pycache__
 venv
-npm-debug.log
+
+# App stuff
 govuk_template
 /pages
 gh-pages
-node_modules
 pages_builder/govuk_frontend_toolkit
 pages_builder/govuk-elements-sass
