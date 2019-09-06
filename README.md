@@ -132,16 +132,16 @@ sh pages_builder/push_to_github_pages.sh
 ## Development
 
 A local checkout of the frontend-toolkit repo can be shared with locally-running services (i.e. frontend applications)
-as follows, assuming you have a system-wide install of yarn available:
+as follows, assuming you have a system-wide install of npm available:
 
-- from this repo, run `yarn link`
-- from each app, run `yarn link digitalmarketplace-frontend-toolkit`
+- from this repo, run `npm link`
+- from each app, run `npm link digitalmarketplace-frontend-toolkit`
 
 Your frontend apps will then be using your local copy of the frontend-toolkit patterns rather than the version specified
 in their `package.json` - for example, whenever you:
 
  - rebuild the app's `toolkit` directory by running `make frontend-build`; or
- - run `yarn run frontend-build:watch` to automatically rebuild the frontend-toolkit content whenever a pattern file
+ - run `npm run frontend-build:watch` to automatically rebuild the frontend-toolkit content whenever a pattern file
    changes.
 
 
@@ -155,8 +155,8 @@ Releases of this project follow [semantic versioning](http://semver.org/), ie
 > - PATCH version when you make backwards-compatible bug fixes.
 
 To make a new version:
-- run `yarn version` to update the version number;
-- (note that yarn has been configured **not** to create a new tag when you run this command - see `.yarnrc`)
+- run `npm version` to update the version number;
+- (note that npm has been configured **not** to create a new tag when you run this command - see `.npmrc`)
 - if you are making a major change, also update the change log;
 - commit `package.json` and `CHANGELOG.md` if appropriate - for a small PR, this could be in the same commit as other
   changes you are making; for a larger PR you might want a separate commit with a message that summarises the entire PR.
