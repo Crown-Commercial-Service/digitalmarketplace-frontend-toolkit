@@ -59,7 +59,7 @@
   /*
    Add a beacon to track a page in another GA account on another domain.
    */
-  Analytics.prototype.addLinkedTrackerDomain = function (trackerId, name, domain) {
+  Analytics.prototype.addLinkedTrackerDomain = function (trackerId, name, domains) {
     this.sendToTrackers('addLinkedTrackerDomain', arguments)
   }
 

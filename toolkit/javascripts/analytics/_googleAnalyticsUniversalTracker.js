@@ -127,7 +127,7 @@
    name      - name for the tracker
    domain    - the domain to track
   */
-  GoogleAnalyticsUniversalTracker.prototype.addLinkedTrackerDomain = function (trackerId, name, domain) {
+  GoogleAnalyticsUniversalTracker.prototype.addLinkedTrackerDomain = function (trackerId, name, domains) {
     sendToGa('create',
              trackerId,
              'auto',
@@ -137,8 +137,8 @@
     sendToGa(name + '.require', 'linker')
 
     // Define which domains to autoLink.
-    sendToGa('linker:autoLink', [domain])
-    sendToGa(name + '.linker:autoLink', [domain])
+    sendToGa('linker:autoLink', domains)
+    sendToGa(name + '.linker:autoLink', domains)
 
     sendToGa(name + '.set', 'anonymizeIp', true)
     sendToGa(name + '.send', 'pageview')

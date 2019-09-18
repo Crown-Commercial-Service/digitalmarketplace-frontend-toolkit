@@ -25,7 +25,7 @@
          ga(name + '.set', 'anonymizeIp', true)
          ga(name + '.send', 'pageview')
       */
-      GOVUK.analytics.addLinkedTrackerDomain('UA-145652997-1', 'govuk_shared', 'www.gov.uk')
+      GOVUK.analytics.addLinkedTrackerDomain('UA-145652997-1', 'govuk_shared', ['www.gov.uk'])
     },
 
     // wrapper around access to window.location
