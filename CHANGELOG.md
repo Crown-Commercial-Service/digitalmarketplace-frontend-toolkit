@@ -2,6 +2,29 @@
 
 Records breaking changes from major version bumps
 
+## 35.0.0
+
+PR: [480](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/480)
+
+* Adds a linked tracker domain ID for www.gov.uk.
+* Adds support for multiple domains
+* Adds support for stripping PII data from URLs 
+
+To implement the above, three new analytics files have been copied in from the deprecated `govuk_frontend_toolkit`. 
+Make sure the analytics files and test manifests for any frontend apps are updated when pulling in this version.
+
+Old paths to remove:
+
+    '../node_modules/govuk_frontend_toolkit/javascripts/govuk/analytics/google-analytics-universal-tracker.js',
+    '../node_modules/govuk_frontend_toolkit/javascripts/govuk/analytics/analytics.js',
+
+New paths to include:
+
+    '../node_modules/digitalmarketplace-frontend-toolkit/toolkit/javascripts/analytics/_pii.js',
+    '../node_modules/digitalmarketplace-frontend-toolkit/toolkit/javascripts/analytics/_googleAnalyticsUniversalTracker.js',
+    '../node_modules/digitalmarketplace-frontend-toolkit/toolkit/javascripts/analytics/_govukAnalytics.js',
+
+
 ## 34.0.0
 
 Remove the short-lived `GOVUK.xhr_semaphore` as `jQuery.active` makes it unnecessary.
