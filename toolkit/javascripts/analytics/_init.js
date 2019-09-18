@@ -1,3 +1,4 @@
+//= include _pii.js
 //= include _googleAnalyticsUniversalTracker.js
 //= include _govukAnalytics.js
 //= include _register.js

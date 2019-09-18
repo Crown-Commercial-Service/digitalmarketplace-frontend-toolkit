@@ -7,6 +7,7 @@
   // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/docs/analytics.md#create-an-analytics-tracker
 
   var Analytics = function (config) {
+    this.pii = new GOVUK.pii()
     this.trackers = []
     if (typeof config.universalId !== 'undefined') {
       var universalId = config.universalId
@@ -14,6 +15,11 @@
       this.trackers.push(new GOVUK.GoogleAnalyticsUniversalTracker(universalId, config))
     }
   }
+
+  var PIISafe = function (value) {
+    this.value = value
+  }
+  Analytics.PIISafe = PIISafe
 
   Analytics.prototype.sendToTrackers = function (method, args) {
     for (var i = 0, l = this.trackers.length; i < l; i++) {
@@ -31,7 +37,7 @@
   }
 
   Analytics.prototype.trackPageview = function (path, title, options) {
-    this.sendToTrackers('trackPageview', arguments)
+    this.sendToTrackers('trackPageview', this.pii.stripPII(arguments))
   }
 
   /*
@@ -41,11 +47,11 @@
     options.nonInteraction – Prevent event from impacting bounce rate
   */
   Analytics.prototype.trackEvent = function (category, action, options) {
-    this.sendToTrackers('trackEvent', arguments)
+    this.sendToTrackers('trackEvent', this.pii.stripPII(arguments))
   }
 
   Analytics.prototype.trackShare = function (network) {
-    this.sendToTrackers('trackSocial', [network, 'share', global.location.pathname])
+    this.sendToTrackers('trackSocial', this.pii.stripPII([network, 'share', global.location.pathname]))
   }
 
   /*
@@ -53,7 +59,7 @@
     Universal Analytics profile
    */
   Analytics.prototype.setDimension = function (index, value) {
-    this.sendToTrackers('setDimension', arguments)
+    this.sendToTrackers('setDimension', this.pii.stripPII(arguments))
   }
 
   /*

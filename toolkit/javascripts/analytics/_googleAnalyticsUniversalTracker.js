@@ -3,8 +3,12 @@
 
   var $ = global.jQuery
   var GOVUK = global.GOVUK || {}
+  var pii
 
   var GoogleAnalyticsUniversalTracker = function (trackingId, fieldsObject) {
+    // See https://github.com/alphagov/static/pull/1863 for PII code
+    pii = new GOVUK.pii()
+
     function configureProfile () {
       // https://developers.google.com/analytics/devguides/collection/analyticsjs/command-queue-reference#create
       sendToGa('create', trackingId, fieldsObject)
@@ -15,6 +19,10 @@
       sendToGa('set', 'anonymizeIp', true)
     }
 
+    function stripLocationPII () {
+      sendToGa('set', 'location', pii.stripPII(window.location.href))
+    }
+
     // Support legacy cookieDomain param
     if (typeof fieldsObject === 'string') {
       fieldsObject = { cookieDomain: fieldsObject }
@@ -22,6 +30,7 @@
 
     configureProfile()
     anonymizeIp()
+    stripLocationPII()
   }
 
   GoogleAnalyticsUniversalTracker.load = function () {
@@ -150,6 +159,8 @@
   }
 
   function sendToGa () {
+    // Strip any PII data from URLs - see https://github.com/alphagov/static/pull/1856
+    global.ga('set', 'location', pii.stripPII(window.location.href))
     if (typeof global.ga === 'function') {
       global.ga.apply(global, arguments)
     }
