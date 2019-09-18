@@ -12,6 +12,20 @@
         universalId: universalId,
         cookieDomain: cookieDomain
       });
+      /* Add GOV.UK cross domain tracking
+       Calls the equivalent commands in node_modules/govuk_frontend_toolkit/javascripts/govuk/analytics/google-analytics-universal-tracker.js (need to check if this format is OK):
+         ga('create', 'UA-145652997-1', 'auto', {'name': govuk_shared})
+
+         ga('require', 'linker')
+         ga(name + '.require', 'linker')
+
+         ga('linker:autoLink', ['www.gov.uk'])
+         ga(name + '.linker:autoLink', ['www.gov.uk'])
+
+         ga(name + '.set', 'anonymizeIp', true)
+         ga(name + '.send', 'pageview')
+      */
+      GOVUK.analytics.addLinkedTrackerDomain('UA-145652997-1', 'govuk_shared', 'www.gov.uk')
     },
 
     // wrapper around access to window.location
