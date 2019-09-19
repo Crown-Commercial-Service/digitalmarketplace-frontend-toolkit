@@ -150,6 +150,7 @@
     sendToGa(name + '.linker:autoLink', domains)
 
     sendToGa(name + '.set', 'anonymizeIp', true)
+    sendToGa(name + '.set', 'location', pii.stripPII(window.location.href))
     sendToGa(name + '.send', 'pageview')
   }
 
