@@ -1,9 +1,6 @@
-//= include ../../../../govuk_frontend_toolkit/javascripts/govuk/analytics/google-analytics-universal-tracker.js
-//= include ../../../../govuk_frontend_toolkit/javascripts/govuk/analytics/analytics.js
-
-; // JavaScript in the govuk_frontend_toolkit doesn't have trailing semicolons
-
-// DM Frontend Toolkit analytics
+//= include _pii.js
+//= include _googleAnalyticsUniversalTracker.js
+//= include _govukAnalytics.js
 //= include _register.js
 //= include _events.js
 //= include _pageViews.js
