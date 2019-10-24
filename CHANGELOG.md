@@ -2,15 +2,26 @@
 
 Records breaking changes from major version bumps
 
+## Unreleased:
+
+PR: [484](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/484)
+- removes custom dimensions and Google Analytics site verification
+- make sure to use `digitalmarketplace-govuk-frontend@0.2.0` before using this
+
+PR: [483](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/483)
+- Removes error page templates
+- make sure to use `digitalmarketplace-govuk-frontend@0.2.0` before using this
+
+
 ## 35.0.0
 
 PR: [480](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/480)
 
 * Adds a linked tracker domain ID for www.gov.uk.
 * Adds support for multiple domains
-* Adds support for stripping PII data from URLs 
+* Adds support for stripping PII data from URLs
 
-To implement the above, three new analytics files have been copied in from the deprecated `govuk_frontend_toolkit`. 
+To implement the above, three new analytics files have been copied in from the deprecated `govuk_frontend_toolkit`.
 Make sure the analytics files and test manifests for any frontend apps are updated when pulling in this version.
 
 Old paths to remove:
@@ -45,7 +56,7 @@ Recommend thoroughly testing before pulling into a frontend app.
 PR: [442](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/442)
 
 ### What changed
-This removes `toolkit/templates/custom-dimensions.html` from the toolkit and replaces it with 
+This removes `toolkit/templates/custom-dimensions.html` from the toolkit and replaces it with
 `toolkit/templates/layouts/_custom_dimensions.html`. It also removes the `custom_meta` block as it is not longer used.
 
 This change will break any place where `custom_meta` block or `custom-dimensions.html` is used.
