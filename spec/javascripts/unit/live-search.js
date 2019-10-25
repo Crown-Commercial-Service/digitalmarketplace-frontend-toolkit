@@ -129,12 +129,12 @@ describe("live-search", function(){
     liveSearch.state = { not: "cached" };
     spyOn(liveSearch, 'displayFilterResults');
     spyOn(liveSearch, 'showErrorIndicator');
-    var ajaxCallback = jasmine.createSpyObj('ajax', ['done', 'error']);
+    var ajaxCallback = jasmine.createSpyObj('ajax', ['done', 'fail']);
     ajaxCallback.done.and.returnValue(ajaxCallback);
     spyOn(jQuery, 'ajax').and.returnValue(ajaxCallback);
 
     liveSearch.updateResults();
-    ajaxCallback.error.calls.mostRecent().args[0]()
+    ajaxCallback.fail.calls.mostRecent().args[0]()
     expect(liveSearch.showErrorIndicator).toHaveBeenCalled();
   });
 

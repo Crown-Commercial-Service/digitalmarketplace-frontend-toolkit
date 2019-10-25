@@ -145,7 +145,7 @@ endpoint response (application/json):
         liveSearch.cache(this.searchState, response);
         liveSearch.displayFilterResults(response, this.searchState);
 
-      }).error(function(response){
+      }).fail(function(response){
         liveSearch.showErrorIndicator();
 
       })
