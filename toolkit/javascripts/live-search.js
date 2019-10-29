@@ -103,7 +103,7 @@ endpoint response (application/json):
       pageUpdated = this.updateResults();
       pageUpdated.done(
         function(){
-          var newPath = window.location.pathname + "?" + $.param(this.state);
+          var newPath = window.location.origin + window.location.pathname + "?" + $.param(this.state);
           history.pushState(this.state, '', newPath);
           if (GOVUK.analytics && GOVUK.analytics.trackPageview) {
             GOVUK.analytics.trackPageview(newPath);
@@ -145,7 +145,7 @@ endpoint response (application/json):
         liveSearch.cache(this.searchState, response);
         liveSearch.displayFilterResults(response, this.searchState);
 
-      }).error(function(response){
+      }).fail(function(response){
         liveSearch.showErrorIndicator();
 
       })
