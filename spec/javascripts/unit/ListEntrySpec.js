@@ -1,12 +1,11 @@
 describe("ListEntryField", function () {
-  var entryFieldTemplate = Hogan.compile(
+  var entryFieldTemplate =
         '<div class="list-entry">' +
           '<label for="{{{id}}}" class="text-box-number-label">' +
             '<span class="hidden">Item number </span>{{number}}.' +
           '</label>' +
           '<input type="text" name="{{{name}}}" id="{{{id}}}" class="text-box" value="">' +
-        '</div>'
-      ),
+        '</div>',
       wrapperHTML = (
           '<fieldset class="question" id="features">' +
             '<legend class="question-heading">Service features</legend>' +
@@ -30,11 +29,11 @@ describe("ListEntryField", function () {
     $wrapper = $(wrapperHTML);
 
     for (idx in [1,2,3,4,5,6,7,8,9,10]) {
-      $wrapper.find(".input-list").append(entryFieldTemplate.render({
-        'name': 'features',
-        'id': 'features-' + idx,
-        'number': idx
-      }));
+      var entryField = entryFieldTemplate.replace(/{{name}}/g, 'features')
+        .replace(/{{id}}/g, 'features-' + idx)
+        .replace(/{{number}}/g, idx)
+
+      $wrapper.find(".input-list").append(entryField);
     }
     $(document.body).append($wrapper);
   });

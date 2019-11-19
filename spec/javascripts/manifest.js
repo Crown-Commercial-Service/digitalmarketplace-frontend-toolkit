@@ -2,7 +2,6 @@
 var manifest = {
   support : [
     'vendor/jquery.js',
-    'vendor/hogan.js',
     'vendor/jasmine-2.0.1/mock-ajax.js',
     'vendor/jasmine-2.0.1/jasmine-jquery.js',
     '../../../node_modules/govuk_frontend_toolkit/javascripts/vendor/polyfills/bind.js',

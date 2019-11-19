@@ -4,7 +4,6 @@ grid: column-two-thirds
 bodyEnd: >
   <script type="text/javascript" src="../public/javascripts/govuk_frontend_toolkit/vendor/polyfills/bind.js"></script>
   <script type="text/javascript" src="../public/javascripts/show-hide-content.js"></script>
-  <script type="text/javascript" src="../public/javascripts/vendor/hogan-3.0.2.min.js"></script>
   <script type="text/javascript" src="../public/javascripts/list-entry.js"></script>
 examples:
   - |
