@@ -83,9 +83,13 @@ describe("ListEntryField", function () {
       expect($wrapper.find('.list-entry').eq(3).find('input').val()).toEqual('Databases');
     });
 
-    it("Should add 'remove' buttons to all fields except the first", function () {
-      GOVUK.GDM.listEntry();
+    it("Should not add 'remove' buttons if there is only one list entry", function () {
       expect($wrapper.find('.list-entry').eq(0).find('button.list-entry-remove').length).toEqual(0);
+    });
+
+    it("Should add 'remove' buttons to all entries if there is more than one list entry", function () {
+      GOVUK.GDM.listEntry();
+      expect($wrapper.find('.list-entry').eq(0).find('button.list-entry-remove').length).toEqual(1);
       expect($wrapper.find('.list-entry').eq(1).find('button.list-entry-remove').length).toEqual(1);
     });
 

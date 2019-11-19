@@ -40,14 +40,12 @@
         ' value="{{value}}"' +
         ' {{sharedAttributes}}' +
       '/>' +
-      '{{#button}}' +
-        '<button type="button" class="button-secondary list-entry-remove">' +
-          'Remove<span class="visually-hidden"> {{listItemName}} number {{number}}</span>' +
-        '</button>' +
-      '{{/button}}' +
+      '{{button}}' +
     '</div>';
 
   ListEntry.prototype.addButtonTemplate = '<button type="button" class="button-secondary list-entry-add">Add another {{listItemName}} ({{entriesLeft}} remaining)</button>'
+
+  ListEntry.prototype.removeButtonTemplate = '<button type="button" class="button-secondary list-entry-remove">Remove<span class="visually-hidden"> {{listItemName}} number {{number}}</span></button>'
 
   ListEntry.prototype.getSharedAttributes = function () {
     var $inputs = this.$wrapper.find('input'),
@@ -175,6 +173,8 @@
     this.$wrapper.find(this.elementSelector).remove();
     $.each(this.entries, function (idx, entry) {
       var entryNumber = idx + 1,
+          $entries = this.entries,
+          $removeButton = this.removeButtonTemplate,
           dataObj = {
             'id' : this.getId(entryNumber),
             'number' : entryNumber,
@@ -186,18 +186,16 @@
 
       var newEntry = this.entryTemplate
 
+
+      // Decide whether to show/hide remove button
+      newEntry = newEntry.replace(/{{button}}/, function() {
+        return ($entries.length > 1 )? $removeButton : ''
+      })
+
       Object.keys(dataObj).forEach(function(placeholder){
         var searchFor = new RegExp('{{' + placeholder + '}}','g');
         newEntry = newEntry.replace(searchFor, dataObj[placeholder] )
       })
-
-      if (this.entries.length == 1) {
-        //Remove "remove" button if there is only 1 entry
-        newEntry = newEntry.replace(/{{#button}}(.*){{\/button}}/, '')
-      } else {
-        //Remove the
-        newEntry = newEntry.replace(/{{#button}}/, '').replace(/{{\/button}}/,'')
-      }
 
       this.$wrapper.append(newEntry)
     }.bind(this));
