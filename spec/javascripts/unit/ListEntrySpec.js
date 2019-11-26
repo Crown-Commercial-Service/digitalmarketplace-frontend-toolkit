@@ -1,12 +1,11 @@
 describe("ListEntryField", function () {
-  var entryFieldTemplate = Hogan.compile(
+  var entryFieldTemplate =
         '<div class="list-entry">' +
           '<label for="{{{id}}}" class="text-box-number-label">' +
             '<span class="hidden">Item number </span>{{number}}.' +
           '</label>' +
           '<input type="text" name="{{{name}}}" id="{{{id}}}" class="text-box" value="">' +
-        '</div>'
-      ),
+        '</div>',
       wrapperHTML = (
           '<fieldset class="question" id="features">' +
             '<legend class="question-heading">Service features</legend>' +
@@ -30,11 +29,11 @@ describe("ListEntryField", function () {
     $wrapper = $(wrapperHTML);
 
     for (idx in [1,2,3,4,5,6,7,8,9,10]) {
-      $wrapper.find(".input-list").append(entryFieldTemplate.render({
-        'name': 'features',
-        'id': 'features-' + idx,
-        'number': idx
-      }));
+      var entryField = entryFieldTemplate.replace(/{{name}}/g, 'features')
+        .replace(/{{id}}/g, 'features-' + idx)
+        .replace(/{{number}}/g, idx)
+
+      $wrapper.find(".input-list").append(entryField);
     }
     $(document.body).append($wrapper);
   });
@@ -84,9 +83,13 @@ describe("ListEntryField", function () {
       expect($wrapper.find('.list-entry').eq(3).find('input').val()).toEqual('Databases');
     });
 
-    it("Should add 'remove' buttons to all fields except the first", function () {
-      GOVUK.GDM.listEntry();
+    it("Should not add 'remove' buttons if there is only one list entry", function () {
       expect($wrapper.find('.list-entry').eq(0).find('button.list-entry-remove').length).toEqual(0);
+    });
+
+    it("Should add 'remove' buttons to all entries if there is more than one list entry", function () {
+      GOVUK.GDM.listEntry();
+      expect($wrapper.find('.list-entry').eq(0).find('button.list-entry-remove').length).toEqual(1);
       expect($wrapper.find('.list-entry').eq(1).find('button.list-entry-remove').length).toEqual(1);
     });
 

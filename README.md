@@ -92,7 +92,7 @@ When writing SASS for this toolkit, [follow the styleguide](toolkit/scss/README.
 Javascript modules should be initialised by calling them from
 `./pages_builder/assets/javascripts/onready.js`.
 
-jQuery and Hogan are made available for you.
+jQuery is available for you to use but only as last resort.
 
 Javascript should be tested with Jasmine (requires [node](https://nodejs.org)
 and [NPM](https://www.npmjs.com)).

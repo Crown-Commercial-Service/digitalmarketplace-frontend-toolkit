@@ -11,7 +11,7 @@
 
   ListEntry = function (elm) {
     var $elm = $(elm),
-        idPattern = $elm.prop('id'); 
+        idPattern = $elm.prop('id');
 
     if (!idPattern) { return false; }
     this.idPattern = idPattern;
@@ -29,30 +29,27 @@
     this.bindEvents();
   };
   ListEntry.optionalAttributes = ['aria-describedby'];
-  ListEntry.prototype.entryTemplate = Hogan.compile(
+  ListEntry.prototype.entryTemplate =
     '<div class="list-entry">' +
-      '<label for="{{{id}}}" class="text-box-number-label">' +
+      '<label for="{{id}}" class="text-box-number-label">' +
         '<span class="visually-hidden">{{listItemName}} number </span>{{number}}.' +
       '</label>' +
       '<input' +
         ' name="{{name}}"' +
         ' id="{{id}}"' +
         ' value="{{value}}"' +
-        ' {{{sharedAttributes}}}' +
+        ' {{sharedAttributes}}' +
       '/>' +
-      '{{#button}}' +
-        '<button type="button" class="button-secondary list-entry-remove">' +
-          'Remove<span class="visually-hidden"> {{listItemName}} number {{number}}</span>' +
-        '</button>' +
-      '{{/button}}' +
-    '</div>'
-  );
-  ListEntry.prototype.addButtonTemplate = Hogan.compile(
-    '<button type="button" class="button-secondary list-entry-add">Add another {{listItemName}} ({{entriesLeft}} remaining)</button>'
-  );
+      '{{button}}' +
+    '</div>';
+
+  ListEntry.prototype.addButtonTemplate = '<button type="button" class="button-secondary list-entry-add">Add another {{listItemName}} ({{entriesLeft}} remaining)</button>'
+
+  ListEntry.prototype.removeButtonTemplate = '<button type="button" class="button-secondary list-entry-remove">Remove<span class="visually-hidden"> {{listItemName}} number {{number}}</span></button>'
+
   ListEntry.prototype.getSharedAttributes = function () {
     var $inputs = this.$wrapper.find('input'),
-        attributeTemplate = Hogan.compile(' {{name}}="{{value}}"'),
+        attributeTemplate = ' {{name}}="{{value}}"',
         generatedAttributes = ['id', 'name', 'value'],
         attributes = [],
         attrIdx,
@@ -69,7 +66,9 @@
         elmAttrs = attrsByElm[elmIdx];
         attrIdx = elmAttrs.length;
         while (attrIdx--) {
-          attrStr += attributeTemplate.render({ 'name': elmAttrs[attrIdx].name, 'value': elmAttrs[attrIdx].value });
+          attrStr += attributeTemplate
+                      .replace(/{{name}}/, elmAttrs[attrIdx].name)
+                      .replace(/{{value}}/, elmAttrs[attrIdx].value)
         }
       }
       return attrStr;
@@ -174,6 +173,8 @@
     this.$wrapper.find(this.elementSelector).remove();
     $.each(this.entries, function (idx, entry) {
       var entryNumber = idx + 1,
+          $entries = this.entries,
+          $removeButton = this.removeButtonTemplate,
           dataObj = {
             'id' : this.getId(entryNumber),
             'number' : entryNumber,
@@ -183,16 +184,27 @@
             'sharedAttributes': this.sharedAttributes
           };
 
-      if (entryNumber > 1) {
-        dataObj.button = true;
-      }
-      this.$wrapper.append(this.entryTemplate.render(dataObj));
+      var newEntry = this.entryTemplate
+
+
+      // Decide whether to show/hide remove button
+      newEntry = newEntry.replace(/{{button}}/, function() {
+        return ($entries.length > 1 )? $removeButton : ''
+      })
+
+      Object.keys(dataObj).forEach(function(placeholder){
+        var searchFor = new RegExp('{{' + placeholder + '}}','g');
+        newEntry = newEntry.replace(searchFor, dataObj[placeholder] )
+      })
+
+      this.$wrapper.append(newEntry)
     }.bind(this));
     if (this.entries.length < this.maxEntries) {
-      this.$wrapper.append(this.addButtonTemplate.render({
-        'listItemName' : this.listItemName,
-        'entriesLeft' : (this.maxEntries - this.entries.length)
-      }));
+      var addButtonTemplate = this.addButtonTemplate
+                                .replace(/{{listItemName}}/, this.listItemName)
+                                .replace(/{{entriesLeft}}/, this.maxEntries - this.entries.length);
+
+      this.$wrapper.append(addButtonTemplate)
     }
   };
 
