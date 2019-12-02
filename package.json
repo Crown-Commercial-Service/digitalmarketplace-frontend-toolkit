@@ -9,16 +9,18 @@
     "node": "^10.15"
   },
   "dependencies": {
-    "del": "^4.1.0",
     "govuk-elements-sass": "3.0.3",
-    "govuk_frontend_toolkit": "5.0.3",
-    "gulp": "4.0.0",
-    "gulp-jasmine-phantom": "alphagov/gulp-jasmine-phantom#node-10-fs-unlink",
-    "jasmine-core": "3.4.0"
+    "govuk_frontend_toolkit": "5.0.3"
   },
   "scripts": {
     "clean": "./node_modules/gulp/bin/gulp.js clean",
     "copy": "./node_modules/gulp/bin/gulp.js copy",
     "test": "./node_modules/gulp/bin/gulp.js test"
+  },
+  "devDependencies": {
+    "del": "^4.1.0",
+    "gulp": "4.0.0",
+    "gulp-jasmine-phantom": "alphagov/gulp-jasmine-phantom#node-10-fs-unlink",
+    "jasmine-core": "3.4.0"
   }
 }
