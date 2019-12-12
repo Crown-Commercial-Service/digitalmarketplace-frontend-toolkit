@@ -85,6 +85,11 @@
        chrome is breaking this layout when font-size-adjust is set */
     font-size-adjust: none;
 
+    p {
+      @include core-16;
+      margin: 0 0 20px 0;
+    }
+
     .terms-and-conditions {
       display: block;
       @include core-16;
