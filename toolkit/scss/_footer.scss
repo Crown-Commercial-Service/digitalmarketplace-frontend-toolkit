@@ -12,9 +12,8 @@
   .footer-categories {
 
     .footer-about,
-    .footer-buyers,
-    .footer-suppliers {
-      @include grid-column( 1/3 );
+    .footer-guidance {
+      @include grid-column( 1/2 );
       @include media(tablet) {
         padding-bottom: $gutter * 2;
       }
