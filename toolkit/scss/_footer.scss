@@ -12,9 +12,8 @@
   .footer-categories {
 
     .footer-about,
-    .footer-buyers,
-    .footer-suppliers {
-      @include grid-column( 1/3 );
+    .footer-guidance {
+      @include grid-column( 1/2 );
       @include media(tablet) {
         padding-bottom: $gutter * 2;
       }
@@ -85,6 +84,11 @@
     /* Temporary fix:
        chrome is breaking this layout when font-size-adjust is set */
     font-size-adjust: none;
+
+    p {
+      @include core-16;
+      margin: 0 0 20px 0;
+    }
 
     .terms-and-conditions {
       display: block;

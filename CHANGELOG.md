@@ -2,6 +2,19 @@
 
 Records breaking changes from major version bumps
 
+## 36.0.0
+
+PR: [489](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/489)
+
+* Changes the layout of the footer
+
+We want our footer to look more like the footer from GOV.UK and GOV.UK Deisgn System, so we can swap the components on
+an app by app basis in the future. We also wanted to simplify the content in the footer, and reduce the number of
+columns.
+
+This release changes the footer to a two column-layout; the "Contact" and "About" columns have been merged.
+Additionally Digital Outcomes and Specialists is now abbreviated as DOS in the footer links.
+
 ## 35.0.0
 
 PR: [480](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/480)
