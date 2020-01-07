@@ -8,11 +8,13 @@
   var DATE_PATTERN = /\d{4}(-?)\d{2}(-?)\d{2}/g
 
   function shouldStripDates() {
-    return ($('meta[name="govuk:static-analytics:strip-dates"]').length > 0)
+    // Check if meta tag with name exists
+    return (document.querySelector('meta[name="govuk:static-analytics:strip-dates"]') !== null )
   }
 
   function shouldStripPostcodes() {
-    return ($('meta[name="govuk:static-analytics:strip-postcodes"]').length > 0)
+    // Check if meta tag with name exists
+    return (document.querySelector('meta[name="govuk:static-analytics:strip-postcodes"]') !== null)
   }
 
   var pii = function () {
