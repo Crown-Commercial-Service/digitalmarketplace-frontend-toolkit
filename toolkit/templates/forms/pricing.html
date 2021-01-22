@@ -59,7 +59,7 @@
   <input
     type="text"
     class="text-box-with-unit-before"
-    name="{{ fields.price }}"
+    name="{{ fields.price if fields.price else fields.maximum_price }}"
     id="input-{{ name }}"
     value="{{ price or "" }}"
     {% if aria_controls %}aria-controls="{{ aria_controls }}"{% endif %}
