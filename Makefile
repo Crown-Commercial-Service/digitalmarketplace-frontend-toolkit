@@ -2,7 +2,7 @@ SHELL := /bin/bash
 VIRTUALENV_ROOT := $(shell [ -z $$VIRTUAL_ENV ] && echo $$(pwd)/venv || echo $$VIRTUAL_ENV)
 
 virtualenv:
-	[ -z $$VIRTUAL_ENV ] && [ ! -d venv ] && virtualenv -p python3 venv || true
+	[ -z $$VIRTUAL_ENV ] && [ ! -d venv ] && python3 -m venv venv || true
 
 requirements: virtualenv
 	${VIRTUALENV_ROOT}/bin/pip install -r pages_builder/requirements.txt
