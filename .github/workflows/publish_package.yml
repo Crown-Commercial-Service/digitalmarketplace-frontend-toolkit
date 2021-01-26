@@ -17,6 +17,6 @@ jobs:
         node-version: '${{ steps.nvm.outputs.NVMRC }}'
         registry-url: 'https://registry.npmjs.org'
     - run: npm install
-    - run: npm publish --tag beta
+    - run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
