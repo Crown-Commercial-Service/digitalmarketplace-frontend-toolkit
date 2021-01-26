@@ -1,0 +1,33 @@
+name: Tag release
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Get package version
+        id: package_version
+        run: echo "::set-output name=package-version::v$(jq -r ".version" package.json)"
+
+      - name: Check if version tag already exists
+        id: version_tag
+        uses: mukunku/tag-exists-action@f8003af57c02ede2638326be67523df10cf6b10a
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag: ${{ steps.package_version.outputs.package-version }}
+
+      - name: Create GitHub release
+        if: ${{ steps.version_tag.outputs.exists == 'false' }}
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.DM_GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.package_version.outputs.package-version }}
+          release_name: Release v${{ steps.package_version.outputs.package-version }} 
