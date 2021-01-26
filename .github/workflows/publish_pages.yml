@@ -11,9 +11,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
        
+    - name: Read .python-version
+      run: echo ::set-output name=python-version::$(cat .python-version)
+      id: python-version    
+          
     - uses: actions/setup-python@v2
       with:
-        python-version: '3.6.x' 
+        python-version: '${{ steps.python-version.outputs.python-version }}'
     
     - uses: actions/cache@v2
       id: node-cache
