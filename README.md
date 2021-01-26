@@ -23,17 +23,10 @@ The documentation is generated from the contents of this repository.
 
 ### Setup
 
-Install [Virtualenv](https://virtualenv.pypa.io/en/latest/)
-
-```
-sudo easy_install virtualenv
-```
-
 Create a virtual environment in the checked-out repository folder
 
 ```
-cd digitalmarketplace-frontend-toolkit
-virtualenv ./venv
+make virtualenv
 ```
 
 ### Activate the virtual environment
