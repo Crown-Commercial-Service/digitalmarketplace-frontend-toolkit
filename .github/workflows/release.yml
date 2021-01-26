@@ -30,4 +30,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.DM_GITHUB_TOKEN }}
         with:
           tag_name: ${{ steps.package_version.outputs.package-version }}
-          release_name: Release v${{ steps.package_version.outputs.package-version }} 
+          release_name: Release ${{ steps.package_version.outputs.package-version }} 
