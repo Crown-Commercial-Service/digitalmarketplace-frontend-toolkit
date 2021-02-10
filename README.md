@@ -2,9 +2,6 @@
 
 A toolkit for design patterns used across Digital Marketplace projects.
 
-Documentation of the patterns:
-[alphagov.github.io/digitalmarketplace-frontend-toolkit/](http://alphagov.github.io/digitalmarketplace-frontend-toolkit/)
-
 ## Using the patterns in an app
 
 Each pattern in `./toolkit/` provides:
@@ -104,22 +101,6 @@ Use the `file-url` mixin to reference them in your stylesheet. It will resolve
 paths, eg:
 ``` SCSS
 background: file-url('your-image.png');
-```
-
-## Pushing your local documentation to Github Pages
-
-**_Only Jenkins should be doing this_**
-
-Set the root directory of the toolkit documentation relative to the root of the
-web server, eg
-
-``` shell
-export ROOT_DIRECTORY='/digitalmarketplace-frontend-toolkit'
-```
-
-Then:
-``` shell
-sh pages_builder/push_to_github_pages.sh
 ```
 
 ## Development
