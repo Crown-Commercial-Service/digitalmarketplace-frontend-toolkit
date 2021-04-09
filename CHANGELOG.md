@@ -454,8 +454,8 @@ PR: [#213](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/pull/
 
 #### Breaking changes
 
-The base temporary message styles were split out into a placeholder block to allow use across multiple patterns (by [extending](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/blob/master/toolkit/scss/_notification-banners.scss#L69) it):
+The base temporary message styles were split out into a placeholder block to allow use across multiple patterns (by [extending](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/blob/main/toolkit/scss/_notification-banners.scss#L69) it):
 
-https://github.com/alphagov/digitalmarketplace-frontend-toolkit/blob/master/toolkit/scss/shared_placeholders/_temporary-messages.scss
+https://github.com/alphagov/digitalmarketplace-frontend-toolkit/blob/main/toolkit/scss/shared_placeholders/_temporary-messages.scss
 
 This means the existing temporary message pattern will break unless the new placeholder block is included in the main stylesheet of apps that use it.

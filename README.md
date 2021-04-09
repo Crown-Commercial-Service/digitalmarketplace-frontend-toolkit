@@ -53,9 +53,9 @@ template. The examples in the documentation are generated from these files.
 
 Examples can use the grids (see [grids example](http://alphagov.github.io/digitalmarketplace-frontend-toolkit/grids.html)) by setting a `grid` property in this file.
 
-If all the examples in your page sit in the same column, set the grid class you need with the page-level properties (ie on the [textbox example page](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/blob/master/pages_builder/pages/forms/textbox.yml#L3)).
+If all the examples in your page sit in the same column, set the grid class you need with the page-level properties (ie on the [textbox example page](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/blob/main/pages_builder/pages/forms/textbox.yml#L3)).
 
-If any of your examples need their own column, set the grid class you need with the example-level properties (ie on the [temporary message example page](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/blob/master/pages_builder/pages/temporary-message.yml#L12)).
+If any of your examples need their own column, set the grid class you need with the example-level properties (ie on the [temporary message example page](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/blob/main/pages_builder/pages/temporary-message.yml#L12)).
 
 If you don't need a grid column, don't set any `grid` properties in your file.
 
@@ -136,7 +136,7 @@ To make a new version:
   changes you are making; for a larger PR you might want a separate commit with a message that summarises the entire PR.
 
 When the pull request is merged
-[Github Actions](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/tree/master/.github/workflows)
+[Github Actions](https://github.com/alphagov/digitalmarketplace-frontend-toolkit/tree/main/.github/workflows)
 will be run to tag and publish the new version.
 
 ## Licence
