@@ -3,8 +3,8 @@ set -e
 echo "≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡"
 echo "TAGGING LATEST VERSION"
 echo "--------------------------------------------------------------------------------"
-git checkout master
-git pull origin master
+git checkout main
+git pull origin main
 version=v$(jq -r ".version" package.json)
 echo Version:\ \ $version
 echo "================================================================================"
