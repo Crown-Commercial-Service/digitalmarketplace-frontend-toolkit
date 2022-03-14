@@ -20,52 +20,72 @@
 {% endif %}
 
 {% if fields|length == 1 %}
-<div class="question" id="{{ name }}">
-  <label for="input-{{ name }}">
-    <span class="question-heading">
-      {{ question }}
-    </span>
-    <span class="text-box-unit-qualifier">
-      (in pounds)
-    </span>
-    {% if error %}
-    <span class="validation-message">
-      {{ error }}
-    </span>
-    {% elif message %}
-    <span class="message-content">
-      {{ message }}
+  <div class="question" id="{{ name }}">
+    <label for="input-{{ name }}">
+      <span class="question-heading">
+        {{ question }}
+      </span>
+      <span class="text-box-unit-qualifier">
+        (in pounds)
+      </span>
+      {% if error %}
+      <span class="validation-message">
+        {{ error }}
+      </span>
+      {% elif message %}
+      <span class="message-content">
+        {{ message }}
+      </span>
+      {% endif %}
+    </label>
+    {% if optional %}
+    <span class="question-optional">
+      <strong>Optional</strong>
     </span>
     {% endif %}
-  </label>
-  {% if optional %}
-  <span class="question-optional">
-    <strong>Optional</strong>
-  </span>
-  {% endif %}
-  {% if question_advice %}
-  <span class="question-advice" id="input-{{ name }}-question-advice">
-    {{ question_advice }}
-  </span>
-  {% endif %}
-  {% if hint %}
-  <span class="hint" id="input-{{ name }}-answer-advice">
-    {{ hint }}
-  </span>
-  {% endif %}
-  <label for="input-{{ name }}" class="text-box-unit">
-    £
-  </label>
-  <input
-    type="text"
-    class="text-box-with-unit-before"
-    name="{{ fields.price if fields.price else fields.maximum_price }}"
-    id="input-{{ name }}"
-    value="{{ price or "" }}"
-    {% if aria_controls %}aria-controls="{{ aria_controls }}"{% endif %}
-    {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
-  />
-</div>
+    {% if question_advice %}
+    <span class="question-advice" id="input-{{ name }}-question-advice">
+      {{ question_advice }}
+    </span>
+    {% endif %}
+    {% if hint %}
+    <span class="hint" id="input-{{ name }}-answer-advice">
+      {{ hint }}
+    </span>
+    {% endif %}
+    {% if 'minimum_price' in fields %}
+      <div class="pricing-column">
+        <label for="input-{{ name }}" class="text-box-unit">
+        £
+        </label>
+        {% if 'minimum_price' in optional_fields %}
+        <p class="question-hint">Optional</p>
+        {% endif %}
+        <input
+          type="text"
+          class="text-box-with-unit-before"
+          name="{{ fields.minimum_price }}"
+          id="input-minimum-price"
+          value="{{ minimum_price or "" }}"
+          {% if aria_controls %}aria-controls="{{ aria_controls }}"{% endif %}
+          {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
+        />
+      </div>
+    {% else %}
+    <label for="input-{{ name }}" class="text-box-unit">
+      £
+    </label>
+    <input
+      type="text"
+      class="text-box-with-unit-before"
+      name="{{ fields.price if fields.price else fields.maximum_price }}"
+      id="input-{{ name }}"
+      value="{{ price or "" }}"
+      {% if aria_controls %}aria-controls="{{ aria_controls }}"{% endif %}
+      {% if question_advice or hint %}aria-describedby="{{ [question_advice_id, answer_advice_id]|join(' ')|trim }}"{% endif %}
+    />
+  </div>
+    {% endif %}
 {% else %}
   <fieldset class="question first-question" id="{{ name }}">
     <legend>
